@@ -120,7 +120,7 @@ Tudo o mais — nome de campo, ordem de implementação interna, estrutura de pa
 - Caso de uso controla a transação; controller só valida e delega. DTO nunca é entidade de persistência.
 - Proibido `any` implícito; `unknown` antes de validar dado externo; proibido float para dinheiro.
 - Erro de domínio tem código estável; resposta HTTP segue `application/problem+json` com `type`, `title`, `status`, `code`, `correlationId`.
-- Frontend: máscara e validação em Date, valores R$, CPF, CNPJ, telefone e e-mail. Mensagem ao usuário via Toast (info, warn, error), nunca `alert`.
+- Frontend web segue `docs/FRONTEND.md` (contrato de engenharia da interface): máscara e validação em Date, valores R$, CPF, CNPJ, telefone e e-mail; mensagem ao usuário via Toast (Sonner), nunca `alert`; TanStack Query/Table, React Hook Form + Zod, cliente gerado do OpenAPI; CRUD com confirmação e arquivamento em vez de exclusão física.
 
 ## Skills do Code — na ordem de um card
 
@@ -139,6 +139,7 @@ Só vale enquanto houver código a indexar; com o repo só em documentação, le
 - `docs/ARCHITECTURE.md` — Documento desenho, módulos, dados, resiliência.
 - `docs/DECISIONS.md` — Documento ADRs (ler antes de propor mudança estrutural).
 - `docs/CONVENTION.md` — Documento de domínio: entidades, estados, invariantes e regras de negócio (o coração do produto).
+- `docs/FRONTEND.md` — Contrato de engenharia da interface web: stack fixada, tipagem, padrão de tela CRUD, estados, performance, prova por tela. Toda tarefa de UI começa por ele.
 - `docs/DESIGN-UI.md` — Documento de direção para criar o DESIGN-SYSTEM em outra ferramenta de designer(claude-design), não de contrato: de onde saíram opção de Carbono Adaptativo e o pipeline de accent.
 - `docs/GITHUB.md` — Documento de referencia das melhores praticas de commits, merges, branchs.
 - `docs/PRS.md` — Documento de referencia das melhores praticas de PRS.
