@@ -6,7 +6,7 @@
 
 ## Precedência e conflito conhecido
 
-O PRD define produto; SPEC define a fatia; ADR aceita define estrutura. Este documento não cria regra de produto. A arquitetura histórica em `docs/prd/Arquitetura.md` e o `CLAUDE.md` convergem em Python/FastAPI para API e Celery/Redis para processamento assíncrono. React/TypeScript e Expo continuam nas interfaces.
+O PRD define produto; SPEC define a fatia; ADR aceita define estrutura. Este documento não cria regra de produto. A arquitetura histórica em `docs/prd/Arquitetura.md` e o `CLAUDE.md` convergem em Python/FastAPI para API e Celery/Redis para processamento assíncrono. React/TypeScript é a interface prioritária; Expo/mobile foi adiado para o final do projeto pela ADR-009.
 
 ## Forma inicial
 

@@ -9,6 +9,7 @@
 | ADR-001 | aceita | API em Python/FastAPI | Node 24/TypeScript permanece apenas para web/mobile e ferramentas relacionadas. |
 | ADR-003 | aceita | Privacidade em documento autônomo, fora do PRD | `docs/PRIVACIDADE.md` governa o tema sem criar requisito de produto. |
 | ADR-005 | aceita | Celery + Redis no MVP | SQS/ECS ou outra fila gerenciada exige medição e nova ADR. |
+| ADR-009 | aceita | Web completa primeiro; mobile no final do projeto | MVP0 não cria app Expo nem sincronização offline. |
 
 ## Decisões abertas
 
