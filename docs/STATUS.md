@@ -1,19 +1,19 @@
 # Status do SafraOS
 
 **Atualizado:** 2026-09-13
-**Estado:** desenho do MVP0 aprovado; aguardando revisão do documento e decomposição em SPECs.
+**Estado:** MVP0 especificado e planejado; implementação não iniciada.
 
 ## Agora
 
-- Revisar `docs/prd/mvp/MVP-000.md` e `docs/FORA-DE-ESCOPO.md`.
-- Após aceite documental, decompor o MVP0 em SPECs/fatias e reservar `SPEC/F`.
+- Revisar as cinco SPECs e o plano mestre do MVP0.
+- Criar issues na ordem F1 → F5 somente após confirmação final do PI.
 - Não iniciar mobile: ele está adiado para o final do projeto.
 
 ## Kanban
 
 | Estado | Itens |
 |---|---|
-| Planejado | MVP0 — fundação web; ADR-002, ADR-004 e ADR-006 a ADR-008 |
+| Planejado | SPEC-001/F1 a SPEC-005/F5 do MVP0; ADR-002, ADR-004 e ADR-006 a ADR-008 |
 | Backlog / Todo / Doing / Done / Finalizado | vazio |
 
 O GitHub remoto prevalece para execução; esta tabela não substitui consulta ao board.
@@ -22,12 +22,16 @@ O GitHub remoto prevalece para execução; esta tabela não substitui consulta a
 
 | Sequência | MVP | Slice | SPEC | Fatia | Issue | Estado |
 |---:|---|---|---|---|---|---|
-| — | — | — | — | — | — | nenhum número alocado |
+| 001 | MVP0 | Fundação executável e CI | SPEC-001 | F1 | — | planejado |
+| 002 | MVP0 | Identidade, sessão e e-mail | SPEC-002 | F2 | — | planejado |
+| 003 | MVP0 | Organização, tenancy e auditoria | SPEC-003 | F3 | — | planejado |
+| 004 | MVP0 | Fazendas | SPEC-004 | F4 | — | planejado |
+| 005 | MVP0 | Talhões, GeoJSON e mapa | SPEC-005 | F5 | — | planejado |
 
-Próximo número: `001`. `SPEC-001` ↔ `F1`; número reservado uma vez, nunca reutilizado. Reserva é do Cowork após decisão do PI. Detalhe histórico vai para `STATUS-ARQUIVO.md`.
+Próximo número disponível: `006`. Número reservado nunca é reutilizado. Detalhe histórico vai para `STATUS-ARQUIVO.md`.
 
 ## Riscos imediatos
 
-MVP0 precisa ser repartido em fatias antes das issues; ADR-002 permanece aberta para formalizar monólito modular; portas locais ainda serão definidas uma única vez conforme `CLAUDE.md`.
+ADR-002 permanece aberta para formalizar monólito modular; portas locais serão definidas uma única vez na execução da F1 conforme `CLAUDE.md`.
 
 Detalhes de itens adiados ou excluídos ficam em `docs/FORA-DE-ESCOPO.md`.
