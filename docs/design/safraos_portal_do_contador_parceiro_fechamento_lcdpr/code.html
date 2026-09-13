@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"secondary-container": "#b9d7fe", "surface-container-low": "#f1f3fb", "inverse-surface": "#2d3137", primary: "#005f9e", error: "#ba1a1a", "on-surface": "#181c21", "outline-variant": "#bfc7d3", "primary-container": "#0078c6", "surface-container-highest": "#e0e2ea", outline: "#707883", "on-primary": "#ffffff", "surface-dim": "#d8dae2", "primary-fixed-dim": "#9dcaff", "on-background": "#181c21", "on-secondary-container": "#405d7f", "surface-container-high": "#e6e8f0", "inverse-primary": "#9dcaff", "surface-tint": "#0061a2", "surface-bright": "#f8f9ff", "surface-container": "#eceef6", "surface-container-lowest": "#ffffff", "on-primary-fixed": "#001d35", "secondary-fixed-dim": "#abc9f0", "on-error": "#ffffff", "on-tertiary-fixed-variant": "#703700", background: "#f8f9ff", "tertiary-fixed-dim": "#ffb783", "on-secondary": "#ffffff", "error-container": "#ffdad6", "on-primary-fixed-variant": "#00497c", "on-secondary-fixed-variant": "#2b4969", "on-error-container": "#93000a", "on-surface-variant": "#404752", "on-secondary-fixed": "#001d36", surface: "#f8f9ff", "inverse-on-surface": "#eef0f8", "tertiary-container": "#b55d00", tertiary: "#904900", "surface-variant": "#e0e2ea", "on-tertiary": "#ffffff", "on-tertiary-fixed": "#301400", "tertiary-fixed": "#ffdcc5", "secondary-fixed": "#d1e4ff", "on-tertiary-container": "#fffbff", secondary: "#436082", "on-primary-container": "#fdfcff", "primary-fixed": "#d1e4ff"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"space-xl": "1.75rem", "space-sm": "0.5rem", "space-xs": "0.25rem", gutter: "1rem", "space-md": "0.75rem", margin: "1.5rem", "space-lg": "1.25rem"}, fontFamily: {"headline-sm": ["Plus Jakarta Sans"], "badge-label": ["Inter"], "code-mono-sm": ["JetBrains Mono"], "body-sm": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "data-dense": ["Inter"], "code-mono-md": ["JetBrains Mono"], headline: ["Plus Jakarta Sans"], display: ["Plus Jakarta Sans"], body: ["Inter"], label: ["JetBrains Mono"]}, fontSize: {"headline-sm": ["16px", {lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600"}], "badge-label": ["11px", {lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "600"}], "code-mono-sm": ["11px", {lineHeight: "14px", letterSpacing: "0em", fontWeight: "500"}], "body-sm": ["12px", {lineHeight: "16px", fontWeight: "400"}], "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], "headline-md": ["20px", {lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600"}], "headline-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600"}], "display-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700"}], "data-dense": ["13px", {lineHeight: "16px", fontWeight: "500"}], "code-mono-md": ["13px", {lineHeight: "18px", letterSpacing: "-0.01em", fontWeight: "500"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg flex-shrink-0"><img alt="Brand logo. - Primary color: #0f3f2e
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vn5Delybvm3eW3tHMO8JkF2q477p7udnqhK0xOGs0FKTOerKpFiyyuoLZwxLPZlKXH50on2-lxB4x2r5oFdgvii-54o5_3rdk-5VxkGPG1WvbncSGPFpmwMaSHJFIreBCuGOvFqIvHM_Vy8JYhb6Brbu2BcBWNUMlfHA41P4VgSqfV8NL27O1RinOTa_YGrikgprEneYrR7mn5MXSNyI1UQ9zvBBRaW0eOa3D7eOwXybjNZhuMkBHnnw"/><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">SafraOS</span><span class="font-code-mono-sm text-code-mono-sm bg-secondary-container text-on-secondary-container px-1.5 py-0.5 rounded">PARTNER</span></div><div class="h-6 w-px bg-outline-variant/40 hidden xl:block"></div><button class="hidden xl:flex items-center gap-space-sm px-space-md py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors text-left" type="button"><span class="material-symbols-outlined text-secondary text-[18px]">corporate_fare</span><div class="flex flex-col"><span class="font-data-dense text-data-dense text-on-surface leading-tight font-semibold">AgroContabilidade Associados</span><span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant leading-none">CRC/MT 018420-O</span></div><span class="material-symbols-outlined text-outline text-[16px] ml-1">expand_more</span></button><div class="hidden 2xl:flex items-center gap-space-sm px-space-md py-1.5 rounded-full bg-primary-container text-on-primary"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">calendar_today</span><span class="font-data-dense text-data-dense text-on-primary font-medium">Ano-Calendário 2026 (Safra 2026/27)</span><span class="material-symbols-outlined text-on-primary-container text-[16px]">expand_more</span></div></div><div class="flex-1 max-w-lg mx-space-md hidden lg:block"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span><input class="w-full pl-9 pr-12 py-1.5 rounded-lg bg-surface-container text-on-surface placeholder:text-outline font-data-dense text-data-dense focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all" placeholder="Pesquisar Produtor, CPF/CNPJ, Chave NF-e (44 dígitos)..." type="text"/><span class="absolute right-3 font-code-mono-sm text-code-mono-sm text-outline-variant bg-surface-container-lowest px-1.5 py-0.5 rounded">⌘K</span></div></div><div class="flex items-center gap-space-md flex-shrink-0"><div class="hidden sm:flex items-center gap-space-xs"><div class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-lowest"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-badge-label text-badge-label text-on-surface-variant">RFB DFe</span><span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">ONLINE</span></div><div class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-lowest"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-badge-label text-badge-label text-on-surface-variant">SEFAZ/MT</span><span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">98.4ms</span></div></div><button class="relative p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button><div class="h-6 w-px bg-outline-variant/40 hidden sm:block"></div><div class="flex items-center gap-space-sm pl-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VcrGcWn-YoVQOUpg0hEpLkXpuZeZCvy83hzb2WMe96q1JCo33-bV8I53fELUZGuT-sgl_doc9iIBCpX2sTLgOC7-Jjyf9thUKW0cHmolfvw4Uqpu86UEQ_2g_EWuTnZ7PVYgqQ13j5aXGFm2TsXLDOVYO_AVFt7no_gTAIxK7FiXGNhQpN8rVA3SC4QC1adFp5d3nDsoF80X4rPRglryMgFsdL13c7WKZe0Ntgc-P2CkndABXRI1jK7w"/><div class="hidden md:flex flex-col text-left"><span class="font-data-dense text-data-dense text-on-surface font-semibold leading-tight">Dr. Roberto Vilela</span><span class="font-badge-label text-badge-label text-on-surface-variant">Contador Responsável</span></div></div></div></div></header><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-30 flex flex-col pt-20 pb-6 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-space-md mb-2 flex items-center justify-between"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider font-semibold">PORTAL CONTÁBIL</span><span class="font-code-mono-sm text-code-mono-sm px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant">CRC PRO</span></div><nav class="px-space-xs space-y-0.5" data-active-classes="bg-primary-container text-on-primary font-semibold"><a class="flex items-center gap-space-sm px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="carteira-de-clientes" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Carteira de Clientes</span></a><a aria-current="page" class="flex items-center gap-space-sm px-3 py-2 rounded-lg transition-colors bg-primary-container text-on-primary font-semibold" data-path="fechamento-lcdpr" href="#"><span class="material-symbols-outlined text-[20px]">assignment</span><span>Fechamento LCDPR</span></a><a class="flex items-center gap-space-sm px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="conciliacao-distdfe-nf-e" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span>Conciliação distDFe NF-e</span></a><a class="flex items-center gap-space-sm px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="auditoria-e-malhas-fiscais" href="#"><span class="material-symbols-outlined text-[20px]">policy</span><span>Auditoria &amp; Malhas Fiscais</span></a></nav><div class="px-space-md mt-space-lg mb-2 flex items-center justify-between"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider font-semibold">CANAL &amp; PARCERIA</span><span class="font-code-mono-sm text-code-mono-sm px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold">20% REV</span></div><nav class="px-space-xs space-y-0.5" data-active-classes="bg-primary-container text-on-primary font-semibold"><a class="flex items-center gap-space-sm px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="comissoes-e-repasses" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span>Comissões &amp; Repasses 20%</span></a><a class="flex items-center gap-space-sm px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="novas-fazendas-onboarding" href="#"><span class="material-symbols-outlined text-[20px]">add_business</span><span>Novas Fazendas Onboarding</span></a></nav><div class="px-space-md mt-space-lg mb-2"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider font-semibold">INTEGRAÇÕES ERP</span></div><nav class="px-space-xs space-y-0.5" data-active-classes="bg-primary-container text-on-primary font-semibold"><a class="flex items-center gap-space-sm px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="exportacao-erp" href="#"><span class="material-symbols-outlined text-[20px]">output</span><span>Exportação Domínio/Thomson</span></a><a class="flex items-center gap-space-sm px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="parametrizacao-plano-de-contas" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span><span>Plano de Contas Conab/COE</span></a></nav><div class="mt-auto px-space-md pt-space-md bg-surface-container-lowest mx-2 rounded-xl"><div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-secondary text-[18px]">verified</span><span class="font-badge-label text-badge-label text-primary font-semibold">Certificado A1 Ativo</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Validade: 28/Nov/2026</p><div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden"><div class="bg-secondary h-full w-4/5 rounded-full"></div></div></div></aside><div class="pl-64 min-h-screen flex flex-col"><main class="relative pt-16 flex-1 w-full px-margin py-gutter"><div class="flex flex-col w-full gap-space-lg pb-12">
+<!-- CABEÇALHO DO MÓDULO & METADADOS -->
+<section class="flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-high text-on-surface-variant font-code-mono-sm text-code-mono-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">verified_user</span>
+          MÓDULO A.5 • E1-US6 / E2-US8
+        </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-secondary-container text-on-secondary-container font-badge-label text-badge-label">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          RECEITA FEDERAL DO BRASIL (RFB)
+        </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded bg-surface-container-highest text-primary font-code-mono-sm text-code-mono-sm font-semibold">
+          LAYOUT LCDPR 0014 (IN RFB 1.848/2018)
+        </span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-code-mono-sm text-code-mono-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">sync</span>
+<span>SEFAZ Sync: há 4 min</span>
+<span class="text-outline-variant">|</span>
+<span>Ano-Base: 2026</span>
+</div>
+</div>
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-lg">
+<div class="max-w-4xl space-y-1">
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">
+          Portal do Contador Parceiro &amp; Fechamento LCDPR
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Gestão multi-cliente de 38 fazendas da carteira, conciliação fiscal contínua via SEFAZ distDFe, validação prévia de malha fina e exportação em 1 clique para RFB e ERPs Contábeis.
+        </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm flex-shrink-0">
+<button class="inline-flex items-center gap-2 px-space-md py-2 rounded bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container transition-colors font-data-dense text-data-dense" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">folder_zip</span>
+<span>Pacote Domínio / Contmatic (ZIP)</span>
+</button>
+<button class="inline-flex items-center gap-2 px-space-md py-2 rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors font-data-dense text-data-dense" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">person_add</span>
+<span>Convidar Nova Fazenda</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-code-mono-sm text-code-mono-sm font-semibold">+20% REC</span>
+</button>
+<button class="inline-flex items-center gap-2 px-space-lg py-2 rounded bg-primary-container text-on-primary shadow-md hover:bg-primary transition-all font-data-dense text-data-dense font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed">download</span>
+<span>Baixar LCDPR em Lote (.TXT RFB)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- BARRA DE KPIS CONSOLIDADOS DA CARTEIRA -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1 -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-2">
+<span class="font-badge-label text-badge-label uppercase text-on-surface-variant tracking-wider">Fazendas na Carteira</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-code-mono-sm text-code-mono-sm font-semibold">
+          100% Onboardadas
+        </span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-primary font-bold">38</span>
+<span class="font-data-dense text-data-dense text-on-surface-variant">Clientes Ativos</span>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-on-surface-variant font-code-mono-sm text-code-mono-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>32 Grãos (Soja/Milho)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-surface-tint"></span>
+<span>6 Multiatividade</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-2">
+<span class="font-badge-label text-badge-label uppercase text-on-surface-variant tracking-wider">Status Fechamento LCDPR 2026</span>
+<span class="inline-flex items-center gap-1 text-secondary font-code-mono-sm text-code-mono-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">task_alt</span>
+          76.3% Pronto
+        </span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-primary font-bold">29</span>
+<span class="font-data-dense text-data-dense text-secondary font-semibold">Validadas p/ RFB</span>
+</div>
+<!-- Barra segmentada de progresso -->
+<div class="mt-space-sm space-y-1">
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden flex">
+<div class="bg-secondary h-full" style="width: 76%;"></div>
+<div class="bg-tertiary-fixed-dim h-full" style="width: 18%;"></div>
+<div class="bg-error h-full" style="width: 6%;"></div>
+</div>
+<div class="flex items-center justify-between font-code-mono-sm text-code-mono-sm text-on-surface-variant">
+<span class="text-secondary font-medium">29 OK</span>
+<span class="text-on-tertiary-container font-medium">7 Conferência</span>
+<span class="text-error font-medium">2 Pendências</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-2">
+<span class="font-badge-label text-badge-label uppercase text-on-surface-variant tracking-wider">Volume Tributável Monitorado</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-primary font-code-mono-sm text-code-mono-sm">
+          Alíq. 4.2% Est.
+        </span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-1">
+<span class="font-body-md text-body-md text-on-surface-variant font-medium">R$</span>
+<span class="font-headline-lg text-headline-lg text-primary font-bold">84.620.000</span>
+</div>
+<div class="mt-space-sm flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Receita Bruta consolidada</span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">Livro Caixa vs Arbitrado</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-gradient-to-br from-surface-container-lowest via-surface-container-lowest to-surface-container-high shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-2">
+<span class="font-badge-label text-badge-label uppercase text-on-secondary-container tracking-wider font-semibold">Comissão Canal SafraOS (20%)</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-code-mono-sm text-code-mono-sm font-semibold">
+          Repasse 10/Abril
+        </span>
+</div>
+<div class="mt-space-sm flex items-baseline justify-between">
+<div>
+<span class="font-display-lg text-display-lg text-primary font-bold">R$ 53.200</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ano</span>
+</div>
+<div class="text-right">
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant block">Mês atual</span>
+<span class="font-data-dense text-data-dense text-secondary font-semibold">R$ 4.433,33</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">payments</span>
+<span>Liquidado via PIX diretamente no CNPJ</span>
+</div>
+</div>
+</section>
+<!-- ÁREA PRINCIPAL SPLIT: TABELA MULTICLIENTE (70%) + PAINEL DE INSPEÇÃO LCDPR (30%) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- COLUNA ESQUERDA: LISTAGEM DA CARTEIRA DE FAZENDAS (70% - 8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<!-- Barra de Filtros Operacionais -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex-1 flex flex-wrap items-center gap-space-sm">
+<!-- Busca -->
+<div class="relative flex-1 min-w-[240px]">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 rounded bg-surface-container text-on-surface placeholder:text-outline font-data-dense text-data-dense focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all" placeholder="Filtrar por Fazenda, Produtor, CPF/CNPJ ou Município..." type="text"/>
+</div>
+<!-- Select UF -->
+<div class="relative min-w-[90px]">
+<select class="w-full appearance-none pl-3 pr-8 py-1.5 rounded bg-surface-container text-on-surface font-data-dense text-data-dense focus:outline-none focus:bg-surface-container-lowest cursor-pointer">
+<option value="ALL">Todas UF</option>
+<option selected="" value="MT">MT (26)</option>
+<option value="MS">MS (5)</option>
+<option value="GO">GO (4)</option>
+<option value="PR">PR (3)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+<!-- Select Status LCDPR -->
+<div class="relative min-w-[170px]">
+<select class="w-full appearance-none pl-3 pr-8 py-1.5 rounded bg-surface-container text-on-surface font-data-dense text-data-dense focus:outline-none focus:bg-surface-container-lowest cursor-pointer">
+<option value="ALL">Status LCDPR: Todos</option>
+<option value="READY">Pronto p/ Transmitir (29)</option>
+<option value="INSPECT">Conferência Pendente (7)</option>
+<option value="ISSUE">Divergência Fiscal (2)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Toggle Rápido -->
+<label class="flex items-center gap-2 cursor-pointer select-none flex-shrink-0 px-2">
+<input class="w-4 h-4 rounded text-secondary focus:ring-secondary accent-secondary" type="checkbox"/>
+<span class="font-data-dense text-data-dense text-on-surface-variant font-medium">Apenas com Pendências (9)</span>
+</label>
+</div>
+<!-- Tabela Densa Multicliente -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+<div class="px-space-md py-3 bg-surface-container-low flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-primary">Carteira de Clientes Rurais</span>
+<span class="font-code-mono-sm text-code-mono-sm px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-semibold">38 Fazendas</span>
+</div>
+<div class="flex items-center gap-2 font-code-mono-sm text-code-mono-sm text-on-surface-variant">
+<span>Ordem:</span>
+<span class="text-primary font-semibold">Receita Bruta (Decrescente)</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-data-dense text-data-dense">
+<thead class="bg-surface-container font-badge-label text-badge-label uppercase text-on-surface-variant tracking-wider select-none">
+<tr>
+<th class="py-2.5 px-4 w-10 text-center">
+<input checked="" class="w-4 h-4 rounded accent-primary" type="checkbox"/>
+</th>
+<th class="py-2.5 px-3">Fazenda &amp; Titular</th>
+<th class="py-2.5 px-3">Localização / Área</th>
+<th class="py-2.5 px-3">SEFAZ distDFe</th>
+<th class="py-2.5 px-3 text-right">Receita Rural</th>
+<th class="py-2.5 px-3 text-right">Resultado LCDPR</th>
+<th class="py-2.5 px-3 text-center">Status RFB</th>
+<th class="py-2.5 px-4 text-center">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Linha 1: Selecionada / Em Inspeção Lateral -->
+<tr class="bg-primary-container/5 hover:bg-primary-container/10 transition-colors">
+<td class="py-3 px-4 text-center">
+<input checked="" class="w-4 h-4 rounded accent-primary" type="checkbox"/>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary flex items-center gap-1.5">
+                      Fazenda Santa Maria
+                      <span class="material-symbols-outlined text-[16px] text-secondary" title="Fazenda Selecionada em Inspeção">radio_button_checked</span>
+</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Eduardo S. Albuquerque</span>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">CPF: 482.901.121-00</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-data-dense text-data-dense text-on-surface font-semibold">Sorriso, MT</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">1.420 ha • Soja/Milho</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-secondary">186/186</span>
+<span class="text-outline font-body-sm text-body-sm">(100%)</span>
+</div>
+<span class="font-badge-label text-badge-label text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+                      Conciliado distDFe
+                    </span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-code-mono-md text-code-mono-md font-semibold text-on-surface">R$ 13.840.000</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Custeio: R$ 9.840.200</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-code-mono-md text-code-mono-md font-semibold text-secondary">R$ 3.999.800</span>
+<span class="font-badge-label text-badge-label text-outline uppercase">Lucro Real Rural</span>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-secondary-container text-on-secondary-container font-badge-label text-badge-label font-semibold whitespace-nowrap">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                    PRONTO P/ TRANSMITIR
+                  </span>
+</td>
+<td class="py-3 px-4 text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded bg-primary-container text-on-primary hover:bg-primary transition-colors" title="Gerar Arquivo TXT RFB" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span>
+</button>
+<button class="p-1 rounded bg-surface-container-high text-primary hover:bg-surface-container-highest transition-colors" title="Auditar Livro Caixa" type="button">
+<span class="material-symbols-outlined text-[16px]">rule</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Acessar Painel da Fazenda" type="button">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 2 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-4 text-center">
+<input checked="" class="w-4 h-4 rounded accent-primary" type="checkbox"/>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary">Fazenda Bela Vista</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Grupo Scheffer &amp; Filhos</span>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">CNPJ: 18.204.912/0001-44</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-data-dense text-data-dense text-on-surface font-semibold">Sapezal, MT</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">2.100 ha • Grãos/Algodão</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-secondary">312/312</span>
+<span class="text-outline font-body-sm text-body-sm">(100%)</span>
+</div>
+<span class="font-badge-label text-badge-label text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+                      Automático SEFAZ
+                    </span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-code-mono-md text-code-mono-md font-semibold text-on-surface">R$ 22.400.000</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Custeio: R$ 16.100.000</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-code-mono-md text-code-mono-md font-semibold text-secondary">R$ 6.300.000</span>
+<span class="font-badge-label text-badge-label text-outline uppercase">Lucro Real Rural</span>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-secondary-container text-on-secondary-container font-badge-label text-badge-label font-semibold whitespace-nowrap">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                    PRONTO P/ TRANSMITIR
+                  </span>
+</td>
+<td class="py-3 px-4 text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded bg-surface-container-high text-primary hover:bg-surface-container-highest transition-colors" title="Gerar TXT" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Auditar" type="button">
+<span class="material-symbols-outlined text-[16px]">rule</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Acessar" type="button">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 3 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-4 text-center">
+<input class="w-4 h-4 rounded accent-primary" type="checkbox"/>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary">Estância Três Palmeiras</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Marcos Aurélio Silveira</span>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">CPF: 319.402.811-34</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-data-dense text-data-dense text-on-surface font-semibold">Rio Verde, GO</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">980 ha • Soja Safra</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-on-tertiary-container">142/145</span>
+<span class="text-error font-body-sm text-body-sm">(3 pendentes)</span>
+</div>
+<span class="font-badge-label text-badge-label text-on-tertiary-container flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                      XML sem Manifesto
+                    </span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-code-mono-md text-code-mono-md font-semibold text-on-surface">R$ 8.950.000</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Custeio: R$ 6.120.000</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-code-mono-md text-code-mono-md font-semibold text-primary">R$ 2.830.000</span>
+<span class="font-badge-label text-badge-label text-outline uppercase">Pendente Conferência</span>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-badge-label text-badge-label font-semibold whitespace-nowrap">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                    CONFERÊNCIA PENDENTE
+                  </span>
+</td>
+<td class="py-3 px-4 text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Reconciliar NF-e" type="button">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Auditar" type="button">
+<span class="material-symbols-outlined text-[16px]">rule</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Acessar" type="button">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 4 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-4 text-center">
+<input class="w-4 h-4 rounded accent-primary" type="checkbox"/>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary">Agropecuária Vale do Guaporé</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Agropecuária Guaporé Ltda</span>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">CNPJ: 08.102.772/0001-90</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-data-dense text-data-dense text-on-surface font-semibold">Pontes e Lacerda, MT</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">2.100 ha • Pecuária/Soja</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-error">88/96</span>
+<span class="text-error font-body-sm text-body-sm">(8 divergências)</span>
+</div>
+<span class="font-badge-label text-badge-label text-error flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                      Barter s/ Extrato
+                    </span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-code-mono-md text-code-mono-md font-semibold text-on-surface">R$ 17.200.000</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Custeio: R$ 13.900.000</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-code-mono-md text-code-mono-md font-semibold text-error">R$ 3.300.000</span>
+<span class="font-badge-label text-badge-label text-error uppercase">Risco de Glosa</span>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-error-container text-on-error-container font-badge-label text-badge-label font-semibold whitespace-nowrap">
+<span class="material-symbols-outlined text-[14px]">report_problem</span>
+                    DIVERGÊNCIA FISCAL
+                  </span>
+</td>
+<td class="py-3 px-4 text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-colors" title="Corrigir Barter" type="button">
+<span class="material-symbols-outlined text-[16px]">build</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Auditar" type="button">
+<span class="material-symbols-outlined text-[16px]">rule</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Acessar" type="button">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 5 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-4 text-center">
+<input checked="" class="w-4 h-4 rounded accent-primary" type="checkbox"/>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary">Fazenda Nova Aliança</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Roberto Carlos Zanin</span>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">CPF: 604.112.839-15</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-data-dense text-data-dense text-on-surface font-semibold">Dourados, MS</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">1.650 ha • Milho/Soja</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-secondary">204/204</span>
+<span class="text-outline font-body-sm text-body-sm">(100%)</span>
+</div>
+<span class="font-badge-label text-badge-label text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+                      100% Conciliado
+                    </span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-code-mono-md text-code-mono-md font-semibold text-on-surface">R$ 15.600.000</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Custeio: R$ 11.200.000</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-code-mono-md text-code-mono-md font-semibold text-secondary">R$ 4.400.000</span>
+<span class="font-badge-label text-badge-label text-outline uppercase">Lucro Real Rural</span>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-secondary-container text-on-secondary-container font-badge-label text-badge-label font-semibold whitespace-nowrap">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                    PRONTO P/ TRANSMITIR
+                  </span>
+</td>
+<td class="py-3 px-4 text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded bg-surface-container-high text-primary hover:bg-surface-container-highest transition-colors" title="Gerar TXT" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Auditar" type="button">
+<span class="material-symbols-outlined text-[16px]">rule</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Acessar" type="button">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Rodapé da Tabela: Ações em Massa & Paginação -->
+<div class="px-space-md py-3 bg-surface-container-low flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<span class="font-data-dense text-data-dense text-on-surface font-semibold">
+<span class="text-secondary font-bold">3 fazendas selecionadas</span> para processamento em lote
+            </span>
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary font-code-mono-sm text-code-mono-sm hover:bg-primary transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">archive</span>
+              Gerar Pacote TXT Lote (3)
+            </button>
+</div>
+<div class="flex items-center gap-space-sm font-data-dense text-data-dense text-on-surface-variant">
+<span>Exibindo 1–5 de 38 clientes</span>
+<div class="flex items-center gap-1">
+<button class="p-1 rounded bg-surface-container text-on-surface-variant disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-code-mono-sm text-code-mono-sm" type="button">1</button>
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-code-mono-sm text-code-mono-sm" type="button">2</button>
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-code-mono-sm text-code-mono-sm" type="button">3</button>
+<button class="p-1 rounded bg-surface-container text-on-surface-variant hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card de Rastreabilidade Operacional & Gráfico de Distribuição Fiscal -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Malhas Fiscais Preventivas Conab/RFB -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 mb-2">
+<span class="font-headline-sm text-headline-sm text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px] text-secondary">shield</span>
+                Motor Anti-Malha Fina SafraOS
+              </span>
+<span class="font-code-mono-sm text-code-mono-sm px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold">100% REGULAR</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+              Varredura cruzada diária entre XMLs da SEFAZ, extratos OFX/Open Finance e limites de arbitramento da Lei 8.023/90.
+            </p>
+<div class="space-y-2 font-data-dense text-data-dense">
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low">
+<span class="text-on-surface">Cruzamento NF-e x Barter x Extrato</span>
+<span class="text-secondary font-code-mono-sm text-code-mono-sm font-semibold">Sem Glosa</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low">
+<span class="text-on-surface">Consistência de CPF/CNPJ de Contrapartes</span>
+<span class="text-secondary font-code-mono-sm text-code-mono-sm font-semibold">3.842 CNPJs Válidos</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low">
+<span class="text-on-surface">CAFIR x CAR x SIGEF Vinculados</span>
+<span class="text-secondary font-code-mono-sm text-code-mono-sm font-semibold">38/38 Imóveis Ativos</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-code-mono-sm text-code-mono-sm text-on-surface-variant">
+<span>Último batch de validação:</span>
+<span class="text-primary font-semibold">Hoje, 09:41 BRT</span>
+</div>
+</div>
+<!-- Indicador de Economia Operacional do Escritório -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 mb-2">
+<span class="font-headline-sm text-headline-sm text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px] text-primary-container">speed</span>
+                Ganhos de Produtividade do Escritório
+              </span>
+<span class="font-code-mono-sm text-code-mono-sm px-2 py-0.5 rounded bg-surface-container-high text-primary font-semibold">-84% DIGITAÇÃO</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+              Captura automática de 6.420 notas fiscais distDFe no período safra sem digitação manual de chaves ou duplicatas.
+            </p>
+<div class="grid grid-cols-2 gap-2 mt-2">
+<div class="p-2.5 rounded bg-surface-container flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Horas Economizadas</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">342 h</span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">~42 dias úteis</span>
+</div>
+<div class="p-2.5 rounded bg-surface-container flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Custo Evitado / Equipe</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">R$ 28.500</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Nesta safra</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md flex items-center gap-2 font-body-sm text-body-sm text-secondary font-medium">
+<span class="material-symbols-outlined text-[16px]">electric_bolt</span>
+<span>Automação plena de escrituração fiscal rural</span>
+</div>
+</div>
+</div>
+</div>
+<!-- COLUNA LATERAL DIREITA: AUDITORIA LCDPR & VALIDAÇÃO RFB DA FAZENDA ATIVA (30% - 4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Card 1: Validador Oficial LCDPR da Fazenda Santa Maria -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="p-1.5 rounded-lg bg-primary-container text-on-primary">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+</span>
+<div>
+<span class="font-headline-sm text-headline-sm text-primary block leading-tight">Validador RFB LCDPR</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Fazenda Santa Maria • Safra 2026/27</span>
+</div>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold">LAYOUT 0014</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Estrutura estrita conforme <strong class="text-on-surface">Instrução Normativa RFB nº 1.848/2018</strong>. Todos os registros obrigatórios auditados eletronicamente.
+        </p>
+<!-- Registros do LCDPR -->
+<div class="space-y-1.5 pt-1">
+<!-- 0000 -->
+<div class="p-2 rounded bg-surface-container-low flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-primary">Reg. 0000</span>
+<span class="font-data-dense text-data-dense">Abertura e Identificação da PF</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">OK</span>
+</div>
+<!-- 0010 -->
+<div class="p-2 rounded bg-surface-container-low flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-primary">Reg. 0010</span>
+<span class="font-data-dense text-data-dense">Parâmetros de Tributação (Livro Caixa)</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">OK</span>
+</div>
+<!-- 0030 -->
+<div class="p-2 rounded bg-surface-container-low flex items-start justify-between text-on-surface">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary mt-0.5">check_circle</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-primary">Reg. 0030</span>
+<span class="font-data-dense text-data-dense">Cadastro de Imóveis Rurais</span>
+</div>
+<div class="font-code-mono-sm text-code-mono-sm text-outline mt-0.5">
+                  CAR MT-5107909-0024.1 • CAFIR 4.829.110-2
+                </div>
+</div>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">VÁLIDO</span>
+</div>
+<!-- 0040 -->
+<div class="p-2 rounded bg-surface-container-low flex items-start justify-between text-on-surface">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary mt-0.5">check_circle</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-primary">Reg. 0040</span>
+<span class="font-data-dense text-data-dense">Contas Bancárias Vinculadas</span>
+</div>
+<div class="font-code-mono-sm text-code-mono-sm text-outline mt-0.5">
+                  Banco do Brasil (001) &amp; Sicredi (748)
+                </div>
+</div>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">2 CONTAS</span>
+</div>
+<!-- 0050 -->
+<div class="p-2 rounded bg-surface-container-low flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-primary">Reg. 0050</span>
+<span class="font-data-dense text-data-dense">Plano de Contas Conab COE/COT</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">MAPEADO</span>
+</div>
+<!-- Q100 -->
+<div class="p-2 rounded bg-surface-container-low flex items-start justify-between text-on-surface">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary mt-0.5">check_circle</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-primary">Reg. Q100</span>
+<span class="font-data-dense text-data-dense">Demonstrativo da Atividade Rural</span>
+</div>
+<div class="font-code-mono-sm text-code-mono-sm text-outline mt-0.5">
+                  186 lançamentos • SHA-256 amarrado
+                </div>
+</div>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">186 DOCS</span>
+</div>
+<!-- 9999 -->
+<div class="p-2 rounded bg-surface-container-low flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-primary">Reg. 9999</span>
+<span class="font-data-dense text-data-dense">Encerramento do Arquivo Digital</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">HASH OK</span>
+</div>
+</div>
+<div class="pt-2 flex flex-col gap-2">
+<button class="w-full py-2.5 rounded bg-primary-container text-on-primary font-data-dense text-data-dense font-semibold hover:bg-primary transition-colors flex items-center justify-center gap-2 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Gerar Arquivo Oficial .TXT LCDPR</span>
+</button>
+<div class="flex items-center justify-center gap-2 text-on-surface-variant font-code-mono-sm text-code-mono-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">security</span>
+<span>Arquivo pronto para recepção no Receitanet</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Conciliação Automática SEFAZ distDFe -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="p-1.5 rounded-lg bg-surface-container-high text-secondary">
+<span class="material-symbols-outlined text-[20px]">cloud_sync</span>
+</span>
+<span class="font-headline-sm text-headline-sm text-primary">Conciliação distDFe</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">100% CONCILIADO</span>
+</div>
+<div class="space-y-2 font-data-dense text-data-dense pt-1">
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Notas Fiscais de Entrada (Insumos)</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface font-semibold">134 NF-e (R$ 9.840k)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Notas de Saída (Venda Grãos)</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface font-semibold">52 NF-e (R$ 13.840k)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Classificação Plano Conab COE</span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">186/186 (Auto-Tag)</span>
+</div>
+</div>
+<div class="p-2.5 rounded bg-surface-container-low flex items-center gap-2.5 mt-1">
+<span class="material-symbols-outlined text-secondary text-[20px] flex-shrink-0">savings</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+            Economia auditada de <strong class="text-primary font-semibold">9,5 horas de digitação fiscal</strong> poupadas apenas nesta propriedade.
+          </p>
+</div>
+</div>
+<!-- Card 3: Exportador p/ ERPs Contábeis & Assinatura Digital -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="p-1.5 rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-[20px]">sync_alt</span>
+</span>
+<span class="font-headline-sm text-headline-sm text-primary">Integração ERP Contábil</span>
+</div>
+<span class="font-badge-label text-badge-label text-outline uppercase">API DIRECT</span>
+</div>
+<div class="space-y-2 pt-1">
+<label class="block font-badge-label text-badge-label text-on-surface-variant uppercase">Selecione o Software Contábil:</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-3 rounded bg-primary-container text-on-primary font-data-dense text-data-dense font-semibold text-left flex items-center justify-between shadow-sm" type="button">
+<span>Domínio Sistemas</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">check</span>
+</button>
+<button class="py-2 px-3 rounded bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-data-dense text-data-dense text-left flex items-center justify-between" type="button">
+<span>Contmatic Phoenix</span>
+</button>
+<button class="py-2 px-3 rounded bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-data-dense text-data-dense text-left flex items-center justify-between" type="button">
+<span>Thomson Reuters</span>
+</button>
+<button class="py-2 px-3 rounded bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-data-dense text-data-dense text-left flex items-center justify-between" type="button">
+<span>Prosoft Net</span>
+</button>
+</div>
+</div>
+<div class="pt-2 space-y-2">
+<button class="w-full py-2 rounded bg-surface-container-high text-primary font-data-dense text-data-dense font-semibold hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">drive_folder_upload</span>
+<span>Exportar Lançamentos P/ Domínio</span>
+</button>
+<button class="w-full py-2 rounded bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">badge</span>
+<span>Assinar c/ Certificado Digital A1 (Dr. Roberto)</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SEÇÃO INFERIOR: CANAL & COMISSÃO PARCEIRO (20% RECORRENTE - BACKLOG E1-US6) -->
+<section class="rounded-xl bg-gradient-to-r from-primary-container via-primary to-primary-container text-on-primary p-space-lg shadow-md">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-lg">
+<div class="space-y-2 max-w-2xl">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-code-mono-sm text-code-mono-sm font-semibold">
+            PROGRAMA DE PARCEIROS SAFRAOS • 20% RECORRENTE
+          </span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary-fixed-dim">CRC/MT 018420-O</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-primary tracking-tight">
+          Monetize a conformidade tributária dos seus clientes rurais
+        </h2>
+<p class="font-body-md text-body-md text-on-primary-container">
+          Como parceiro credenciado, o escritório recebe 20% de comissão perpétua em todas as assinaturas ativas dos planos Gestão e Exportação dos produtores conectados. Pagamento automático no dia 10 de cada mês.
+        </p>
+</div>
+<div class="flex flex-col sm:flex-row xl:flex-col gap-space-md flex-shrink-0">
+<!-- Link de Convite Único -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest/10 backdrop-blur-md flex flex-col gap-2">
+<span class="font-badge-label text-badge-label uppercase text-secondary-fixed tracking-wider">Seu Link de Convite do Escritório</span>
+<div class="flex items-center gap-2">
+<input class="px-3 py-1.5 rounded bg-primary text-secondary-fixed font-code-mono-sm text-code-mono-sm select-all w-full sm:w-80 focus:outline-none" readonly="" type="text" value="safraos.com.br/onboarding?ref=agrocontabilidade-mt"/>
+<button class="px-3 py-1.5 rounded bg-secondary-container text-on-secondary-container hover:bg-secondary-fixed transition-colors font-data-dense text-data-dense font-semibold flex items-center gap-1 flex-shrink-0" onclick="navigator.clipboard.writeText('safraos.com.br/onboarding?ref=agrocontabilidade-mt'); alert('Link copiado com sucesso!');" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Copiar</span>
+</button>
+</div>
+</div>
+<!-- Resumo do Repasse -->
+<div class="flex items-center justify-between px-space-md py-2.5 rounded-lg bg-surface-container-lowest/10 backdrop-blur-md text-on-primary font-data-dense text-data-dense">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed text-[18px]">check_circle</span>
+<span>Último repasse liquidado (10/Março):</span>
+</div>
+<span class="font-code-mono-md text-code-mono-md font-bold text-secondary-fixed">R$ 4.433,33 (PIX)</span>
+</div>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-low py-4 px-margin mt-auto"><div class="w-full flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-body-sm text-body-sm"><div><span>SafraOS AgroContabilidade v4.8 © 2026 Todos os direitos reservados.</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-1.5 font-code-mono-sm text-code-mono-sm text-primary"><span class="material-symbols-outlined text-secondary text-[16px]">lock</span><span>Criptografia Ponta a Ponta (TLS 1.3 AES-256)</span></div><div class="flex items-center gap-1.5 font-badge-label text-badge-label bg-surface-container-lowest px-2 py-0.5 rounded"><span class="material-symbols-outlined text-primary text-[16px]">military_tech</span><span>Assinatura Digital Padrão ICP-Brasil</span></div></div></div></footer></div></body></html>

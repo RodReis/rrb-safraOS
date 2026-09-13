@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgroGestão - Fazenda Santa Maria | Visão Executiva da Safra 2026/27</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#bfc7d3",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#9dcaff",
+            "on-tertiary-container": "#fffbff",
+            "error": "#ba1a1a",
+            "surface-bright": "#f8f9ff",
+            "tertiary": "#904900",
+            "on-secondary-fixed": "#001d36",
+            "tertiary-fixed": "#ffdcc5",
+            "primary-container": "#0078c6",
+            "surface": "#f8f9ff",
+            "on-secondary-fixed-variant": "#2b4969",
+            "on-primary-container": "#fdfcff",
+            "secondary": "#436082",
+            "tertiary-fixed-dim": "#ffb783",
+            "on-primary-fixed": "#001d35",
+            "surface-container-low": "#f1f3fb",
+            "inverse-surface": "#2d3137",
+            "on-surface-variant": "#404752",
+            "surface-container-highest": "#e0e2ea",
+            "primary": "#005f9e",
+            "on-tertiary-fixed-variant": "#703700",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#9dcaff",
+            "error-container": "#ffdad6",
+            "on-secondary": "#ffffff",
+            "secondary-fixed": "#d1e4ff",
+            "inverse-on-surface": "#eef0f8",
+            "secondary-container": "#b9d7fe",
+            "on-secondary-container": "#405d7f",
+            "on-background": "#181c21",
+            "surface-variant": "#e0e2ea",
+            "secondary-fixed-dim": "#abc9f0",
+            "outline": "#707883",
+            "surface-container-high": "#e6e8f0",
+            "on-primary-fixed-variant": "#00497c",
+            "tertiary-container": "#b55d00",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "primary-fixed": "#d1e4ff",
+            "surface-container": "#eceef6",
+            "surface-dim": "#d8dae2",
+            "on-tertiary-fixed": "#301400",
+            "on-surface": "#181c21",
+            "on-primary": "#ffffff",
+            "surface-tint": "#0061a2",
+            "background": "#f8f9ff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "space-xl": "1.75rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.25rem",
+            "gutter": "1rem",
+            "space-md": "0.75rem",
+            "margin": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          fontFamily: {
+            "display-lg": ["Plus Jakarta Sans"],
+            "code-mono-sm": ["JetBrains Mono"],
+            "body-md": ["Inter"],
+            "data-dense": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "badge-label": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "code-mono-md": ["JetBrains Mono"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen">
+<!-- Top Navigation Bar (Shared Component Preserved) -->
+<div class="relative flex h-auto w-full flex-col bg-slate-50 group/design-root overflow-x-hidden border-b border-outline-variant/30" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-6 lg:px-12 flex flex-1 justify-center py-2">
+<div class="layout-content-container flex flex-col max-w-[1400px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e6eff4] px-4 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-[#0c161c]">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<div>
+<h2 class="text-[#0c161c] text-base font-bold leading-tight tracking-[-0.015em]">AgroGestão</h2>
+<p class="text-xs text-secondary font-medium">Fazenda Santa Maria · Sorriso/MT</p>
+</div>
+</div>
+<nav class="hidden xl:flex items-center gap-7">
+<a class="text-primary font-bold text-sm leading-normal border-b-2 border-primary pb-1" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Custos &amp; DRE</a>
+<a class="text-on-surface-variant hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Talhões &amp; EUDR</a>
+<a class="text-on-surface-variant hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Fluxo de Caixa</a>
+<a class="text-on-surface-variant hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Contabilidade LCDPR</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded h-full bg-surface-container-low border border-outline-variant/40">
+<div class="text-[#467ca0] flex items-center justify-center pl-3 pr-1" data-icon="search">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent focus:ring-0 text-on-surface placeholder:text-outline text-sm font-normal pl-2" placeholder="Buscar talhão, NF-e ou insumo..." value=""/>
+</div>
+</label>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 cursor-pointer rounded-lg h-9 px-3.5 bg-primary text-on-primary text-xs font-bold leading-normal hover:bg-primary/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-base">add_circle</span>
+<span>+ Novo Lançamento</span>
+</button>
+<button class="hidden sm:flex items-center gap-1 cursor-pointer rounded-lg h-9 px-3.5 bg-surface-container-high text-on-surface text-xs font-bold leading-normal hover:bg-surface-variant transition-colors border border-outline-variant/50">
+<span class="material-symbols-outlined text-base">file_download</span>
+<span>Exportar DRE</span>
+</button>
+</div>
+<div class="flex items-center pl-2 border-l border-outline-variant/40 gap-2">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-9 border border-outline-variant" data-alt="A portrait photograph of a confident Brazilian agricultural manager in a sunlit Sorriso office, wearing a casual denim work shirt. The room features subtle digital screens with crop health statistics in the background. Soft warm morning light accentuates professional focus with high clarity and natural textures." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA0zBBL_jN67ARW4uiFcWowquwaiXGAWTFpv6lEXPDL9Zcqqmeh70-hEAiR69-1oFUw3H_BRV7SnIXo_kQP_8ZX2TElUPqv8V3DvFKsMtM4yMc40HmUWAsHLuxqyteKnCwC0PUv5DZKM7k8qdNpgeNEqCEiNWpUu5scLZ2uHddAmD24YODLpy5tumdzw36zA4l1gfwdRX3Dba9Vktfqf2NlAUxr_wYR9pD5fr4rUQMkbZaPU9UgFRQ");'></div>
+<span class="absolute bottom-0 right-0 size-2.5 bg-emerald-500 rounded-full ring-2 ring-surface-container-lowest"></span>
+</div>
+</div>
+</div>
+</header>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Executive Dashboard Content Container -->
+<main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+<!-- Section 1: Page Header & Global Quick Actions -->
+<section class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-secondary-container/60 text-on-secondary-container">
+          Safra Vigente 2026/27
+        </span>
+<span class="text-xs text-outline font-medium">| Sorriso - MT (1.420 ha totais)</span>
+</div>
+<h1 class="text-2xl sm:text-3xl font-extrabold text-on-surface font-headline-lg tracking-tight">
+        Visão Geral da Safra 2026/27
+      </h1>
+<p class="text-sm text-on-surface-variant mt-1 max-w-2xl font-body-md">
+        Acompanhamento em tempo real de custo operacional, fluxo de caixa e conformidade regulatória EUDR. Soja Verão (ciclo ativo) &amp; Milho 2ª Safra (planejamento).
+      </p>
+</div>
+<div class="flex flex-wrap items-center gap-2.5">
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface text-xs font-semibold hover:bg-surface-container-low transition-colors shadow-sm">
+<span class="material-symbols-outlined text-base text-primary">edit_document</span>
+<span>+ Novo Lançamento Manual</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface text-xs font-semibold hover:bg-surface-container-low transition-colors shadow-sm">
+<span class="material-symbols-outlined text-base text-secondary">table_view</span>
+<span>Exportar DRE da Safra (PDF/XLS)</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary text-on-primary text-xs font-semibold hover:bg-primary/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-base">verified</span>
+<span>Gerar Declaração EUDR</span>
+</button>
+</div>
+</section>
+<!-- Section 2: Banner de Destaque Regulatório (EUDR / CAR Compliance) -->
+<section class="rounded-xl border border-emerald-300 bg-emerald-50/70 p-4 sm:p-5 transition-all shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex items-start sm:items-center gap-3.5">
+<div class="p-2.5 bg-emerald-600 text-white rounded-lg flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-2xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-base sm:text-lg font-bold text-emerald-950 font-headline-sm">
+              Status Regulatório: 94,8% da área em conformidade EUDR
+            </h3>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-200 text-emerald-900">
+              1.346 ha Aptos para Exportação UE
+            </span>
+</div>
+<p class="text-xs sm:text-sm text-emerald-800/90 mt-1 font-body-sm">
+<span class="font-semibold text-emerald-900">11 Talhões Verificados</span> (Zero desmatamento pós-2020) • 
+            <span class="font-semibold text-amber-900 underline decoration-amber-400">1 Talhão em Atenção</span> (Talhão 09 - 74 ha com sobreposição de margem de APP em retificação no SICAR) • 
+            <span class="font-semibold text-emerald-900">0 Embargos IBAMA</span>
+</p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-start lg:self-center">
+<a class="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-white bg-emerald-700 hover:bg-emerald-800 px-4 py-2 rounded-lg transition-colors shadow-sm" href="#">
+<span>Abrir Central EUDR</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Section 3: Grade de 4 KPIs Financeiros Principais -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- KPI 1 -->
+<div class="rounded-xl p-4 sm:p-5 bg-surface-container-lowest border border-outline-variant/60 shadow-sm flex flex-col justify-between hover:border-primary/50 transition-colors">
+<div class="flex items-start justify-between">
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Custo Realizado vs. Orçado</span>
+<span class="p-1.5 rounded-lg bg-surface-container-low text-primary">
+<span class="material-symbols-outlined text-lg">account_balance_wallet</span>
+</span>
+</div>
+<div class="mt-3">
+<div class="flex items-baseline gap-2">
+<span class="text-2xl sm:text-3xl font-black text-on-surface tracking-tight font-headline-lg">R$ 4.820.400</span>
+<span class="text-xs font-bold text-error flex items-center">
+<span class="material-symbols-outlined text-xs">arrow_downward</span> 32% rest.
+          </span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1 font-body-sm">
+          Realizado 68% de R$ 7.100.000 orçado. <span class="font-medium text-emerald-700">Dentro da meta Conab</span>.
+        </p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container-high">
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 67.8%"></div>
+</div>
+<div class="flex justify-between text-[11px] text-outline mt-1 font-code-mono-sm">
+<span>Executado: R$ 4,82M</span>
+<span>Teto: R$ 7,10M</span>
+</div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="rounded-xl p-4 sm:p-5 bg-surface-container-lowest border border-outline-variant/60 shadow-sm flex flex-col justify-between hover:border-primary/50 transition-colors">
+<div class="flex items-start justify-between">
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Custo Médio por Hectare</span>
+<span class="p-1.5 rounded-lg bg-surface-container-low text-secondary">
+<span class="material-symbols-outlined text-lg">crop</span>
+</span>
+</div>
+<div class="mt-3">
+<div class="flex items-baseline gap-2">
+<span class="text-2xl sm:text-3xl font-black text-on-surface tracking-tight font-headline-lg">R$ 3.394<span class="text-base font-semibold text-outline">/ha</span></span>
+<span class="text-xs font-bold text-emerald-700 flex items-center bg-emerald-100/70 px-1.5 py-0.5 rounded">
+            -4,2% vs 25/26
+          </span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1 font-body-sm">
+          Eficiência logística de insumos reduziu frete FOB Sorriso/Santos.
+        </p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container-high flex items-center justify-between text-xs text-outline">
+<span>Média Região Sorriso:</span>
+<span class="font-semibold text-on-surface font-code-mono-sm">R$ 3.540 / ha</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="rounded-xl p-4 sm:p-5 bg-surface-container-lowest border border-outline-variant/60 shadow-sm flex flex-col justify-between hover:border-primary/50 transition-colors">
+<div class="flex items-start justify-between">
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Margem Bruta Projetada</span>
+<span class="p-1.5 rounded-lg bg-emerald-50 text-emerald-700">
+<span class="material-symbols-outlined text-lg">trending_up</span>
+</span>
+</div>
+<div class="mt-3">
+<div class="flex items-baseline gap-2">
+<span class="text-2xl sm:text-3xl font-black text-emerald-700 tracking-tight font-headline-lg">R$ 1.940<span class="text-base font-semibold text-emerald-900/60">/ha</span></span>
+<span class="text-xs font-bold text-emerald-800 flex items-center">
+            +8.5%
+          </span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1 font-body-sm">
+          Projeção: 64 sc/ha @ R$ 128,00/sc (Hedge B3 cobrindo 45% do volume).
+        </p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container-high flex items-center justify-between text-xs text-outline">
+<span>Receita Total Estimada:</span>
+<span class="font-semibold text-on-surface font-code-mono-sm">R$ 11,62M</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="rounded-xl p-4 sm:p-5 bg-surface-container-lowest border border-outline-variant/60 shadow-sm flex flex-col justify-between hover:border-primary/50 transition-colors">
+<div class="flex items-start justify-between">
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Necessidade de Caixa (GND)</span>
+<span class="p-1.5 rounded-lg bg-amber-50 text-tertiary">
+<span class="material-symbols-outlined text-lg">payments</span>
+</span>
+</div>
+<div class="mt-3">
+<div class="flex items-baseline gap-2">
+<span class="text-2xl sm:text-3xl font-black text-on-surface tracking-tight font-headline-lg">R$ 840.000</span>
+<span class="text-xs font-bold text-tertiary bg-amber-100/60 px-1.5 py-0.5 rounded">
+            Pico Dez/26
+          </span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1 font-body-sm">
+          Alocação prioritária em dessecação, fungicidas e diesel rodoviário.
+        </p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container-high flex items-center justify-between text-xs text-outline">
+<span>Saldo Disponível Santander:</span>
+<span class="font-semibold text-on-surface font-code-mono-sm">R$ 1.120.000</span>
+</div>
+</div>
+</section>
+<!-- Section 4: Seção Dupla (60% Gráficos e Operação / 40% Feeds e Contador) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Coluna Esquerda (60% -> 7 cols on lg/xl) -->
+<div class="lg:col-span-7 space-y-6">
+<!-- Card: Curva de Custo Operacional por Fase (COE/COT Conab) -->
+<div class="rounded-xl bg-surface-container-lowest border border-outline-variant/60 shadow-sm p-5">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+<div>
+<h3 class="text-base font-bold text-on-surface font-headline-sm">Custo Operacional por Fase da Cultura</h3>
+<p class="text-xs text-on-surface-variant font-body-sm">Padrão Conab (COE - Custo Operacional Efetivo / COT - Custo Operacional Total)</p>
+</div>
+<span class="text-xs font-semibold px-2.5 py-1 rounded bg-surface-container-low text-primary border border-outline-variant/40 self-start sm:self-auto">
+            1.420 ha consolidados
+          </span>
+</div>
+<!-- Breakdown Visual das Fases -->
+<div class="space-y-4 my-2">
+<!-- Fase 1 -->
+<div>
+<div class="flex justify-between items-center text-xs mb-1">
+<span class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="size-2 rounded-full bg-emerald-600"></span> Preparo do Solo &amp; Correção
+              </span>
+<div class="space-x-3 text-on-surface-variant font-code-mono-sm">
+<span>R$ 1.150.000</span>
+<span class="font-bold text-emerald-800">100% Concluído</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-emerald-600 h-2 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<!-- Fase 2 -->
+<div>
+<div class="flex justify-between items-center text-xs mb-1">
+<span class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="size-2 rounded-full bg-primary"></span> Semeadura &amp; Adubação Base
+              </span>
+<div class="space-x-3 text-on-surface-variant font-code-mono-sm">
+<span>R$ 1.840.000</span>
+<span class="font-bold text-primary">100% Concluído</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<!-- Fase 3 -->
+<div>
+<div class="flex justify-between items-center text-xs mb-1">
+<span class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="size-2 rounded-full bg-secondary"></span> Tratos Culturais &amp; Defensivos (Em andamento)
+              </span>
+<div class="space-x-3 text-on-surface-variant font-code-mono-sm">
+<span>R$ 1.480.400 / R$ 2.650.000</span>
+<span class="font-bold text-secondary">55% Realizado</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 55%"></div>
+</div>
+</div>
+<!-- Fase 4 -->
+<div>
+<div class="flex justify-between items-center text-xs mb-1">
+<span class="font-semibold text-outline flex items-center gap-1.5">
+<span class="size-2 rounded-full bg-outline-variant"></span> Colheita &amp; Transporte de Grãos (Projetado)
+              </span>
+<div class="space-x-3 text-outline font-code-mono-sm">
+<span>R$ 0 / R$ 1.460.000</span>
+<span>Jan-Fev/27</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-outline-variant h-2 rounded-full" style="width: 5%"></div>
+</div>
+</div>
+</div>
+<!-- Comparative Metrics Bar -->
+<div class="mt-6 pt-4 border-t border-surface-container-high grid grid-cols-3 gap-2 text-center">
+<div class="p-2 rounded bg-surface-container-low">
+<span class="text-[11px] text-outline block">COE Atual</span>
+<span class="text-sm font-bold text-on-surface font-code-mono-sm">R$ 2.980 / ha</span>
+</div>
+<div class="p-2 rounded bg-surface-container-low">
+<span class="text-[11px] text-outline block">COT Projetado</span>
+<span class="text-sm font-bold text-on-surface font-code-mono-sm">R$ 3.820 / ha</span>
+</div>
+<div class="p-2 rounded bg-surface-container-low">
+<span class="text-[11px] text-outline block">Benchmark Conab MT</span>
+<span class="text-sm font-bold text-emerald-800 font-code-mono-sm">R$ 4.050 / ha</span>
+</div>
+</div>
+</div>
+<!-- Card: Tabela Rápida de Destaques por Talhão -->
+<div class="rounded-xl bg-surface-container-lowest border border-outline-variant/60 shadow-sm overflow-hidden">
+<div class="p-4 border-b border-surface-container-high flex items-center justify-between">
+<div>
+<h3 class="text-base font-bold text-on-surface font-headline-sm">Destaques de Eficiência por Talhão</h3>
+<p class="text-xs text-on-surface-variant font-body-sm">Top 3 mais econômicos vs. talhão com maior demanda fitossanitária</p>
+</div>
+<span class="text-xs text-primary font-semibold hover:underline cursor-pointer">Ver todos os 12 talhões</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs">
+<thead class="bg-surface-container-low text-on-surface-variant font-semibold uppercase tracking-wider border-b border-surface-container-high">
+<tr>
+<th class="py-2.5 px-4">Talhão / Cultura</th>
+<th class="py-2.5 px-3">Área (ha)</th>
+<th class="py-2.5 px-3">Custo/ha</th>
+<th class="py-2.5 px-3">Consumo Defensivos</th>
+<th class="py-2.5 px-3">Status EUDR</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high">
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="py-3 px-4">
+<div class="font-bold text-on-surface">Talhão 03 - Sede Norte</div>
+<div class="text-[11px] text-outline">Soja Dourada 26</div>
+</td>
+<td class="py-3 px-3 font-code-mono-sm">180 ha</td>
+<td class="py-3 px-3 font-semibold text-emerald-700 font-code-mono-sm">R$ 3.010/ha</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-emerald-100 text-emerald-800">-14% abaixo média</span>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-[11px] text-emerald-700 font-semibold">
+<span class="material-symbols-outlined text-sm">verified</span> Conforme
+                  </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="py-3 px-4">
+<div class="font-bold text-on-surface">Talhão 06 - Pivô Central</div>
+<div class="text-[11px] text-outline">Soja Intacta 2</div>
+</td>
+<td class="py-3 px-3 font-code-mono-sm">220 ha</td>
+<td class="py-3 px-3 font-semibold text-emerald-700 font-code-mono-sm">R$ 3.120/ha</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-emerald-100 text-emerald-800">-9% abaixo média</span>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-[11px] text-emerald-700 font-semibold">
+<span class="material-symbols-outlined text-sm">verified</span> Conforme
+                  </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="py-3 px-4">
+<div class="font-bold text-on-surface">Talhão 01 - Entrada Leste</div>
+<div class="text-[11px] text-outline">Soja Bônus 88</div>
+</td>
+<td class="py-3 px-3 font-code-mono-sm">140 ha</td>
+<td class="py-3 px-3 font-semibold text-emerald-700 font-code-mono-sm">R$ 3.190/ha</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-emerald-100 text-emerald-800">-6% abaixo média</span>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-emerald-700 font-semibold">
+<span class="material-symbols-outlined text-sm">verified</span> Conforme
+                  </span>
+</td>
+</tr>
+<tr class="bg-amber-50/40 hover:bg-amber-50 transition-colors">
+<td class="py-3 px-4">
+<div class="font-bold text-amber-950 flex items-center gap-1">
+<span>Talhão 09 - Divisa Sul</span>
+<span class="material-symbols-outlined text-sm text-amber-600">warning</span>
+</div>
+<div class="text-[11px] text-amber-800">Soja Ciclo Médio</div>
+</td>
+<td class="py-3 px-3 font-code-mono-sm">74 ha</td>
+<td class="py-3 px-3 font-bold text-error font-code-mono-sm">R$ 3.890/ha</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-error-container text-on-error-container">+22% (Lagarta Helicoverpa)</span>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-[11px] text-amber-800 font-bold">
+<span class="material-symbols-outlined text-sm">pending</span> Em retif. SICAR
+                  </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Coluna Direita (40% -> 5 cols on lg/xl) -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Card: Feed de Lançamentos Recentes em Tempo Real (WhatsApp + NF-e) -->
+<div class="rounded-xl bg-surface-container-lowest border border-outline-variant/60 shadow-sm p-5">
+<div class="flex items-center justify-between pb-3 border-b border-surface-container-high">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+</span>
+<h3 class="text-base font-bold text-on-surface font-headline-sm">Atividades em Tempo Real</h3>
+</div>
+<span class="text-[11px] font-medium text-outline">IA + OCR Ativos</span>
+</div>
+<div class="mt-4 space-y-4">
+<!-- Evento 1: WhatsApp -->
+<div class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low/70 border border-outline-variant/30 hover:border-primary/40 transition-colors">
+<div class="p-2 rounded-lg bg-emerald-600 text-white shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-base">chat</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="text-xs font-bold text-on-surface">WhatsApp (Encarregado Zé)</span>
+<span class="text-[11px] text-outline shrink-0 font-code-mono-sm">Há 12 min</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1 font-body-sm leading-relaxed">
+                Aplicação 320L Glifosato no <strong class="text-on-surface">Talhão 04</strong> - Confirmado via IA
+              </p>
+<div class="mt-1.5 flex items-center gap-2">
+<span class="inline-flex items-center gap-1 text-[11px] text-secondary font-code-mono-sm bg-surface-container px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-xs">location_on</span> -12.541, -55.721
+                </span>
+<span class="inline-flex items-center text-[10px] text-emerald-800 bg-emerald-100 font-semibold px-1 rounded">
+                  Validado
+                </span>
+</div>
+</div>
+</div>
+<!-- Evento 2: NF-e SEFAZ -->
+<div class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low/70 border border-outline-variant/30 hover:border-primary/40 transition-colors">
+<div class="p-2 rounded-lg bg-primary text-white shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="text-xs font-bold text-on-surface">NF-e SEFAZ #18492</span>
+<span class="text-[11px] text-outline shrink-0 font-code-mono-sm">Há 1 hora</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1 font-body-sm">
+                Compra Fertilizante Yara 25 ton • <strong class="text-on-surface">R$ 82.500</strong>
+</p>
+<div class="mt-1.5 flex items-center justify-between">
+<span class="inline-flex items-center gap-1 text-[11px] text-amber-800 font-medium bg-amber-100/70 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-xs">hourglass_top</span> Pré-lançada na Fila
+                </span>
+<button class="text-[11px] text-primary font-bold hover:underline">Revisar NF</button>
+</div>
+</div>
+</div>
+<!-- Evento 3: Alerta Deter/INPE -->
+<div class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low/70 border border-outline-variant/30 hover:border-primary/40 transition-colors">
+<div class="p-2 rounded-lg bg-emerald-100 text-emerald-800 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-base">satellite_alt</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="text-xs font-bold text-on-surface">Alerta Deter / INPE</span>
+<span class="text-[11px] text-outline shrink-0 font-code-mono-sm">Hoje 08:30</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1 font-body-sm">
+                Nenhuma alteração de cobertura florestal detectada no polígono CAR da fazenda.
+              </p>
+<span class="inline-flex items-center gap-1 text-[10px] text-emerald-900 bg-emerald-200/60 font-semibold px-1.5 py-0.5 rounded mt-1.5">
+                EUDR Zero Deforestation Ok
+              </span>
+</div>
+</div>
+<!-- Evento 4: Fechamento Diesel -->
+<div class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low/70 border border-outline-variant/30 hover:border-primary/40 transition-colors">
+<div class="p-2 rounded-lg bg-secondary text-white shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-base">local_gas_station</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="text-xs font-bold text-on-surface">Fechamento Diesel Diário</span>
+<span class="text-[11px] text-outline shrink-0 font-code-mono-sm">Ontem 18:45</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1 font-body-sm">
+                420 litros abastecidos • Trator John Deere 8R (Operação de pulverização T02/T03).
+              </p>
+<div class="mt-1 flex items-center justify-between text-[11px] text-outline">
+<span>Hodômetro: 4.892 h</span>
+<span class="font-code-mono-sm text-on-surface font-semibold">R$ 2.478,00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: Canal do Contador (LCDPR & Compliance Fiscal) -->
+<div class="rounded-xl bg-surface-container-lowest border border-outline-variant/60 shadow-sm p-5 relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold border border-outline-variant/40">
+<span class="material-symbols-outlined text-xl">corporate_fare</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface font-headline-sm">Canal do Contador</h4>
+<p class="text-xs text-on-surface-variant font-body-sm">Escritório Contábil Modelo</p>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-100 text-amber-900 border border-amber-300">
+            Atenção Mensal
+          </span>
+</div>
+<div class="mt-4 p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/40">
+<div class="flex items-baseline justify-between mb-1.5">
+<span class="text-xs text-on-surface-variant">Notas aguardando classificação</span>
+<span class="text-sm font-bold text-error font-code-mono-sm">18 pendentes</span>
+</div>
+<p class="text-xs text-on-surface-variant font-body-sm">
+            Necessário aprovar vínculo de fornecedores e talhões para geração do arquivo digital do <strong>LCDPR (Livro Caixa Digital do Produtor Rural)</strong>.
+          </p>
+</div>
+<div class="mt-4 flex items-center justify-between gap-3">
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface text-xs font-semibold text-center transition-colors border border-outline-variant/50">
+            Ver Notas Pendentes
+          </button>
+<button class="flex-1 py-2 px-3 rounded-lg bg-primary hover:bg-primary/90 text-on-primary text-xs font-semibold text-center transition-colors shadow-sm">
+            Validar para LCDPR
+          </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer de Rodapé com Metadados da Propriedade -->
+<footer class="mt-12 border-t border-outline-variant/40 bg-surface-container-lowest py-6">
+<div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-outline">
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface">AgroGestão v4.8</span>
+<span>•</span>
+<span>Fazenda Santa Maria • Matrícula 34.910 CRI Sorriso/MT</span>
+<span>•</span>
+<span>SICAR: MT-5107909-6482-9901</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1 text-emerald-700 font-medium">
+<span class="material-symbols-outlined text-sm">cloud_done</span> Conectado com SEFAZ/MT e SICAR
+      </span>
+<span>Última sincronização: Há 3 min</span>
+</div>
+</div>
+</footer>
+</body></html>

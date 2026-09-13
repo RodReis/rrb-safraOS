@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"surface-container-highest": "#e0e2ea", "surface-container": "#eceef6", "surface-tint": "#0061a2", "secondary-fixed": "#d1e4ff", "error-container": "#ffdad6", "on-surface-variant": "#404752", "on-surface": "#181c21", "inverse-on-surface": "#eef0f8", "surface-container-low": "#f1f3fb", background: "#f8f9ff", "on-error-container": "#93000a", "on-primary-fixed": "#001d35", outline: "#707883", "on-secondary": "#ffffff", "secondary-container": "#b9d7fe", "on-secondary-fixed-variant": "#2b4969", primary: "#005f9e", "primary-container": "#0078c6", "inverse-surface": "#2d3137", "on-secondary-fixed": "#001d36", "on-tertiary-fixed": "#301400", "primary-fixed-dim": "#9dcaff", "primary-fixed": "#d1e4ff", "on-primary-container": "#fdfcff", "on-secondary-container": "#405d7f", error: "#ba1a1a", "on-primary": "#ffffff", "surface-bright": "#f8f9ff", tertiary: "#904900", "outline-variant": "#bfc7d3", "surface-container-lowest": "#ffffff", "surface-container-high": "#e6e8f0", "on-tertiary-fixed-variant": "#703700", "on-background": "#181c21", "on-tertiary": "#ffffff", surface: "#f8f9ff", "inverse-primary": "#9dcaff", "surface-dim": "#d8dae2", "tertiary-fixed-dim": "#ffb783", secondary: "#436082", "secondary-fixed-dim": "#abc9f0", "surface-variant": "#e0e2ea", "on-primary-fixed-variant": "#00497c", "on-error": "#ffffff", "tertiary-fixed": "#ffdcc5", "tertiary-container": "#b55d00", "on-tertiary-container": "#fffbff"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"space-xs": "0.25rem", "space-sm": "0.5rem", "space-lg": "1.25rem", "space-xl": "1.75rem", "space-md": "0.75rem", margin: "1.5rem", gutter: "1rem"}, fontFamily: {"badge-label": ["Inter"], "display-lg": ["Plus Jakarta Sans"], "code-mono-md": ["JetBrains Mono"], "data-dense": ["Inter"], "body-sm": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "body-md": ["Inter"], "body-lg": ["Inter"], "code-mono-sm": ["JetBrains Mono"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], headline: ["Plus Jakarta Sans"], display: ["Plus Jakarta Sans"], body: ["Inter"], label: ["JetBrains Mono"]}, fontSize: {"badge-label": ["11px", {lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "600"}], "display-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700"}], "code-mono-md": ["13px", {lineHeight: "18px", letterSpacing: "-0.01em", fontWeight: "500"}], "data-dense": ["13px", {lineHeight: "16px", fontWeight: "500"}], "body-sm": ["12px", {lineHeight: "16px", fontWeight: "400"}], "headline-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}], "code-mono-sm": ["11px", {lineHeight: "14px", letterSpacing: "0em", fontWeight: "500"}], "headline-sm": ["16px", {lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600"}], "headline-md": ["20px", {lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-margin flex items-center gap-space-sm bg-surface-container-lowest"><img alt="Brand logo. - Primary color: #0f3f2e
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vn5Delybvm3eW3tHMO8JkF2q477p7udnqhK0xOGs0FKTOerKpFiyyuoLZwxLPZlKXH50on2-lxB4x2r5oFdgvii-54o5_3rdk-5VxkGPG1WvbncSGPFpmwMaSHJFIreBCuGOvFqIvHM_Vy8JYhb6Brbu2BcBWNUMlfHA41P4VgSqfV8NL27O1RinOTa_YGrikgprEneYrR7mn5MXSNyI1UQ9zvBBRaW0eOa3D7eOwXybjNZhuMkBHnnw"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold leading-none">SafraOS</span><span class="font-badge-label text-badge-label text-on-surface-variant font-medium">Agro-Fin &amp; Compliance</span></div></div><nav class="flex-1 px-space-sm py-space-sm space-y-space-md overflow-y-auto" data-active-classes="bg-primary-container text-on-primary font-semibold"><div class="space-y-space-xs"><div class="px-space-md py-space-xs font-badge-label text-badge-label text-on-surface-variant uppercase tracking-wider font-semibold">Principal</div><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-data-dense text-data-dense" data-path="visao-geral" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span>Visão Geral</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-data-dense text-data-dense" data-path="dre-e-resultados" href="#"><span class="material-symbols-outlined text-[18px]">query_stats</span><span>DRE &amp; Resultados</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-data-dense text-data-dense" data-path="custo-e-margem-talhao" href="#"><span class="material-symbols-outlined text-[18px]">pie_chart</span><span>Custo &amp; Margem / Talhão</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-data-dense text-data-dense" data-path="fluxo-de-caixa-e-gnd" href="#"><span class="material-symbols-outlined text-[18px]">account_balance</span><span>Fluxo de Caixa &amp; GND</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-data-dense text-data-dense" data-path="compliance-eudr-e-car" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><span>Compliance EUDR &amp; CAR</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-data-dense text-data-dense" data-path="conferencia-nfe-e-lcdpr" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Conferência NF-e &amp; LCDPR</span></a></div><div class="space-y-space-xs"><div class="px-space-md py-space-xs font-badge-label text-badge-label text-on-surface-variant uppercase tracking-wider font-semibold">Gestão &amp; Cadastros</div><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-data-dense text-data-dense" data-path="fazendas-e-matriculas" href="#"><span class="material-symbols-outlined text-[18px]">landscape</span><span>Fazendas &amp; Matrículas</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-data-dense text-data-dense" data-path="rebanho-e-pecuaria" href="#"><span class="material-symbols-outlined text-[18px]">cruelty_free</span><span>Rebanho &amp; Pecuária</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-data-dense text-data-dense" data-path="operacional-de-campo" href="#"><span class="material-symbols-outlined text-[18px]">agriculture</span><span>Operacional de Campo</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-data-dense text-data-dense" data-path="estoque-e-insumos" href="#"><span class="material-symbols-outlined text-[18px]">inventory_2</span><span>Estoque &amp; Insumos</span></a></div><div class="space-y-space-xs"><div class="px-space-md py-space-xs font-badge-label text-badge-label text-on-surface-variant uppercase tracking-wider font-semibold">Configurações &amp; Fiscal</div><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-data-dense text-data-dense" data-path="livro-caixa-lcdpr" href="#"><span class="material-symbols-outlined text-[18px]">menu_book</span><span>Livro Caixa LCDPR</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-data-dense text-data-dense" data-path="contador-e-erp" href="#"><span class="material-symbols-outlined text-[18px]">hub</span><span>Contador &amp; ERP</span></a></div></nav></div><div class="p-space-sm bg-surface-container-lowest"><div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-badge-label text-badge-label text-on-surface font-semibold flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px] text-secondary">shield</span>Soberania de Dados</span><span class="h-2 w-2 rounded-full bg-secondary"></span></div><div class="flex flex-col gap-space-xs font-code-mono-sm text-code-mono-sm text-on-surface-variant"><div class="flex items-center justify-between"><span>SIGEF:</span><span class="text-secondary font-semibold">Conectado</span></div><div class="flex items-center justify-between"><span>CAR-MT:</span><span class="text-secondary font-semibold">Sincronizado</span></div></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-1.5 rounded-xl"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><div class="flex flex-col"><span class="font-badge-label text-badge-label text-on-surface-variant">Fazenda Ativa</span><span class="font-data-dense text-data-dense text-on-surface font-semibold">Fazenda Santa Maria — Sorriso/MT</span></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant ml-space-xs">expand_more</span></div><div class="flex items-center gap-space-xs bg-primary-container text-on-primary px-space-md py-1.5 rounded-xl"><span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">eco</span><div class="flex flex-col"><span class="font-badge-label text-badge-label text-on-primary-container">Ciclo Produtivo</span><span class="font-data-dense text-data-dense text-on-primary font-semibold">Safra 2026/27 — Soja &amp; Milho</span></div><span class="material-symbols-outlined text-[16px] text-on-primary-container ml-space-xs">unfold_more</span></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-sm"><div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1 rounded-full"><span class="h-2 w-2 rounded-full bg-secondary"></span><span class="font-badge-label text-badge-label text-on-surface font-medium">SEFAZ: Online/Sincronizada</span></div><div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1 rounded-full"><span class="h-2 w-2 rounded-full bg-secondary"></span><span class="font-badge-label text-badge-label text-on-surface font-medium">EUDR: Conforme</span></div></div><div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface cursor-pointer"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-data-dense text-data-dense">Buscar talhão, nota, produtor...</span><kbd class="font-code-mono-sm text-code-mono-sm bg-surface-container-highest px-1.5 py-0.5 rounded text-on-surface ml-space-xs">Ctrl+K</kbd></div><div class="relative p-space-xs text-on-surface-variant hover:text-on-surface cursor-pointer"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 h-2 w-2 bg-error rounded-full"></span></div><div class="flex items-center gap-space-sm pl-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VcrGcWn-YoVQOUpg0hEpLkXpuZeZCvy83hzb2WMe96q1JCo33-bV8I53fELUZGuT-sgl_doc9iIBCpX2sTLgOC7-Jjyf9thUKW0cHmolfvw4Uqpu86UEQ_2g_EWuTnZ7PVYgqQ13j5aXGFm2TsXLDOVYO_AVFt7no_gTAIxK7FiXGNhQpN8rVA3SC4QC1adFp5d3nDsoF80X4rPRglryMgFsdL13c7WKZe0Ntgc-P2CkndABXRI1jK7w"/><div class="hidden md:flex flex-col text-left"><span class="font-data-dense text-data-dense text-on-surface font-semibold leading-tight">Carlos Albuquerque</span><span class="font-badge-label text-badge-label text-on-surface-variant leading-tight">CFO / Produtor</span></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant">keyboard_arrow_down</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Command & Breadcrumb Context Bar -->
+<div class="px-margin pt-space-lg pb-space-md flex flex-col xl:flex-row xl:items-end justify-between gap-space-md bg-surface-container-lowest shadow-sm">
+<div class="flex flex-col gap-space-xs max-w-4xl">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary text-primary-fixed font-code-mono-sm text-code-mono-sm uppercase tracking-wider font-semibold">
+<span class="material-symbols-outlined text-[14px]">assured_workload</span>
+          MÓDULO A.3 • E2-US9
+        </span>
+<span class="text-outline-variant font-code-mono-sm">/</span>
+<span class="font-badge-label text-badge-label text-on-surface-variant font-semibold tracking-wide">
+          GESTÃO DE TESOURARIA AGRÍCOLA, CPR &amp; CONAB
+        </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-secondary font-badge-label text-badge-label font-semibold">
+<span class="h-1.5 w-1.5 rounded-full bg-secondary"></span>
+          Audit-Grade (B3 / CVM 175)
+        </span>
+</div>
+<div class="flex flex-col">
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight font-bold">
+          Fluxo de Caixa Projetado &amp; Curva GND
+          <span class="text-secondary font-medium text-headline-md tracking-normal">(Safra 2026/27)</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Projeção dinâmica da Necessidade de Capital de Giro (<strong class="font-semibold text-on-surface">Garantia Necessária de Disponibilidade - GND</strong>), cronograma de desembolso de insumos vs. receitas de colheita/barter e matriz de sensibilidade CEPEA/Conab.
+        </p>
+</div>
+</div>
+<!-- Action Toolbar -->
+<div class="flex items-center gap-space-xs flex-wrap self-start xl:self-end">
+<button class="inline-flex items-center gap-space-xs h-9 px-space-md rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-data-dense text-data-dense font-medium transition-colors shadow-sm" id="btn-stress">
+<span class="material-symbols-outlined text-[18px] text-primary">tune</span>
+<span>Simular Cenário de Estresse</span>
+</button>
+<button class="inline-flex items-center gap-space-xs h-9 px-space-md rounded bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-data-dense text-data-dense font-medium transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">table_view</span>
+<span>Exportar Modelo (Excel/Bancário)</span>
+</button>
+<button class="inline-flex items-center gap-space-xs h-9 px-space-md rounded bg-primary hover:bg-primary-container text-on-primary font-data-dense text-data-dense font-semibold transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ Novo Compromisso / CPR</span>
+</button>
+</div>
+</div>
+<!-- KPI Overview Ribbon (4 Analytical Cards) -->
+<div class="px-margin py-space-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- KPI 1: GND Pico -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<span class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold tracking-wider">
+            Pico de Necessidade de Capital
+          </span>
+<span class="font-code-mono-sm text-code-mono-sm text-tertiary-container font-medium">GND Máximo Projetado</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-badge-label text-badge-label font-bold">
+<span class="h-1.5 w-1.5 rounded-full bg-secondary"></span> 88% Financiado
+        </span>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface font-bold tracking-tight">R$ 6.840.000</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-surface-container-high/40 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">calendar_clock</span>
+          Mês Crítico: <strong class="text-on-surface font-semibold">Nov/2026</strong>
+</span>
+<!-- Mini Sparkline Outflow peak -->
+<svg class="w-16 h-5 overflow-visible" fill="none" viewbox="0 0 64 20">
+<path d="M2 4 L14 8 L26 15 L38 19 L48 10 L62 3" stroke="#BA1A1A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<circle cx="38" cy="19" fill="#BA1A1A" r="3"></circle>
+</svg>
+</div>
+</div>
+<!-- KPI 2: Saldo Final -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<span class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold tracking-wider">
+            Saldo Final de Safra
+          </span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-medium">Caixa Líquido Jun/2027</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed/40 text-on-secondary-fixed-variant font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-[12px]">trending_up</span> +18,4% vs. Orçado
+        </span>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-secondary font-bold tracking-tight">R$ 4.120.500</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-surface-container-high/40 text-on-surface-variant font-body-sm text-body-sm">
+<span class="truncate">Após liquidação de CPRs e custeios</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+</div>
+</div>
+<!-- KPI 3: Cobertura de Funding -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<span class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold tracking-wider">
+            Cobertura Funding &amp; Crédito
+          </span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant font-medium">Captação Safra Ativa</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-primary font-code-mono-sm text-code-mono-sm font-semibold">
+          Folga: R$ 660k
+        </span>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface font-bold tracking-tight">R$ 7.500.000</span>
+</div>
+<div class="flex flex-col gap-0.5 pt-space-xs border-t border-surface-container-high/40 font-code-mono-sm text-code-mono-sm text-on-surface-variant">
+<div class="flex justify-between items-center text-[10px]">
+<span>Plano Safra: <strong>R$ 4,5M</strong> (8,5%)</span>
+<span>CPR/Barter: <strong>R$ 3,0M</strong></span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 60%"></div>
+<div class="bg-secondary h-full" style="width: 31%"></div>
+<div class="bg-outline-variant h-full" style="width: 9%"></div>
+</div>
+</div>
+</div>
+<!-- KPI 4: Breakeven Soja & Milho -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<span class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold tracking-wider">
+            Breakeven Operacional
+          </span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-medium">Preço Mínimo Cobertura COE</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-badge-label text-badge-label font-bold">
+          Margem: +23,5%
+        </span>
+</div>
+<div class="my-space-xs flex flex-col gap-1">
+<div class="flex justify-between items-baseline">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Soja: R$ 108,50<span class="text-body-sm font-normal text-on-surface-variant">/sc</span></span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">Spot MT: R$ 134,00</span>
+</div>
+<div class="flex justify-between items-baseline">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Milho: R$ 42,80<span class="text-body-sm font-normal text-on-surface-variant">/sc</span></span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">Spot MT: R$ 51,20</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-container-high/40 text-on-surface-variant font-body-sm text-body-sm flex items-center justify-between">
+<span>Gordura de Preço: <strong>+R$ 25,50/sc</strong></span>
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+</div>
+</div>
+</div>
+<!-- Main Analytical Workspace (Split Layout 70% / 30%) -->
+<div class="px-margin pb-margin grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- LEFT COLUMN: Simulator + Cashflow Curve & Ledger (8 Cols on Desktop / ~67-70%) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- 1. Interactive Sensitivity & Stress Simulator Panel -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="h-8 w-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Simulador de Sensibilidade &amp; Estresse de Mercado</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Modelo Conab / CEPEA em tempo real sobre caixa da Safra 26/27</span>
+</div>
+</div>
+<!-- Scenario Pills -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0" id="scenario-selector">
+<button class="px-3 py-1.5 rounded-full text-badge-label font-badge-label font-semibold transition-all bg-primary text-on-primary scenario-pill active" data-scenario="base">
+              Cenário Base (Atual)
+            </button>
+<button class="px-3 py-1.5 rounded-full text-badge-label font-badge-label font-medium transition-all bg-surface-container-low hover:bg-surface-container text-on-surface scenario-pill" data-scenario="stress-mod">
+              Estresse Moderado (-10%)
+            </button>
+<button class="px-3 py-1.5 rounded-full text-badge-label font-badge-label font-medium transition-all bg-surface-container-low hover:bg-surface-container text-on-surface scenario-pill" data-scenario="stress-sev">
+              Severo (-20% + Clima)
+            </button>
+<button class="px-3 py-1.5 rounded-full text-badge-label font-badge-label font-medium transition-all bg-surface-container-low hover:bg-surface-container text-on-surface scenario-pill" data-scenario="insumos">
+              +15% Insumos/Diesel
+            </button>
+</div>
+</div>
+<!-- Interactive Sliders / Inputs -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md pt-space-xs bg-surface-container-low/40 p-space-md rounded-xl">
+<!-- Param 1: Preço Soja -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<label class="font-badge-label text-badge-label text-on-surface-variant uppercase font-semibold">Preço Soja (BRL/sc)</label>
+<span class="font-code-mono-sm text-code-mono-sm font-bold text-primary" id="label-soja">R$ 134,00</span>
+</div>
+<input class="w-full accent-primary cursor-pointer h-2 bg-surface-container-highest rounded-lg" id="range-soja" max="160" min="95" step="1" type="range" value="134"/>
+<div class="flex justify-between text-[10px] text-on-surface-variant font-code-mono-sm">
+<span>Min: R$ 95</span>
+<span class="text-secondary font-bold" id="delta-soja">Base (0%)</span>
+<span>Max: R$ 160</span>
+</div>
+</div>
+<!-- Param 2: Preço Milho -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<label class="font-badge-label text-badge-label text-on-surface-variant uppercase font-semibold">Milho Safrinha (BRL/sc)</label>
+<span class="font-code-mono-sm text-code-mono-sm font-bold text-primary" id="label-milho">R$ 51,20</span>
+</div>
+<input class="w-full accent-primary cursor-pointer h-2 bg-surface-container-highest rounded-lg" id="range-milho" max="75" min="30" step="0.5" type="range" value="51.20"/>
+<div class="flex justify-between text-[10px] text-on-surface-variant font-code-mono-sm">
+<span>Min: R$ 30</span>
+<span class="text-secondary font-bold" id="delta-milho">Base (0%)</span>
+<span>Max: R$ 75</span>
+</div>
+</div>
+<!-- Param 3: Câmbio USD -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<label class="font-badge-label text-badge-label text-on-surface-variant uppercase font-semibold">Câmbio PTAX (USD/BRL)</label>
+<span class="font-code-mono-sm text-code-mono-sm font-bold text-on-surface">R$ 5,45</span>
+</div>
+<input class="w-full accent-primary cursor-pointer h-2 bg-surface-container-highest rounded-lg" max="6.20" min="4.80" step="0.05" type="range" value="5.45"/>
+<div class="flex justify-between text-[10px] text-on-surface-variant font-code-mono-sm">
+<span>R$ 4,80</span>
+<span class="text-on-surface-variant">Travado 62%</span>
+<span>R$ 6,20</span>
+</div>
+</div>
+<!-- Param 4: Produtividade -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<label class="font-badge-label text-badge-label text-on-surface-variant uppercase font-semibold">Produtividade Esperada</label>
+<span class="font-code-mono-sm text-code-mono-sm font-bold text-secondary">64 sc/ha (Soja)</span>
+</div>
+<div class="flex items-center gap-space-xs mt-1">
+<div class="flex-1 bg-surface-container-lowest p-1.5 rounded text-center">
+<span class="font-badge-label text-badge-label text-on-surface-variant block">Soja</span>
+<span class="font-data-dense text-data-dense font-bold text-on-surface">64,0 sc/ha</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-1.5 rounded text-center">
+<span class="font-badge-label text-badge-label text-on-surface-variant block">Milho</span>
+<span class="font-data-dense text-data-dense font-bold text-on-surface">115,0 sc/ha</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Real-time impact summary banner -->
+<div class="bg-primary-container text-on-primary rounded-xl p-space-md flex items-start gap-space-sm transition-all" id="impact-banner">
+<span class="material-symbols-outlined text-[24px] text-primary-fixed shrink-0">speed</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-data-dense text-data-dense font-semibold text-primary-fixed">Diagnóstico Dinâmico de Tesouraria</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/20 font-code-mono-sm text-code-mono-sm text-primary-fixed">Calculado em 0.64s</span>
+</div>
+<p class="font-body-md text-body-md text-surface-container-low mt-0.5" id="impact-text">
+              Cenário Base equilibrado: Cobertura de desembolsos assegurada por linhas oficiais e Barter. Folga de caixa atinge R$ 660.000 no mês mais severo (Nov/26) com margem EBITDA consolidada de 32,8%.
+            </p>
+</div>
+</div>
+</section>
+<!-- 2. Curva Mensal de Fluxo de Caixa & Cronograma GND (Graphic Layout) -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm border-b border-surface-container pb-space-sm">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-space-xs">
+              Curva Mensal de Fluxo de Caixa &amp; Cronograma GND
+              <span class="text-body-sm font-normal text-on-surface-variant">(Jul/2026 - Jun/2027)</span>
+</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Desembolsos operacionais (adubo, sementes, diesel) vs. Ingressos de safra e CPRs</span>
+</div>
+<div class="flex items-center gap-space-md text-data-dense font-data-dense">
+<div class="flex items-center gap-1.5">
+<span class="h-3 w-3 rounded-sm bg-secondary"></span>
+<span class="text-on-surface-variant">Entradas (Receitas/CPRs)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="h-3 w-3 rounded-sm bg-error"></span>
+<span class="text-on-surface-variant">Desembolsos Insumos/OPEX</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="h-1.5 w-4 bg-tertiary-container rounded"></span>
+<span class="text-on-surface-variant">Posição GND Acumulada</span>
+</div>
+</div>
+</div>
+<!-- Custom Graphic Chart (CSS + Embedded SVG Net Line) -->
+<div class="relative w-full pt-4 pb-2 bg-surface-container-lowest overflow-x-auto">
+<div class="min-w-[720px] h-64 relative flex flex-col justify-end">
+<!-- Grid horizontal reference lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-40">
+<div class="border-b border-surface-container-high w-full flex justify-between text-[10px] text-outline font-code-mono-sm"><span>+R$ 4.5M</span></div>
+<div class="border-b border-surface-container-high w-full flex justify-between text-[10px] text-outline font-code-mono-sm"><span>+R$ 2.0M</span></div>
+<div class="border-b-2 border-outline-variant w-full flex justify-between text-[10px] text-on-surface font-code-mono-sm font-bold bg-surface-container-low/20"><span>R$ 0,00 (Linha Zero)</span></div>
+<div class="border-b border-surface-container-high w-full flex justify-between text-[10px] text-error font-code-mono-sm"><span>-R$ 3.0M</span></div>
+<div class="border-b border-error/30 w-full flex justify-between text-[10px] text-error font-code-mono-sm font-semibold"><span>-R$ 6.84M (GND PICO)</span></div>
+</div>
+<!-- SVG Cumulative Net Cashflow Line Overlay -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-20" preserveaspectratio="none" viewbox="0 0 720 256">
+<!-- Shadow of line -->
+<path d="M 30 135 L 90 148 L 150 175 L 210 215 L 270 248 L 330 220 L 390 170 L 450 65 L 510 50 L 570 85 L 630 40 L 690 35" fill="none" opacity="0.9" stroke="#ED861E" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"></path>
+<!-- Point at GND Pico (Nov/26) -->
+<circle cx="270" cy="248" fill="#BA1A1A" r="6" stroke="#FFFFFF" stroke-width="2"></circle>
+<!-- Point at Revenue Peak (Mar/27) -->
+<circle cx="510" cy="50" fill="#006C49" r="5" stroke="#FFFFFF" stroke-width="2"></circle>
+</svg>
+<!-- 12 Monthly Bar Columns -->
+<div class="grid grid-cols-12 gap-2 h-full items-end z-10 px-2 pb-6">
+<!-- Jul/26 -->
+<div class="flex flex-col items-center h-full justify-end group">
+<div class="w-full flex justify-center items-end gap-0.5 h-full">
+<div class="w-3 bg-secondary rounded-t-sm" style="height: 12%;"></div>
+<div class="w-3 bg-error/70 rounded-b-sm" style="height: 20%;"></div>
+</div>
+<span class="font-code-mono-sm text-[10px] text-on-surface-variant mt-2 font-medium">Jul</span>
+</div>
+<!-- Ago/26 -->
+<div class="flex flex-col items-center h-full justify-end group">
+<div class="w-full flex justify-center items-end gap-0.5 h-full">
+<div class="w-3 bg-secondary rounded-t-sm" style="height: 8%;"></div>
+<div class="w-3 bg-error/70 rounded-b-sm" style="height: 32%;"></div>
+</div>
+<span class="font-code-mono-sm text-[10px] text-on-surface-variant mt-2 font-medium">Ago</span>
+</div>
+<!-- Set/26 -->
+<div class="flex flex-col items-center h-full justify-end group">
+<div class="w-full flex justify-center items-end gap-0.5 h-full">
+<div class="w-3 bg-secondary rounded-t-sm" style="height: 18%;"></div>
+<div class="w-3 bg-error/80 rounded-b-sm" style="height: 52%;"></div>
+</div>
+<span class="font-code-mono-sm text-[10px] text-on-surface-variant mt-2 font-semibold text-tertiary">Set</span>
+</div>
+<!-- Out/26 -->
+<div class="flex flex-col items-center h-full justify-end group">
+<div class="w-full flex justify-center items-end gap-0.5 h-full">
+<div class="w-3 bg-secondary rounded-t-sm" style="height: 15%;"></div>
+<div class="w-3 bg-error/90 rounded-b-sm" style="height: 68%;"></div>
+</div>
+<span class="font-code-mono-sm text-[10px] text-on-surface-variant mt-2 font-medium">Out</span>
+</div>
+<!-- Nov/26 (GND PICO) -->
+<div class="flex flex-col items-center h-full justify-end group relative bg-error-container/20 rounded">
+<div class="absolute -top-7 bg-error text-on-error px-1.5 py-0.5 rounded text-[9px] font-code-mono-sm font-bold shadow-sm whitespace-nowrap">
+                  GND PICO: -R$6,84M
+                </div>
+<div class="w-full flex justify-center items-end gap-0.5 h-full">
+<div class="w-3 bg-secondary rounded-t-sm" style="height: 22%;"></div>
+<div class="w-3 bg-error rounded-b-sm" style="height: 85%;"></div>
+</div>
+<span class="font-code-mono-sm text-[10px] text-error mt-2 font-bold">Nov*</span>
+</div>
+<!-- Dez/26 -->
+<div class="flex flex-col items-center h-full justify-end group">
+<div class="w-full flex justify-center items-end gap-0.5 h-full">
+<div class="w-3 bg-secondary rounded-t-sm" style="height: 10%;"></div>
+<div class="w-3 bg-error/70 rounded-b-sm" style="height: 40%;"></div>
+</div>
+<span class="font-code-mono-sm text-[10px] text-on-surface-variant mt-2 font-medium">Dez</span>
+</div>
+<!-- Jan/27 -->
+<div class="flex flex-col items-center h-full justify-end group">
+<div class="w-full flex justify-center items-end gap-0.5 h-full">
+<div class="w-3 bg-secondary rounded-t-sm" style="height: 20%;"></div>
+<div class="w-3 bg-error/60 rounded-b-sm" style="height: 30%;"></div>
+</div>
+<span class="font-code-mono-sm text-[10px] text-on-surface-variant mt-2 font-medium">Jan</span>
+</div>
+<!-- Fev/27 (Inflexão Colheita) -->
+<div class="flex flex-col items-center h-full justify-end group bg-secondary-container/20 rounded">
+<div class="w-full flex justify-center items-end gap-0.5 h-full">
+<div class="w-3 bg-secondary rounded-t-sm" style="height: 65%;"></div>
+<div class="w-3 bg-error/60 rounded-b-sm" style="height: 25%;"></div>
+</div>
+<span class="font-code-mono-sm text-[10px] text-secondary mt-2 font-bold">Fev</span>
+</div>
+<!-- Mar/27 (Pico Receita Soja) -->
+<div class="flex flex-col items-center h-full justify-end group bg-secondary-container/30 rounded">
+<div class="w-full flex justify-center items-end gap-0.5 h-full">
+<div class="w-3 bg-secondary rounded-t-sm" style="height: 88%;"></div>
+<div class="w-3 bg-error/50 rounded-b-sm" style="height: 22%;"></div>
+</div>
+<span class="font-code-mono-sm text-[10px] text-secondary mt-2 font-bold">Mar*</span>
+</div>
+<!-- Abr/27 -->
+<div class="flex flex-col items-center h-full justify-end group">
+<div class="w-full flex justify-center items-end gap-0.5 h-full">
+<div class="w-3 bg-secondary rounded-t-sm" style="height: 45%;"></div>
+<div class="w-3 bg-error/50 rounded-b-sm" style="height: 20%;"></div>
+</div>
+<span class="font-code-mono-sm text-[10px] text-on-surface-variant mt-2 font-medium">Abr</span>
+</div>
+<!-- Mai/27 (Colheita Milho) -->
+<div class="flex flex-col items-center h-full justify-end group">
+<div class="w-full flex justify-center items-end gap-0.5 h-full">
+<div class="w-3 bg-secondary rounded-t-sm" style="height: 72%;"></div>
+<div class="w-3 bg-error/40 rounded-b-sm" style="height: 18%;"></div>
+</div>
+<span class="font-code-mono-sm text-[10px] text-on-surface-variant mt-2 font-medium">Mai</span>
+</div>
+<!-- Jun/27 (Fechamento Safra) -->
+<div class="flex flex-col items-center h-full justify-end group">
+<div class="w-full flex justify-center items-end gap-0.5 h-full">
+<div class="w-3 bg-secondary rounded-t-sm" style="height: 50%;"></div>
+<div class="w-3 bg-error/30 rounded-b-sm" style="height: 12%;"></div>
+</div>
+<span class="font-code-mono-sm text-[10px] text-on-surface-variant mt-2 font-medium">Jun</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Key Milestone Ledger (High-Density Audit Table) -->
+<div class="flex flex-col mt-space-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold tracking-wider">
+              Detalhamento dos Meses Críticos do Ciclo Agronômico
+            </span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">5 de 12 meses selecionados</span>
+</div>
+<div class="overflow-x-auto rounded-lg bg-surface-container-low/50">
+<table class="w-full text-left font-data-dense text-data-dense">
+<thead class="bg-surface-container text-on-surface-variant font-badge-label text-badge-label uppercase tracking-wider">
+<tr>
+<th class="py-2.5 px-3">Mês / Fase Agrícola</th>
+<th class="py-2.5 px-3">Entradas Previstas</th>
+<th class="py-2.5 px-3">Insumos &amp; Sementes</th>
+<th class="py-2.5 px-3">Custos Operacionais</th>
+<th class="py-2.5 px-3">Serviço da Dívida</th>
+<th class="py-2.5 px-3">Saldo do Mês</th>
+<th class="py-2.5 px-3 text-right">Posição Acumulada</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-code-mono-sm text-code-mono-sm">
+<!-- Set/26 -->
+<tr class="hover:bg-surface-container-lowest/80 transition-colors">
+<td class="py-2.5 px-3 font-data-dense font-medium text-on-surface">
+<span class="inline-block w-2 h-2 rounded-full bg-primary mr-1.5"></span>Set/26 (Adubação &amp; Calagem)
+                  </td>
+<td class="py-2.5 px-3 text-secondary font-semibold">R$ 850.000</td>
+<td class="py-2.5 px-3 text-error">-R$ 1.940.000</td>
+<td class="py-2.5 px-3 text-on-surface-variant">-R$ 320.000</td>
+<td class="py-2.5 px-3 text-on-surface-variant">-R$ 45.000</td>
+<td class="py-2.5 px-3 text-error font-semibold">-R$ 1.455.000</td>
+<td class="py-2.5 px-3 text-right text-error font-bold">-R$ 3.820.000</td>
+</tr>
+<!-- Nov/26 (GND Pico) -->
+<tr class="bg-error-container/20 hover:bg-error-container/30 transition-colors font-medium">
+<td class="py-2.5 px-3 font-data-dense font-bold text-on-surface flex items-center gap-1.5">
+<span class="inline-block w-2 h-2 rounded-full bg-error mr-0.5"></span>Nov/26 (Pico Plantio &amp; Combustível)
+                    <span class="px-1.5 py-0.2 rounded bg-error text-on-error text-[10px] font-bold">PICO GND</span>
+</td>
+<td class="py-2.5 px-3 text-secondary font-semibold">R$ 1.200.000</td>
+<td class="py-2.5 px-3 text-error">-R$ 2.680.000</td>
+<td class="py-2.5 px-3 text-on-surface-variant">-R$ 510.000</td>
+<td class="py-2.5 px-3 text-on-surface-variant">-R$ 90.000</td>
+<td class="py-2.5 px-3 text-error font-bold">-R$ 2.080.000</td>
+<td class="py-2.5 px-3 text-right text-error font-bold text-body-md">-R$ 6.840.000</td>
+</tr>
+<!-- Fev/27 -->
+<tr class="hover:bg-surface-container-lowest/80 transition-colors">
+<td class="py-2.5 px-3 font-data-dense font-medium text-on-surface">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary mr-1.5"></span>Fev/27 (Colheita Soja - 1ª Entrada)
+                  </td>
+<td class="py-2.5 px-3 text-secondary font-bold">R$ 3.840.000</td>
+<td class="py-2.5 px-3 text-on-surface-variant">-R$ 280.000</td>
+<td class="py-2.5 px-3 text-on-surface-variant">-R$ 490.000</td>
+<td class="py-2.5 px-3 text-error">-R$ 420.000</td>
+<td class="py-2.5 px-3 text-secondary font-bold">+R$ 2.650.000</td>
+<td class="py-2.5 px-3 text-right text-error font-medium">-R$ 1.890.000</td>
+</tr>
+<!-- Mar/27 -->
+<tr class="bg-secondary-container/20 hover:bg-secondary-container/30 transition-colors">
+<td class="py-2.5 px-3 font-data-dense font-bold text-on-surface flex items-center gap-1.5">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary mr-0.5"></span>Mar/27 (Liquidação Barter Bunge)
+                    <span class="px-1.5 py-0.2 rounded bg-secondary text-on-secondary text-[10px] font-bold">INFLEXÃO +</span>
+</td>
+<td class="py-2.5 px-3 text-secondary font-bold">R$ 5.920.000</td>
+<td class="py-2.5 px-3 text-on-surface-variant">-R$ 150.000</td>
+<td class="py-2.5 px-3 text-on-surface-variant">-R$ 440.000</td>
+<td class="py-2.5 px-3 text-error">-R$ 2.100.000</td>
+<td class="py-2.5 px-3 text-secondary font-bold">+R$ 3.230.000</td>
+<td class="py-2.5 px-3 text-right text-secondary font-bold text-body-md">+R$ 1.340.000</td>
+</tr>
+<!-- Mai/27 -->
+<tr class="hover:bg-surface-container-lowest/80 transition-colors">
+<td class="py-2.5 px-3 font-data-dense font-medium text-on-surface">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary mr-1.5"></span>Mai/27 (Colheita Safrinha Milho)
+                  </td>
+<td class="py-2.5 px-3 text-secondary font-semibold">R$ 4.210.000</td>
+<td class="py-2.5 px-3 text-on-surface-variant">-R$ 90.000</td>
+<td class="py-2.5 px-3 text-on-surface-variant">-R$ 380.000</td>
+<td class="py-2.5 px-3 text-on-surface-variant">-R$ 210.000</td>
+<td class="py-2.5 px-3 text-secondary font-semibold">+R$ 3.530.000</td>
+<td class="py-2.5 px-3 text-right text-secondary font-bold">+R$ 3.980.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Farm Agronomic Footprint Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-lg bg-cover bg-center shrink-0 shadow-sm" data-alt="Expansive green soybean field in Mato Grosso Brazil under bright dramatic sunlight with modern combine harvester tracks visible in red soil and blue horizon." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuYyhuLV09ULYUdFN84Bxx9NGW_D5EldU6O37SXdJGtnVukxSMZC19sekD3N7UOiS5PoB-GvsyFfw1mvA5NoTknIN42zvkzqr4TuCddl8qy9mJgAQ2P-M75zLCy8HA-znXxFuH-QKJMIuUYjjGDu9m1PvRC5vdi_DQZpu11WVEyok0AtOpHevUZWfT8cX9HG5Tsnwef3yyOk3bxbtcnMwcQHPV5APUOdx5UHbDMz6nymsrn3MJBbY')"></div>
+<div class="flex flex-col">
+<span class="font-badge-label text-badge-label text-on-surface-variant uppercase font-semibold">Área Consolidada de Simulação</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">3.450 hectares produtivos • Fazenda Santa Maria (Sorriso/MT)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Matrículas 18.204 e 21.099 no SIGEF • CAR MT-5107909 Ativo • 100% EUDR Compliant</span>
+</div>
+</div>
+<button class="shrink-0 h-9 px-space-md bg-surface-container-lowest hover:bg-surface-container-high rounded text-on-surface font-data-dense text-data-dense font-medium shadow-sm transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">map</span>
+<span>Ver Talhões Mapeados</span>
+</button>
+</div>
+</div>
+<!-- RIGHT COLUMN: Funding Portfolio + Treasury Alarms + LCDPR (4 Cols on Desktop / ~30%) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- 1. Composição das Fontes de Funding & Crédito Rural (E2-US9) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b border-surface-container pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">account_balance</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Funding &amp; Crédito Rural</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-code-mono-sm text-code-mono-sm font-semibold">
+            R$ 7,5M Total
+          </span>
+</div>
+<!-- Funding Donut / Visual Proportions -->
+<div class="flex items-center gap-space-md bg-surface-container-low/40 p-space-sm rounded-lg">
+<!-- Inline Donut SVG -->
+<svg class="w-20 h-20 shrink-0 transform -rotate-90" viewbox="0 0 36 36">
+<!-- 43% Financiamento (dark green) -->
+<circle cx="18" cy="18" fill="transparent" r="14" stroke="#00281B" stroke-dasharray="43 57" stroke-dashoffset="0" stroke-width="5"></circle>
+<!-- 28% Barter Insumos (emerald) -->
+<circle cx="18" cy="18" fill="transparent" r="14" stroke="#006C49" stroke-dasharray="28 72" stroke-dashoffset="-43" stroke-width="5"></circle>
+<!-- 20% CPR Trading (amber) -->
+<circle cx="18" cy="18" fill="transparent" r="14" stroke="#572C00" stroke-dasharray="20 80" stroke-dashoffset="-71" stroke-width="5"></circle>
+<!-- 9% Limite/Capital Próprio (slate) -->
+<circle cx="18" cy="18" fill="transparent" r="14" stroke="#717974" stroke-dasharray="9 91" stroke-dashoffset="-91" stroke-width="5"></circle>
+</svg>
+<div class="flex flex-col gap-1 text-[11px] font-code-mono-sm text-on-surface-variant flex-1">
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-primary"></span>Oficial (BB/Pronamp)</span>
+<span class="font-bold text-on-surface">43%</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-secondary"></span>Barter Yara/Mosaic</span>
+<span class="font-bold text-on-surface">28%</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-tertiary-container"></span>CPR Fís. Amaggi</span>
+<span class="font-bold text-on-surface">20%</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-outline"></span>Rotativo / Próprio</span>
+<span class="font-bold text-on-surface">9%</span>
+</div>
+</div>
+</div>
+<!-- Detailed Credit Contracts List -->
+<div class="flex flex-col gap-space-xs">
+<!-- Contract 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-data-dense text-data-dense font-bold text-on-surface">CPR-F Banco do Brasil #920.114</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Custeio Pronamp • Taxa 8,5% a.a.</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm font-bold text-primary">R$ 3.200.000</span>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-surface-container text-[11px] text-on-surface-variant font-body-sm">
+<span>Garantia: Penhor 24.000 sc Soja</span>
+<span class="text-secondary font-semibold">Venc: Mar/2027</span>
+</div>
+</div>
+<!-- Contract 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-data-dense text-data-dense font-bold text-on-surface">Barter Yara &amp; Mosaic Insumos</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">15.670 sacas travadas @ R$ 134,00</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm font-bold text-secondary">R$ 2.100.000</span>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-surface-container text-[11px] text-on-surface-variant font-body-sm">
+<span>Entrega: Armazém Sorriso</span>
+<span class="text-secondary font-semibold">Liq: Fev/2027</span>
+</div>
+</div>
+<!-- Contract 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-data-dense text-data-dense font-bold text-on-surface">CPR Física Amaggi Grain Export</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">11.200 sacas com prêmio Porto Santos</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm font-bold text-tertiary-container">R$ 1.500.000</span>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-surface-container text-[11px] text-on-surface-variant font-body-sm">
+<span>Certificado EUDR vinculado</span>
+<span class="text-secondary font-semibold">Liq: Mar/2027</span>
+</div>
+</div>
+<!-- Contract 4 (Line Reserve) -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-data-dense text-data-dense font-bold text-on-surface">Limite Rotativo Emergencial Caixa</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Linha pré-aprovada para estresse</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm font-bold text-outline">R$ 700.000</span>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-surface-container text-[11px] text-on-surface-variant font-body-sm">
+<span class="text-secondary font-semibold">Status: 0% Utilizado (Disponível)</span>
+<span>CDI + 2,1%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Alertas de Tesouraria & Gatilhos de Hedge -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between border-b border-surface-container pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">notification_important</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Gatilhos &amp; Alertas Ativos</h3>
+</div>
+<span class="h-2 w-2 rounded-full bg-secondary"></span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- Alert 1 (Verde) -->
+<div class="p-space-sm rounded-lg bg-secondary-container/20 flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">verified</span>
+<div class="flex flex-col">
+<span class="font-data-dense text-data-dense font-bold text-on-secondary-container">Trava Cambial &amp; Barter em 62%</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Risco de flutuação de adubos nitrogenados e potássicos 100% neutralizado para o ciclo 26/27.
+              </p>
+</div>
+</div>
+<!-- Alert 2 (Azul) -->
+<div class="p-space-sm rounded-lg bg-surface-container-high/60 flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">price_change</span>
+<div class="flex flex-col">
+<span class="font-data-dense text-data-dense font-bold text-on-surface">Gatilho de Venda B3 Milho Safrinha</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Recomendação quant: cotação B3 a R$ 53,50/sc cobre 100% do COE + 22% de margem. Abrir ordem de travamento.
+              </p>
+</div>
+</div>
+<!-- Alert 3 (Cinza/Neutro) -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] shrink-0 mt-0.5">schedule</span>
+<div class="flex flex-col">
+<span class="font-data-dense text-data-dense font-bold text-on-surface">Arrendamento Fazenda Santa Maria</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Parcela de R$ 480.000 em 15/Dez/26 já provisionada na conta de liquidação BB.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Sincronização Contábil & LCDPR -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between border-b border-surface-container pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">sync</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Conexão Contábil &amp; LCDPR</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-primary font-badge-label text-badge-label font-bold">
+            SEFAZ ON
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Fluxo 100% conciliado com <strong class="font-semibold text-on-surface">186 NF-e distDFe</strong> importadas automaticamente e amarradas aos contratos bancários. Pronto para transmissão no Livro Caixa Digital do Produtor Rural (LCDPR 2027).
+        </p>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1.5 font-code-mono-sm text-code-mono-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">task_alt</span>
+<span>Zero Divergências Fiscais</span>
+</div>
+<a class="inline-flex items-center gap-1 font-data-dense text-data-dense text-primary font-bold hover:underline" href="#">
+<span>Extrato Bancário</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Soil & Satellite Risk Micro-Badge -->
+<div class="rounded-xl p-space-md bg-surface-container-highest/40 flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-lg bg-cover bg-center shrink-0" data-alt="Satellite NDVI radar crop health map showing deep lush green biomass index across rectangular field plots with moisture sensor markers." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClbZwkxNdD6VGg1H5_8Rd8STYt3vHkxttX8aP1qGzuFjidvgyRJUXUrmYO8I3tcpaxpOnwvl1l_1A8-IkJS68rVGzCn5bH_mAY9n0xv1GQjOttvvRYxtzqmGph9srTBcJeRyQjR_SJLf9ntLAJ9AmsQnVThFsDjLsa4-KJxlt-tXHYL4D0KR_VSEgoVl-jSlyxkn3oDEZ66Yl9EdQ1QU9H_rRYkNn7dt__F2N_dXKBZDi_AXWu0L0')"></div>
+<div class="flex flex-col">
+<span class="font-badge-label text-badge-label text-on-surface-variant uppercase font-semibold">Monitoramento Sentinel-2</span>
+<span class="font-data-dense text-data-dense font-bold text-on-surface">Índice NDVI Médio: 0,81 (Excelente)</span>
+<span class="font-body-sm text-body-sm text-secondary font-medium">Sem estresse hídrico mapeado no solo</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Logic for Dynamic Agro-Fintech Sensitivity Recalculation -->
+<script>
+  (function() {
+    const rangeSoja = document.getElementById('range-soja');
+    const rangeMilho = document.getElementById('range-milho');
+    const labelSoja = document.getElementById('label-soja');
+    const labelMilho = document.getElementById('label-milho');
+    const deltaSoja = document.getElementById('delta-soja');
+    const deltaMilho = document.getElementById('delta-milho');
+    const impactText = document.getElementById('impact-text');
+    const impactBanner = document.getElementById('impact-banner');
+    const scenarioBtns = document.querySelectorAll('.scenario-pill');
+
+    function updateCalculations(sojaVal, milhoVal) {
+      labelSoja.textContent = 'R$ ' + Number(sojaVal).toFixed(2);
+      labelMilho.textContent = 'R$ ' + Number(milhoVal).toFixed(2);
+
+      const dSoja = (((sojaVal - 134) / 134) * 100).toFixed(1);
+      const dMilho = (((milhoVal - 51.20) / 51.20) * 100).toFixed(1);
+
+      deltaSoja.textContent = (dSoja >= 0 ? '+' : '') + dSoja + '%';
+      deltaSoja.className = dSoja >= 0 ? 'text-secondary font-bold' : 'text-error font-bold';
+
+      deltaMilho.textContent = (dMilho >= 0 ? '+' : '') + dMilho + '%';
+      deltaMilho.className = dMilho >= 0 ? 'text-secondary font-bold' : 'text-error font-bold';
+
+      if (sojaVal <= 110) {
+        impactBanner.className = 'bg-error text-on-error rounded-xl p-space-md flex items-start gap-space-sm transition-all shadow-md';
+        impactText.innerHTML = '<strong>ALERTA DE LIQUIDEZ CRÍTICA:</strong> Com Soja a R$ ' + Number(sojaVal).toFixed(2) + ', o GND Máximo se expande em +R$ 1.250.000. Necessário acionar R$ 700k do Limite Rotativo Caixa e renegociar entrega de barter.';
+      } else if (sojaVal < 130) {
+        impactBanner.className = 'bg-tertiary-container text-on-tertiary-container rounded-xl p-space-md flex items-start gap-space-sm transition-all';
+        impactText.innerHTML = 'Simulação recalculada em &lt;0,5s: Com queda na soja (' + dSoja + '%), o pico de necessidade de caixa aumenta em R$ 420k, mas a margem líquida final encerra em R$ 2.890.000 preservando liquidez positiva.';
+      } else {
+        impactBanner.className = 'bg-primary-container text-on-primary rounded-xl p-space-md flex items-start gap-space-sm transition-all';
+        impactText.innerHTML = 'Cenário Base equilibrado: Cobertura de desembolsos assegurada por linhas oficiais e Barter. Folga de caixa atinge R$ 660.000 no mês mais severo (Nov/26) com margem EBITDA consolidada de 32,8%.';
+      }
+    }
+
+    if (rangeSoja && rangeMilho) {
+      rangeSoja.addEventListener('input', function() {
+        updateCalculations(this.value, rangeMilho.value);
+      });
+      rangeMilho.addEventListener('input', function() {
+        updateCalculations(rangeSoja.value, this.value);
+      });
+    }
+
+    scenarioBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        scenarioBtns.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary');
+          b.classList.add('bg-surface-container-low', 'text-on-surface');
+        });
+        this.classList.remove('bg-surface-container-low', 'text-on-surface');
+        this.classList.add('bg-primary', 'text-on-primary');
+
+        const scen = this.dataset.scenario;
+        if (scen === 'base') {
+          rangeSoja.value = 134;
+          rangeMilho.value = 51.20;
+        } else if (scen === 'stress-mod') {
+          rangeSoja.value = 120.60;
+          rangeMilho.value = 46.00;
+        } else if (scen === 'stress-sev') {
+          rangeSoja.value = 107.20;
+          rangeMilho.value = 41.00;
+        } else if (scen === 'insumos') {
+          rangeSoja.value = 128;
+          rangeMilho.value = 48.00;
+        }
+        updateCalculations(rangeSoja.value, rangeMilho.value);
+      });
+    });
+
+    const btnStress = document.getElementById('btn-stress');
+    if (btnStress) {
+      btnStress.addEventListener('click', function() {
+        const stressBtn = document.querySelector('[data-scenario="stress-mod"]');
+        if (stressBtn) stressBtn.click();
+      });
+    }
+  })();
+</script></main></div></body></html>

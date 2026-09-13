@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fazenda Santa Maria - Custo & Margem por Talhão</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-tint": "#0061a2",
+            "on-tertiary-fixed-variant": "#703700",
+            "primary-fixed-dim": "#9dcaff",
+            "inverse-primary": "#9dcaff",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#ffdcc5",
+            "on-tertiary": "#ffffff",
+            "surface-bright": "#f8f9ff",
+            "tertiary-fixed-dim": "#ffb783",
+            "surface-container-high": "#e6e8f0",
+            "tertiary": "#904900",
+            "primary-fixed": "#d1e4ff",
+            "surface-container": "#eceef6",
+            "surface-dim": "#d8dae2",
+            "secondary": "#436082",
+            "on-secondary-container": "#405d7f",
+            "error": "#ba1a1a",
+            "on-error-container": "#93000a",
+            "primary": "#005f9e",
+            "secondary-fixed": "#d1e4ff",
+            "on-tertiary-fixed": "#301400",
+            "primary-container": "#0078c6",
+            "inverse-on-surface": "#eef0f8",
+            "on-surface-variant": "#404752",
+            "on-primary-fixed": "#001d35",
+            "outline-variant": "#bfc7d3",
+            "on-tertiary-container": "#fffbff",
+            "on-primary-container": "#fdfcff",
+            "secondary-fixed-dim": "#abc9f0",
+            "on-secondary-fixed": "#001d36",
+            "tertiary-container": "#b55d00",
+            "on-surface": "#181c21",
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#00497c",
+            "on-error": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-primary": "#ffffff",
+            "surface-container-low": "#f1f3fb",
+            "surface": "#f8f9ff",
+            "secondary-container": "#b9d7fe",
+            "inverse-surface": "#2d3137",
+            "surface-container-highest": "#e0e2ea",
+            "background": "#f8f9ff",
+            "outline": "#707883",
+            "surface-variant": "#e0e2ea",
+            "on-background": "#181c21",
+            "on-secondary-fixed-variant": "#2b4969"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "margin": "1.5rem",
+            "space-md": "0.75rem",
+            "space-lg": "1.25rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "1.75rem"
+          },
+          "fontFamily": {
+            "code-mono-md": ["JetBrains Mono"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "badge-label": ["Inter"],
+            "data-dense": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "code-mono-sm": ["JetBrains Mono"]
+          },
+          "fontSize": {
+            "code-mono-md": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "badge-label": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "data-dense": ["13px", { "lineHeight": "16px", "fontWeight": "500" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "code-mono-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- Shared Component: TopNavBar Header & Metric Area -->
+<div class="relative flex h-auto w-full flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-6 lg:px-12 flex flex-1 justify-center py-3">
+<div class="layout-content-container flex flex-col w-full flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e6eff4] px-4 lg:px-8 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-[#0c161c]">
+<div class="size-4">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-[#0c161c] text-lg font-bold leading-tight tracking-[-0.015em]">Fazenda Santa Maria</h2>
+</div>
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded h-full">
+<div class="text-[#467ca0] flex border-none bg-[#e6eff4] items-center justify-center pl-4 rounded-l border-r-0" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-[#0c161c] focus:outline-0 focus:ring-0 border-none bg-[#e6eff4] focus:border-none h-full placeholder:text-[#467ca0] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Buscar talhão, insumo, lote..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-[#0c161c] text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Visão Geral</a>
+<a class="text-primary text-sm font-bold leading-normal border-b-2 border-primary pb-0.5" href="#">Custo & Margem</a>
+<a class="text-[#0c161c] text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Planejamento Safra</a>
+<a class="text-[#0c161c] text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Conformidade EUDR</a>
+</div>
+<div class="flex gap-2">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#0283da] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary transition-colors shadow-sm">
+<span class="truncate">Ajustar Rateio</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#e6eff4] text-[#0c161c] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-surface-container transition-colors">
+<span class="truncate">Importar KML/GeoJSON</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-outline-variant" data-alt="Close-up professional portrait of a Brazilian farm manager wearing clean outdoor workwear against a soft morning light field setting, warm natural lighting, modern high key agricultural executive aesthetic." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEpZwlei7_4tKLYwmw51Jlaxq3CihGFlxBNqSvffYTXWr1u1xvGXhwRnWHn7R4YRsOt8hUqyQFRf8L7PwC-FMHv7gBhWZPKpo3bJIstnKUyMuZuJQ2E_sY94K2DhF2u2OQIOjWLeyQKGBVP4l5ghxycuLe0D4UP7PU6xqsbd8RPetHyRM5QlNuUH8Myi8oTg8rqIC9MaZof-yPWgJkw21GH5zRkXw1GxMkcI7K8eQVMbzhfUnapwA");'></div>
+</div>
+</header>
+<div class="flex flex-wrap gap-2 px-4 lg:px-8 pt-3 pb-1">
+<a class="text-[#467ca0] text-sm font-medium leading-normal hover:underline" href="#">Gestão Financeira Safra 24/25</a>
+<span class="text-[#467ca0] text-sm font-medium leading-normal">/</span>
+<a class="text-[#467ca0] text-sm font-medium leading-normal hover:underline" href="#">Custos Agrícolas</a>
+<span class="text-[#467ca0] text-sm font-medium leading-normal">/</span>
+<span class="text-[#0c161c] text-sm font-semibold leading-normal">Custo & Margem por Talhão</span>
+</div>
+<div class="flex flex-wrap justify-between items-end gap-3 px-4 lg:px-8 py-2">
+<div class="flex min-w-72 flex-col gap-1">
+<p class="text-[#0c161c] text-2xl lg:text-3xl font-black leading-tight tracking-[-0.033em]">Custo & Margem por Talhão</p>
+<p class="text-[#467ca0] text-sm font-normal leading-normal">Ranking agronômico e financeiro por talhão georreferenciado (1.420 ha totais)</p>
+</div>
+<div class="flex gap-2">
+<button class="flex cursor-pointer items-center justify-center gap-2 rounded h-9 px-3 bg-surface-container text-[#0c161c] text-sm font-bold hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Configurar Moeda/Sacas</span>
+</button>
+<button class="flex cursor-pointer items-center justify-center gap-2 rounded h-9 px-4 bg-[#e6eff4] text-[#0c161c] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+<span class="truncate">Exportar Relatório</span>
+</button>
+</div>
+</div>
+<!-- Filtros de Navegação -->
+<div class="flex flex-wrap gap-2.5 px-4 lg:px-8 py-2 overflow-x-auto">
+<div class="flex items-center gap-1.5 bg-[#e6eff4] rounded px-3 py-1.5 cursor-pointer text-xs font-semibold text-[#0c161c]">
+<span class="text-secondary font-normal">Cultura:</span>
+<span>Todas as Culturas</span>
+<span class="material-symbols-outlined text-sm ml-1">expand_more</span>
+</div>
+<div class="flex items-center gap-1.5 bg-[#e6eff4] rounded px-3 py-1.5 cursor-pointer text-xs font-semibold text-[#0c161c]">
+<span class="text-secondary font-normal">Fase:</span>
+<span>Tratos Culturais</span>
+<span class="material-symbols-outlined text-sm ml-1">expand_more</span>
+</div>
+<div class="flex items-center gap-1.5 bg-[#e6eff4] rounded px-3 py-1.5 cursor-pointer text-xs font-semibold text-[#0c161c]">
+<span class="text-secondary font-normal">Ordenação:</span>
+<span>Margem Bruta (Decrescente)</span>
+<span class="material-symbols-outlined text-sm ml-1">expand_more</span>
+</div>
+<div class="flex items-center gap-1.5 bg-[#e6eff4] rounded px-3 py-1.5 cursor-pointer text-xs font-semibold text-[#0c161c]">
+<span class="text-secondary font-normal">Safra:</span>
+<span>2024/2025</span>
+<span class="material-symbols-outlined text-sm ml-1">expand_more</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-low border border-outline-variant rounded px-2.5 py-1.5 text-xs text-on-surface-variant ml-auto">
+<span class="size-2 rounded-full bg-emerald-600 inline-block"></span>
+<span>Cotação Base: Soja R$ 132,50/sc · Dólar R$ 5,42</span>
+</div>
+</div>
+<!-- Métricas Resumo no Topo -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 px-4 lg:px-8 py-2.5">
+<div class="flex flex-col gap-1 rounded p-4 bg-[#e6eff4] border-l-4 border-primary">
+<p class="text-secondary text-xs font-semibold uppercase tracking-wider">Total de Talhões</p>
+<div class="flex items-baseline justify-between">
+<p class="text-[#0c161c] text-2xl font-bold tracking-tight">12 Talhões</p>
+<p class="text-[#078838] text-xs font-semibold">100% mapeados</p>
+</div>
+<span class="text-outline text-[11px]">1.420 ha totais em operação</span>
+</div>
+<div class="flex flex-col gap-1 rounded p-4 bg-[#e6eff4] border-l-4 border-secondary">
+<p class="text-secondary text-xs font-semibold uppercase tracking-wider">Área Média / Talhão</p>
+<div class="flex items-baseline justify-between">
+<p class="text-[#0c161c] text-2xl font-bold tracking-tight">118 ha</p>
+<p class="text-secondary text-xs font-medium">Desvio: ±22 ha</p>
+</div>
+<span class="text-outline text-[11px]">Glebas Norte, Sul e Pivô Central</span>
+</div>
+<div class="flex flex-col gap-1 rounded p-4 bg-[#e6eff4] border-l-4 border-tertiary">
+<p class="text-secondary text-xs font-semibold uppercase tracking-wider">Custo Médio / ha</p>
+<div class="flex items-baseline justify-between">
+<p class="text-[#0c161c] text-2xl font-bold tracking-tight font-code-mono-md">R$ 3.394</p>
+<p class="text-[#e73508] text-xs font-bold">-3.4% orçado</p>
+</div>
+<span class="text-outline text-[11px]">Meta safra: R$ 3.515/ha</span>
+</div>
+<div class="flex flex-col gap-1 rounded p-4 bg-[#e6eff4] border-l-4 border-emerald-600">
+<p class="text-secondary text-xs font-semibold uppercase tracking-wider">Margem Média / ha</p>
+<div class="flex items-baseline justify-between">
+<p class="text-[#0c161c] text-2xl font-bold tracking-tight font-code-mono-md">R$ 1.940</p>
+<p class="text-[#078838] text-xs font-bold">+8.2% vs 23/24</p>
+</div>
+<span class="text-outline text-[11px]">ROI projetado: 57,1%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Interactive Split-Screen: Map 45% + Data Ranking 55% -->
+<main class="flex-1 px-4 lg:px-8 py-3 max-w-[1680px] w-full mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+<!-- LEFT PANEL: Geospatial Satellite Map (45% -> 5 cols on lg/xl, 6 on 2xl) -->
+<section class="lg:col-span-5 flex flex-col gap-3">
+<div class="bg-surface-container-lowest rounded border border-outline-variant overflow-hidden shadow-sm">
+<!-- Map Toolbar / Subheader -->
+<div class="flex items-center justify-between p-3 border-b border-surface-container-high bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">public</span>
+<h3 class="font-headline-sm text-sm text-on-surface">Mapa Satélite Geoespacial</h3>
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-1.5 py-0.5 rounded">Sentinel-2 • L2A</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="size-7 flex items-center justify-center rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" title="Zoom in">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+<button class="size-7 flex items-center justify-center rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" title="Zoom out">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<button class="size-7 flex items-center justify-center rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" title="Tela cheia">
+<span class="material-symbols-outlined text-sm">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Map Graphic Container with Layer Overlays -->
+<div class="relative w-full h-[540px] bg-slate-900 overflow-hidden select-none">
+<!-- Satellite Background Image -->
+<div class="absolute inset-0 bg-cover bg-center opacity-85" data-alt="High-resolution aerial satellite imagery of modern precision agriculture farmlands in Brazil featuring distinct geometric crop field plots with lush green soybean rows, red clay service roads, and forest reserves under crisp bright daytime lighting." data-location="Mato Grosso, Brazil" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAGumvge0b9fp83K-mPBYGtQff5LOnNhivSOXksnbkabz9P9Mybw2W2F9-aURZ0a2SYCXb14imGC6cG9D5Hsxhd-ZxBEpC5CB7zuDTFeoqIYkI73KPmiMdEYMhNISnimOqaWbvwQvQ7Opeh1VqhDNl-ucH7LI4OKbnOTgI5z4jQoCRu98cpxZkC8QXojT5QJle7tNoDLF_YcwCldC0wTBxdGzv0bLWVDQ5ISWglOVmisTK_Fk8zuSo');">
+</div>
+<!-- SVG Vector Layer: Farm Boundaries & Polygons colored by Margin -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" viewbox="0 0 700 580">
+<!-- Grid and boundary cues -->
+<path d="M40,30 L660,30 L660,550 L40,550 Z" stroke="#ffffff" stroke-dasharray="4,4" stroke-opacity="0.3" stroke-width="1"></path>
+<!-- Talhão 01 (Regular Margin - Light Green) -->
+<polygon fill="#22c55e" fill-opacity="0.35" points="60,60 210,50 220,180 70,190" stroke="#16a34a" stroke-width="2"></polygon>
+<text fill="#ffffff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.8))" font-size="12" font-weight="700" x="110" y="120">T-01 (112 ha)</text>
+<!-- Talhão 02 (Alta Margem - Dark Green) -->
+<polygon fill="#15803d" fill-opacity="0.55" points="225,50 370,40 380,175 235,180" stroke="#14532d" stroke-width="2"></polygon>
+<text fill="#ffffff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.8))" font-size="12" font-weight="700" x="260" y="115">T-02 (125 ha)</text>
+<!-- Talhão 03 (Alerta de Custo - Amarelo) -->
+<polygon fill="#eab308" fill-opacity="0.45" points="385,40 530,45 540,170 395,175" stroke="#ca8a04" stroke-width="2"></polygon>
+<text fill="#ffffff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.8))" font-size="12" font-weight="700" x="420" y="115">T-03 (98 ha)</text>
+<!-- Talhão 04 (Gleba Norte - Alta Margem > R$2.200/ha) SELECTED WITH GLOW / HIGHLIGHT -->
+<polygon fill="#047857" fill-opacity="0.65" points="75,210 240,200 255,360 90,375" stroke="#005f9e" stroke-dasharray="none" stroke-width="3.5"></polygon>
+<circle cx="165" cy="285" fill="#67e8f9" r="4"></circle>
+<text fill="#ffffff" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.9))" font-size="13" font-weight="800" x="115" y="290">Talhão 04 ★</text>
+<!-- Talhão 05 (Alta Margem - Dark Green) -->
+<polygon fill="#15803d" fill-opacity="0.5" points="255,200 410,195 425,355 270,360" stroke="#166534" stroke-width="2"></polygon>
+<text fill="#ffffff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.8))" font-size="12" font-weight="700" x="300" y="280">T-05 (130 ha)</text>
+<!-- Talhão 06 (Regular Margin - Verde Claro) -->
+<polygon fill="#22c55e" fill-opacity="0.38" points="425,195 580,205 595,350 440,355" stroke="#16a34a" stroke-width="2"></polygon>
+<text fill="#ffffff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.8))" font-size="12" font-weight="700" x="475" y="275">T-06 (105 ha)</text>
+<!-- Talhão 09 (Sob Análise - Laranja) -->
+<polygon fill="#f97316" fill-opacity="0.5" points="105,395 270,380 280,515 120,530" stroke="#c2410c" stroke-dasharray="6,3" stroke-width="2.5"></polygon>
+<text fill="#ffffff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.8))" font-size="12" font-weight="700" x="145" y="460">T-09 [Alerta Rateio]</text>
+<!-- Outros Talhões de fundo (7, 8, 10, 11, 12) -->
+<polygon fill="#22c55e" fill-opacity="0.3" points="285,380 445,375 460,515 295,520" stroke="#16a34a" stroke-width="1.5"></polygon>
+<text fill="#ffffff" font-size="11" font-weight="600" opacity="0.9" x="340" y="455">T-07 (110 ha)</text>
+<polygon fill="#15803d" fill-opacity="0.45" points="460,375 620,370 635,510 475,518" stroke="#15803d" stroke-width="1.5"></polygon>
+<text fill="#ffffff" font-size="11" font-weight="600" opacity="0.9" x="515" y="450">T-08 (144 ha)</text>
+</svg>
+<!-- Floating Tooltip over Talhão 04 (Gleba Norte) -->
+<div class="absolute top-[180px] left-[175px] z-20 w-72 bg-surface-container-lowest/95 backdrop-blur-md rounded shadow-xl border border-primary p-3 pointer-events-auto">
+<div class="flex items-center justify-between pb-1.5 border-b border-surface-container-high">
+<div class="flex items-center gap-1.5">
+<span class="size-2.5 rounded-full bg-emerald-600 inline-block animate-pulse"></span>
+<p class="font-headline-sm text-xs text-on-surface font-bold">Talhão 04 (Gleba Norte)</p>
+</div>
+<span class="inline-flex items-center gap-0.5 text-[10px] font-semibold bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+                  EUDR Conforme
+                </span>
+</div>
+<div class="mt-2 grid grid-cols-2 gap-y-1.5 text-xs">
+<div>
+<span class="text-outline text-[11px] block">Área & Cultura</span>
+<span class="font-medium text-on-surface">140 ha • Soja BMX Zeus</span>
+</div>
+<div>
+<span class="text-outline text-[11px] block">Prod. Projetada</span>
+<span class="font-bold text-on-surface font-code-mono-sm">68 sc/ha</span>
+</div>
+<div>
+<span class="text-outline text-[11px] block">Custo Total</span>
+<span class="font-semibold text-tertiary font-code-mono-sm">R$ 3.120 / ha</span>
+</div>
+<div>
+<span class="text-outline text-[11px] block">Margem Bruta</span>
+<span class="font-bold text-emerald-700 font-code-mono-sm">R$ 2.480 / ha</span>
+</div>
+</div>
+<div class="mt-2 pt-1.5 border-t border-surface-container text-[10px] text-secondary flex items-center justify-between">
+<span>NDVI Médio: 0.81 (Vigor Ótimo)</span>
+<span class="text-primary font-bold cursor-pointer hover:underline">Ver Histórico →</span>
+</div>
+</div>
+<!-- Bottom Left Map Quick Legend -->
+<div class="absolute bottom-3 left-3 bg-inverse-surface/85 backdrop-blur-sm text-inverse-on-surface p-2.5 rounded text-[11px] space-y-1 z-10 max-w-[210px]">
+<p class="font-bold text-xs uppercase tracking-wider text-slate-300">Margem Bruta (R$/ha)</p>
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-sm bg-emerald-800 border border-emerald-400"></span>
+<span>Alta Margem (> R$ 2.200)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-sm bg-green-500 border border-green-300"></span>
+<span>Margem Regular (R$ 1.800 - 2.200)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-sm bg-yellow-500 border border-yellow-300"></span>
+<span>Alerta de Custo Elevado</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-sm bg-orange-600 border border-orange-300"></span>
+<span>Sob Análise de Rateio (T-09)</span>
+</div>
+</div>
+<!-- Top Right Map Layers Box -->
+<div class="absolute top-3 right-3 bg-surface-container-lowest/95 backdrop-blur-sm p-2 rounded border border-outline-variant shadow text-xs z-10">
+<span class="text-[10px] font-bold text-secondary uppercase block mb-1">Camadas Ativas</span>
+<div class="space-y-1">
+<label class="flex items-center gap-1.5 text-on-surface cursor-pointer">
+<input checked="" class="rounded text-primary size-3.5 focus:ring-0" type="checkbox"/>
+<span>Camada CAR (SICAR)</span>
+</label>
+<label class="flex items-center gap-1.5 text-on-surface cursor-pointer">
+<input checked="" class="rounded text-primary size-3.5 focus:ring-0" type="checkbox"/>
+<span>Alertas Prodes / DETER</span>
+</label>
+<label class="flex items-center gap-1.5 text-on-surface cursor-pointer">
+<input checked="" class="rounded text-primary size-3.5 focus:ring-0" type="checkbox"/>
+<span>Curvas de Nível / NDVI</span>
+</label>
+<label class="flex items-center gap-1.5 text-on-surface cursor-pointer">
+<input checked="" class="rounded text-primary size-3.5 focus:ring-0" type="checkbox"/>
+<span>Rótulos de Ha & Código</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Bottom Geolocation Metadata Bar -->
+<div class="px-3 py-2 bg-surface-container flex flex-wrap items-center justify-between text-xs text-secondary">
+<div class="flex items-center gap-3 font-code-mono-sm">
+<span>LAT: -12.8492° S</span>
+<span>LONG: -55.7214° W</span>
+<span class="text-on-surface font-semibold">DATUM: SIRGAS 2000</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-emerald-600">cloud_done</span>
+<span class="text-[11px]">Sincronização Geoespacial OK (Hoje 08:30)</span>
+</div>
+</div>
+</div>
+<!-- EUDR & Sustainability Status Mini Card -->
+<div class="bg-surface-container-lowest p-3 rounded border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-emerald-100 flex items-center justify-center text-emerald-700">
+<span class="material-symbols-outlined">shield_with_heart</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Auditoria EUDR Pré-Embarque</p>
+<p class="text-[11px] text-secondary">100% dos talhões livres de desmatamento pós-2020 rastreados via satélite</p>
+</div>
+</div>
+<button class="text-xs text-primary font-bold hover:underline">Ver Laudo CAR</button>
+</div>
+</section>
+<!-- RIGHT PANEL: Data Ranking Table & Detail Card (55% -> 7 cols on lg/xl) -->
+<section class="lg:col-span-7 flex flex-col gap-3">
+<!-- Ranking Table Container -->
+<div class="bg-surface-container-lowest rounded border border-outline-variant overflow-hidden shadow-sm">
+<div class="p-3 bg-surface-container-low border-b border-surface-container-high flex flex-wrap items-center justify-between gap-2">
+<div>
+<h3 class="font-headline-sm text-sm text-on-surface">Demonstrativo por Talhão & Margem Unitária</h3>
+<p class="text-xs text-secondary">Ordenado por Maior Margem Bruta/ha • Clique na linha para inspecionar</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-secondary">Exibindo 6 de 12 talhões</span>
+<div class="flex border border-outline-variant rounded overflow-hidden">
+<button class="px-2 py-1 bg-surface-container text-xs font-bold text-primary">Tabela</button>
+<button class="px-2 py-1 bg-surface-container-lowest text-xs text-secondary hover:bg-surface-container">Gráfico</button>
+</div>
+</div>
+</div>
+<!-- Responsive Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="bg-surface-container text-secondary font-semibold border-b border-surface-container-high">
+<th class="py-2.5 px-3">Talhão / Gleba</th>
+<th class="py-2.5 px-2">Cultura & Variedade</th>
+<th class="py-2.5 px-2 text-right">Área</th>
+<th class="py-2.5 px-2 text-right">Insumos Dir.</th>
+<th class="py-2.5 px-2 text-right">Máquinas/Op</th>
+<th class="py-2.5 px-2 text-right">Indiretos</th>
+<th class="py-2.5 px-2 text-right">Custo Total/ha</th>
+<th class="py-2.5 px-3 text-right">Margem/ha</th>
+<th class="py-2.5 px-2 text-center">EUDR</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Talhão 04: SELECTED / IN FOCUS -->
+<tr class="bg-primary/10 hover:bg-primary/15 transition-colors cursor-pointer border-l-4 border-primary">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-sm">radio_button_checked</span>
+<span class="font-bold text-on-surface">T-04 (Norte)</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-on-surface">Soja BMX Zeus</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">140 ha</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 1.840</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 680</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 600</td>
+<td class="py-2.5 px-2 text-right font-bold font-code-mono-sm text-tertiary">R$ 3.120</td>
+<td class="py-2.5 px-3 text-right font-bold font-code-mono-sm text-emerald-700 bg-emerald-500/10">R$ 2.480</td>
+<td class="py-2.5 px-2 text-center">
+<span class="inline-block size-2 rounded-full bg-emerald-600" title="100% Conforme EUDR"></span>
+</td>
+</tr>
+<!-- Talhão 02 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="py-2.5 px-3">
+<span class="font-medium text-on-surface">T-02 (Central)</span>
+</td>
+<td class="py-2.5 px-2 text-on-surface">Soja DM 58I60</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">125 ha</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 1.910</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 710</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 590</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 3.210</td>
+<td class="py-2.5 px-3 text-right font-bold font-code-mono-sm text-emerald-700">R$ 2.390</td>
+<td class="py-2.5 px-2 text-center">
+<span class="inline-block size-2 rounded-full bg-emerald-600" title="100% Conforme"></span>
+</td>
+</tr>
+<!-- Talhão 05 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="py-2.5 px-3">
+<span class="font-medium text-on-surface">T-05 (Gleba Sul)</span>
+</td>
+<td class="py-2.5 px-2 text-on-surface">Soja BMX Bônus</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">130 ha</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 1.980</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 720</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 610</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 3.310</td>
+<td class="py-2.5 px-3 text-right font-bold font-code-mono-sm text-emerald-700">R$ 2.220</td>
+<td class="py-2.5 px-2 text-center">
+<span class="inline-block size-2 rounded-full bg-emerald-600" title="100% Conforme"></span>
+</td>
+</tr>
+<!-- Talhão 01 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="py-2.5 px-3">
+<span class="font-medium text-on-surface">T-01 (Sede Velha)</span>
+</td>
+<td class="py-2.5 px-2 text-on-surface">Soja Monsoy 5947</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">112 ha</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 2.050</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 740</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 630</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 3.420</td>
+<td class="py-2.5 px-3 text-right font-bold font-code-mono-sm text-emerald-600">R$ 1.980</td>
+<td class="py-2.5 px-2 text-center">
+<span class="inline-block size-2 rounded-full bg-emerald-600" title="100% Conforme"></span>
+</td>
+</tr>
+<!-- Talhão 06 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="py-2.5 px-3">
+<span class="font-medium text-on-surface">T-06 (Pivô 01)</span>
+</td>
+<td class="py-2.5 px-2 text-on-surface">Milho FS 500 PWU</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">105 ha</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 2.140</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 810</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 640</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 3.590</td>
+<td class="py-2.5 px-3 text-right font-bold font-code-mono-sm text-emerald-600">R$ 1.820</td>
+<td class="py-2.5 px-2 text-center">
+<span class="inline-block size-2 rounded-full bg-emerald-600" title="100% Conforme"></span>
+</td>
+</tr>
+<!-- Talhão 03 (Alerta de Custo Elevado) -->
+<tr class="bg-amber-500/5 hover:bg-amber-500/10 transition-colors cursor-pointer">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-amber-600 text-sm">warning</span>
+<span class="font-medium text-on-surface">T-03 (Baixada)</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-on-surface">Soja TMG 2381</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">98 ha</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 2.390</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 890</td>
+<td class="py-2.5 px-2 text-right font-code-mono-sm">R$ 650</td>
+<td class="py-2.5 px-2 text-right font-bold font-code-mono-sm text-error">R$ 3.930</td>
+<td class="py-2.5 px-3 text-right font-bold font-code-mono-sm text-amber-700">R$ 1.410</td>
+<td class="py-2.5 px-2 text-center">
+<span class="inline-block size-2 rounded-full bg-emerald-600" title="100% Conforme"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-2.5 bg-surface-container-low border-t border-surface-container flex items-center justify-between text-xs text-secondary">
+<span class="font-data-dense">Médias dos 6 talhões exibidos: Custo R$ 3.430/ha • Margem R$ 2.050/ha</span>
+<div class="flex items-center gap-1">
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-semibold"><</button>
+<span class="px-2 font-bold text-primary">1 de 2</span>
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-semibold">></button>
+</div>
+</div>
+</div>
+<!-- Detail Drawer / Card: Selected Talhão 04 (Gleba Norte) -->
+<div class="bg-surface-container-lowest rounded border-2 border-primary/40 p-4 shadow-md space-y-4">
+<div class="flex flex-wrap items-start justify-between gap-2 border-b border-surface-container-high pb-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="bg-primary text-on-primary text-xs font-bold px-2 py-0.5 rounded">Talhão em Foco</span>
+<h4 class="font-headline-sm text-base text-on-surface font-bold">Talhão 04 (Gleba Norte) - Safra 24/25</h4>
+</div>
+<p class="text-xs text-secondary mt-0.5">Área Útil: 140,2 ha • Solo: Latossolo Vermelho Argiloso (48% argila) • Plantio: 18/Out</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1 bg-surface-container px-2.5 py-1.5 rounded text-xs font-semibold hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-sm">print</span> Imprimir Ficha
+              </button>
+<button class="flex items-center gap-1 bg-primary text-on-primary px-3 py-1.5 rounded text-xs font-bold hover:bg-primary-container">
+<span class="material-symbols-outlined text-sm">edit_note</span> Novo Apontamento
+              </button>
+</div>
+</div>
+<!-- Cost Breakdown & Breakeven Analytics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+<!-- Left 6 cols: Percentual de Custo por Categoria -->
+<div class="md:col-span-6 bg-surface-container-low p-3 rounded space-y-2.5 border border-surface-container">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-on-surface uppercase tracking-wider">Decomposição Percentual de Custos</span>
+<span class="font-code-mono-sm text-xs font-bold text-tertiary">R$ 3.120 / ha</span>
+</div>
+<!-- Visual Stacked Bar -->
+<div class="w-full h-3 rounded-full flex overflow-hidden">
+<div class="bg-primary" style="width: 42%;" title="Fertilizantes & Defensivos: 42%"></div>
+<div class="bg-secondary" style="width: 26%;" title="Sementes Tratadas: 26%"></div>
+<div class="bg-tertiary-container" style="width: 18%;" title="Máquinas & Combustível: 18%"></div>
+<div class="bg-slate-400" style="width: 14%;" title="Indiretos e Sede: 14%"></div>
+</div>
+<!-- Categorias -->
+<div class="grid grid-cols-2 gap-2 text-xs pt-1">
+<div class="flex items-center gap-1.5">
+<span class="size-2.5 rounded bg-primary"></span>
+<span class="text-secondary">Defensivos/Adubo:</span>
+<span class="font-bold text-on-surface ml-auto">42%</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="size-2.5 rounded bg-secondary"></span>
+<span class="text-secondary">Sementes:</span>
+<span class="font-bold text-on-surface ml-auto">26%</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="size-2.5 rounded bg-tertiary-container"></span>
+<span class="text-secondary">Máquinas/Diesel:</span>
+<span class="font-bold text-on-surface ml-auto">18%</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="size-2.5 rounded bg-slate-400"></span>
+<span class="text-secondary">Rateio Indireto:</span>
+<span class="font-bold text-on-surface ml-auto">14%</span>
+</div>
+</div>
+</div>
+<!-- Right 6 cols: Agronomic Breakeven & Yield Metrics -->
+<div class="md:col-span-6 bg-surface-container-low p-3 rounded flex flex-col justify-between border border-surface-container">
+<div>
+<span class="text-xs font-bold text-on-surface uppercase tracking-wider block mb-1.5">Ponto de Equilíbrio & Produtividade</span>
+<div class="grid grid-cols-2 gap-3 pt-1">
+<div class="bg-surface-container-lowest p-2 rounded border border-surface-container-high">
+<span class="text-[11px] text-secondary block">Produtividade Est.</span>
+<span class="font-code-mono-md text-base font-bold text-emerald-700">68,0 sc/ha</span>
+<span class="text-[10px] text-outline block">+6 sc vs média fazenda</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded border border-surface-container-high">
+<span class="text-[11px] text-secondary block">Breakeven (Custo)</span>
+<span class="font-code-mono-md text-base font-bold text-on-surface">38,4 sc/ha</span>
+<span class="text-[10px] text-emerald-600 font-semibold block">Margem: 29,6 sc/ha</span>
+</div>
+</div>
+</div>
+<div class="mt-2 text-[11px] text-secondary flex items-center justify-between border-t border-surface-container pt-1.5">
+<span>Receita Bruta Est: <strong>R$ 9.010/ha</strong></span>
+<span class="text-emerald-700 font-bold">Lucro Líquido: R$ 5.890/ha</span>
+</div>
+</div>
+</div>
+<!-- WhatsApp Operational Field Synchronization Log -->
+<div class="border-t border-surface-container-high pt-3">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-600 text-sm">chat</span>
+<span class="text-xs font-bold text-on-surface">Últimos Lançamentos Sincronizados de Campo (WhatsApp / Bot Agro)</span>
+</div>
+<span class="text-[10px] text-outline">Atualização contínua via operador</span>
+</div>
+<div class="space-y-1.5">
+<!-- Entry 1 -->
+<div class="flex items-center justify-between bg-surface-container-low px-3 py-2 rounded text-xs">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-emerald-600 text-base">check_circle</span>
+<div>
+<span class="font-semibold text-on-surface">Aplicação Fungicida + Adjuvante (2ª etapa)</span>
+<span class="text-secondary text-[11px] block">Trator JD 8R • Operador Marcos Silva • 140 ha cobertos</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-code-mono-sm font-bold text-tertiary">R$ 11.200 (Total)</span>
+<span class="text-[10px] text-outline block">Ontem às 17:42</span>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="flex items-center justify-between bg-surface-container-low px-3 py-2 rounded text-xs">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-emerald-600 text-base">local_gas_station</span>
+<div>
+<span class="font-semibold text-on-surface">Abastecimento Comboio Diesel S10</span>
+<span class="text-secondary text-[11px] block">620 Litros alocados para Talhão 04 • Custo R$ 6,10/L</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-code-mono-sm font-bold text-tertiary">R$ 3.782</span>
+<span class="text-[10px] text-outline block">24/Out 11:15</span>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="flex items-center justify-between bg-surface-container-low px-3 py-2 rounded text-xs">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-base">alt_route</span>
+<div>
+<span class="font-semibold text-on-surface">Rateio de Energia Pivô Central & Manutenção de Estradas</span>
+<span class="text-secondary text-[11px] block">Fechamento quinzenal proporcional à área (140 ha / 1.420 ha)</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-code-mono-sm font-bold text-secondary">R$ 2.450</span>
+<span class="text-[10px] text-outline block">22/Out 09:00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer status line -->
+<footer class="mt-auto border-t border-surface-container-high bg-surface-container-lowest px-6 lg:px-12 py-3 text-xs text-secondary flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="font-medium text-on-surface">Fazenda Santa Maria Agropecuária S.A.</span>
+<span>•</span>
+<span>Safra Ativa: Verão 24/25</span>
+<span>•</span>
+<span class="inline-flex items-center gap-1 text-emerald-700 font-semibold">
+<span class="size-2 rounded-full bg-emerald-600"></span> Conexão ERP OK
+      </span>
+</div>
+<div class="flex items-center gap-4 text-[11px]">
+<a class="hover:underline" href="#">Manual de Rateio Agronômico</a>
+<a class="hover:underline" href="#">Exportar Shapefile (.shp)</a>
+<a class="hover:underline" href="#">Suporte Agrifirm</a>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Painel de Originação &amp; Compliance EUDR de Fornecedores</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#f8f9ff",
+            "surface-variant": "#e0e2ea",
+            "on-primary": "#ffffff",
+            "tertiary": "#904900",
+            "on-tertiary-container": "#fffbff",
+            "on-secondary": "#ffffff",
+            "secondary-fixed": "#d1e4ff",
+            "on-primary-fixed": "#001d35",
+            "background": "#f8f9ff",
+            "tertiary-container": "#b55d00",
+            "on-surface": "#181c21",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#abc9f0",
+            "on-surface-variant": "#404752",
+            "surface-container-low": "#f1f3fb",
+            "tertiary-fixed-dim": "#ffb783",
+            "secondary-container": "#b9d7fe",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#00497c",
+            "on-background": "#181c21",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#ffdcc5",
+            "primary-fixed": "#d1e4ff",
+            "surface-container-high": "#e6e8f0",
+            "on-secondary-container": "#405d7f",
+            "on-secondary-fixed-variant": "#2b4969",
+            "outline": "#707883",
+            "inverse-on-surface": "#eef0f8",
+            "on-tertiary": "#ffffff",
+            "surface-bright": "#f8f9ff",
+            "on-tertiary-fixed": "#301400",
+            "primary-container": "#0078c6",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#e0e2ea",
+            "inverse-primary": "#9dcaff",
+            "error-container": "#ffdad6",
+            "primary-fixed-dim": "#9dcaff",
+            "surface-tint": "#0061a2",
+            "outline-variant": "#bfc7d3",
+            "inverse-surface": "#2d3137",
+            "primary": "#005f9e",
+            "on-tertiary-fixed-variant": "#703700",
+            "on-primary-container": "#fdfcff",
+            "surface-dim": "#d8dae2",
+            "secondary": "#436082",
+            "on-secondary-fixed": "#001d36",
+            "surface-container": "#eceef6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "label": ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f3fb;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #bfc7d3;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased min-h-screen">
+<!-- Shared Top Component Exactly Integrated -->
+<div class="relative flex h-auto w-full flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e6eff4] px-10 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-[#0c161c]">
+<div class="size-4">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-[#0c161c] text-lg font-bold leading-tight tracking-[-0.015em]">AgroCompliance B2B Hub</h2>
+</div>
+<div class="flex items-center gap-9">
+<a class="text-[#0c161c] text-sm font-medium leading-normal" href="#">Originação &amp; Grãos</a>
+<a class="text-[#0c161c] text-sm font-medium leading-normal" href="#">Silos &amp; Armazéns</a>
+<a class="text-[#0c161c] text-sm font-medium leading-normal" href="#">Compliance EUDR</a>
+<a class="text-[#0c161c] text-sm font-medium leading-normal" href="#">Auditoria &amp; Navios</a>
+<a class="text-[#0c161c] text-sm font-medium leading-normal" href="#">Relatórios</a>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded h-full">
+<div class="text-[#467ca0] flex border-none bg-[#e6eff4] items-center justify-center pl-4 rounded-l border-r-0" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+</svg>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-[#0c161c] focus:outline-0 focus:ring-0 border-none bg-[#e6eff4] focus:border-none h-full placeholder:text-[#467ca0] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search" value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 bg-[#e6eff4] text-[#0c161c] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<div class="text-[#0c161c]" data-icon="Bell" data-size="20px" data-weight="regular">
+<svg fill="currentColor" height="20px" viewbox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+</svg>
+</div>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 bg-[#e6eff4] text-[#0c161c] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<div class="text-[#0c161c]" data-icon="Question" data-size="20px" data-weight="regular">
+<svg fill="currentColor" height="20px" viewbox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path>
+</svg>
+</div>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 bg-[#e6eff4] text-[#0c161c] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<div class="text-[#0c161c]" data-icon="Gear" data-size="20px" data-weight="regular">
+<svg fill="currentColor" height="20px" viewbox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"></path>
+</svg>
+</div>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="A clean portrait of an agro-industrial operations auditor wearing navy business formal attire, captured in soft daylight inside a sustainable trade hub headquarters. The composition is balanced with cool corporate tones, deep blues, and subtle industrial architectural lines in the background. The aesthetic reflects modern precision and professional compliance excellence." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDTLUzGGQajLwc-zJxX3jHHCL9Uiyamtlql1Txgz3asa5ZP3sWPAjhqTQrsFdUDObpOPxSOZETrqxQ4ViyxrVGGwP6S074ZWXo1vL6Z_BcihP6B2oobdLoK8DPw9gJwOc8N_Jqtao3jyCfHq5JM_ePX62ZEweYFErlhE2PPa3e7izIFY3yK8rEhTFLIcWNGq_QC5n5CdN-524_m50fpVAGMo4zpgsfDHmA2oKP6bAnbYHNmfgHmFl8");'></div>
+</div>
+</header>
+<div class="flex flex-wrap gap-2 p-4">
+<a class="text-[#467ca0] text-base font-medium leading-normal" href="#">B2B Hub Originação</a>
+<span class="text-[#467ca0] text-base font-medium leading-normal">/</span>
+<a class="text-[#467ca0] text-base font-medium leading-normal" href="#">Cooperativa &amp; Tradings</a>
+<span class="text-[#467ca0] text-base font-medium leading-normal">/</span>
+<span class="text-[#0c161c] text-base font-medium leading-normal">Monitoramento de Fornecedores EUDR Safra 2026/27</span>
+</div>
+<div class="flex flex-wrap justify-between gap-3 p-4">
+<div class="flex min-w-72 flex-col gap-3">
+<p class="text-[#0c161c] text-4xl font-black leading-tight tracking-[-0.033em]">Painel de Originação &amp; Compliance EUDR de Fornecedores</p>
+<p class="text-[#467ca0] text-base font-normal leading-normal">
+                  Auditoria contínua de 214 cooperados e fornecedores de grãos com cruzamento automatizado PostGIS x PRODES x SICAR x Embargos IBAMA para atendimento ao Regulamento
+                  (UE) 2023/1115.
+                </p>
+</div>
+</div>
+<div class="flex justify-stretch">
+<div class="flex flex-1 gap-3 flex-wrap px-4 py-3 justify-start">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#e6eff4] text-[#0c161c] text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Exportar Pacote Due Diligence (ZIP/XML)</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#e6eff4] text-[#0c161c] text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Importar Lista de Contratos (CSV/SAP)</span>
+</button>
+</div>
+</div>
+<div class="flex px-4 py-3 justify-start">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#0283da] text-slate-50 gap-2 pl-4 text-sm font-bold leading-normal tracking-[0.015em]">
+<div class="text-slate-50" data-icon="ChatTeardropDots" data-size="20px" data-weight="regular">
+<svg fill="currentColor" height="20px" viewbox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M132,24A100.11,100.11,0,0,0,32,124v84.33A15.69,15.69,0,0,0,47.67,224H132a100,100,0,0,0,0-200Zm0,184H48V124a84,84,0,1,1,84,84Zm12-80a12,12,0,1,1-12-12A12,12,0,0,1,144,128Zm-44,0a12,12,0,1,1-12-12A12,12,0,0,1,100,128Zm88,0a12,12,0,1,1-12-12A12,12,0,0,1,188,128Z"></path>
+</svg>
+</div>
+<span class="truncate">Disparar Alerta em Massa (WhatsApp Cobrança)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Application Workspace Area -->
+<main class="w-full px-6 lg:px-12 py-6 max-w-[1720px] mx-auto space-y-6">
+<!-- 2. KPI Cards da Carteira de Fornecedores -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-5 shadow-sm hover:border-primary transition duration-200 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-semibold uppercase tracking-wider text-secondary">Volume Total Monitorado</span>
+<span class="material-symbols-outlined text-primary text-xl">inventory_2</span>
+</div>
+<div class="text-2xl font-black font-headline text-on-surface">420.000 Toneladas</div>
+<div class="text-xs text-secondary font-medium mt-1">7.000.000 sacas de soja e milho</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between text-xs">
+<span class="text-on-surface-variant font-medium">214 Fornecedores</span>
+<span class="font-label text-primary font-semibold">88% contrato formal</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-5 shadow-sm hover:border-primary transition duration-200 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1.5 h-full bg-emerald-600"></div>
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-semibold uppercase tracking-wider text-secondary">Semáforo de Conformidade EUDR</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Audit EU-Zero</span>
+</div>
+<div class="text-2xl font-black font-headline text-emerald-700">91,6% Apto P/ Embarque</div>
+<div class="text-xs text-secondary font-medium mt-1">196 fornecedores 100% livres de desmatamento pós-2020</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center gap-2 text-xs">
+<span class="material-symbols-outlined text-emerald-600 text-sm">verified</span>
+<span class="text-on-surface-variant font-medium">Polígonos 100% geocodificados</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-5 shadow-sm hover:border-error transition duration-200 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1.5 h-full bg-error"></div>
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-semibold uppercase tracking-wider text-error">Fornecedores em Risco / Alerta</span>
+<span class="material-symbols-outlined text-error text-xl">warning</span>
+</div>
+<div class="text-2xl font-black font-headline text-error">18 Em Pendência</div>
+<div class="text-xs text-on-surface-variant font-medium mt-1">14 retificação APP/RL + 4 embargos críticos</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between text-xs">
+<span class="text-tertiary font-medium">14 SICAR em análise</span>
+<span class="text-error font-bold font-label">4 Bloqueio IBAMA</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-5 shadow-sm hover:border-primary transition duration-200 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-semibold uppercase tracking-wider text-secondary">Próximo Navio (Barcarena/Santos)</span>
+<span class="material-symbols-outlined text-primary text-xl">directions_boat</span>
+</div>
+<div class="text-lg font-bold font-headline text-on-surface truncate">MV Nordic Harvest</div>
+<div class="text-xs text-secondary font-medium mt-0.5">65.000 ton de Soja Sustentável</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5">
+<div class="w-16 bg-surface-variant rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-full w-[98%]"></div>
+</div>
+<span class="font-label font-bold text-primary">98%</span>
+</div>
+<span class="text-tertiary-container font-semibold">SLA Desembaraço: 48h</span>
+</div>
+</div>
+</section>
+<!-- 3. Filtros Rápidos & Busca Avançada -->
+<section class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/40 shadow-sm space-y-4">
+<!-- Top Filter Row: Pills & Quick Actions -->
+<div class="flex flex-wrap items-center justify-between gap-3">
+<!-- Segmented Pill Filter -->
+<div class="flex flex-wrap items-center gap-1.5 bg-surface-container p-1 rounded-lg">
+<button class="px-3 py-1.5 text-xs font-semibold rounded bg-surface-container-lowest text-primary shadow-sm border border-outline-variant/30 flex items-center gap-1.5">
+<span>Todos</span>
+<span class="bg-secondary-container text-on-secondary-container text-[11px] px-1.5 py-0.2 rounded-full font-label font-bold">214</span>
+</button>
+<button class="px-3 py-1.5 text-xs font-medium rounded hover:bg-surface-container-lowest/70 text-on-surface-variant flex items-center gap-1.5 transition">
+<span class="size-2 rounded-full bg-emerald-500"></span>
+<span>Aprovados EUDR (Verde)</span>
+<span class="text-secondary font-label text-[11px]">196</span>
+</button>
+<button class="px-3 py-1.5 text-xs font-medium rounded hover:bg-surface-container-lowest/70 text-on-surface-variant flex items-center gap-1.5 transition">
+<span class="size-2 rounded-full bg-amber-500"></span>
+<span>Em Análise Cartorial (Amarelo)</span>
+<span class="text-secondary font-label text-[11px]">14</span>
+</button>
+<button class="px-3 py-1.5 text-xs font-medium rounded hover:bg-surface-container-lowest/70 text-on-surface-variant flex items-center gap-1.5 transition">
+<span class="size-2 rounded-full bg-error"></span>
+<span>Bloqueados (Vermelho)</span>
+<span class="text-error font-label text-[11px] font-bold">4</span>
+</button>
+<button class="px-3 py-1.5 text-xs font-medium rounded hover:bg-surface-container-lowest/70 text-on-surface-variant flex items-center gap-1.5 transition">
+<span class="material-symbols-outlined text-[14px]">sync_alt</span>
+<span>Contrato Barter</span>
+<span class="text-secondary font-label text-[11px]">82</span>
+</button>
+</div>
+<!-- Quick Delivery Toggle -->
+<label class="flex items-center gap-2.5 cursor-pointer bg-surface-container-low px-3 py-1.5 rounded-lg border border-outline-variant/30">
+<input checked="" class="form-checkbox h-4 w-4 text-primary rounded border-outline-variant focus:ring-primary" type="checkbox"/>
+<span class="text-xs font-medium text-on-surface">Apenas com entregas agendadas na semana</span>
+</label>
+</div>
+<!-- Search & Region Drill-down Filter -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3 pt-1">
+<div class="md:col-span-6 relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-secondary text-lg">search</span>
+<input class="w-full pl-9 pr-4 py-2 bg-surface-container-low border border-outline-variant/40 rounded-lg text-xs text-on-surface placeholder:text-secondary focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Buscar por Produtor, Razão Social, CNPJ, Município ou Nº CAR..." type="text"/>
+</div>
+<div class="md:col-span-3">
+<select class="w-full py-2 px-3 bg-surface-container-low border border-outline-variant/40 rounded-lg text-xs text-on-surface font-medium focus:outline-none focus:ring-1 focus:ring-primary">
+<option>Todos os Silos &amp; Terminais</option>
+<option selected="">Silo Sorriso MT (Principal)</option>
+<option>Silo Rio Verde GO</option>
+<option>Silo Sapezal MT</option>
+<option>Silo Dourados MS</option>
+</select>
+</div>
+<div class="md:col-span-3 flex items-center gap-2">
+<select class="w-full py-2 px-3 bg-surface-container-low border border-outline-variant/40 rounded-lg text-xs text-on-surface font-medium focus:outline-none focus:ring-1 focus:ring-primary">
+<option>Safra: Soja 2026/27 (Fevereiro)</option>
+<option>Safra: Milho Safrinha 2026</option>
+</select>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface-variant p-2 rounded-lg border border-outline-variant/40 text-xs flex items-center justify-center shrink-0" title="Resetar filtros">
+<span class="material-symbols-outlined text-base">restart_alt</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Workspace Grid: Table + Side Panel Drilldown -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+<!-- 4. Tabela Principal de Fornecedores & Semáforo de Risco (Left 8 cols) -->
+<section class="xl:col-span-8 bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm overflow-hidden flex flex-col">
+<div class="p-4 border-b border-surface-container flex items-center justify-between bg-surface-container-low/50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">dataset</span>
+<h3 class="font-headline font-bold text-sm text-on-surface">Fornecedores Monitorados EUDR (5 de 214 exibidos)</h3>
+</div>
+<div class="flex items-center gap-2 text-xs text-secondary font-label">
+<span class="size-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Camada Sentinel-2 atualizada Hoje às 06:00 UTC</span>
+</div>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="border-b border-surface-container-high bg-surface-container-low font-headline font-semibold text-secondary uppercase tracking-wider text-[11px]">
+<th class="p-3 w-10 text-center"><input class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox"/></th>
+<th class="p-3">Fornecedor / Razão Social</th>
+<th class="p-3">Município / UF</th>
+<th class="p-3">CAR / Status</th>
+<th class="p-3">Área / Volume</th>
+<th class="p-3">Status EUDR &amp; Risco</th>
+<th class="p-3">Última Varredura</th>
+<th class="p-3 text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1: Agropecuária Santa Helena -->
+<tr class="hover:bg-surface-container-low/80 transition cursor-pointer bg-primary-fixed/10 border-l-4 border-l-primary">
+<td class="p-3 text-center"><input checked="" class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox"/></td>
+<td class="p-3">
+<div class="font-bold text-on-surface font-headline text-xs">Agropecuária Santa Helena</div>
+<div class="text-[11px] text-secondary">Eduardo S. Albuquerque</div>
+</td>
+<td class="p-3">
+<span class="font-medium text-on-surface">Sorriso / MT</span>
+<span class="block text-[10px] text-secondary font-label">Silo Sorriso-01</span>
+</td>
+<td class="p-3">
+<div class="font-label text-[11px] text-primary font-medium">MT-5107909-0024.1</div>
+<span class="inline-flex items-center gap-1 text-[10px] text-emerald-700 font-semibold font-label">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Validado SICAR
+                </span>
+</td>
+<td class="p-3">
+<div class="font-bold text-on-surface">1.420 ha</div>
+<div class="text-[11px] text-secondary font-label">85.200 sc (5.112 t)</div>
+</td>
+<td class="p-3">
+<div class="inline-flex flex-col gap-0.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-[10px] w-fit">
+<span class="size-1.5 rounded-full bg-emerald-600"></span> 100% Conforme EUDR
+                  </span>
+<span class="text-[10px] text-secondary font-label">Zero deforest pós-2020 • 0 emb</span>
+</div>
+</td>
+<td class="p-3">
+<span class="text-on-surface font-label text-[11px]">Hoje 06:00</span>
+<span class="block text-[10px] text-secondary">Sentinel-2 MSI</span>
+</td>
+<td class="p-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 hover:bg-surface-container-high rounded text-primary" title="Emitir Declaração Due Diligence">
+<span class="material-symbols-outlined text-base">description</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded text-secondary" title="Ver Mapa Geoespacial">
+<span class="material-symbols-outlined text-base">map</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded text-emerald-600" title="Notificar Fornecedor">
+<span class="material-symbols-outlined text-base">send</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Fazenda Boa Esperança -->
+<tr class="hover:bg-surface-container-low/80 transition cursor-pointer">
+<td class="p-3 text-center"><input class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox"/></td>
+<td class="p-3">
+<div class="font-bold text-on-surface font-headline text-xs">Fazenda Boa Esperança</div>
+<div class="text-[11px] text-secondary">Grupo Scheffer &amp; Filhos</div>
+</td>
+<td class="p-3">
+<span class="font-medium text-on-surface">Sapezal / MT</span>
+<span class="block text-[10px] text-secondary font-label">Silo Sapezal-Central</span>
+</td>
+<td class="p-3">
+<div class="font-label text-[11px] text-primary font-medium">MT-5107925-1102.3</div>
+<span class="inline-flex items-center gap-1 text-[10px] text-emerald-700 font-semibold font-label">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Validado SICAR
+                </span>
+</td>
+<td class="p-3">
+<div class="font-bold text-on-surface">3.850 ha</div>
+<div class="text-[11px] text-secondary font-label">231.000 sc (13.860 t)</div>
+</td>
+<td class="p-3">
+<div class="inline-flex flex-col gap-0.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-[10px] w-fit">
+<span class="size-1.5 rounded-full bg-emerald-600"></span> 100% Conforme EUDR
+                  </span>
+<span class="text-[10px] text-secondary font-label">Barter Quitado • Certificado</span>
+</div>
+</td>
+<td class="p-3">
+<span class="text-on-surface font-label text-[11px]">Ontem 18:30</span>
+<span class="block text-[10px] text-secondary">Planet NICFI</span>
+</td>
+<td class="p-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 hover:bg-surface-container-high rounded text-primary" title="Emitir Declaração Due Diligence">
+<span class="material-symbols-outlined text-base">description</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded text-secondary" title="Ver Mapa Geoespacial">
+<span class="material-symbols-outlined text-base">map</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded text-emerald-600" title="Notificar Fornecedor">
+<span class="material-symbols-outlined text-base">send</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Estância Três Palmeiras -->
+<tr class="hover:bg-surface-container-low/80 transition cursor-pointer">
+<td class="p-3 text-center"><input class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox"/></td>
+<td class="p-3">
+<div class="font-bold text-on-surface font-headline text-xs">Estância Três Palmeiras</div>
+<div class="text-[11px] text-secondary">Marcos Aurélio Silveira</div>
+</td>
+<td class="p-3">
+<span class="font-medium text-on-surface">Rio Verde / GO</span>
+<span class="block text-[10px] text-secondary font-label">Silo Rio Verde Sul</span>
+</td>
+<td class="p-3">
+<div class="font-label text-[11px] text-tertiary-container font-medium">GO-5218805-4920.8</div>
+<span class="inline-flex items-center gap-1 text-[10px] text-tertiary-container font-semibold font-label">
+<span class="material-symbols-outlined text-[12px]">hourglass_top</span> Em Análise SICAR
+                </span>
+</td>
+<td class="p-3">
+<div class="font-bold text-on-surface">980 ha</div>
+<div class="text-[11px] text-secondary font-label">58.800 sc (3.528 t)</div>
+</td>
+<td class="p-3">
+<div class="inline-flex flex-col gap-0.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 font-semibold text-[10px] w-fit">
+<span class="size-1.5 rounded-full bg-amber-500"></span> Atenção: APP em Retificação
+                  </span>
+<span class="text-[10px] text-secondary font-label">Margem 1,2 ha em análise</span>
+</div>
+</td>
+<td class="p-3">
+<span class="text-on-surface font-label text-[11px]">Hoje 04:15</span>
+<span class="block text-[10px] text-secondary">Sentinel-2 MSI</span>
+</td>
+<td class="p-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="px-2 py-1 bg-amber-50 text-amber-800 border border-amber-300 hover:bg-amber-100 rounded text-[11px] font-semibold flex items-center gap-1" title="Cobrar Retificação via WhatsApp">
+<span class="material-symbols-outlined text-[14px]">chat</span> Cobrar
+                  </button>
+<button class="p-1.5 hover:bg-surface-container-high rounded text-secondary" title="Abrir Dossiê">
+<span class="material-symbols-outlined text-base">folder_open</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Fazenda Vale do Guaporé (Bloqueado) -->
+<tr class="hover:bg-error-container/30 transition cursor-pointer bg-error-container/15">
+<td class="p-3 text-center"><input class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox"/></td>
+<td class="p-3">
+<div class="font-bold text-error font-headline text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-error text-xs">block</span>
+                  Fazenda Vale do Guaporé
+                </div>
+<div class="text-[11px] text-secondary">Agropecuária Guaporé Ltda</div>
+</td>
+<td class="p-3">
+<span class="font-medium text-on-surface">Pontes e Lacerda / MT</span>
+<span class="block text-[10px] text-secondary font-label">Interditado P/ Entrega</span>
+</td>
+<td class="p-3">
+<div class="font-label text-[11px] text-error font-medium">MT-5106505-8812.0</div>
+<span class="inline-flex items-center gap-1 text-[10px] text-error font-semibold font-label">
+<span class="material-symbols-outlined text-[12px]">warning</span> Inconsistência Crítica
+                </span>
+</td>
+<td class="p-3">
+<div class="font-bold text-on-surface">2.100 ha</div>
+<div class="text-[11px] text-error font-label font-bold">120.000 sc (Bloqueado)</div>
+</td>
+<td class="p-3">
+<div class="inline-flex flex-col gap-0.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-100 text-red-800 font-bold text-[10px] w-fit">
+<span class="size-1.5 rounded-full bg-error"></span> Bloqueado: Embargo IBAMA
+                  </span>
+<span class="text-[10px] text-error font-label font-medium">Sobreposição 14 ha Prodes '23</span>
+</div>
+</td>
+<td class="p-3">
+<span class="text-on-surface font-label text-[11px]">Hoje 06:00</span>
+<span class="block text-[10px] text-secondary">PRODES / IBAMA</span>
+</td>
+<td class="p-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="px-2 py-1 bg-error text-white hover:bg-error/90 rounded text-[11px] font-semibold flex items-center gap-1" title="Gerar Laudo de Bloqueio">
+<span class="material-symbols-outlined text-[14px]">gavel</span> Laudo
+                  </button>
+<button class="p-1.5 hover:bg-surface-container-high rounded text-error" title="Notificar Jurídico">
+<span class="material-symbols-outlined text-base">mail</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Fazenda Nova Aliança -->
+<tr class="hover:bg-surface-container-low/80 transition cursor-pointer">
+<td class="p-3 text-center"><input class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox"/></td>
+<td class="p-3">
+<div class="font-bold text-on-surface font-headline text-xs">Fazenda Nova Aliança</div>
+<div class="text-[11px] text-secondary">Roberto Carlos Zanin</div>
+</td>
+<td class="p-3">
+<span class="font-medium text-on-surface">Dourados / MS</span>
+<span class="block text-[10px] text-secondary font-label">Silo Dourados-MS</span>
+</td>
+<td class="p-3">
+<div class="font-label text-[11px] text-primary font-medium">MS-5003702-8819.0</div>
+<span class="inline-flex items-center gap-1 text-[10px] text-emerald-700 font-semibold font-label">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Validado SICAR
+                </span>
+</td>
+<td class="p-3">
+<div class="font-bold text-on-surface">1.650 ha</div>
+<div class="text-[11px] text-secondary font-label">99.000 sc (5.940 t)</div>
+</td>
+<td class="p-3">
+<div class="inline-flex flex-col gap-0.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-[10px] w-fit">
+<span class="size-1.5 rounded-full bg-emerald-600"></span> 100% Conforme EUDR
+                  </span>
+<span class="text-[10px] text-secondary font-label">Sem sobreposições registradas</span>
+</div>
+</td>
+<td class="p-3">
+<span class="text-on-surface font-label text-[11px]">Ontem 12:00</span>
+<span class="block text-[10px] text-secondary">Sentinel-2 MSI</span>
+</td>
+<td class="p-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 hover:bg-surface-container-high rounded text-primary" title="Emitir Declaração Due Diligence">
+<span class="material-symbols-outlined text-base">description</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded text-secondary" title="Ver Mapa Geoespacial">
+<span class="material-symbols-outlined text-base">map</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded text-emerald-600" title="Notificar Fornecedor">
+<span class="material-symbols-outlined text-base">send</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination -->
+<div class="p-3 border-t border-surface-container bg-surface-container-low/40 flex flex-wrap items-center justify-between gap-2 text-xs">
+<span class="text-secondary">Mostrando <span class="font-semibold text-on-surface">1-5</span> de <span class="font-semibold text-on-surface">214</span> fornecedores ativos</span>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container text-secondary text-xs hover:bg-surface-container-high disabled:opacity-50" disabled="">Anterior</button>
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary font-bold text-xs">1</button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant text-xs hover:bg-surface-container-high">2</button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant text-xs hover:bg-surface-container-high">3</button>
+<span class="px-1 text-secondary">...</span>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant text-xs hover:bg-surface-container-high">43</button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant text-xs hover:bg-surface-container-high">Próximo</button>
+</div>
+</div>
+</section>
+<!-- 5. Painel Lateral Direito: Drill-down do Fornecedor / Dossiê de Embarque (Right 4 cols) -->
+<aside class="xl:col-span-4 space-y-4">
+<!-- Card Superior: Dossiê Consolidado -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm p-4 space-y-4">
+<div class="flex items-start justify-between">
+<div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary/10 text-primary font-bold text-[10px] font-label uppercase">
+              Lote Embarque EUDR
+            </div>
+<h4 class="font-headline font-black text-sm text-on-surface mt-1">Dossiê Consolidado de Embarque</h4>
+<p class="text-xs font-label text-secondary font-medium">Lote: CARGILL-EU-2026-09</p>
+</div>
+<span class="size-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+</span>
+</div>
+<!-- Cripto Hash Badge -->
+<div class="bg-surface-container-low p-2.5 rounded-lg border border-outline-variant/40 space-y-1">
+<div class="flex items-center justify-between text-[11px]">
+<span class="font-bold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-primary">key</span>
+              Auditoria Criptográfica
+            </span>
+<span class="text-emerald-700 font-semibold font-label text-[10px]">ICP-Brasil Ativo</span>
+</div>
+<div class="text-[10px] font-label text-secondary truncate" title="SHA256: 7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069">
+            Hash: 7f83b1657ff1fc53b92dc18148a1d65d...
+          </div>
+</div>
+<!-- Mini Mapa Geoespacial Interativo com Polígono -->
+<div class="relative rounded-lg overflow-hidden border border-outline-variant/40">
+<div class="w-full h-44 bg-cover bg-center relative" data-alt="Satellite GIS aerial orthophoto map displaying a lush Brazilian agricultural farm field divided into clear vector boundary polygons. Bright neon emerald green lines demarcate compliant crop plots, bright cyan lines outline the legal forest reserve, and subtle translucent 5-kilometer buffer zones envelop the perimeter under radiant midday sunlight in high resolution." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5WPFgwBEH_Auxf347ZPo3ImL6HuppVutq1FIsW7BalN0B5mUzH1c1boQJWw8RRY24VUbqe9juN5mk9BUHJ8MCXm6OvN-sstlXT6ZPK9GTe3U5izD8tejL78BcEeyvAPHgnJ3TqOEbgA2aDliqHAtGDBWnEcpdtW7cnlrPTDCMEmwnaxhg4-gF-aEo-NFSz7fJc0KeMhRwEFl49pfWn9pLI_KuWGSjc8kqGZxnP9mrk91l2Cs_qFk')">
+<div class="absolute inset-0 bg-black/20"></div>
+<!-- Floating Map Overlays & Tags -->
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="bg-on-surface/85 backdrop-blur text-white text-[10px] px-2 py-0.5 rounded font-label flex items-center gap-1">
+<span class="size-1.5 rounded-full bg-emerald-400"></span> Agropecuária Santa Helena
+              </span>
+<span class="bg-primary/90 text-white text-[9px] px-1.5 py-0.5 rounded font-label w-fit">
+                PostGIS Polígono #8410
+              </span>
+</div>
+<div class="absolute bottom-2 left-2 bg-surface-container-lowest/90 backdrop-blur text-on-surface text-[10px] px-2 py-1 rounded shadow-sm flex items-center gap-3">
+<div class="flex items-center gap-1">
+<span class="size-2 rounded-sm bg-emerald-500"></span>
+<span>Lavoura (1.420 ha)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="size-2 rounded-sm bg-blue-500"></span>
+<span>Reserva Legal</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="size-2 rounded-sm bg-amber-400"></span>
+<span>Buffer 5km</span>
+</div>
+</div>
+<button class="absolute top-2 right-2 bg-surface-container-lowest/90 hover:bg-surface-container-lowest text-on-surface p-1.5 rounded shadow text-xs" title="Expandir Mapa Completo">
+<span class="material-symbols-outlined text-sm">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Check-list Regulatório Automático -->
+<div class="space-y-2 pt-1">
+<h5 class="text-xs font-bold text-on-surface uppercase tracking-wider font-headline">Check-list Regulatório Automático</h5>
+<div class="space-y-1.5 text-xs">
+<div class="flex items-start gap-2 p-1.5 rounded bg-emerald-50/70 border border-emerald-200">
+<span class="material-symbols-outlined text-emerald-700 text-sm mt-0.5">check_circle</span>
+<div class="flex-1">
+<p class="font-medium text-emerald-950 text-[11px]">Ausência de desmatamento pós-31/12/2020</p>
+<p class="text-[10px] text-emerald-800">Prodes Cerrado &amp; Amazônia 100% limpo</p>
+</div>
+</div>
+<div class="flex items-start gap-2 p-1.5 rounded bg-emerald-50/70 border border-emerald-200">
+<span class="material-symbols-outlined text-emerald-700 text-sm mt-0.5">check_circle</span>
+<div class="flex-1">
+<p class="font-medium text-emerald-950 text-[11px]">Sem sobreposição com Terras Indígenas / UC</p>
+<p class="text-[10px] text-emerald-800">Base Funai &amp; ICMBio atualizada em tempo real</p>
+</div>
+</div>
+<div class="flex items-start gap-2 p-1.5 rounded bg-emerald-50/70 border border-emerald-200">
+<span class="material-symbols-outlined text-emerald-700 text-sm mt-0.5">check_circle</span>
+<div class="flex-1">
+<p class="font-medium text-emerald-950 text-[11px]">Certidão Negativa de Embargos Ambientais</p>
+<p class="text-[10px] text-emerald-800">IBAMA e SEMA-MT validadas sem infrações</p>
+</div>
+</div>
+<div class="flex items-start gap-2 p-1.5 rounded bg-amber-50 border border-amber-200">
+<span class="material-symbols-outlined text-amber-600 text-sm mt-0.5">error</span>
+<div class="flex-1">
+<p class="font-bold text-amber-900 text-[11px]">1 Nota Fiscal pendente de coordenadas</p>
+<p class="text-[10px] text-amber-800">NF-e 88.421 exige amarração com ponto geodésico</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Ações do Rodapé do Dossiê -->
+<div class="space-y-2 pt-2 border-t border-surface-container">
+<button class="w-full py-2.5 px-4 rounded bg-emerald-700 hover:bg-emerald-800 text-white font-headline font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition">
+<span class="material-symbols-outlined text-base">task_alt</span>
+<span>Assinar e Enviar ao Comprador UE</span>
+</button>
+<button class="w-full py-2 px-4 rounded bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-medium text-xs border border-outline-variant/40 flex items-center justify-center gap-2 transition">
+<span class="material-symbols-outlined text-emerald-600 text-base">sms</span>
+<span>Solicitar Documento via WhatsApp Automático</span>
+</button>
+</div>
+</div>
+<!-- Quick Summary Alert Box -->
+<div class="bg-primary/5 rounded-xl border border-primary/20 p-3.5 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">info</span>
+<div class="text-xs">
+<span class="font-bold text-on-surface block">Regulamento (UE) 2023/1115 (EUDR)</span>
+<p class="text-secondary text-[11px] mt-0.5">
+            O prazo legal exige entrega dos polígonos geo-amarrados com verificação de zero desmatamento até a data de emissão do Bill of Lading (B/L).
+          </p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Minimal Footer for System Compliance Details -->
+<footer class="mt-12 border-t border-surface-container bg-surface-container-low py-4 px-6 lg:px-12 text-center text-xs text-secondary font-label">
+  AgroCompliance B2B Hub • Módulo de Originação EUDR Safra 2026/27 • Sistema de Cruzamento Geoespacial PostGIS v3.4 • Conectado à API IBAMA / SICAR / PRODES INPE
+</footer>
+</body></html>

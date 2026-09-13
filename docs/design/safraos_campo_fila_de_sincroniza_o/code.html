@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><title>SafraOS Campo</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"surface-container-high": "#e6e8f0", "on-surface-variant": "#404752", "surface-dim": "#d8dae2", "secondary-fixed-dim": "#abc9f0", "on-primary-fixed": "#001d35", "surface-container-lowest": "#ffffff", "on-secondary": "#ffffff", "on-surface": "#181c21", "tertiary-container": "#b55d00", "on-tertiary-fixed-variant": "#703700", "on-error-container": "#93000a", "on-secondary-fixed-variant": "#2b4969", "outline-variant": "#bfc7d3", "on-primary-fixed-variant": "#00497c", "tertiary-fixed-dim": "#ffb783", "primary-fixed-dim": "#9dcaff", outline: "#707883", "on-primary-container": "#fdfcff", "primary-container": "#0078c6", primary: "#005f9e", "on-primary": "#ffffff", "on-secondary-fixed": "#001d36", "inverse-on-surface": "#eef0f8", "on-tertiary-container": "#fffbff", "inverse-surface": "#2d3137", "on-tertiary-fixed": "#301400", "primary-fixed": "#d1e4ff", error: "#ba1a1a", "surface-container": "#eceef6", "surface-variant": "#e0e2ea", "inverse-primary": "#9dcaff", "tertiary-fixed": "#ffdcc5", "surface-container-highest": "#e0e2ea", "surface-container-low": "#f1f3fb", surface: "#f8f9ff", background: "#f8f9ff", "error-container": "#ffdad6", tertiary: "#904900", "surface-tint": "#0061a2", "surface-bright": "#f8f9ff", "on-tertiary": "#ffffff", secondary: "#436082", "on-secondary-container": "#405d7f", "on-error": "#ffffff", "secondary-container": "#b9d7fe", "secondary-fixed": "#d1e4ff", "on-background": "#181c21"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"space-sm": "0.5rem", "space-md": "0.75rem", "space-xs": "0.25rem", margin: "1.5rem", "space-lg": "1.25rem", gutter: "1rem", "space-xl": "1.75rem"}, fontFamily: {"headline-lg": ["Plus Jakarta Sans"], "code-mono-sm": ["JetBrains Mono"], "code-mono-md": ["JetBrains Mono"], "data-dense": ["Inter"], "body-lg": ["Inter"], "badge-label": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "display-lg": ["Plus Jakarta Sans"], headline: ["Plus Jakarta Sans"], display: ["Plus Jakarta Sans"], body: ["Inter"], label: ["JetBrains Mono"]}, fontSize: {"headline-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600"}], "code-mono-sm": ["11px", {lineHeight: "14px", letterSpacing: "0em", fontWeight: "500"}], "code-mono-md": ["13px", {lineHeight: "18px", letterSpacing: "-0.01em", fontWeight: "500"}], "data-dense": ["13px", {lineHeight: "16px", fontWeight: "500"}], "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}], "badge-label": ["11px", {lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "600"}], "headline-md": ["20px", {lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], "headline-sm": ["16px", {lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600"}], "body-sm": ["12px", {lineHeight: "16px", fontWeight: "400"}], "display-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 flex flex-col justify-between px-margin py-space-xs"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #0f3f2e - Font: plusJakartaSans - Mode: light - Roundness: rounded-sm" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vn5Delybvm3eW3tHMO8JkF2q477p7udnqhK0xOGs0FKTOerKpFiyyuoLZwxLPZlKXH50on2-lxB4x2r5oFdgvii-54o5_3rdk-5VxkGPG1WvbncSGPFpmwMaSHJFIreBCuGOvFqIvHM_Vy8JYhb6Brbu2BcBWNUMlfHA41P4VgSqfV8NL27O1RinOTa_YGrikgprEneYrR7mn5MXSNyI1UQ9zvBBRaW0eOa3D7eOwXybjNZhuMkBHnnw"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none">SafraOS Campo</span><span class="font-body-sm text-body-sm text-on-surface-variant font-medium leading-tight">Fila Offline / Sync</span></div></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="flex items-center justify-between gap-space-xs"><div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface font-badge-label text-badge-label"><span class="material-symbols-outlined text-secondary text-[14px]">agriculture</span><span class="truncate max-w-[140px]">Fazenda Santa Maria</span></div><div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-code-mono-sm text-code-mono-sm"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span>GPS Ativo · 4 Pendentes</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-28 pb-24 bg-surface"><div class="flex flex-col w-full">
+<div class="px-margin pt-space-md pb-space-lg flex flex-col gap-space-md">
+<!-- Hero Sync Status Card -->
+<div class="bg-primary text-on-primary rounded-xl p-space-lg shadow-md relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-36 h-36 rounded-full bg-secondary/15 pointer-events-none blur-2xl"></div>
+<div class="flex items-center justify-between gap-space-sm mb-space-sm relative z-10">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px] animate-spin" style="animation-duration: 4s;">sync</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-on-primary">Fila Local de Sincronização</h1>
+<p class="font-code-mono-sm text-code-mono-sm text-primary-fixed-dim tracking-tight">MOTOR SQLITE V4 · OFFLINE-FIRST</p>
+</div>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-code-mono-md text-code-mono-md font-semibold">
+          4 Pendentes
+        </span>
+</div>
+<!-- Network State Indicator -->
+<div class="bg-surface-container-highest/10 rounded-lg p-space-sm mb-space-md flex items-center gap-space-sm relative z-10">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[18px]">wifi_off</span>
+<div class="flex-1 min-w-0">
+<p class="font-body-sm text-body-sm text-surface-variant font-medium truncate">Aguardando rede celular ou Wi-Fi da sede</p>
+<div class="w-full h-1.5 bg-surface-container-highest/20 rounded-full mt-1.5 overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim rounded-full w-2/3 animate-pulse"></div>
+</div>
+</div>
+</div>
+<!-- Telemetry Safe Box -->
+<div class="flex items-center gap-space-xs text-primary-fixed-dim font-body-sm text-body-sm mb-space-md relative z-10">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">verified_user</span>
+<span>100% gravado com hash SHA-256 e GPS imutável</span>
+</div>
+<!-- Action Button Force Sync -->
+<button class="w-full bg-secondary text-on-secondary rounded-lg py-space-sm px-space-md flex items-center justify-center gap-space-sm font-headline-sm text-headline-sm active:scale-[0.98] transition-transform shadow-sm relative z-10" id="btn-force-sync">
+<span class="material-symbols-outlined text-[20px]">cloud_sync</span>
+<span>Forçar Sincronização Agora</span>
+</button>
+</div>
+<!-- Quick Entry Expandable Widget (3-Tap Registration) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="p-space-md bg-surface-container-high/40 flex items-center justify-between cursor-pointer" id="quick-entry-toggle">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Registro Rápido em Campo</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Entrada ultra-simplificada em 3 toques</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform duration-300" id="toggle-chevron">expand_less</span>
+</div>
+<div class="p-space-md flex flex-col gap-space-md" id="quick-entry-body">
+<!-- Smart Geolocation Selection -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-badge-label text-badge-label text-on-surface-variant uppercase">Talhão por Proximidade GPS</label>
+<span class="inline-flex items-center gap-1 font-code-mono-sm text-code-mono-sm text-secondary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span> ±4m precisão
+            </span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="bg-primary-container text-on-primary py-space-sm px-space-sm rounded-lg flex items-center gap-space-xs text-left shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed">near_me</span>
+<div class="min-w-0">
+<span class="font-headline-sm text-headline-sm block truncate leading-tight">Talhão 04</span>
+<span class="font-body-sm text-[11px] text-on-primary-container block truncate">Soja Safrinha · 12m</span>
+</div>
+</button>
+<button class="bg-surface-container text-on-surface-variant py-space-sm px-space-sm rounded-lg flex items-center gap-space-xs text-left">
+<span class="material-symbols-outlined text-[18px]">location_searching</span>
+<div class="min-w-0">
+<span class="font-headline-sm text-headline-sm block truncate leading-tight">Talhão 07</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant block truncate">Pousio · 140m</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Operation Category Quick Chips -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-badge-label text-badge-label text-on-surface-variant uppercase">Operação Imediata</label>
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 -mx-space-xs px-space-xs">
+<button class="px-space-md py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-badge-label text-badge-label shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">water_drop</span> Pulverização
+            </button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant font-badge-label text-badge-label shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">local_gas_station</span> Abastecimento
+            </button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant font-badge-label text-badge-label shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">bug_report</span> Monitoramento
+            </button>
+</div>
+</div>
+<!-- Big Numeric Input -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-badge-label text-badge-label text-on-surface-variant">QUANTIDADE / HORAS</span>
+<input class="bg-transparent font-display-lg text-display-lg text-primary focus:outline-none w-36 font-bold" step="0.1" type="number" value="120.5"/>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-code-mono-md text-code-mono-md font-semibold text-secondary">Litros (L)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Taxa: 45 L/ha</span>
+</div>
+</div>
+<!-- SQLite Save Button -->
+<button class="w-full bg-primary-container text-on-primary py-space-sm rounded-lg font-headline-sm text-headline-sm flex items-center justify-center gap-space-sm shadow-sm active:scale-[0.98] transition-transform" id="btn-save-sqlite">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">save</span>
+<span>Gravar no SQLite Local</span>
+</button>
+</div>
+</div>
+<!-- Visual Divider & Queue Title -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">queue</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Lançamentos Retidos no Dispositivo</h3>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold bg-secondary-fixed/50 px-2 py-0.5 rounded">
+        Cache: 84 KB
+      </span>
+</div>
+<!-- Offline Queue Cards List -->
+<div class="flex flex-col gap-space-sm">
+<!-- Queue Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-xs transition-colors hover:bg-surface-container-low">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded bg-surface-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">science</span>
+</div>
+<div class="min-w-0">
+<h4 class="font-headline-sm text-headline-sm text-on-surface truncate">Aplicação de Glifosato 480 SL</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Talhão 04 · Soja Safrinha</p>
+</div>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-code-mono-sm text-code-mono-sm">
+            #a89f
+          </span>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-code-mono-sm text-code-mono-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span> -12.5412, -55.7214
+          </span>
+<span>Hoje 07:15</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1.5 font-badge-label text-badge-label text-secondary font-medium">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Pronto para envio
+          </span>
+<button class="text-on-surface-variant hover:text-primary font-body-sm text-body-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[16px]">visibility</span> Auditar
+          </button>
+</div>
+</div>
+<!-- Queue Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-xs transition-colors hover:bg-surface-container-low">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded bg-surface-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">local_gas_station</span>
+</div>
+<div class="min-w-0">
+<h4 class="font-headline-sm text-headline-sm text-on-surface truncate">Abastecimento 420L Diesel S10</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Trator JD 8R · Horímetro 3.412h</p>
+</div>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-code-mono-sm text-code-mono-sm">
+            #b21c
+          </span>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-code-mono-sm text-code-mono-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span> -12.5480, -55.7198
+          </span>
+<span>Ontem 19:15</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1.5 font-badge-label text-badge-label text-secondary font-medium">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Pronto para envio
+          </span>
+<button class="text-on-surface-variant hover:text-primary font-body-sm text-body-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[16px]">visibility</span> Auditar
+          </button>
+</div>
+</div>
+<!-- Queue Item 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-xs transition-colors hover:bg-surface-container-low">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded bg-surface-container text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">pest_control</span>
+</div>
+<div class="min-w-0">
+<h4 class="font-headline-sm text-headline-sm text-on-surface truncate">Monitoramento de Pragas</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Talhão 01 · Percevejo 1,2/pano</p>
+</div>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-code-mono-sm text-code-mono-sm">
+            #c401
+          </span>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-code-mono-sm text-code-mono-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span> -12.5360, -55.7310
+          </span>
+<span>Ontem 16:30</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1.5 font-badge-label text-badge-label text-secondary font-medium">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Pronto para envio
+          </span>
+<button class="text-on-surface-variant hover:text-primary font-body-sm text-body-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[16px]">visibility</span> Auditar
+          </button>
+</div>
+</div>
+<!-- Queue Item 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-xs transition-colors hover:bg-surface-container-low">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded bg-surface-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">rainy</span>
+</div>
+<div class="min-w-0">
+<h4 class="font-headline-sm text-headline-sm text-on-surface truncate">Pluviômetro Sede: 34mm</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Estação Central Fazenda</p>
+</div>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-code-mono-sm text-code-mono-sm">
+            #d94e
+          </span>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-code-mono-sm text-code-mono-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span> -12.5290, -55.7102
+          </span>
+<span>Ontem 06:00</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1.5 font-badge-label text-badge-label text-secondary font-medium">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Pronto para envio
+          </span>
+<button class="text-on-surface-variant hover:text-primary font-body-sm text-body-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[16px]">visibility</span> Auditar
+          </button>
+</div>
+</div>
+</div>
+<!-- Conflict Resolution Policy Panel -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">policy</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Política de Resolução de Conflitos</h3>
+</div>
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-code-mono-sm text-code-mono-sm">
+          AUDIT-READY
+        </span>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-space-sm flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="font-headline-sm text-headline-sm">Last-Write-Wins (LWW) por Campo Granular</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Conflitos em talhões concorrentes são solucionados mantendo a escrita mais recente por atributo de telemetria, com espelhamento imutável no log central. <strong class="text-primary">Zero perda de dados em campo.</strong>
+</p>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="bg-surface-container p-space-xs rounded flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface">0 Conflitos Ativos</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">history_edu</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface">2.189 Logs Validados</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Micro-interaction script -->
+<script>
+    (function() {
+      const toggle = document.getElementById('quick-entry-toggle');
+      const body = document.getElementById('quick-entry-body');
+      const chevron = document.getElementById('toggle-chevron');
+      const saveBtn = document.getElementById('btn-save-sqlite');
+      const forceSyncBtn = document.getElementById('btn-force-sync');
+
+      if (toggle && body && chevron) {
+        toggle.addEventListener('click', () => {
+          body.classList.toggle('hidden');
+          chevron.style.transform = body.classList.contains('hidden') ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+      }
+
+      if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+          if ('vibrate' in navigator) {
+            navigator.vibrate([40, 30, 40]);
+          }
+          const originalHTML = saveBtn.innerHTML;
+          saveBtn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">sync</span><span>Gravando no SQLite...</span>';
+          saveBtn.classList.add('bg-secondary');
+          setTimeout(() => {
+            saveBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span><span>Registro #e41a Gravado!</span>';
+            setTimeout(() => {
+              saveBtn.innerHTML = originalHTML;
+              saveBtn.classList.remove('bg-secondary');
+            }, 1500);
+          }, 600);
+        });
+      }
+
+      if (forceSyncBtn) {
+        forceSyncBtn.addEventListener('click', () => {
+          if ('vibrate' in navigator) {
+            navigator.vibrate(50);
+          }
+          const orig = forceSyncBtn.innerHTML;
+          forceSyncBtn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">autorenew</span><span>Verificando Antena / Wi-Fi...</span>';
+          setTimeout(() => {
+            forceSyncBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">signal_cellular_connected_no_internet_4_bar</span><span>Sem Sede no Alcance · Mantido Local</span>';
+            setTimeout(() => {
+              forceSyncBtn.innerHTML = orig;
+            }, 2500);
+          }, 1200);
+        });
+      }
+    })();
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-20 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="campo-home" href="#"><span class="material-symbols-outlined text-[24px]">potted_plant</span><span class="font-body-sm text-[11px] leading-tight">Campo</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="talhoes" href="#"><span class="material-symbols-outlined text-[24px]">grid_view</span><span class="font-body-sm text-[11px] leading-tight">Talhões</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] -mt-4 text-on-primary transition-transform active:scale-95" data-path="novo-lancamento" href="#"><div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shadow-md"><span class="material-symbols-outlined text-on-primary text-[26px]">add</span></div><span class="font-body-sm text-[11px] leading-tight text-on-surface-variant mt-0.5">Lançar</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors relative" data-path="fila-offline-sync" href="#"><span class="material-symbols-outlined text-[24px]">sync_saved_locally</span><span class="font-body-sm text-[11px] leading-tight">Offline</span><span class="absolute top-1 right-2 w-2 h-2 rounded-full bg-tertiary-container"></span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="whatsapp-bot" href="#"><span class="material-symbols-outlined text-[24px]">chat</span><span class="font-body-sm text-[11px] leading-tight">Bot ZAP</span></a></div></nav></body></html>

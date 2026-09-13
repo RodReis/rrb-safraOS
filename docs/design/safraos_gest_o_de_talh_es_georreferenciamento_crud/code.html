@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SafraOS · Gestão de Talhões &amp; Georreferenciamento (PostGIS)</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#2b4969",
+            "surface-variant": "#e0e2ea",
+            "surface-container-high": "#e6e8f0",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-tertiary-container": "#fffbff",
+            "on-primary-fixed": "#001d35",
+            "inverse-surface": "#2d3137",
+            "surface-container-lowest": "#ffffff",
+            "outline": "#707883",
+            "secondary-fixed": "#d1e4ff",
+            "surface": "#f8f9ff",
+            "primary-fixed-dim": "#9dcaff",
+            "on-primary": "#ffffff",
+            "surface-bright": "#f8f9ff",
+            "secondary-fixed-dim": "#abc9f0",
+            "on-tertiary-fixed-variant": "#703700",
+            "tertiary-container": "#b55d00",
+            "secondary": "#436082",
+            "secondary-container": "#b9d7fe",
+            "surface-tint": "#0061a2",
+            "on-primary-container": "#fdfcff",
+            "surface-container-highest": "#e0e2ea",
+            "primary": "#005f9e",
+            "tertiary": "#904900",
+            "outline-variant": "#bfc7d3",
+            "primary-fixed": "#d1e4ff",
+            "primary-container": "#0078c6",
+            "on-surface": "#181c21",
+            "tertiary-fixed-dim": "#ffb783",
+            "on-primary-fixed-variant": "#00497c",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed": "#301400",
+            "surface-dim": "#d8dae2",
+            "inverse-primary": "#9dcaff",
+            "inverse-on-surface": "#eef0f8",
+            "on-error-container": "#93000a",
+            "on-tertiary": "#ffffff",
+            "on-background": "#181c21",
+            "surface-container-low": "#f1f3fb",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#001d36",
+            "on-secondary-container": "#405d7f",
+            "surface-container": "#eceef6",
+            "on-surface-variant": "#404752",
+            "background": "#f8f9ff",
+            "tertiary-fixed": "#ffdcc5"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "code-mono-md": ["JetBrains Mono"],
+            "badge-label": ["Inter"],
+            "code-mono-sm": ["JetBrains Mono"],
+            "data-dense": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f3fb;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #bfc7d3;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #707883;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+<!-- Shared Component: TopNavBar -->
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e6eff4] px-10 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-[#0c161c]">
+<div class="size-4">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_330)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clippath id="clip0_6_330"><rect fill="white" height="48" width="48"></rect></clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-[#0c161c] text-lg font-bold leading-tight tracking-[-0.015em]">SafraOS · Gestão Geoespacial</h2>
+</div>
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded h-full">
+<div class="text-[#467ca0] flex border-none bg-[#e6eff4] items-center justify-center pl-4 rounded-l border-r-0" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+</svg>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-[#0c161c] focus:outline-0 focus:ring-0 border-none bg-[#e6eff4] focus:border-none h-full placeholder:text-[#467ca0] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search" value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-[#0c161c] text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-[#0c161c] text-sm font-medium leading-normal" href="#">Talhões &amp; PostGIS</a>
+<a class="text-[#0c161c] text-sm font-medium leading-normal" href="#">Operações &amp; Máquinas</a>
+<a class="text-[#0c161c] text-sm font-medium leading-normal" href="#">Custos &amp; NF-e</a>
+<a class="text-[#0c161c] text-sm font-medium leading-normal" href="#">EUDR &amp; ESG</a>
+</div>
+<div class="flex gap-2">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#0283da] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">+ Novo Talhão</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#e6eff4] text-[#0c161c] text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Sincronizar CAR</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="High quality corporate portrait of an agricultural operations executive wearing professional modern attire against a neutral soft studio background with subtle cool light." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOrcrohWdgPZwDJjnOiZx7zA4zUUCShouHTRKoygGQyE_7KCbx4JydEgQDrlBjhiD2rA-lWJWp1CL457qbPuG-B9pRU6Ogmdij6YxlzrTKJjxCEtrmxnLZOtxa2wdu4pqqMm4s_cvib03jqrQvjz1-L0lnizKiYyikVyloUlmVqG1VYdi_wq6tt9TFzNREfkrNgxzfxl_onIgQj7PusMqifgDbuwFZdhg8dIE6T3dglTBaaNlZkjc");'></div>
+</div>
+</header>
+<div class="flex flex-wrap gap-2 p-4">
+<a class="text-[#467ca0] text-base font-medium leading-normal" href="#">Cadastros &amp; Geoespacial</a>
+<span class="text-[#467ca0] text-base font-medium leading-normal">/</span>
+<span class="text-[#0c161c] text-base font-medium leading-normal">Gestão de Talhões &amp; Georreferenciamento (PostGIS)</span>
+</div>
+<div class="flex flex-wrap justify-between gap-3 p-4">
+<div class="flex min-w-72 flex-col gap-3">
+<p class="text-[#0c161c] text-4xl font-black leading-tight tracking-[-0.033em]">Gestão de Talhões &amp; Georreferenciamento · PostGIS v3.4</p>
+<p class="text-[#467ca0] text-base font-normal leading-normal">
+                  Fazenda Santa Maria (Sorriso/MT) · Área Total: 3.450 ha (Agricultável: 2.100 ha em 14 talhões · Reserva Legal/APP: 1.350 ha) · Safra 2026/27 (Datum SIRGAS 2000)
+                </p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#e6eff4] text-[#0c161c] text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Exportar Shapefile / GeoJSON</span>
+</button>
+</div>
+<div class="flex justify-stretch">
+<div class="flex flex-1 gap-3 flex-wrap px-4 py-3 justify-start">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#e6eff4] text-[#0c161c] text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Importar KML / Shapefile</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#e6eff4] text-[#0c161c] text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Sincronizar SICAR / CAR</span>
+</button>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 p-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded p-6 border border-[#cddee9]">
+<p class="text-[#0c161c] text-base font-medium leading-normal">Área Total Mapeada</p>
+<p class="text-[#0c161c] tracking-light text-2xl font-bold leading-tight">2.100 ha (14 Talhões)</p>
+<p class="text-[#078838] text-base font-medium leading-normal">+100.0%</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded p-6 border border-[#cddee9]">
+<p class="text-[#0c161c] text-base font-medium leading-normal">Status Geo Sentinel-2</p>
+<p class="text-[#0c161c] tracking-light text-2xl font-bold leading-tight">100% Georref (NDVI 0,82)</p>
+<p class="text-[#078838] text-base font-medium leading-normal">+0.0%</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded p-6 border border-[#cddee9]">
+<p class="text-[#0c161c] text-base font-medium leading-normal">Custo Médio Alocado</p>
+<p class="text-[#0c161c] tracking-light text-2xl font-bold leading-tight">R$ 4.280 /ha</p>
+<p class="text-[#078838] text-base font-medium leading-normal">+4.2%</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded p-6 border border-[#cddee9]">
+<p class="text-[#0c161c] text-base font-medium leading-normal">Conformidade EUDR</p>
+<p class="text-[#0c161c] tracking-light text-2xl font-bold leading-tight">14/14 Aprovados</p>
+<p class="text-[#078838] text-base font-medium leading-normal">+100.0%</p>
+</div>
+</div>
+<!-- ========================================================================================= -->
+<!-- WORKSPACE GEOESPACIAL: 55% MAPA VETORIAL POSTGIS | 45% GRID DE DADOS & PAINEL DE INSPEÇÃO -->
+<!-- ========================================================================================= -->
+<main class="w-full px-4 py-4 flex flex-col gap-6">
+<!-- Sub-Header Metadados de Geoprocessamento -->
+<div class="flex flex-wrap items-center justify-between gap-4 bg-surface-container-lowest p-4 rounded-xl border border-outline-variant shadow-xs">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed text-xs font-semibold uppercase tracking-wider font-code-mono-sm">
+<span class="size-2 rounded-full bg-primary animate-ping"></span>
+        PostGIS v3.4 Conectado
+      </span>
+<span class="text-xs text-on-surface-variant font-code-mono-sm">EPSG: 31981 (SIRGAS 2000 / UTM Zone 21S)</span>
+<span class="text-outline-variant">|</span>
+<span class="text-xs text-on-surface-variant font-medium">Última checagem topológica: há 14 min (Zero auto-interseções)</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-primary text-on-primary rounded text-xs font-semibold shadow-xs hover:bg-primary-container transition-colors" onclick="toggleModal()">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+        Abrir CRUD Talhão 01
+      </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container text-on-surface-variant rounded text-xs font-semibold hover:bg-surface-container-high transition-colors" onclick="document.getElementById('import-drawer').scrollIntoView({behavior: 'smooth'})">
+<span class="material-symbols-outlined text-[16px]">file_upload</span>
+        Importar Arquivos
+      </button>
+</div>
+</div>
+<!-- Workspace 2 Colunas -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-5 items-start">
+<!-- COLUNA ESQUERDA (55% / 7 cols): Mapa Vetorial & Ferramentas Topológicas -->
+<div class="xl:col-span-7 flex flex-col gap-3 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<!-- Barra Superior do Mapa (Camadas e Desenho) -->
+<div class="bg-surface-container-low px-4 py-3 border-b border-outline-variant flex flex-wrap items-center justify-between gap-3">
+<!-- Controles de Camadas -->
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-xs font-bold text-on-surface uppercase tracking-wider mr-1">Camadas:</span>
+<button class="px-2.5 py-1 text-xs font-medium rounded bg-primary text-on-primary shadow-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">satellite_alt</span>
+            Sentinel-2 L2A
+          </button>
+<button class="px-2.5 py-1 text-xs font-medium rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">terrain</span>
+            Curvas Nível (5m)
+          </button>
+<button class="px-2.5 py-1 text-xs font-medium rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">eco</span>
+            NDVI Vigor
+          </button>
+<button class="px-2.5 py-1 text-xs font-medium rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+            CAR / APP
+          </button>
+<button class="px-2.5 py-1 text-xs font-medium rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+            EUDR Prodes
+          </button>
+</div>
+<!-- Ferramentas de Edição Vetorial -->
+<div class="flex items-center gap-1 border-l border-outline-variant pl-3">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary" title="Desenhar Polígono">
+<span class="material-symbols-outlined text-[18px]">polyline</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-primary font-bold bg-secondary-fixed" title="Editar Vértices">
+<span class="material-symbols-outlined text-[18px]">edit_attributes</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary" title="Cortar Talhão">
+<span class="material-symbols-outlined text-[18px]">content_cut</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary" title="Medir Área / Distância">
+<span class="material-symbols-outlined text-[18px]">straighten</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary" title="Buscar Coordenada Lat/Long">
+<span class="material-symbols-outlined text-[18px]">travel_explore</span>
+</button>
+</div>
+</div>
+<!-- Container do Mapa Satélite com Overlays Vetoriais SVG Interativos -->
+<div class="relative w-full h-[540px] bg-slate-950 overflow-hidden select-none group" id="map-viewport">
+<!-- Fundo Imagem de Satélite -->
+<div class="absolute inset-0 bg-cover bg-center opacity-85 scale-105 filter contrast-125" data-alt="High-resolution orbital satellite photograph showcasing precise lush green agricultural soy and corn parcels bordered by dense Brazilian Amazon transitional forest, geometric crop fields, and red soil unpaved access farm trails under a clear midday sun." data-location="Sorriso, Mato Grosso, Brazil" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBOJftFB_-VaAdyo0pBmj9nik8z9vbGIl3Dm60pAp15q9Ulx-NODmrKESEy1NyFfLalOUz3VOpxTD6q2IHU85gl3Dl6b_ngur3btACZ1Soilvn0EHbRNqBLxULZo5Jh_cX0niSDobpM6BhFi9kj_yvqhQuzahV3AQNBI72MMkXmV6rxya7wKKmMn1DHlrEbE3MjiqLH0XSjMd8O60uEigHt1maeM4FakksNMACcZUBCL1AVlJd2yMU');"></div>
+<!-- Grid e Linhas Cartográficas SVG -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="60" id="grid-pattern" patternunits="userSpaceOnUse" width="60">
+<path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.75"></path>
+</pattern>
+<lineargradient id="glow-grad" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#0283da" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="#0283da" stop-opacity="0.1"></stop>
+</lineargradient>
+<pattern height="12" id="hatch-reserva" patterntransform="rotate(45 0 0)" patternunits="userSpaceOnUse" width="12">
+<line stroke="#22c55e" stroke-opacity="0.6" stroke-width="1.5" x1="0" x2="0" y1="0" y2="12"></line>
+</pattern>
+</defs>
+<rect fill="url(#grid-pattern)" height="100%" width="100%"></rect>
+<!-- Polígono Reserva Legal / APP (Hachurado Verde) -->
+<polygon fill="url(#hatch-reserva)" points="20,20 180,15 210,180 30,220" stroke="#22c55e" stroke-dasharray="4,2" stroke-width="2"></polygon>
+<text fill="#4ade80" font-size="11" font-weight="700" letter-spacing="1" x="50" y="110">RESERVA LEGAL / APP · 1.350 ha</text>
+<!-- Polígonos de Talhões Vetoriais -->
+<!-- Talhão 02 -->
+<polygon fill="rgba(16, 185, 129, 0.2)" points="230,30 380,45 370,190 220,175" stroke="#10b981" stroke-width="2"></polygon>
+<text class="drop-shadow-md" fill="#ffffff" font-size="11" font-weight="600" x="250" y="110">T-02 · 145 ha (BMX Zeus)</text>
+<!-- Talhão 03 -->
+<polygon fill="rgba(16, 185, 129, 0.2)" points="390,50 560,65 540,210 380,195" stroke="#10b981" stroke-width="2"></polygon>
+<text class="drop-shadow-md" fill="#ffffff" font-size="11" font-weight="600" x="420" y="130">T-03 · 220 ha (DKB 255)</text>
+<!-- Talhão 04 -->
+<polygon fill="rgba(245, 158, 11, 0.2)" points="40,240 210,230 190,380 30,390" stroke="#f59e0b" stroke-width="2"></polygon>
+<text class="drop-shadow-md" fill="#ffffff" font-size="11" font-weight="600" x="55" y="310">T-04 · 160 ha (TMG 2381)</text>
+<!-- Talhão 05 -->
+<polygon fill="rgba(16, 185, 129, 0.2)" points="230,205 380,215 365,370 210,360" stroke="#10b981" stroke-width="2"></polygon>
+<text class="drop-shadow-md" fill="#ffffff" font-size="11" font-weight="600" x="250" y="285">T-05 · 190 ha (BRS 543)</text>
+<!-- TALHÃO 01 (SELECIONADO / ATIVO) -> Destaque com Vértices PostGIS editáveis -->
+<polygon fill="url(#glow-grad)" filter="drop-shadow(0px 0px 8px #0283da)" points="390,225 560,240 535,420 375,405" stroke="#0283da" stroke-width="3"></polygon>
+<text class="drop-shadow-lg" fill="#ffffff" font-size="12" font-weight="800" x="405" y="320">TALHÃO 01 · 180,5 ha [ATIVO]</text>
+<text fill="#9dcaff" font-size="10" font-weight="600" x="415" y="338">Soja M-5947 IPRO · 72 sc/ha</text>
+<!-- Vértices PostGIS manipuláveis com coordenadas ativas -->
+<circle cx="390" cy="225" fill="#ffffff" r="4.5" stroke="#005f9e" stroke-width="2"></circle>
+<circle cx="560" cy="240" fill="#ffffff" r="4.5" stroke="#005f9e" stroke-width="2"></circle>
+<circle cx="535" cy="420" fill="#ffffff" r="4.5" stroke="#005f9e" stroke-width="2"></circle>
+<circle cx="375" cy="405" fill="#ffffff" r="4.5" stroke="#005f9e" stroke-width="2"></circle>
+<circle cx="475" cy="232" fill="#38bdf8" r="3" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="548" cy="330" fill="#38bdf8" r="3" stroke="#ffffff" stroke-width="1.5"></circle>
+</svg>
+<!-- HUD Flutuante Superior: Coordenadas e Satélite -->
+<div class="absolute top-3 left-3 bg-slate-900/85 backdrop-blur-md text-white border border-slate-700/60 rounded-md px-3 py-2 flex items-center gap-4 text-xs font-code-mono-sm shadow-lg">
+<div class="flex items-center gap-1.5 text-emerald-400">
+<span class="size-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span>SENTINEL-2 MSI (10m)</span>
+</div>
+<div>Lat: <span class="text-slate-200">-12°33'14.2"S</span></div>
+<div>Long: <span class="text-slate-200">-55°42'55.8"W</span></div>
+<div>Alt: <span class="text-slate-200">365m</span></div>
+<div class="text-sky-300">GPS: ±0.38m (RTK)</div>
+</div>
+<!-- HUD Flutuante Inferior Direito: Ferramentas de Zoom e Camada -->
+<div class="absolute bottom-12 right-3 flex flex-col gap-1.5 bg-slate-900/85 backdrop-blur-md border border-slate-700/60 rounded-md p-1 text-white shadow-lg">
+<button class="size-7 flex items-center justify-center hover:bg-slate-800 rounded text-slate-200 hover:text-white" title="Aproximar">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+<button class="size-7 flex items-center justify-center hover:bg-slate-800 rounded text-slate-200 hover:text-white" title="Afastar">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<button class="size-7 flex items-center justify-center hover:bg-slate-800 rounded text-slate-200 hover:text-white" title="Centralizar Fazenda">
+<span class="material-symbols-outlined text-[16px]">crop_free</span>
+</button>
+<button class="size-7 flex items-center justify-center hover:bg-slate-800 rounded text-slate-200 hover:text-white" title="Alternar Mapa Base">
+<span class="material-symbols-outlined text-[16px]">layers</span>
+</button>
+</div>
+<!-- Barra Inferior do Mapa: Geometria e Validação Cartorial -->
+<div class="absolute bottom-0 inset-x-0 bg-slate-950/90 backdrop-blur border-t border-slate-800 px-4 py-2 flex items-center justify-between text-xs text-slate-300">
+<div class="flex items-center gap-2">
+<span class="inline-block size-2 rounded-full bg-emerald-500"></span>
+<span class="font-semibold text-white">14 Polígonos Fechados</span>
+<span>·</span>
+<span>Área Vetorizada: <b class="text-white">2.100,45 ha</b></span>
+<span>·</span>
+<span>Divergência SICAR: <b class="text-emerald-400">0,02%</b> (Tolerância legal Incra &lt; 5%)</span>
+</div>
+<div class="flex items-center gap-3 text-slate-400 font-code-mono-sm text-[11px]">
+<span>SRID: 4674 (SIRGAS)</span>
+<span>Escala: 1:12.500</span>
+</div>
+</div>
+</div>
+<!-- Resumo Rápido da Seleção Topológica -->
+<div class="px-4 py-3 bg-surface-container-low border-t border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-primary-container text-on-primary flex items-center justify-center font-bold text-xs">
+            01
+          </div>
+<div>
+<h4 class="text-xs font-bold text-on-surface">Talhão 01 - Sede Velha (TLH-001)</h4>
+<p class="text-[11px] text-on-surface-variant font-code-mono-sm">Geom: MULTIPOLYGON · 84 vértices · Centroide: -12.553944, -55.715500</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 bg-surface-container-highest hover:bg-surface-variant text-on-surface text-xs font-semibold rounded transition-colors flex items-center gap-1" onclick="toggleModal()">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+            Configurar Vértices
+          </button>
+</div>
+</div>
+</div>
+<!-- COLUNA DIREITA (45% / 5 cols): Grid CRUD & Inspeção Detalhada -->
+<div class="xl:col-span-5 flex flex-col gap-3 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<!-- Seletor de Abas & Filtros -->
+<div class="p-4 border-b border-outline-variant flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-bold text-on-surface tracking-tight flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">grid_view</span>
+            Tabela de Talhões &amp; Atribuição de Safras
+          </h3>
+<span class="text-xs bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded font-semibold">14 registros</span>
+</div>
+<!-- Abas Rápidas de Culturas -->
+<div class="flex items-center gap-1 border-b border-outline-variant pb-2 overflow-x-auto">
+<button class="px-3 py-1 text-xs font-bold rounded-full bg-primary text-on-primary">
+            Todos (14)
+          </button>
+<button class="px-3 py-1 text-xs font-medium rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface">
+            Soja 1ª Safra (9)
+          </button>
+<button class="px-3 py-1 text-xs font-medium rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface">
+            Milho Safrinha (5)
+          </button>
+<button class="px-3 py-1 text-xs font-medium rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface">
+            Pousio (0)
+          </button>
+</div>
+<!-- Busca e Ações Rápidas -->
+<div class="flex items-center gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-2.5 top-2.5 text-on-surface-variant text-[16px]">search</span>
+<input class="w-full pl-8 pr-3 py-1.5 text-xs bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none" placeholder="Buscar por talhão, variedade, matrícula..." type="text"/>
+</div>
+<select class="text-xs bg-surface-container-low border border-outline-variant rounded py-1.5 px-2 text-on-surface-variant">
+<option>Status: Em Produção</option>
+<option>Status: Colhido</option>
+<option>Status: Em Preparo</option>
+</select>
+<button class="p-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant" title="Filtros avançados">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Tabela Dense CRUD -->
+<div class="overflow-x-auto custom-scrollbar max-h-[460px]">
+<table class="w-full text-left border-collapse font-data-dense">
+<thead class="bg-surface-container-low text-[11px] uppercase tracking-wider text-on-surface-variant sticky top-0 z-10 border-b border-outline-variant">
+<tr>
+<th class="p-2.5 w-8 text-center">
+<input class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+</th>
+<th class="p-2.5 font-semibold">Talhão &amp; Código</th>
+<th class="p-2.5 font-semibold">Área (ha)</th>
+<th class="p-2.5 font-semibold">Cultura / Variedade</th>
+<th class="p-2.5 font-semibold">Custo/ha</th>
+<th class="p-2.5 font-semibold">EUDR</th>
+<th class="p-2.5 font-semibold text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant text-xs">
+<!-- Linha 1: Selecionada / Destaque -->
+<tr class="bg-secondary-fixed/30 hover:bg-secondary-fixed/50 transition-colors border-l-4 border-l-primary cursor-pointer">
+<td class="p-2.5 text-center">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+</td>
+<td class="p-2.5">
+<div class="font-bold text-on-surface">Talhão 01 - Sede Velha</div>
+<div class="text-[11px] text-primary font-code-mono-sm flex items-center gap-1">
+<span>TLH-001</span> · Matr. 18.204
+                </div>
+</td>
+<td class="p-2.5 font-bold font-code-mono-sm text-on-surface">180,50 ha</td>
+<td class="p-2.5">
+<div class="font-medium text-on-surface">Soja M-5947 IPRO</div>
+<div class="text-[10px] text-on-surface-variant">Prev: 72 sc/ha · Pl: 15/Out</div>
+</td>
+<td class="p-2.5 font-semibold text-on-surface">R$ 4.120</td>
+<td class="p-2.5">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
+<span class="material-symbols-outlined text-[11px]">verified</span> Conforme
+                </span>
+</td>
+<td class="p-2.5 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 text-primary hover:bg-primary/10 rounded" onclick="toggleModal()" title="Editar Talhão">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded" title="Centralizar no Mapa">
+<span class="material-symbols-outlined text-[16px]">my_location</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded" title="Duplicar">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 2 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-2.5 text-center">
+<input class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+</td>
+<td class="p-2.5">
+<div class="font-bold text-on-surface">Talhão 02 - Pivô Central</div>
+<div class="text-[11px] text-on-surface-variant font-code-mono-sm">TLH-002 · Matr. 18.204</div>
+</td>
+<td class="p-2.5 font-bold font-code-mono-sm text-on-surface">145,00 ha</td>
+<td class="p-2.5">
+<div class="font-medium text-on-surface">Soja BMX Zeus</div>
+<div class="text-[10px] text-on-surface-variant">Prev: 75 sc/ha · Irrigado</div>
+</td>
+<td class="p-2.5 font-semibold text-on-surface">R$ 4.450</td>
+<td class="p-2.5">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
+<span class="material-symbols-outlined text-[11px]">verified</span> Conforme
+                </span>
+</td>
+<td class="p-2.5 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded" onclick="toggleModal()">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded">
+<span class="material-symbols-outlined text-[16px]">my_location</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 3 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-2.5 text-center">
+<input class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+</td>
+<td class="p-2.5">
+<div class="font-bold text-on-surface">Talhão 03 - Chapadão Alto</div>
+<div class="text-[11px] text-on-surface-variant font-code-mono-sm">TLH-003 · Matr. 19.412</div>
+</td>
+<td class="p-2.5 font-bold font-code-mono-sm text-on-surface">220,00 ha</td>
+<td class="p-2.5">
+<div class="font-medium text-on-surface">Soja DKB 255 PRO4</div>
+<div class="text-[10px] text-on-surface-variant">Prev: 70 sc/ha · Pl: 18/Out</div>
+</td>
+<td class="p-2.5 font-semibold text-on-surface">R$ 3.980</td>
+<td class="p-2.5">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
+<span class="material-symbols-outlined text-[11px]">verified</span> Conforme
+                </span>
+</td>
+<td class="p-2.5 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded" onclick="toggleModal()">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded">
+<span class="material-symbols-outlined text-[16px]">my_location</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 4 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-2.5 text-center">
+<input class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+</td>
+<td class="p-2.5">
+<div class="font-bold text-on-surface">Talhão 04 - Baixada do Rio</div>
+<div class="text-[11px] text-on-surface-variant font-code-mono-sm">TLH-004 · Matr. 18.204</div>
+</td>
+<td class="p-2.5 font-bold font-code-mono-sm text-on-surface">160,00 ha</td>
+<td class="p-2.5">
+<div class="font-medium text-on-surface">Milho Pioneer P3707</div>
+<div class="text-[10px] text-on-surface-variant">Prev: 125 sc/ha · Safrinha</div>
+</td>
+<td class="p-2.5 font-semibold text-on-surface">R$ 4.310</td>
+<td class="p-2.5">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
+<span class="material-symbols-outlined text-[11px]">verified</span> Conforme
+                </span>
+</td>
+<td class="p-2.5 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded" onclick="toggleModal()">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded">
+<span class="material-symbols-outlined text-[16px]">my_location</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 5 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-2.5 text-center">
+<input class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+</td>
+<td class="p-2.5">
+<div class="font-bold text-on-surface">Talhão 05 - Estiva Fundos</div>
+<div class="text-[11px] text-on-surface-variant font-code-mono-sm">TLH-005 · Matr. 20.108</div>
+</td>
+<td class="p-2.5 font-bold font-code-mono-sm text-on-surface">190,00 ha</td>
+<td class="p-2.5">
+<div class="font-medium text-on-surface">Soja BRS 543 RR</div>
+<div class="text-[10px] text-on-surface-variant">Prev: 68 sc/ha · Pl: 20/Out</div>
+</td>
+<td class="p-2.5 font-semibold text-on-surface">R$ 4.200</td>
+<td class="p-2.5">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
+<span class="material-symbols-outlined text-[11px]">verified</span> Conforme
+                </span>
+</td>
+<td class="p-2.5 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded" onclick="toggleModal()">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded">
+<span class="material-symbols-outlined text-[16px]">my_location</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 6 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-2.5 text-center">
+<input class="rounded border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+</td>
+<td class="p-2.5">
+<div class="font-bold text-on-surface">Talhão 06 - Serrinha</div>
+<div class="text-[11px] text-on-surface-variant font-code-mono-sm">TLH-006 · Matr. 20.108</div>
+</td>
+<td class="p-2.5 font-bold font-code-mono-sm text-on-surface">110,00 ha</td>
+<td class="p-2.5">
+<div class="font-medium text-on-surface">Soja Golden Harvest</div>
+<div class="text-[10px] text-on-surface-variant">Prev: 66 sc/ha · Relevo Ondulado</div>
+</td>
+<td class="p-2.5 font-semibold text-on-surface">R$ 4.600</td>
+<td class="p-2.5">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
+<span class="material-symbols-outlined text-[11px]">verified</span> Conforme
+                </span>
+</td>
+<td class="p-2.5 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded" onclick="toggleModal()">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded">
+<span class="material-symbols-outlined text-[16px]">my_location</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Paginação e Métricas do Grid -->
+<div class="p-3 bg-surface-container-low border-t border-outline-variant flex items-center justify-between text-xs text-on-surface-variant">
+<span>Mostrando <strong>1-6</strong> de <strong>14</strong> talhões</span>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 rounded bg-surface-container-high text-on-surface-variant hover:bg-surface-variant disabled:opacity-40" disabled="">
+            Anterior
+          </button>
+<span class="px-2 py-1 font-bold text-primary">1</span>
+<button class="px-2 py-1 rounded hover:bg-surface-container">2</button>
+<button class="px-2 py-1 rounded hover:bg-surface-container">3</button>
+<button class="px-2 py-1 rounded bg-surface-container-high text-on-surface-variant hover:bg-surface-variant">
+            Próxima
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================================================================= -->
+<!-- MODAL / DRAWER CRUD COMPLETO: TALHÃO 01 - SEDE VELHA (TLH-001)                           -->
+<!-- ========================================================================================= -->
+<div class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 transition-all" id="crud-modal">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-2xl w-full max-w-4xl max-h-[921px] flex flex-col overflow-hidden animate-in fade-in zoom-in duration-200">
+<!-- Cabeçalho do CRUD -->
+<div class="p-5 bg-surface-container-low border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">cloud_upload</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-base font-bold text-on-surface">Editar Talhão: Talhão 01 - Sede Velha</h2>
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-secondary-fixed text-on-secondary-fixed font-code-mono-sm">TLH-001</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-100 text-emerald-800">Safra 2026/27</span>
+</div>
+<p class="text-xs text-on-surface-variant">Vínculo Espacial PostGIS: Geometria poligonal válida (84 vértices · SRID 31981)</p>
+</div>
+</div>
+<button class="size-8 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors" onclick="toggleModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Formulário com 3 Seções: Geral, Agronômico, PostGIS -->
+<div class="p-6 overflow-y-auto custom-scrollbar flex flex-col gap-6 text-xs">
+<!-- A. Identificação Geral -->
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-primary mb-3 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">domain</span>
+            A. Identificação Geral do Imóvel &amp; Talhão
+          </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div>
+<label class="block font-semibold text-on-surface mb-1">Nome do Talhão *</label>
+<input class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none text-xs" type="text" value="Talhão 01 - Sede Velha"/>
+</div>
+<div>
+<label class="block font-semibold text-on-surface mb-1">Código Interno *</label>
+<input class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none text-xs font-code-mono-sm" type="text" value="TLH-001"/>
+</div>
+<div>
+<label class="block font-semibold text-on-surface mb-1">Matrícula Cartorial (CRI) *</label>
+<select class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none text-xs">
+<option selected="">Matrícula 18.204 - CRI Sorriso/MT (Gleba Norte)</option>
+<option>Matrícula 19.412 - CRI Sorriso/MT (Gleba Leste)</option>
+<option>Matrícula 20.108 - CRI Sorriso/MT (Gleba Sul)</option>
+</select>
+</div>
+<div class="md:col-span-2">
+<label class="block font-semibold text-on-surface mb-1">Tipo de Solo / Textura Predominante</label>
+<input class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none text-xs" type="text" value="Argiloso (&gt;45% argila) - Latossolo Vermelho Eutrófico com boa drenagem"/>
+</div>
+<div>
+<label class="block font-semibold text-on-surface mb-1">Topografia / Declividade</label>
+<input class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none text-xs" type="text" value="Plano (0 a 3% declive)"/>
+</div>
+</div>
+</div>
+<hr class="border-outline-variant"/>
+<!-- B. Dados Agronômicos da Safra 2026/27 -->
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-primary mb-3 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">agriculture</span>
+            B. Planejamento Agronômico &amp; Metas da Safra
+          </h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div>
+<label class="block font-semibold text-on-surface mb-1">Cultura Principal *</label>
+<select class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none text-xs">
+<option selected="">Soja (Grãos Comerciais)</option>
+<option>Milho Safrinha</option>
+<option>Algodão</option>
+</select>
+</div>
+<div>
+<label class="block font-semibold text-on-surface mb-1">Cultivar / Híbrido *</label>
+<input class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none text-xs font-medium" type="text" value="Monsoy 5947 IPRO"/>
+</div>
+<div>
+<label class="block font-semibold text-on-surface mb-1">Data Prevista de Plantio</label>
+<input class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none text-xs" type="date" value="2026-10-15"/>
+</div>
+<div>
+<label class="block font-semibold text-on-surface mb-1">Meta Produtividade (sc/ha)</label>
+<input class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none text-xs font-semibold text-emerald-700" type="text" value="72,0 sc/ha (4.320 kg/ha)"/>
+</div>
+<div>
+<label class="block font-semibold text-on-surface mb-1">Espaçamento Entrelinhas</label>
+<input class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none text-xs" type="text" value="0,45 m"/>
+</div>
+<div>
+<label class="block font-semibold text-on-surface mb-1">População Alvo</label>
+<input class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none text-xs" type="text" value="260.000 plantas/ha"/>
+</div>
+<div>
+<label class="block font-semibold text-on-surface mb-1">Orçamento Estimado / ha</label>
+<input class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none text-xs font-semibold" type="text" value="R$ 4.120,00"/>
+</div>
+<div>
+<label class="block font-semibold text-on-surface mb-1">Status Operacional</label>
+<select class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:outline-none text-xs font-semibold text-primary">
+<option selected="">Em Produção (Ativo)</option>
+<option>Em Preparo de Solo</option>
+<option>Colhido</option>
+<option>Pousio / Cobertura</option>
+</select>
+</div>
+</div>
+</div>
+<hr class="border-outline-variant"/>
+<!-- C. Parâmetros Geoespaciais (PostGIS & Due Diligence EUDR) -->
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-primary mb-3 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">public</span>
+            C. Geometria PostGIS &amp; Due Diligence Socioambiental (EUDR)
+          </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="p-3 bg-surface-container-low border border-outline-variant rounded">
+<span class="text-[11px] text-on-surface-variant block mb-1">Área Calculada no ST_Area (ha)</span>
+<div class="text-sm font-bold font-code-mono-sm text-on-surface">180,50 ha (1.805.000 m²)</div>
+<span class="text-[10px] text-emerald-600 font-medium">Validado via PostGIS ST_MakeValid</span>
+</div>
+<div class="p-3 bg-surface-container-low border border-outline-variant rounded">
+<span class="text-[11px] text-on-surface-variant block mb-1">Centroide Geográfico (WGS84)</span>
+<div class="text-sm font-bold font-code-mono-sm text-on-surface">-12.553944, -55.715500</div>
+<span class="text-[10px] text-on-surface-variant">Calculado via ST_Centroid</span>
+</div>
+<div class="p-3 bg-surface-container-low border border-outline-variant rounded">
+<span class="text-[11px] text-on-surface-variant block mb-1">Sobreposição Reserva Legal / APP</span>
+<div class="text-sm font-bold text-emerald-700">0,00% (Conforme / Regular)</div>
+<span class="text-[10px] text-emerald-600 font-medium">Sem interseção com malha protegida</span>
+</div>
+<div class="md:col-span-3 p-3 bg-emerald-50 border border-emerald-200 rounded flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-emerald-700 text-[24px]">verified_user</span>
+<div>
+<h4 class="font-bold text-emerald-900">Due Diligence Regulamentação Europeia (EUDR)</h4>
+<p class="text-[11px] text-emerald-800">Polígono verificado contra PRODES Amazônia e Deter (INPE). Nenhuma supressão vegetal detectada após 31/12/2020. Hash criptográfico gerado para exportação aduaneira.</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-emerald-600 text-white font-bold text-xs uppercase tracking-wide">Aprovado 100%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Rodapé com Ações do Modal -->
+<div class="p-4 bg-surface-container-low border-t border-outline-variant flex items-center justify-between">
+<button class="px-3 py-2 text-error border border-error/30 hover:bg-error/10 rounded font-semibold text-xs flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+          Excluir Talhão
+        </button>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 border border-outline-variant bg-surface-container-lowest text-on-surface rounded font-semibold text-xs hover:bg-surface-container transition-colors" onclick="toggleModal()">
+            Descartar Alterações
+          </button>
+<button class="px-5 py-2 bg-primary hover:bg-primary-container text-on-primary rounded font-bold text-xs shadow-xs transition-colors flex items-center gap-1.5" onclick="toggleModal()">
+<span class="material-symbols-outlined text-[16px]">save</span>
+            Salvar Alterações no PostGIS
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================================================================= -->
+<!-- SEÇÃO INFERIOR: IMPORTADOR KML/GEOJSON & INTEGRAÇÃO COM MÁQUINAS (JOHN DEERE/TRIMBLE)    -->
+<!-- ========================================================================================= -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-xs flex flex-col gap-4" id="import-drawer">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div>
+<h3 class="text-sm font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">cloud_sync</span>
+          Importador Vetorial &amp; Sincronizador de Malha Geoespacial
+        </h3>
+<p class="text-xs text-on-surface-variant">Importe arquivos gerados por monitores de bordo de colheitadeiras/tratores ou baixe diretamente do SICAR/SIGEF.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-on-surface-variant font-medium">Formatos Suportados:</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-xs font-code-mono-sm">.KML</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-xs font-code-mono-sm">.GeoJSON</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-xs font-code-mono-sm">.SHP (ZIP)</span>
+</div>
+</div>
+<!-- Área de Drag & Drop e Status -->
+<div class="border-2 border-dashed border-outline-variant rounded-lg p-6 bg-surface-container-low flex flex-col md:flex-row items-center justify-between gap-6 hover:border-primary transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-secondary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">upload_file</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Arraste seu Shapefile (.zip), KML ou GeoJSON aqui</p>
+<p class="text-[11px] text-on-surface-variant">Compatível com John Deere Operations Center, Climate FieldView, Trimble Ag e Trimble AgGPS</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 bg-surface-container-highest hover:bg-surface-variant text-on-surface rounded text-xs font-semibold transition-colors">
+          Selecionar do Computador
+        </button>
+<button class="px-4 py-2 bg-primary text-on-primary rounded text-xs font-bold shadow-xs hover:bg-primary-container transition-colors">
+          Processar no PostGIS
+        </button>
+</div>
+</div>
+<!-- Barra de Arquivo Carregado Atualmente -->
+<div class="p-3 bg-secondary-fixed/20 border border-secondary-fixed rounded flex items-center justify-between text-xs">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="font-code-mono-sm font-semibold text-on-surface">fazenda_santa_maria_talhoes_2026.geojson</span>
+<span class="text-on-surface-variant">· 14 geometrias válidas · 0 auto-interseções detectadas · Tolerância 0,001m</span>
+</div>
+<span class="text-[11px] font-bold text-emerald-700 font-code-mono-sm">Pronto para Validação Cartorial</span>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function toggleModal() {
+    const modal = document.getElementById('crud-modal');
+    if (modal.classList.contains('hidden')) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    } else {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+  // Initialize modal hidden on start
+  document.addEventListener("DOMContentLoaded", function() {
+    toggleModal();
+  });
+</script>
+</body></html>

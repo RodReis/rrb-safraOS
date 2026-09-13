@@ -1,0 +1,154 @@
+# CLAUDE.md — rrb-safraOS
+
+Gestão de safra: planejar, executar e acompanhar as etapas da produção agrícola para reduzir risco e aumentar rentabilidade, com IA e agents autônomos.
+
+Este arquivo é o contrato operacional entre três atores. Regra que não está aqui nem em `docs/` não existe. Ninguém inventa regra: quem sentir falta de uma, pergunta ao PI. A decisão final é sempre do PI.
+
+## Papéis
+
+**PI — Rodrigo Reis.** Decide escopo, prioridade e trade-off. Responde dúvidas, aprova specs e aceita entregas. Não executa o fluxo: não cria issue, não commita, não abre PR, não faz merge. O aceite é só dele.
+
+**Cowork — planejamento.** Especifica e mantém `CLAUDE.md`, `docs/prd/mvp/spec/`, `docs/prd/`, `docs/adr/` e o Índice Fatia ↔ SPEC do `docs/STATUS.md`. Antes de fechar uma spec, apresenta ao PI as dúvidas abertas em perguntas objetivas (pop-up); só cria a issue com todas resolvidas, para evitar retrabalho. Escreve documento direto na `main`, sem PR. Cria as issues no board na ordem de implementação e mantém os próximos 5 cards em `proplan:todo`. Nunca escreve código — implementação é exclusiva do Code.
+
+**Code — Claude Code, developer.** Implementa a partir das issues, na ordem do board. Codifica, revisa e testa antes do commit; entrega por PR com CI verde e mergeia ele mesmo. Atualiza a documentação de entrega ao final de cada card, no mesmo PR. Cria a própria issue `[FIX]`. Não cria issue de fatia nem `[INFRA]` — isso é do Cowork. Pode criticar arquitetura e spec; não discute escopo, que é do PI.
+
+## Stack e ambiente
+
+- Backend em Python com FastAPI; processamento assíncrono com Celery e Redis no MVP. A versão do Python e das dependências é fixada nos arquivos do projeto e repetida na CI, sem intervalos flutuantes.
+- Web e mobile usam Node 24.x (`node -v`) e TypeScript; mobile com Expo. Windows é o ambiente primário do PI: scripts portáveis resolvem `.cmd` quando necessário e não dependem de shell Linux para lógica essencial.
+- Desenvolvimento é local. Postgres sobe pelo `docker-compose` do projeto; o Code está autorizado a subir o compose se estiver parado. Não reaproveitar container nem porta já usados por outro projeto na máquina — este projeto tem os seus.
+- Portas: na primeira fatia que precisar, o Code pergunta ao PI **uma única vez** a porta de cada ambiente e registra em `.env.example`. Depois disso, não pergunta mais.
+- Frontend com componentes shadcn/ui (nunca componente nativo). Mobile com Expo.
+- Dado de desenvolvimento entra por seed, criado na primeira fatia que precisar. Sem hardcode e sem dado inventado no caminho de produção.
+
+## Regras do projeto (decididas pelo PI)
+
+- Idioma: documentação, specs, issues, commits e comunicação em PT-BR; código e identificadores em inglês; textos de interface em PT-BR.
+- Privacidade e proteção de dados não pertencem ao contrato de produto nem ao PRD. São governadas exclusivamente por `docs/PRIVACIDADE.md`, documento autônomo que não referencia nem altera o PRD. Cowork e Code não inventam regra jurídica: dúvida material é encaminhada ao PI e, quando necessário, a responsável jurídico/privacidade.
+- Ninguém cria regra de produto — nem Cowork, nem Code. Falta regra → pergunta ao PI (ver "O que bloqueia o Code").
+- Autorizado a subir o docker, se estiver off. Criar sempre um nova, com novas portas, nunca usar as que ja etão configurada no docker.
+- Regra de privacidade só afeta implementação quando `docs/PRIVACIDADE.md` a classificar como controle técnico aplicável. Ela não cria funcionalidade, fatia, critério comercial ou aceite de produto por conta própria.
+
+## Unidade de trabalho: card = fatia
+
+- Fatia é a Slice N.M do PRD (`docs/prd/mvp/MVP-*.md`). Cada fatia recebe um número `F<n>` e um número `SPEC-<nnn>` **iguais**, alocados uma única vez pelo Cowork no Índice Fatia ↔ SPEC do `docs/STATUS.md` (fonte única do par MVP ↔ SPEC ↔ Fatia). Número nunca é reaproveitado.
+- Uma spec gera exatamente uma fatia. Partir uma fatia é decisão do PI e gera spec nova com número novo — não sufixo.
+- Uma issue por fatia, **nunca por passo**. Os passos vivem em `docs/DEVELOPMENT.md`.
+- Plano de gate/homologação de MVP não é fatia: vira card `[GATE]`, sem `F` e sem `SPEC`.
+
+### Título da issue
+
+`[MVP<n>][SPEC-<nnn>][<F<n> | FIX | GATE | INFRA | TEST>] <título livre>` — tokens nesta ordem, seguidos de espaço e título livre. **Só entra token que é verdade**; o que não existe, omite. Nunca o número nu, sempre o par.
+
+- Fatia com spec → `[MVP2][SPEC-007][F7] Cadastro de talhão com área e cultura`
+- Correção ligada a uma spec → `[MVP2][SPEC-007][FIX] área do talhão aceita valor negativo`
+- Correção ligada só a ADR/doc → `[MVP1][FIX] custo por hectare ignora insumo sem nota`
+- Portão de MVP → `[MVP3][GATE] Homologação da integração meteorológica`
+- Processo/infra → `[INFRA] CI: relatório de testes por SPEC/issue`
+- Card de teste/descartável → `[TEST] ...`
+
+## Ciclo de vida do card — labels `proplan:*` e quem move
+
+| Transição | Quem | Quando |
+|---|---|---|
+| → `planejado` | Cowork | spec em rascunho, dúvidas abertas com o PI |
+| `planejado` → `backlog` | Cowork | dúvidas resolvidas; **mesma issue** (troca o label, não cria outra), assignee PI, corpo com link para a Slice do PRD |
+| `backlog` → `todo` | Cowork | os próximos 5 cards da ordem de implementação |
+| `todo` → `doing` | Code | ao iniciar o card — sempre o primeiro `todo` da ordem |
+| `doing` → `done` | Code | após confirmar o merge na origem; link do PR no corpo da issue |
+| `done` → `finalizado` + fechar a issue | **PI** | aceite. Só o PI. Nenhuma automação fecha issue |
+| `next` → `proximo` | Code | indica qual o próximo issue pegar.
+
+Não existe gate de aprovação de spec (decisão do PI, 18/08/2026). O que trava uma entrega é **CI verde** e **aceite do PI** — nada mais.
+
+Ao terminar um card, o Code registra qual é o próximo `todo` e segue para ele. Só para quando `todo` está vazio ou quando cai num dos dois casos abaixo.
+
+## O que bloqueia o Code — dois casos, não há terceiro
+
+1. **Decisão de produto que não existe em nenhum documento** (spec, PRD, ADR) e que escolher seria criar regra → pergunta ao PI.
+2. **Problema técnico da spec** — inexequível, ou contradiz `docs/ARCHITECTURE.md`, `docs/CONVENTION.md` ou um ADR → pergunta ao PI.
+
+Documento faltando não bloqueia. ADR não bloqueia. Falta de spec não bloqueia. Se está parado por qualquer outro motivo, o motivo está errado: implementa e registra a decisão no PR.
+
+Tudo o mais — nome de campo, ordem de implementação interna, estrutura de pasta, dublê de teste, como testar, se cabe refactor junto — **é do Code, decide na hora**. Errou? É reversível: corrige no PR seguinte.
+
+**Bug:** comportamento já documentado (ADR, `ARCHITECTURE.md`, `CONVENTION.md`, `STATUS.md`) que está errado → o Code cria o card `[FIX]` em Backlog, cita a fonte no corpo e segue o fluxo normal, sem esperar ninguém. Se o comportamento correto **ainda não existe** e escolhê-lo é decisão de produto, é o caso 1.
+
+## Git: dois atores escrevem — quem cede no conflito
+
+- O Cowork pusha documento direto na `main`. É o único caminho do processo sem PR, CI ou aceite, e vale **só para os documentos que ele mantém**.
+- **Todo código entra por PR com CI verde, sem exceção.** Nunca commit de código direto na `main`.
+- Divisão **por arquivo**: governança (`CLAUDE.md`, `docs/prd/mvp/spec/`, `docs/prd/`, `docs/adr/`, índice do `STATUS.md`) é do Cowork; código, testes, build, CI e documentação de entrega (`docs/DEVELOPMENT.md`, progresso no `STATUS.md`, `docs/TESTING.md`, `docs/CI-PR.md`) são do Code. Cowork precisando tocar algo fora da sua lista → para e pergunta ao PI.
+- Como o Cowork não abre PR, ele nunca vê conflito. Quem colide é o Code, com branch aberta enquanto a `main` andou. Regra: o Code **rebase e reaplica** o próprio trabalho por cima. O Code **nunca desfaz** linha escrita pelo Cowork; se o `STATUS.md` divergiu, a versão da `main` vence e o Code reaplica só o próprio progresso.
+- PR referencia a issue com **`refs #N`**. **Nunca `closes #N`** — forjaria o aceite do PI.
+
+## Rotina do Code por card
+
+1. Confirmar branch, diff local, issue, SPEC aplicável e base remota. Worktree/branch por card. Preservar mudanças de outros trabalhos; não usar `git add -A` em checkout misto.
+2. Uma finalidade por PR. Código, testes e docs necessários à mesma entrega ficam juntos; escopo oportunista fica fora. Mudança independente vai em PR separada; não partir mudança atômica só para reduzir linhas.
+3. Commits coerentes e push frequente para preservar o trabalho. Não acumular grande alteração sem checkpoint remoto.
+4. Rodar lint, typecheck, testes e as provas condicionais de `docs/TESTING.md`. Ausência de credencial, serviço externo ou ambiente real é `not_run`, **nunca** `pass`. Falha de worker ou falta de infra nunca vira PASS.
+5. Autorrevisão do diff completo contra a base, inclusive arquivos já commitados (`engineering:code-review`): achados verificáveis, P0/P1 bloqueiam, deduplicar achados anteriores.
+6. Preencher a PR com problema, comportamento antes/depois, `refs #N`, SPEC quando houver, validação executada e limitações. Usar o template quando existir. A descrição explica o resultado final, não narra as tentativas.
+7. CI: `gh pr checks <n> --watch` (bloqueia até o fim e devolve código de saída). **Nunca afirmar estado de CI, PR ou job sem verificar no momento da fala**; silêncio de watcher, lista vazia, print antigo ou status lembrado não é verde. Novo head ou avanço da base exige reconciliar — PASS antigo não vale para código novo.
+8. Corrigir no mesmo branch/PR. Merge por squash com CI verde. Bloqueio externo ou de permissão: preservar a PR e informar a causa; não contornar nem confundir com defeito de código.
+9. Confirmar `mergedAt`/`mergeSha` na origem antes de declarar "integrado". Só então aplicar `proplan:done`. Documentação da entrega vai no PR — nunca commit na `main` para registrar merge.
+10. Indicar o próximo card e seguir.
+
+## Não é decisão livre do agente
+
+- Alterar ruleset, exigência de review, auto-merge nativo ou atualização obrigatória de branch: exige escopo e autorização próprios.
+- Remover cobertura, RLS, anti-drift, append-only ou teste para ganhar minutos de CI. `[skip ci]`, cache de PASS e rerun cego não são otimização.
+- Reescrever workflow humano ou mudar comando de validação sem preservar o contrato.
+- Exigir aprovador humano extra quando o fluxo é solo, ou pedir novo aceite de produto que já foi dado.
+- Introduzir sharding, migrar runner ou contratar infraestrutura sem evidência e recorte próprios.
+- Alterar requisito de produto, política de aceite ou escopo de uma fatia: SPEC/emenda do PI **antes** de implementar.
+
+## Testes e CI
+
+- Categorias obrigatórias: regras, banco, tela e E2E quando aplicável. Evidência rastreável por SPEC/issue (arquivos brutos, cobertura por categoria, relatório agregado) conforme `docs/TESTING.md`.
+- Correção de bug precisa de teste de regressão quando há comportamento verificável; se não houver teste viável, registrar o motivo e a prova alternativa na PR.
+- Mudança em teste, workflow ou gerador de relatório exige self-check e verificação do relatório. Se tocar UI ou fluxo crítico, incluir prova visual/E2E.
+- CI de PR com caminho crítico curto: jobs independentes em paralelo (`quality`, `test-regras`, `test-banco`, `test-tela`, `e2e`); o job agregado não reexecuta a suíte, só consolida artefatos e valida anti-drift/append-only; o `gate` depende dos obrigatórios. PR acima de 15 min sem justificativa técnica: medir e registrar a causa em `docs/CI-PR.md`. Otimização válida é paralelizar, condicionar por mudança e reaproveitar artefato — nunca remover prova.
+- Dependência web/mobile que não suporte Node 24 ou dependência backend incompatível com a versão Python fixada é bloqueio explícito: documentar o erro e ajustar a matriz só com justificativa; nunca degradar versão em silêncio.
+
+## Convenções de código
+
+- Funções de cálculo puras: sem banco, rede ou relógio; o "agora" entra por parâmetro.
+- Caso de uso controla a transação; controller só valida e delega. DTO nunca é entidade de persistência.
+- Proibido `any` implícito; `unknown` antes de validar dado externo; proibido float para dinheiro.
+- Erro de domínio tem código estável; resposta HTTP segue `application/problem+json` com `type`, `title`, `status`, `code`, `correlationId`.
+- Frontend: máscara e validação em Date, valores R$, CPF, CNPJ, telefone e e-mail. Mensagem ao usuário via Toast (info, warn, error), nunca `alert`.
+
+## Skills do Code — na ordem de um card
+
+`superpowers:using-git-worktrees` → `superpowers:writing-plans` / `executing-plans` (a Slice do PRD **é** o design; `brainstorming` só quando cair num caso de bloqueio ou em `[FIX]` sem causa clara) → `superpowers:test-driven-development` em feature crítica (isolamento de tenant, decisão de acesso, idempotência financeira) → `engineering:code-review` em toda tarefa → `gstack:qa` → `superpowers:finishing-a-development-branch`.
+Quando a tarefa tem UI: `frontend-design` (não cair no shadcn-default genérico), `gstack:design-review`, `impeccable`. Documentação de biblioteca: `context7`. Mobile: `expo`. Smoke ao vivo: Playwright.
+
+Use a que existir no ambiente; a ausência de uma skill não é desculpa para pular a disciplina que ela representa.
+
+## Grafo de conhecimento (graphify) — opcional
+
+Só vale enquanto houver código a indexar; com o repo só em documentação, ler os arquivos direto é mais barato. Se `graphify-out/` existir, consulte o grafo antes de explorar arquitetura ou "quem chama o quê" (`/graphify query "<pergunta>"`); leia arquivo direto só para conteúdo exato. Ao final de cada entrega, pergunte ao PI se roda `/graphify . --update` (incremental, nunca do zero). `graphify-out/` é cache local, não entra em commit.
+
+## Documentos-chave
+
+- `docs/DEVELOPMENT.md` — Documento de ordem de execução e status por item (atualize a cada entrega junto com STATUS.md).
+- `docs/ARCHITECTURE.md` — Documento desenho, módulos, dados, resiliência.
+- `docs/DECISIONS.md` — Documento ADRs (ler antes de propor mudança estrutural).
+- `docs/CONVENTION.md` — Documento de domínio: entidades, estados, invariantes e regras de negócio (o coração do produto).
+- `docs/DESIGN-UI.md` — Documento de direção para criar o DESIGN-SYSTEM em outra ferramenta de designer(claude-design), não de contrato: de onde saíram opção de Carbono Adaptativo e o pipeline de accent.
+- `docs/GITHUB.md` — Documento de referencia das melhores praticas de commits, merges, branchs.
+- `docs/PRS.md` — Documento de referencia das melhores praticas de PRS.
+- `docs/CI-PR.md`— Documento política de PR rápida: jobs paralelos, gate único, medição de duração e limites. Melhores praticas do GitHub
+- `docs/STATUS.md` — Kanban/roadmap deste projeto + **Índice Fatia ↔ SPEC** (fonte única da numeração). Prosa curta, sem detalhe.
+- `docs/STATUS-ARQUIVO.md` — Documento histórico detalhado que complementa o STATUS.md: prosa longa mora aqui, com detalhe.
+- `docs/LANDSCAPE.md` — Documento cenário competitivo datado: o que o mercado já faz, o que morreu por causa disso, e os gatilhos que obrigam a revisar. Evita reconstruir o que já existe de graça.
+- `docs/PRIVACIDADE.md` — Governança autônoma de privacidade e proteção de dados. Não é requisito de produto e não referencia o PRD.
+- `docs/AUTID.md`— Documento de rotina de autoria, revisão, CI e evidência das PRs deste repositório; distingue orientação operacional de evolução da pipeline.
+- `docs/TESTING.md` — Documento de estratégia de teste, classificação, evidência e relatório por SPEC/issue.
+- `docs/REVIEW.md` — instruções exclusivas para revisão, inseridas nos agentes do pipeline de revisão com a mais alta prioridade. Use-as para alterar o que é sinalizado, com qual gravidade e como as descobertas são relatadas.
+- `docs/prd/PRD.md` Documentos de requisito da verdade do projeto.
+- `docs/prd/mvp/` Documentos de MVPs (épicos) com checklist das fatias previstas.
+- `docs/prd/mvp/plans/` — Documentos de planos de implementação por slice. São **material de apoio do Code**, não contrato: onde divergirem do PRD, o PRD vence.
+- `docs/prd/mvp/spec/` — Documentos de especificação por slice. São **material de apoio do Code**, não contrato: onde divergirem do PRD, o PRD vence.

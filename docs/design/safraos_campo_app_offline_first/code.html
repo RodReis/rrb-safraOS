@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><title>SafraOS Campo</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"surface-container-high": "#e6e8f0", "on-surface-variant": "#404752", "surface-dim": "#d8dae2", "secondary-fixed-dim": "#abc9f0", "on-primary-fixed": "#001d35", "surface-container-lowest": "#ffffff", "on-secondary": "#ffffff", "on-surface": "#181c21", "tertiary-container": "#b55d00", "on-tertiary-fixed-variant": "#703700", "on-error-container": "#93000a", "on-secondary-fixed-variant": "#2b4969", "outline-variant": "#bfc7d3", "on-primary-fixed-variant": "#00497c", "tertiary-fixed-dim": "#ffb783", "primary-fixed-dim": "#9dcaff", outline: "#707883", "on-primary-container": "#fdfcff", "primary-container": "#0078c6", primary: "#005f9e", "on-primary": "#ffffff", "on-secondary-fixed": "#001d36", "inverse-on-surface": "#eef0f8", "on-tertiary-container": "#fffbff", "inverse-surface": "#2d3137", "on-tertiary-fixed": "#301400", "primary-fixed": "#d1e4ff", error: "#ba1a1a", "surface-container": "#eceef6", "surface-variant": "#e0e2ea", "inverse-primary": "#9dcaff", "tertiary-fixed": "#ffdcc5", "surface-container-highest": "#e0e2ea", "surface-container-low": "#f1f3fb", surface: "#f8f9ff", background: "#f8f9ff", "error-container": "#ffdad6", tertiary: "#904900", "surface-tint": "#0061a2", "surface-bright": "#f8f9ff", "on-tertiary": "#ffffff", secondary: "#436082", "on-secondary-container": "#405d7f", "on-error": "#ffffff", "secondary-container": "#b9d7fe", "secondary-fixed": "#d1e4ff", "on-background": "#181c21"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"space-sm": "0.5rem", "space-md": "0.75rem", "space-xs": "0.25rem", margin: "1.5rem", "space-lg": "1.25rem", gutter: "1rem", "space-xl": "1.75rem"}, fontFamily: {"headline-lg": ["Plus Jakarta Sans"], "code-mono-sm": ["JetBrains Mono"], "code-mono-md": ["JetBrains Mono"], "data-dense": ["Inter"], "body-lg": ["Inter"], "badge-label": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "display-lg": ["Plus Jakarta Sans"], headline: ["Plus Jakarta Sans"], display: ["Plus Jakarta Sans"], body: ["Inter"], label: ["JetBrains Mono"]}, fontSize: {"headline-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600"}], "code-mono-sm": ["11px", {lineHeight: "14px", letterSpacing: "0em", fontWeight: "500"}], "code-mono-md": ["13px", {lineHeight: "18px", letterSpacing: "-0.01em", fontWeight: "500"}], "data-dense": ["13px", {lineHeight: "16px", fontWeight: "500"}], "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}], "badge-label": ["11px", {lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "600"}], "headline-md": ["20px", {lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], "headline-sm": ["16px", {lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600"}], "body-sm": ["12px", {lineHeight: "16px", fontWeight: "400"}], "display-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 flex flex-col justify-between px-margin py-space-xs"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #0f3f2e - Font: plusJakartaSans - Mode: light - Roundness: rounded-sm" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vn5Delybvm3eW3tHMO8JkF2q477p7udnqhK0xOGs0FKTOerKpFiyyuoLZwxLPZlKXH50on2-lxB4x2r5oFdgvii-54o5_3rdk-5VxkGPG1WvbncSGPFpmwMaSHJFIreBCuGOvFqIvHM_Vy8JYhb6Brbu2BcBWNUMlfHA41P4VgSqfV8NL27O1RinOTa_YGrikgprEneYrR7mn5MXSNyI1UQ9zvBBRaW0eOa3D7eOwXybjNZhuMkBHnnw"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none">SafraOS Campo</span><span class="font-body-sm text-body-sm text-on-surface-variant font-medium leading-tight">Campo / Home</span></div></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="flex items-center justify-between gap-space-xs"><div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface font-badge-label text-badge-label"><span class="material-symbols-outlined text-secondary text-[14px]">agriculture</span><span class="truncate max-w-[140px]">Fazenda Santa Maria</span></div><div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-code-mono-sm text-code-mono-sm"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span>GPS Ativo · 4 Pendentes</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-28 pb-24 bg-surface"><div class="flex flex-col w-full px-margin space-y-space-md pb-12">
+<!-- BANNER OFFLINE-FIRST (Alta Visibilidade Operacional) -->
+<div class="rounded-xl bg-tertiary text-on-tertiary p-space-md shadow-md flex flex-col gap-space-xs relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[20px] animate-pulse">cloud_off</span>
+<span class="font-headline-sm text-headline-sm tracking-tight text-tertiary-fixed font-semibold">Sem Sinal de Internet</span>
+</div>
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-code-mono-sm text-code-mono-sm font-semibold">
+        SQLite v3 Local
+      </span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary-fixed-dim">Modo Offline-First Ativo. Todos os lançamentos serão sincronizados automaticamente ao retornar à sede.</p>
+<div class="mt-space-xs pt-space-xs border-none flex items-center justify-between bg-black/20 rounded-lg p-space-xs px-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-fixed text-[16px]">schedule</span>
+<span class="font-data-dense text-data-dense text-tertiary-fixed">4 lançamentos locais na fila</span>
+</div>
+<button class="font-badge-label text-badge-label bg-tertiary-fixed text-on-tertiary-fixed px-space-sm py-1 rounded-md active:scale-95 transition-transform flex items-center gap-1">
+<span>Ver Fila</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- SELETOR MODO SOL FORTE (ALTO CONTRASTE PARA CAMPO A CÉU ABERTO) -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-highest shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px]" id="contrast-icon">wb_sunny</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface leading-tight">Modo Sol Forte</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Alto contraste sob luz direta</span>
+</div>
+</div>
+<button aria-pressed="false" class="h-9 px-space-md rounded-full bg-surface-container-lowest text-primary font-badge-label text-badge-label shadow-sm flex items-center gap-space-xs transition-all active:scale-95" id="contrast-toggle" onclick="toggleHighContrast()">
+<span class="w-2.5 h-2.5 rounded-full bg-outline-variant" id="contrast-dot"></span>
+<span id="contrast-label">Ativar</span>
+</button>
+</div>
+<!-- CARD GPS TEMPO REAL + CONFORMIDADE ESPACIAL CAR -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px]">my_location</span>
+<div class="flex flex-col">
+<span class="font-badge-label text-badge-label text-on-surface-variant uppercase tracking-wider">Geolocalização Ativa</span>
+<span class="font-headline-md text-headline-md text-on-surface">Talhão 04 <span class="text-on-surface-variant font-normal text-body-md">(Gleba Norte)</span></span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-code-mono-sm text-code-mono-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+        ±2,8m RTK
+      </span>
+</div>
+<!-- Mini visualização do mapa espacial -->
+<div class="relative w-full h-24 rounded-lg overflow-hidden" data-location="Fazenda Santa Maria, Sorriso, Mato Grosso, Brazil" style="">
+<div class="absolute inset-0 bg-primary/20 backdrop-blur-[1px] flex flex-col justify-end p-space-xs">
+<div class="inline-flex items-center gap-space-xs bg-surface-container-lowest/95 backdrop-blur-md px-space-sm py-1 rounded-md shadow-sm w-fit">
+<span class="material-symbols-outlined text-secondary text-[16px]">verified</span>
+<span class="font-data-dense text-data-dense text-on-surface font-semibold">Conformidade CAR: Legal</span>
+</div>
+</div>
+</div>
+<!-- Alerta de Conformidade Rigorosa (Audit-Grade) -->
+<div class="rounded-lg bg-surface-container-low p-space-xs px-space-sm flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">nature_people</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Dentro da área permitida de manejo agrícola. <strong class="text-on-surface font-medium">Sem sobreposição com APP ou Reserva Legal.</strong>
+</p>
+</div>
+</div>
+<!-- BOTÕES GIGANTES DE LANÇAMENTO RÁPIDO (<10s de execução com luva) -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between px-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Ações Rápidas no Campo</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Toque extra largo</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Ação 1: Aplicação & Defensivos -->
+<button class="flex flex-col items-start justify-between p-space-md min-h-[110px] rounded-xl bg-primary-container text-on-primary active:scale-[0.98] transition-transform shadow-sm text-left">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest/15 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed text-[24px]">agriculture</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm leading-tight block">Defensivos</span>
+<span class="font-body-sm text-body-sm text-primary-fixed block opacity-90">Aplicação em calda</span>
+</div>
+</button>
+<!-- Ação 2: Plantio & Sementes -->
+<button class="flex flex-col items-start justify-between p-space-md min-h-[110px] rounded-xl bg-secondary text-on-secondary active:scale-[0.98] transition-transform shadow-sm text-left">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest/15 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary-container text-[24px]">spa</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm leading-tight block">Plantio</span>
+<span class="font-body-sm text-body-sm text-secondary-container block opacity-90">Sementes e sulco</span>
+</div>
+</button>
+<!-- Ação 3: Abastecimento Diesel -->
+<button class="flex flex-col items-start justify-between p-space-md min-h-[110px] rounded-xl bg-surface-container-highest text-on-surface active:scale-[0.98] transition-transform shadow-sm text-left">
+<div class="flex items-center justify-between w-full">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">local_gas_station</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm bg-surface-container px-2 py-0.5 rounded text-on-surface-variant">Comboio 02</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm leading-tight block">Abastecimento</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Diesel S10 / Arla</span>
+</div>
+</button>
+<!-- Ação 4: Registro Pluviômetro -->
+<button class="flex flex-col items-start justify-between p-space-md min-h-[110px] rounded-xl bg-surface-container-high text-on-surface active:scale-[0.98] transition-transform shadow-sm text-left">
+<div class="flex items-center justify-between w-full">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">rainy</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm font-semibold bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.5 rounded">28mm ontem</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm leading-tight block">Pluviômetro</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Lançar chuva (mm)</span>
+</div>
+</button>
+</div>
+</div>
+<!-- CARD TALHÃO ATUAL EM FOCO (AUDITORIA E CUSTO LOCAL) -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">analytics</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Dossiê do Talhão 04</span>
+</div>
+<span class="font-badge-label text-badge-label px-space-sm py-0.5 rounded-full bg-surface-container-high text-primary font-semibold">142,5 ha</span>
+</div>
+<!-- Micro Bento Grid com métricas do Talhão -->
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cultura Instalada</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Soja BMX Zeus</span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-medium">Tecnologia IPRO · R2</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Custo Acumulado</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-0.5">R$ 3.120 <span class="text-body-sm font-normal text-on-surface-variant">/ha</span></span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Base local sincronizada</span>
+</div>
+</div>
+<!-- Linha de último manejo técnico -->
+<div class="flex items-center gap-space-sm p-space-xs px-space-sm rounded-lg bg-surface-container-highest">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<div class="flex items-center justify-between w-full">
+<span class="font-data-dense text-data-dense text-on-surface">Último Manejo: <strong>Fox Xpro (Fungicida)</strong></span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Há 2 dias</span>
+</div>
+</div>
+</div>
+<!-- FOTOGRAFIAS RÁPIDAS DE AUDITORIA DO CAMPO -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between px-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Monitoramento de Pragas &amp; Estande</span>
+<button class="font-badge-label text-badge-label text-secondary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[16px]">add_a_photo</span>
+<span>Foto Geo</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="relative h-28 rounded-xl overflow-hidden shadow-sm bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close up sharp macro photo of soybean leaves in high contrast bright Brazilian sunlight showing minor signs of initial Asian rust infestation with healthy green foliage in background, agricultural inspection documentary style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtKMqP3v0QJTDWaVTz3bo8I4cDb_-0F5mp4YmSV16Fox32rmw8o_sp0Vt68qNonRgbaJYhE8AHv0CyjkqBRqp47ODqazfTYimNxoZnLAZuihmfQO9wnvuuODdKSSzGs7BFG62Z_cJLXAhFNd1AMMU-R5Zlz1Q1yiz_YtCfACDbqzixr2vQnpjpGRZoJHwyY9xyn6saIwGgshqgFDkK582rW9m_3iqTeE5gIQf6N4nBVIcaqakVy5A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-space-xs">
+<span class="font-badge-label text-badge-label text-white">Inspeção Folhar</span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary-fixed">Hoje, 08:14</span>
+</div>
+</div>
+<div class="relative h-28 rounded-xl overflow-hidden shadow-sm bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Wide field angle photo of John Deere heavy spraying tractor moving along straight soybean field tracks during dawn under wide open Brazilian Cerrado sky, industrial farm management" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARkQ5bX_aJSkGAjM-jzHJw-DL9lH9jRi_ULfIK9uPNp8PSGnOrpEs9AepNA9M4nw14DnsE5dVerD4cf8gBCAgvf81KqUjPv8742qlh_GTEC5m1ZGbAsep2XQcxrg6tGbfx21_FJpQOuXzmU94uGr2_Kx-YIF8IQ17ebehl6ICbwYxiIZGj59_24_oMo9x1Co5xxeLs1HgXDhAoFUdhTOryVBgwk355wtY61kqDIYMKH0QDE45LeY8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-space-xs">
+<span class="font-badge-label text-badge-label text-white">Aplicação Pulverizador</span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary-fixed">Hoje, 07:30</span>
+</div>
+</div>
+</div>
+</div>
+<!-- LISTA DOS ÚLTIMOS REGISTROS DO DIA (OFFLINE COM INDICADOR DE FILA) -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">history</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Lançamentos de Hoje</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-tertiary-container font-semibold">4 Pendentes de Nuvem</span>
+</div>
+<div class="space-y-space-xs">
+<!-- Item 1 -->
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">water_drop</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface leading-tight">Pluviômetro Sede</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Leitura de precipitação: 14 mm</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-0.5">
+<span class="inline-flex items-center gap-1 font-code-mono-sm text-code-mono-sm text-on-tertiary-container bg-tertiary-fixed px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px] text-tertiary-container">update</span>
+            09:20
+          </span>
+<span class="font-code-mono-sm text-[10px] text-outline">SQLite Gravado</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">local_gas_station</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface leading-tight">Trator Case Magnum 340</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">380L Diesel S10 · Horím. 4.120h</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-0.5">
+<span class="inline-flex items-center gap-1 font-code-mono-sm text-code-mono-sm text-on-tertiary-container bg-tertiary-fixed px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px] text-tertiary-container">update</span>
+            08:45
+          </span>
+<span class="font-code-mono-sm text-[10px] text-outline">SQLite Gravado</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">pest_control</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface leading-tight">Manejo Talhão 02</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Verificação de percevejo (0,4/m²)</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-0.5">
+<span class="inline-flex items-center gap-1 font-code-mono-sm text-code-mono-sm text-on-tertiary-container bg-tertiary-fixed px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px] text-tertiary-container">update</span>
+            07:15
+          </span>
+<span class="font-code-mono-sm text-[10px] text-outline">SQLite Gravado</span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">science</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface leading-tight">Troca de Bicos Ponta Cerâmica</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pulverizador Patriot 350</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-0.5">
+<span class="inline-flex items-center gap-1 font-code-mono-sm text-code-mono-sm text-on-tertiary-container bg-tertiary-fixed px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px] text-tertiary-container">update</span>
+            06:40
+          </span>
+<span class="font-code-mono-sm text-[10px] text-outline">SQLite Gravado</span>
+</div>
+</div>
+</div>
+</div>
+<!-- BOTÃO DE FORÇAR TENTATIVA DE SINCRONISMO (FEEDBACK TÁTIL) -->
+<div class="pt-space-xs">
+<button class="w-full py-3 px-space-md rounded-xl bg-surface-container-highest text-primary font-headline-sm text-headline-sm font-semibold flex items-center justify-center gap-space-xs active:scale-[0.98] transition-transform shadow-sm" onclick="simulateSync()">
+<span class="material-symbols-outlined text-[20px]" id="sync-icon">sync</span>
+<span id="sync-text">Buscar Conexão para Envio</span>
+</button>
+</div>
+</div>
+<script>
+  let isHighContrast = false;
+
+  function toggleHighContrast() {
+    isHighContrast = !isHighContrast;
+    const btn = document.getElementById('contrast-toggle');
+    const dot = document.getElementById('contrast-dot');
+    const label = document.getElementById('contrast-label');
+    const root = document.querySelector('.flex.flex-col.w-full');
+
+    if (isHighContrast) {
+      btn.setAttribute('aria-pressed', 'true');
+      btn.classList.add('bg-primary', 'text-on-primary');
+      btn.classList.remove('bg-surface-container-lowest', 'text-primary');
+      dot.classList.remove('bg-outline-variant');
+      dot.classList.add('bg-secondary-fixed');
+      label.innerText = 'Ativo';
+      
+      // Aplicar estilo de alto contraste (máxima saturação e legibilidade contra sol extremo)
+      root.style.filter = 'contrast(125%) saturate(115%) brightness(102%)';
+    } else {
+      btn.setAttribute('aria-pressed', 'false');
+      btn.classList.remove('bg-primary', 'text-on-primary');
+      btn.classList.add('bg-surface-container-lowest', 'text-primary');
+      dot.classList.add('bg-outline-variant');
+      dot.classList.remove('bg-secondary-fixed');
+      label.innerText = 'Ativar';
+      root.style.filter = 'none';
+    }
+  }
+
+  function simulateSync() {
+    const icon = document.getElementById('sync-icon');
+    const text = document.getElementById('sync-text');
+    icon.classList.add('animate-spin');
+    text.innerText = 'Testando ping de satélite...';
+
+    setTimeout(() => {
+      icon.classList.remove('animate-spin');
+      text.innerText = 'Sem sinal detectado · Mantido seguro localmente';
+      setTimeout(() => {
+        text.innerText = 'Buscar Conexão para Envio';
+      }, 2500);
+    }, 1400);
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-20 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="campo-home" href="#"><span class="material-symbols-outlined text-[24px]">potted_plant</span><span class="font-body-sm text-[11px] leading-tight">Campo</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="talhoes" href="#"><span class="material-symbols-outlined text-[24px]">grid_view</span><span class="font-body-sm text-[11px] leading-tight">Talhões</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] -mt-4 text-on-primary transition-transform active:scale-95" data-path="novo-lancamento" href="#"><div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shadow-md"><span class="material-symbols-outlined text-on-primary text-[26px]">add</span></div><span class="font-body-sm text-[11px] leading-tight text-on-surface-variant mt-0.5">Lançar</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors relative" data-path="fila-offline-sync" href="#"><span class="material-symbols-outlined text-[24px]">sync_saved_locally</span><span class="font-body-sm text-[11px] leading-tight">Offline</span><span class="absolute top-1 right-2 w-2 h-2 rounded-full bg-tertiary-container"></span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="whatsapp-bot" href="#"><span class="material-symbols-outlined text-[24px]">chat</span><span class="font-body-sm text-[11px] leading-tight">Bot ZAP</span></a></div></nav></body></html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SafraOS - Central de Compliance EUDR &amp; Rastreabilidade</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "#bfc7d3",
+            "background": "#f8f9ff",
+            "surface-container-high": "#e6e8f0",
+            "surface-container-highest": "#e0e2ea",
+            "secondary-container": "#b9d7fe",
+            "outline": "#707883",
+            "primary-container": "#0078c6",
+            "on-tertiary-fixed": "#301400",
+            "inverse-surface": "#2d3137",
+            "on-tertiary-container": "#fffbff",
+            "tertiary-fixed-dim": "#ffb783",
+            "on-primary-fixed-variant": "#00497c",
+            "surface-tint": "#0061a2",
+            "on-error-container": "#93000a",
+            "tertiary-container": "#b55d00",
+            "primary": "#005f9e",
+            "surface-bright": "#f8f9ff",
+            "on-tertiary-fixed-variant": "#703700",
+            "on-background": "#181c21",
+            "tertiary-fixed": "#ffdcc5",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#2b4969",
+            "primary-fixed": "#d1e4ff",
+            "surface-dim": "#d8dae2",
+            "on-primary-fixed": "#001d35",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#d1e4ff",
+            "secondary-fixed-dim": "#abc9f0",
+            "primary-fixed-dim": "#9dcaff",
+            "on-error": "#ffffff",
+            "secondary": "#436082",
+            "on-primary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#904900",
+            "on-secondary-fixed": "#001d36",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#405d7f",
+            "on-surface": "#181c21",
+            "surface-container-low": "#f1f3fb",
+            "inverse-primary": "#9dcaff",
+            "on-surface-variant": "#404752",
+            "surface": "#f8f9ff",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e0e2ea",
+            "on-primary-container": "#fdfcff",
+            "surface-container": "#eceef6",
+            "inverse-on-surface": "#eef0f8"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "space-xl": "1.75rem",
+            "margin": "1.5rem",
+            "space-md": "0.75rem",
+            "space-lg": "1.25rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "code-mono-sm": ["JetBrains Mono"],
+            "data-dense": ["Inter"],
+            "code-mono-md": ["JetBrains Mono"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "badge-label": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+            "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "code-mono-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0em", "fontWeight": "500"}],
+            "data-dense": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+            "code-mono-md": ["13px", {"lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "badge-label": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "headline-sm": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar (Shared Component: Reused intact) -->
+<div class="relative flex h-auto w-full flex-col bg-slate-50 group/design-root overflow-x-hidden border-b border-[#e6eff4]" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<div class="w-full flex flex-1 justify-center py-2 px-4 sm:px-8">
+<div class="layout-content-container flex flex-col w-full max-w-[1440px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap px-2 sm:px-6 py-2">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-[#0c161c]">
+<div class="size-4">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-[#0c161c] text-lg font-bold leading-tight tracking-[-0.015em]">SafraOS</h2>
+</div>
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded h-full">
+<div class="text-[#467ca0] flex border-none bg-[#e6eff4] items-center justify-center pl-4 rounded-l border-r-0" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+</svg>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-[#0c161c] focus:outline-0 focus:ring-0 border-none bg-[#e6eff4] focus:border-none h-full placeholder:text-[#467ca0] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search" value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden lg:flex items-center gap-7">
+<a class="text-[#0c161c] text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Visão Geral</a>
+<a class="text-[#0c161c] text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Talhões &amp; CAR</a>
+<a class="text-[#0283da] text-sm font-bold leading-normal border-b-2 border-[#0283da] pb-0.5" href="#">EUDR Compliance</a>
+<a class="text-[#0c161c] text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Contratos &amp; NF-e</a>
+<a class="text-[#0c161c] text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Auditoria</a>
+</div>
+<div class="flex gap-2 items-center">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#0283da] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#0078c6] transition-colors shadow-sm">
+<span class="truncate">Emitir Declaração EUDR</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 bg-[#e6eff4] text-[#0c161c] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-[#d8e6ef] transition-colors">
+<div class="text-[#0c161c]" data-icon="Bell" data-size="20px" data-weight="regular">
+<svg fill="currentColor" height="20px" viewbox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+</svg>
+</div>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 bg-[#e6eff4] text-[#0c161c] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-[#d8e6ef] transition-colors">
+<div class="text-[#0c161c]" data-icon="ShieldCheck" data-size="20px" data-weight="regular">
+<svg fill="currentColor" height="20px" viewbox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"></path>
+</svg>
+</div>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-primary/20" data-alt="Agricultural manager corporate headshot with clean background in soft natural studio light." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAdXMy7_q7fMSARVzi1laoaMVrruhdoW3VYxms1QgIiQ3uHU3WOcj1W-kiNAeMnjzQ4Sgs0RAVLwCC_v8CUr_Vsdoyn3yY_91OhMFKZcAS8bbMZK0od9YH_rJsOT2BOEda-bE63zLcPdkDguDaLP86ngVUnR2jURpmPvaewghN4PVUWwJ62qDE5UpPZClvdoJkie8LaLf4LSMVKgmzG48Aip1wm7CnaVh3F2ik_4kASQqY5Ky7kGhE");'></div>
+</div>
+</div>
+</header>
+</div>
+</div>
+</div>
+</div>
+<!-- Breadcrumbs Bar -->
+<div class="border-b border-outline-variant/30 bg-surface-container-lowest">
+<div class="max-w-[1440px] mx-auto px-4 sm:px-8 py-3 flex items-center gap-2 text-sm">
+<a class="text-secondary font-medium hover:text-primary transition-colors" href="#">SafraOS Enterprise</a>
+<span class="text-outline-variant">/</span>
+<a class="text-secondary font-medium hover:text-primary transition-colors" href="#">Rastreabilidade &amp; ESG</a>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-semibold flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+        Central EUDR &amp; Due Diligence
+      </span>
+<span class="ml-auto hidden sm:inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed text-code-mono-sm">
+        Regulamento UE 2023/1115
+      </span>
+</div>
+</div>
+<!-- Main Work Area -->
+<main class="max-w-[1440px] mx-auto px-4 sm:px-8 py-6 flex flex-col gap-6">
+<!-- 1. Header da Tela & Status do Motor PostGIS -->
+<section class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/40 shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+<div class="flex flex-col gap-2 max-w-3xl">
+<div class="flex items-center gap-2.5">
+<span class="px-2.5 py-0.5 bg-secondary-container text-on-secondary-container rounded font-badge-label uppercase text-badge-label">
+              Proprietário SafraOS
+            </span>
+<span class="text-code-mono-sm text-secondary font-medium">Fazenda Santa Maria · Sorriso/MT</span>
+</div>
+<h1 class="text-display-lg text-on-surface font-display-lg tracking-tight">
+            Compliance EUDR &amp; Due Diligence Georreferenciada
+          </h1>
+<p class="text-body-lg text-secondary">
+            Monitoramento contínuo CAR/SICAR, PRODES, DETER e emissão de declarações para exportadores e tradings.
+          </p>
+</div>
+<div class="flex flex-wrap sm:flex-nowrap items-center gap-3">
+<button class="h-11 px-4 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-body-md font-semibold flex items-center gap-2 border border-outline-variant/40 transition-colors">
+<span class="material-symbols-outlined text-[18px]">history</span>
+            Histórico de Varreduras
+          </button>
+<button class="h-11 px-5 rounded-lg bg-primary hover:bg-primary-container text-on-primary text-body-md font-bold flex items-center gap-2 shadow-sm transition-all transform active:scale-95">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+            Emitir Nova Declaração EUDR (Lote de Venda)
+          </button>
+</div>
+</div>
+<!-- Live Engine Sentinel Bar -->
+<div class="mt-6 pt-5 border-t border-outline-variant/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-surface-container-low/70 rounded-lg p-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<p class="text-data-dense text-on-surface font-semibold">Motor Espacial PostGIS 3.4 &amp; Sentinel-2 Sync</p>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">
+                100% POLÍGONOS VERIFICADOS
+              </span>
+</div>
+<p class="text-code-mono-sm text-outline">
+              Última varredura espacial: <strong class="text-on-surface">Hoje às 06:00 UTC-3</strong> · 1.420 ha sob checagem cruzada contra PRODES/INPE, DETER e IBAMA
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+<span class="text-code-mono-sm text-outline hidden md:inline">Próximo ciclo em: 05h 42m</span>
+<button class="px-3 py-1.5 rounded bg-surface-container-lowest text-primary hover:bg-primary-fixed text-body-sm font-semibold border border-primary/20 transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+            Forçar Nova Varredura
+          </button>
+</div>
+</div>
+</section>
+<!-- 2. Painel de Status de Conformidade (3 Cartões de Varredura Contínua) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Card 1: Desmatamento Pós-31/12/2020 (PRODES/INPE) -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/40 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-bl-full pointer-events-none -z-0"></div>
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-3">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-badge-label font-badge-label bg-emerald-100 text-emerald-900">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              100% Limpo (Conforme)
+            </span>
+<span class="text-code-mono-sm text-outline">PRODES / INPE</span>
+</div>
+<h3 class="text-headline-sm text-on-surface font-headline-sm">Desmatamento Pós-31/12/2020</h3>
+<p class="text-body-sm text-secondary mt-1">
+            Data de corte mandatória do Regulamento Europeu (Artigo 3º EUDR).
+          </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 relative z-10">
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-extrabold text-on-surface font-code-mono-md">0,00</span>
+<span class="text-sm font-semibold text-secondary">ha desmatados</span>
+</div>
+<p class="text-code-mono-sm text-emerald-700 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+            Zero perda de cobertura florestal pós-2020
+          </p>
+</div>
+</div>
+<!-- Card 2: Embargos e Unidades de Conservação (IBAMA/ICMBio) -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/40 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-bl-full pointer-events-none -z-0"></div>
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-3">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-badge-label font-badge-label bg-emerald-100 text-emerald-900">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+              Isento de Sobreposição
+            </span>
+<span class="text-code-mono-sm text-outline">IBAMA / ICMBio / FUNAI</span>
+</div>
+<h3 class="text-headline-sm text-on-surface font-headline-sm">Embargos e Terras Protegidas</h3>
+<p class="text-body-sm text-secondary mt-1">
+            Varredura contínua sobre Fazenda Santa Maria e zona de amortecimento de 10km.
+          </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 relative z-10">
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-extrabold text-on-surface font-code-mono-md">0</span>
+<span class="text-sm font-semibold text-secondary">sobreposições ativas</span>
+</div>
+<p class="text-code-mono-sm text-emerald-700 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">task_alt</span>
+            Sem embargos ambientais lavrados
+          </p>
+</div>
+</div>
+<!-- Card 3: Situação CAR (SICAR) -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/40 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full pointer-events-none -z-0"></div>
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-3">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-badge-label font-badge-label bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[14px]">fact_check</span>
+              Ativo / Aguardando Análise
+            </span>
+<span class="text-code-mono-sm text-outline">SICAR / SEMA-MT</span>
+</div>
+<h3 class="text-headline-sm text-on-surface font-headline-sm">Situação Cadastral (CAR)</h3>
+<p class="text-code-mono-sm text-secondary mt-1 font-mono">
+            MT-5107909-646A.3639.42E7
+          </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 relative z-10">
+<div class="flex justify-between items-center text-body-sm mb-1.5">
+<span class="text-secondary font-medium">Área Total Georreferenciada</span>
+<span class="font-code-mono-md font-bold text-on-surface">1.420,00 ha</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 35%"></div>
+</div>
+<p class="text-code-mono-sm text-secondary mt-2 flex items-center justify-between">
+<span>Reserva Legal (RL) + APP</span>
+<span class="font-semibold text-on-surface">35,2% preservada (499,8 ha)</span>
+</p>
+</div>
+</div>
+</section>
+<!-- Grid: 3. Tabela de Lotes & 4. Pré-visualização do Relatório Auditável EUDR -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+<!-- 3. Seção Interativa de Lotes e Due Diligence Emitidas (xl:col-span-7) -->
+<section class="xl:col-span-7 bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm overflow-hidden">
+<div class="p-5 border-b border-outline-variant/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface-container-low/40">
+<div>
+<h2 class="text-headline-sm text-on-surface font-headline-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment_turned_in</span>
+              Declarações de Due Diligence Emitidas por Lote
+            </h2>
+<p class="text-body-sm text-secondary mt-0.5">
+              Relação de lotes auditados com amarração biométrica de talhão e hash criptográfico ICP-Brasil.
+            </p>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto">
+<button class="px-3 py-1.5 rounded bg-surface-container-lowest border border-outline-variant/40 text-on-surface text-body-sm font-medium hover:bg-surface-container-low transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+              Filtrar Safra
+            </button>
+</div>
+</div>
+<div class="divide-y divide-outline-variant/20">
+<!-- Lote 1: Bunge Alimentos (Selected/Active in preview) -->
+<div class="p-5 hover:bg-primary-fixed/20 transition-colors cursor-pointer bg-primary-fixed/10 border-l-4 border-primary">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<span class="font-code-mono-md font-bold text-primary text-sm tracking-tight">EUDR-2026-SOJA-0881</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                  Aprovado pelo Comprador
+                </span>
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-surface-container-high text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">key</span>
+                  ICP-Brasil
+                </span>
+</div>
+<span class="text-code-mono-sm text-outline">Emissão: 18/Fev/2026</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-3 text-body-sm">
+<div>
+<span class="text-code-mono-sm text-outline block">Volume</span>
+<span class="font-bold text-on-surface">35.000 SC (2.100 t)</span>
+</div>
+<div>
+<span class="text-code-mono-sm text-outline block">Destinatário / Trading</span>
+<span class="font-medium text-on-surface">Bunge Alimentos S.A.</span>
+</div>
+<div>
+<span class="text-code-mono-sm text-outline block">Talhões de Origem</span>
+<span class="font-medium text-on-surface">T-01, T-02, T-04</span>
+</div>
+<div>
+<span class="text-code-mono-sm text-outline block">Hash SHA-256</span>
+<span class="font-mono text-code-mono-sm text-secondary truncate block" title="8f4a29c011e0e844a47d2b1c43b9">8f4a...e3b9</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/20">
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary text-body-sm font-semibold hover:bg-primary-container transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">picture_as_pdf</span>
+                  Ver PDF PT/EN
+                </button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface text-body-sm font-medium hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">qr_code</span>
+                  Copiar Link QR
+                </button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface text-body-sm font-medium hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">history</span>
+                  Histórico
+                </button>
+</div>
+<span class="text-badge-label font-badge-label text-primary flex items-center gap-0.5">
+                Visualizando ao lado
+                <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</span>
+</div>
+</div>
+<!-- Lote 2: Cargill Agrícola -->
+<div class="p-5 hover:bg-surface-container-low transition-colors">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<span class="font-code-mono-md font-bold text-on-surface text-sm tracking-tight">EUDR-2026-SOJA-0879</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                  Aprovado
+                </span>
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-surface-container-high text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">key</span>
+                  ICP-Brasil
+                </span>
+</div>
+<span class="text-code-mono-sm text-outline">Emissão: 14/Fev/2026</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-3 text-body-sm">
+<div>
+<span class="text-code-mono-sm text-outline block">Volume</span>
+<span class="font-bold text-on-surface">20.000 SC (1.200 t)</span>
+</div>
+<div>
+<span class="text-code-mono-sm text-outline block">Destinatário / Trading</span>
+<span class="font-medium text-on-surface">Cargill Agrícola S.A.</span>
+</div>
+<div>
+<span class="text-code-mono-sm text-outline block">Talhões de Origem</span>
+<span class="font-medium text-on-surface">T-03, T-05</span>
+</div>
+<div>
+<span class="text-code-mono-sm text-outline block">Hash SHA-256</span>
+<span class="font-mono text-code-mono-sm text-secondary truncate block">3c11...99bc</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/20">
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface text-body-sm font-semibold hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">picture_as_pdf</span>
+                  Ver PDF PT/EN
+                </button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface text-body-sm font-medium hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">qr_code</span>
+                  Copiar Link QR
+                </button>
+</div>
+<span class="text-code-mono-sm text-secondary">Exportação Terminal Santos</span>
+</div>
+</div>
+<!-- Lote 3: Em elaboração -->
+<div class="p-5 hover:bg-surface-container-low transition-colors bg-surface-container-low/20">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<span class="font-code-mono-md font-bold text-on-surface-variant text-sm tracking-tight">EUDR-2026-MILHO-0412</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">hourglass_empty</span>
+                  Em Elaboração
+                </span>
+<span class="text-code-mono-sm text-amber-700 font-medium">Aguardando vínculo com NF-e de saída</span>
+</div>
+<span class="text-code-mono-sm text-outline">Iniciado: Ontem 17:30</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-3 text-body-sm opacity-80">
+<div>
+<span class="text-code-mono-sm text-outline block">Volume Estimado</span>
+<span class="font-bold text-on-surface">15.000 SC (900 t)</span>
+</div>
+<div>
+<span class="text-code-mono-sm text-outline block">Destinatário / Trading</span>
+<span class="font-medium text-on-surface">LDC (Louis Dreyfus)</span>
+</div>
+<div>
+<span class="text-code-mono-sm text-outline block">Talhões Pré-selecionados</span>
+<span class="font-medium text-on-surface">T-02, T-06 (Safrinha)</span>
+</div>
+<div>
+<span class="text-code-mono-sm text-outline block">Validação Espacial</span>
+<span class="text-emerald-700 font-semibold flex items-center gap-0.5 text-code-mono-sm">
+<span class="material-symbols-outlined text-[13px]">check</span> Pré-aprovado
+                </span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/20">
+<button class="px-3 py-1 rounded bg-secondary text-on-secondary text-body-sm font-semibold hover:bg-secondary/90 transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">link</span>
+                Vincular Chave de Acesso NF-e (XML)
+              </button>
+<button class="text-body-sm text-error hover:underline">Descartar rascunho</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Modal / Pré-visualização Lateral do Relatório Auditável EUDR (xl:col-span-5) -->
+<section class="xl:col-span-5 bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-md flex flex-col">
+<!-- Preview Header Action bar -->
+<div class="p-4 border-b border-outline-variant/30 flex items-center justify-between bg-surface-container-low/60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">preview</span>
+<span class="text-body-md font-bold text-on-surface">Pré-visualização do Certificado Oficial</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant transition-colors" title="Imprimir">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant transition-colors" title="Modo tela cheia">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Document Preview Canvas (The actual styled paper report) -->
+<div class="p-6 bg-slate-100 flex justify-center">
+<div class="w-full bg-white border border-slate-300 rounded shadow-md p-6 text-slate-800 font-sans text-xs">
+<!-- Report Header -->
+<div class="flex justify-between items-start border-b-2 border-primary pb-4">
+<div>
+<div class="flex items-center gap-2">
+<div class="size-6 bg-primary text-white rounded flex items-center justify-center font-bold text-xs">
+                    S
+                  </div>
+<span class="font-extrabold text-sm tracking-tight text-slate-900">SafraOS TraceEngine™</span>
+</div>
+<p class="text-[10px] text-slate-500 mt-1 uppercase font-semibold">EUDR Due Diligence Statement / Declaração Regulatória</p>
+<p class="text-[10px] font-mono text-slate-600">DDS Reference: <strong class="text-slate-900">EUDR-2026-SOJA-0881</strong></p>
+</div>
+<!-- Official Seals -->
+<div class="flex flex-col items-end gap-1">
+<div class="flex items-center gap-1.5 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded text-[9px] font-semibold text-blue-900">
+<span class="material-symbols-outlined text-[12px] text-blue-700">verified</span>
+                  ICP-Brasil Certificado A3
+                </div>
+<div class="bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded text-[9px] font-bold text-emerald-800">
+                  EU Reg. 2023/1115 Compliant
+                </div>
+</div>
+</div>
+<!-- Core Statement Declaration -->
+<div class="mt-4 p-2.5 bg-emerald-50/70 border-l-2 border-emerald-600 rounded-r text-[11px] leading-relaxed text-emerald-950 font-medium">
+              "Deforestation-Free Production according to Regulation (EU) 2023/1115. Produção livre de desmatamento conforme marcos legais e espaciais aplicáveis."
+            </div>
+<!-- Geolocation & Farm Data -->
+<div class="mt-4 grid grid-cols-2 gap-3 pb-3 border-b border-slate-200 text-[10px]">
+<div>
+<span class="text-slate-400 uppercase font-semibold block">Produtor &amp; Propriedade</span>
+<span class="font-bold text-slate-800 block">Agropecuária Santa Maria Ltda.</span>
+<span class="text-slate-600">CAR: MT-5107909-646A.3639.42E7</span>
+<span class="text-slate-600 block">Município: Sorriso - MT / Brasil</span>
+</div>
+<div>
+<span class="text-slate-400 uppercase font-semibold block">Operador / Trading Compradora</span>
+<span class="font-bold text-slate-800 block">Bunge Alimentos S.A.</span>
+<span class="text-slate-600">Commodity: Soja em Grão (HS 120190)</span>
+<span class="text-slate-600 block">Carga: 2.100.000 kg (35.000 SC)</span>
+</div>
+</div>
+<!-- Origin Polygon Map Snapshot & Centroids -->
+<div class="mt-3">
+<div class="flex justify-between items-center mb-1 text-[10px]">
+<span class="font-bold text-slate-700 uppercase">Talhões de Origem &amp; Coordenadas Geodésicas (WGS84)</span>
+<span class="font-mono text-[9px] text-slate-500">CRS: EPSG:4326</span>
+</div>
+<div class="relative w-full h-32 rounded border border-slate-200 overflow-hidden bg-slate-200 mb-2">
+<img class="w-full h-full object-cover" data-alt="High resolution satellite view of precision agriculture farm plots in Sorriso Mato Grosso with bright green verified polygon boundaries overlaid in technical GIS aesthetic with light grid markers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBFIomlAx5vo3HA5g3VH-r6h7ITuayLrMH3rrR78LScY69QMsIuD9EtWufqvTyNmcQKIrZiBFwLB2XdvO49WdplZLJ02DJnJN5zl1IYcFB8sJKScyoQMkR00O9q7msdKBsPemAlLVDlCIt3VAeUGz5XScV5fGKd7M6gtmAsi0ajH6s7mqc7s1L1iAwLqtmJdBlJO_4cwpqVR7bYh0J4sdmNFdbUj828cIPYkxTl1YUD8sicGz-TVQ"/>
+<div class="absolute bottom-2 left-2 bg-slate-900/85 backdrop-blur text-white px-2 py-1 rounded text-[9px] font-mono">
+                  Polígonos: T-01 (412ha) · T-02 (380ha) · T-04 (295ha)
+                </div>
+</div>
+<!-- Coords dense table -->
+<div class="bg-slate-50 rounded p-2 border border-slate-200 font-mono text-[9px] space-y-1">
+<div class="flex justify-between text-slate-600">
+<span>Talhão T-01: Lat 12°32'44.2"S</span>
+<span>Long 55°42'11.8"W</span>
+<span class="text-emerald-700 font-semibold">Sem sobreposição</span>
+</div>
+<div class="flex justify-between text-slate-600">
+<span>Talhão T-02: Lat 12°33'10.5"S</span>
+<span>Long 55°41'55.1"W</span>
+<span class="text-emerald-700 font-semibold">Sem sobreposição</span>
+</div>
+<div class="flex justify-between text-slate-600">
+<span>Talhão T-04: Lat 12°34'02.9"S</span>
+<span>Long 55°43'20.4"W</span>
+<span class="text-emerald-700 font-semibold">Sem sobreposição</span>
+</div>
+</div>
+</div>
+<!-- Signature & Validation Footer -->
+<div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between gap-3">
+<div class="space-y-0.5">
+<p class="text-[9px] text-slate-500">Validação Pública e Hash Imutável (SHA-256):</p>
+<p class="font-mono text-[8px] text-slate-700 break-all font-semibold max-w-[210px]">
+                  8f4a29c011e0e844a47d2b1c43b9e7d991b2c45e8a709d8e3b9aa4f02b184711
+                </p>
+<p class="text-[8px] text-slate-400">Assinado digitalmente em 18/02/2026 09:14:22 UTC-3</p>
+</div>
+<!-- QR Code Mock for Instant Verification -->
+<div class="flex flex-col items-center">
+<div class="size-14 border border-slate-300 rounded p-1 bg-white flex items-center justify-center">
+<svg class="size-full fill-slate-900" viewbox="0 0 100 100">
+<path d="M0 0h30v30H0zM10 10h10v10H10zM70 0h30v30H70zM80 10h10v10H80zM0 70h30v30H0zM10 80h10v10H10zM40 0h10v20H40zM55 10h10v10H55zM40 35h20v10H40zM70 40h10v30H70zM50 55h20v10H50zM40 70h10v30H40zM60 80h15v10H60zM85 70h15v15H85z"></path>
+</svg>
+</div>
+<span class="text-[8px] text-slate-500 font-mono mt-0.5">Validar Online</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Preview Actions Footer -->
+<div class="p-4 border-t border-outline-variant/30 bg-surface-container-lowest flex flex-col sm:flex-row gap-2.5">
+<button class="flex-1 h-10 px-4 rounded bg-primary hover:bg-primary-container text-on-primary text-body-md font-bold flex items-center justify-center gap-2 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+            Download PDF Bilíngue (PT/EN)
+          </button>
+<button class="h-10 px-4 rounded bg-surface-container text-on-surface hover:bg-surface-container-high text-body-md font-semibold flex items-center justify-center gap-2 border border-outline-variant/30 transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary">forward_to_inbox</span>
+            Enviar à Trading / Cooperativa
+          </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom contextual system status info -->
+<footer class="mt-8 border-t border-outline-variant/30 bg-surface-container-low py-4 text-xs text-secondary">
+<div class="max-w-[1440px] mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+<div class="flex items-center gap-4">
+<span>SafraOS v4.12 · Engine EUDR &amp; Geoprocessamento</span>
+<span class="text-outline-variant">|</span>
+<span class="flex items-center gap-1 text-emerald-700 font-medium">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+          Conexão Ativa com SICAR MT &amp; INPE PRODES Cerrado/Amazônia
+        </span>
+</div>
+<div class="font-code-mono-sm text-outline">
+        Chave de Sessão Segura: #E4-US3-PROD-2026
+      </div>
+</div>
+</footer>
+</body></html>
