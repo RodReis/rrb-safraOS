@@ -13,7 +13,8 @@ Owner cadastra, consulta, altera e arquiva fazendas do tenant ativo por nome, UF
 
 - fazenda pertence a uma organização e não contém CPF/CNPJ no MVP0;
 - nome é obrigatório, normalizado para comparação, mas não é presumido único;
-- UF usa código IBGE de duas letras; município usa código IBGE e nome exibível;
+- UF é a sigla de duas letras (ex.: `GO`, `MT`, `MS`), validada contra a lista fixa das 27 UFs brasileiras;
+- município é identificado pelo código IBGE de 7 dígitos e exibido pelo nome; a tabela de municípios (código, nome, UF) entra por seed carregado na primeira fatia que precisar (`CLAUDE.md` — dado de desenvolvimento entra por seed, sem hardcode);
 - exclusão física não entra: arquivamento preserva vínculos e auditoria;
 - lista padrão omite arquivadas e permite exibi-las explicitamente;
 - troca de tenant limpa seleção e dados da interface anterior.

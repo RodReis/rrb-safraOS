@@ -1,10 +1,10 @@
 # Direção de UI do SafraOS
 
-**Natureza:** direção para o design system, não contrato funcional. Base visual: `docs/design/DESIGN.md` e `docs/design/*/screen.png`.
+**Natureza:** direção para o design system, não contrato funcional. Base visual: `docs/design/DESIGN-CLARO.md`, `docs/design/DESIGN-ESCURO.md` e `docs/design/*/screen.png`.
 
-## Carbono Adaptativo
+## Azul institucional (decisão do PI, 2026-09-13)
 
-Robustez operacional e leitura ao sol, sem dashboard bancário genérico nem “verde sustentável” decorativo. Base neutra de alto contraste; verde carbono como marca/ação; semáforo reservado a `ok`, `atenção`, `crítico`, `inconclusivo`; números tabulares; mapa sempre com legenda, fonte, data e cobertura.
+Robustez operacional e leitura ao sol, sem dashboard bancário genérico nem "verde sustentável" decorativo. Marca e ação usam o **azul institucional** (`primary` `#005f9e` claro / `#9dcaff` escuro) definido em `docs/design/DESIGN-CLARO.md`/`DESIGN-ESCURO.md` e já aplicado nas 24 telas de referência — não o verde carbono cogitado antes dessas telas existirem. Verde fica reservado exclusivamente ao semáforo (`status-ok`, `docs/design-system/TOKENS.md` §2.3); nunca é cor de marca ou de ação primária. Base neutra de alto contraste; semáforo reservado a `ok`, `atenção`, `crítico`, `inconclusivo`; números tabulares; mapa sempre com legenda, fonte, data e cobertura.
 
 ## Pipeline de accent
 

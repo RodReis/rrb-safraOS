@@ -28,6 +28,7 @@ Este documento evita que decisões de recorte desapareçam. Não é backlog para
 | CAR, Prodes, compliance e EUDR | adiado | dependem de fundação e decisões externas | MVP posterior | fontes, cobertura e critérios aprovados | PI, 2026-09-13 |
 | CPF/CNPJ da fazenda | adiado | não agrega ao fluxo fundacional e antecipa regras fiscais | onboarding fiscal | integração fiscal especificada | PI, 2026-09-13 |
 | Equipe, convites e papéis além de `owner` | adiado | o MVP0 valida somente propriedade e isolamento | MVP posterior | primeiro caso de colaboração aprovado | PI, 2026-09-13 |
+| MFA para dono/contador | adiado | autenticação de fator único já prova sessão/isolamento no MVP0; MFA é reforço de segurança do produto, não da fundação | onboarding/segurança do MVP-001 | SPEC de identidade do MVP-001 aberta | PI, 2026-09-13 |
 
 ## Campos obrigatórios para próximos MVPs
 

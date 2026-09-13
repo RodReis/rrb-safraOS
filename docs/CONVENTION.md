@@ -44,4 +44,4 @@ due diligence: rascunho -> gerando -> emitida | falhou; emitida -> substituida
 
 ## Questões que não podem ser inventadas
 
-Relação tenant/grupo/fazenda; conflitos offline; rateio/arredondamento; precedência NF-e versus correção; critérios do semáforo. Privacidade é governada separadamente por `docs/PRIVACIDADE.md` e não cria regra de domínio neste arquivo.
+Relação tenant/grupo/fazenda; conflitos offline; rateio/arredondamento; precedência NF-e versus correção; critérios do semáforo.

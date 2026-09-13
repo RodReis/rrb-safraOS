@@ -7,15 +7,17 @@
 | ADR | Estado | Decisão | Consequência |
 |---|---|---|---|
 | ADR-001 | aceita | API em Python/FastAPI | Node 24/TypeScript permanece apenas para web/mobile e ferramentas relacionadas. |
-| ADR-003 | aceita | Privacidade em documento autônomo, fora do PRD | `docs/PRIVACIDADE.md` governa o tema sem criar requisito de produto. |
+| ADR-002 | aceita | Monólito modular | Microserviços com deploy independente exigem medição de carga/falha/autonomia e nova ADR. |
+| ADR-003 | aceita | Privacidade em documento autônomo, sem efeito sobre produto | `docs/PRIVACIDADE.md` existe isolado; não referenciado por nenhuma SPEC/PRD/CONVENTION/ARCHITECTURE e não gera controle técnico por conta própria. |
 | ADR-005 | aceita | Celery + Redis no MVP | SQS/ECS ou outra fila gerenciada exige medição e nova ADR. |
-| ADR-009 | aceita | Web completa primeiro; mobile no final do projeto | MVP0 não cria app Expo nem sincronização offline. |
+| ADR-009 | aceita | Web completa primeiro; mobile no final do projeto | MVP0 não cria app Expo nem sincronização offline; PRD emendado para v2.1. |
+
+Arquivo de cada ADR em `docs/adr/ADR-NNN-titulo.md`.
 
 ## Decisões abertas
 
 | ADR | Estado | Pergunta | Recomendação técnica, não aprovada |
 |---|---|---|---|
-| ADR-002 | proposta | Monólito modular ou quatro serviços? | Monólito modular; extrair por carga, falha ou autonomia medida. |
 | ADR-004 | proposta | SQLite direto ou camada local-first? | Spike com `expo-sqlite`; decidir por perda zero, migração, conflito e observabilidade. |
 | ADR-006 | proposta | Meta Cloud API ou BSP? | Comparar custo, templates, webhook, portabilidade, suporte e SLA em piloto. |
 | ADR-007 | proposta | Como assinar ICP-Brasil? | Comparar provedor e custódia própria por validade, custo e disponibilidade. |

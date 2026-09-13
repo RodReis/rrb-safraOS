@@ -6,6 +6,10 @@ Gestão de safra: planejar, executar e acompanhar as etapas da produção agríc
 
 Este arquivo é o contrato operacional entre três atores. Regra que não está aqui nem em `docs/` não existe. Ninguém inventa regra: quem sentir falta de uma, pergunta ao PI. A decisão final é sempre do PI.
 
+## Repositório
+
+GitHub: `RodReis/rrb-safraOS` (privado, branch padrão `main`). O board de issues/labels `proplan:*` vive nesse repositório; `docs/STATUS.md` é o índice local, mas o GitHub remoto prevalece para execução.
+
 ## Papéis
 
 **PI — Rodrigo Reis.** Decide escopo, prioridade e trade-off. Responde dúvidas, aprova specs e aceita entregas. Não executa o fluxo: não cria issue, não commita, não abre PR, não faz merge. O aceite é só dele.
@@ -26,10 +30,9 @@ Este arquivo é o contrato operacional entre três atores. Regra que não está 
 ## Regras do projeto (decididas pelo PI)
 
 - Idioma: documentação, specs, issues, commits e comunicação em PT-BR; código e identificadores em inglês; textos de interface em PT-BR.
-- Privacidade e proteção de dados não pertencem ao contrato de produto nem ao PRD. São governadas exclusivamente por `docs/PRIVACIDADE.md`, documento autônomo que não referencia nem altera o PRD. Cowork e Code não inventam regra jurídica: dúvida material é encaminhada ao PI e, quando necessário, a responsável jurídico/privacidade.
+- Privacidade e proteção de dados não pertencem ao contrato de produto nem ao PRD. `docs/PRIVACIDADE.md` é um documento autônomo e **sem efeito sobre produto** (ADR-003): não referencia nem altera o PRD, não é citado por nenhuma SPEC, `CONVENTION.md` ou `ARCHITECTURE.md`, e não gera funcionalidade, fatia, critério comercial, controle técnico ou aceite de produto por conta própria. Cowork e Code não inventam regra jurídica: dúvida material é encaminhada ao PI.
 - Ninguém cria regra de produto — nem Cowork, nem Code. Falta regra → pergunta ao PI (ver "O que bloqueia o Code").
 - Autorizado a subir o docker, se estiver off. Criar sempre um nova, com novas portas, nunca usar as que ja etão configurada no docker.
-- Regra de privacidade só afeta implementação quando `docs/PRIVACIDADE.md` a classificar como controle técnico aplicável. Ela não cria funcionalidade, fatia, critério comercial ou aceite de produto por conta própria.
 
 ## Unidade de trabalho: card = fatia
 
@@ -59,11 +62,12 @@ Este arquivo é o contrato operacional entre três atores. Regra que não está 
 | `todo` → `doing` | Code | ao iniciar o card — sempre o primeiro `todo` da ordem |
 | `doing` → `done` | Code | após confirmar o merge na origem; link do PR no corpo da issue |
 | `done` → `finalizado` + fechar a issue | **PI** | aceite. Só o PI. Nenhuma automação fecha issue |
-| `next` → `proximo` | Code | indica qual o próximo issue pegar.
 
-Não existe gate de aprovação de spec (decisão do PI, 18/08/2026). O que trava uma entrega é **CI verde** e **aceite do PI** — nada mais.
+Não existe label `proplan:next`/`proplan:proximo`: ao terminar um card, o Code apenas **registra em comentário/PR** qual é o próximo `todo` da ordem antes de seguir para ele — não é uma transição de label.
 
-Ao terminar um card, o Code registra qual é o próximo `todo` e segue para ele. Só para quando `todo` está vazio ou quando cai num dos dois casos abaixo.
+Não existe gate de aprovação de spec (decisão do PI). O que trava uma entrega é **CI verde** e **aceite do PI** — nada mais.
+
+O Code só para quando `todo` está vazio ou quando cai num dos dois casos abaixo.
 
 ## O que bloqueia o Code — dois casos, não há terceiro
 
@@ -125,9 +129,9 @@ Tudo o mais — nome de campo, ordem de implementação interna, estrutura de pa
 ## Skills do Code — na ordem de um card
 
 `superpowers:using-git-worktrees` → `superpowers:writing-plans` / `executing-plans` (a Slice do PRD **é** o design; `brainstorming` só quando cair num caso de bloqueio ou em `[FIX]` sem causa clara) → `superpowers:test-driven-development` em feature crítica (isolamento de tenant, decisão de acesso, idempotência financeira) → `engineering:code-review` em toda tarefa → `gstack:qa` → `superpowers:finishing-a-development-branch`.
-Quando a tarefa tem UI: `frontend-design` (não cair no shadcn-default genérico), `gstack:design-review`, `impeccable`. Documentação de biblioteca: `context7`. Mobile: `expo`. Smoke ao vivo: Playwright.
+Quando a tarefa tem UI: `document-skills:frontend-design` (não cair no shadcn-default genérico), `gstack:design-review`, `impeccable`. Documentação de biblioteca: `context7`. Mobile: `expo`. Smoke ao vivo: Playwright.
 
-Use a que existir no ambiente; a ausência de uma skill não é desculpa para pular a disciplina que ela representa.
+`gstack:*` e `impeccable` estão instalados globalmente na máquina do PI (Windows) — o Code os usa normalmente lá. Em qualquer ambiente onde uma dessas skills não exista, isso não é desculpa para pular a disciplina que ela representa: aplicar o equivalente manual (revisão de design, acabamento visual) e registrar na PR.
 
 ## Grafo de conhecimento (graphify) — opcional
 
@@ -138,6 +142,7 @@ Só vale enquanto houver código a indexar; com o repo só em documentação, le
 - `docs/DEVELOPMENT.md` — Documento de ordem de execução e status por item (atualize a cada entrega junto com STATUS.md).
 - `docs/ARCHITECTURE.md` — Documento desenho, módulos, dados, resiliência.
 - `docs/DECISIONS.md` — Documento ADRs (ler antes de propor mudança estrutural).
+- `docs/adr/` — Um arquivo por ADR aceita (`ADR-NNN-titulo.md`), com contexto/decisão/consequências/riscos/evidência.
 - `docs/CONVENTION.md` — Documento de domínio: entidades, estados, invariantes e regras de negócio (o coração do produto).
 - `docs/FRONTEND.md` — Contrato de engenharia da interface web: stack fixada, tipagem, padrão de tela CRUD, estados, performance, prova por tela. Toda tarefa de UI começa por ele.
 - `docs/DESIGN-UI.md` — Documento de direção para criar o DESIGN-SYSTEM em outra ferramenta de designer(claude-design), não de contrato: de onde saíram opção de Carbono Adaptativo e o pipeline de accent.
@@ -148,7 +153,7 @@ Só vale enquanto houver código a indexar; com o repo só em documentação, le
 - `docs/STATUS-ARQUIVO.md` — Documento histórico detalhado que complementa o STATUS.md: prosa longa mora aqui, com detalhe.
 - `docs/LANDSCAPE.md` — Documento cenário competitivo datado: o que o mercado já faz, o que morreu por causa disso, e os gatilhos que obrigam a revisar. Evita reconstruir o que já existe de graça.
 - `docs/FORA-DE-ESCOPO.md` — Fonte única dos itens adiados ou excluídos por MVP, com motivo, destino e gatilho de retorno; mantido pelo Cowork e sem substituir backlog ou status remoto.
-- `docs/PRIVACIDADE.md` — Governança autônoma de privacidade e proteção de dados. Não é requisito de produto e não referencia o PRD.
+- `docs/PRIVACIDADE.md` — Documento autônomo de privacidade, **sem efeito sobre produto** (ADR-003). Não é requisito de produto, não referencia o PRD e não é citado por nenhuma SPEC.
 - `docs/AUTID.md`— Documento de rotina de autoria, revisão, CI e evidência das PRs deste repositório; distingue orientação operacional de evolução da pipeline.
 - `docs/TESTING.md` — Documento de estratégia de teste, classificação, evidência e relatório por SPEC/issue.
 - `docs/REVIEW.md` — instruções exclusivas para revisão, inseridas nos agentes do pipeline de revisão com a mais alta prioridade. Use-as para alterar o que é sinalizado, com qual gravidade e como as descobertas são relatadas.
@@ -160,3 +165,4 @@ Só vale enquanto houver código a indexar; com o repo só em documentação, le
 - `docs/prd/mvp/` Documentos de MVPs (épicos) com checklist das fatias previstas.
 - `docs/prd/mvp/plans/` — Documentos de planos de implementação por slice. São **material de apoio do Code**, não contrato: onde divergirem do PRD, o PRD vence.
 - `docs/prd/mvp/spec/` — Documentos de especificação por slice. São **material de apoio do Code**, não contrato: onde divergirem do PRD, o PRD vence.
+- `docs/historico/` — Documentos superados (backlog e arquitetura originais, brief de design). Referência histórica; **não é contrato**.
