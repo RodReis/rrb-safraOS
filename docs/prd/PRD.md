@@ -1,7 +1,9 @@
 # SAFRAOS — PRODUCT REQUIREMENTS DOCUMENT (PRD)
 ## Sistema operacional financeiro e regulatório do agro brasileiro
-**Versão:** 2.0 · **Data:** 12 de setembro de 2026 · **Autor:** Produto · **Status:** Validado para build do MVP
+**Versão:** 2.1 · **Data:** 13 de setembro de 2026 (emenda) · **Autor:** Produto · **Status:** MVP0 (fundação web) em execução — módulos A–D abaixo formam o MVP-001, que começa após o aceite do MVP0
 **Público:** Engenharia, Design, Dados, Compliance, GTM, Founders
+
+**Nota de versão 2.1:** esta emenda incorpora o MVP0 — fundação web (`docs/prd/mvp/MVP-000.md`), decidido pelo PI em 2026-09-13 e ausente da v2.0. O MVP0 entrega organização/tenant, autenticação, fazendas e talhões em web pura, sem CNPJ, sem MFA e sem mobile/offline; só depois dele começa o MVP descrito neste documento (módulos A–D), reidentificado como **MVP-001** no plano de execução (`docs/prd/mvp/MVP-001.md`). O princípio 1 abaixo permanece meta do produto, não requisito do MVP0.
 
 ---
 ## SUMÁRIO EXECUTIVO
@@ -50,7 +52,7 @@ campo → financeiro → compliance → crédito → mais campo.
 **Missão do MVP:** Em 12 meses, 360 fazendas fecham sua primeira safra completa com custo por talhão e relatório EUDR gerado pelo sistema.
 
 **Princípios de produto (decisões de design):**
-1. **Offline-first ou nada** — o talhão não tem sinal. Se o registro depende de internet, o dado não existe.
+1. **Offline-first ou nada, como meta do produto** — o talhão não tem sinal; a versão final não pode depender de internet para registrar. Isso é meta do *produto*, não do MVP0: a fundação web prova domínio, tenancy e API primeiro; offline chega com o app de campo, adiado para o final do projeto por ADR-009 (`docs/DECISIONS.md`).
 2. **Zero digitação dupla** — toda informação entra uma única vez (WhatsApp, NF-e automática, telemetria).
 3. **Compliance é consequência, não tarefa** — o sistema gera a due diligence a partir do que já foi registrado.
 4. **Dado do produtor pertence ao produtor** — exportação completa, anti-lock-in explícito (argumento de venda).
@@ -67,7 +69,10 @@ campo → financeiro → compliance → crédito → mais campo.
 | P5 | Banco/agente de crédito | Crédito rural com provisão por risco ESG | "Precificar risco com dados reais" | Ausência de histórico auditável | D.2 (score) |
 
 ---
-# 4. ESCOPO DO MVP (Q1 2027)
+# 4. ESCOPO DO MVP-001 (Q1 2027, após aceite do MVP0)
+
+Este MVP (chamado **MVP-001** no plano de execução, `docs/prd/mvp/MVP-001.md`) é precedido pelo **MVP0 — fundação web** (`docs/prd/mvp/MVP-000.md`), que entrega organização/tenant, autenticação, fazendas e talhões sem CNPJ, MFA ou mobile. O escopo abaixo é o do produto descrito neste PRD; o recorte real de cada fatia vive nas SPECs.
+
 ## 4.1 Dentro do escopo
 - Módulo A: A.1–A.6 · Módulo B: B.1–B.3 · Módulo C: C.1–C.3 · Integrações: SEFAZ, SICAR/CAR, Prodes, WhatsApp API
 - Onboarding assistido por contador parceiro · App Android/iOS · Web dashboard
@@ -75,6 +80,7 @@ campo → financeiro → compliance → crédito → mais campo.
 ## 4.2 Fora de escopo do MVP (explícito)
 - Telemetria de máquinas (A.7 — V1.1) · Carbon accounting (C.6 — V2) · Marketplace de insumos (D.3 — V2) ·
   Silvicultura completa (V2) · Piscicultura/granjas (V3) · Emissão de NF-e própria do produto rural (usa busca SEFAZ)
+- MFA de dono/contador, autenticação por CNPJ e app mobile/offline: adiados para fora do MVP0 (ver `docs/FORA-DE-ESCOPO.md`); entram no MVP-001 conforme as SPECs específicas os retomarem.
 
 ## 4.3 Hipóteses críticas a validar no MVP
 | Hipótese | Teste | Critério de validação |
@@ -231,7 +237,7 @@ Rate limit: 600 req/min por tenant. Documentação OpenAPI pública.
 |---|---|
 | Disponibilidade | 99,9% mensal (API web); app de campo 100% offline |
 | Performance | Dashboard <2 s (p95); geração de relatório EUDR <60 s; sync de 1.000 lançamentos <3 min |
-| Segurança | AES-256 em repouso, TLS 1.3; MFA para dono/contador; trilha de auditoria append-only; pentest anual; assinatura ICP-Brasil nos relatórios |
+| Segurança | AES-256 em repouso, TLS 1.3; MFA para dono/contador (adiada para pós-MVP0 — ver `docs/FORA-DE-ESCOPO.md`); trilha de auditoria append-only; pentest anual; assinatura ICP-Brasil nos relatórios |
 | Escalabilidade | Multi-tenant; 5.400 fazendas até 2030; pipeline de geodados em fila (Celery/SQS) com reprocessamento |
 | Acessibilidade/UX | App em Pt-BR simples (ler com 8 anos de escolaridade); áudio como alternativa a texto; modo "sol grande" (alto contraste) para uso a céu aberto |
 | Anti-lock-in | Exportação completa self-serve <24 h (CSV/JSON/GeoJSON) |
@@ -253,7 +259,8 @@ Regras: upgrade/downgrade pro-rata; compliance cobrado por fazenda (não por ha)
 # 12. ROADMAP
 | Release | Janela | Escopo | Metas de negócio |
 |---|---|---|---|
-| **MVP** | Q1 2027 | A.1–A.6, B.1–B.3, C.1–C.3, integrações MVP | 360 fazendas · R$ 3 mi ARR · validar H1–H4 |
+| **MVP0** | set–out 2026 | Fundação web: auth, organização/tenant, fazendas, talhões (`docs/prd/mvp/MVP-000.md`) | Prova técnica ponta a ponta; nenhuma meta comercial |
+| **MVP-001 (\"MVP\" deste PRD)** | Q1 2027 | A.1–A.6, B.1–B.3, C.1–C.3, integrações MVP | 360 fazendas · R$ 3 mi ARR · validar H1–H4 |
 | **V1.1** | Q3–Q4 2027 | A.7 telemetria (arquivo→API), A.8–A.9, B.4–B.5, C.5 painel cooperativa, D.1 benchmark | 800 fazendas · NRR ≥105% |
 | **V2** | 2028 | C.6 carbon accounting, C.7 verificação fornecedores, D.2 score crédito (1 banco), D.3 marketplace | 1.260 clientes · R$ 9 mi ARR · 2 contratos cooperativa |
 | **V3** | 2029 | Carbon completo (escopo 3 da cadeia), prêmio de crédito por compliance, silvicultura | 2.700 clientes · R$ 19 mi ARR · EBITDA positivo |
@@ -301,5 +308,4 @@ CAR (Cadastro Ambiental Rural) · Prodes (INPE, desmatamento anual) · DETER (al
 ---
 *Documento vivo — revisões mensais durante o MVP, quinzenais na fase de tração. Decisões de escopo acima deste PRD exigem alteração formal de versão.*
 
-*BACKLOG.md - documento de revisão das ÉPICOS e HISTÓRIAS.
-*Arquitetura.md - documento de revisão da arquitetura.
+*A decomposição em fatias verticais (SPEC/F) e o plano de execução vivem em `docs/prd/mvp/` (MVP0 e MVP-001), não neste documento. O backlog e a arquitetura anteriores a esta versão (squad fixo de 9 pessoas, quatro serviços com deploy independente) foram superados pelo MVP0 e ficam arquivados em `docs/historico/` como referência histórica, não como contrato.*
