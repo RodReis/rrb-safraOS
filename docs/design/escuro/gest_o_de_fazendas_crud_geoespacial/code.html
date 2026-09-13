@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>SafraOS - Plataforma SaaS Agro-Fintech e Regulatória</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"primary-fixed-dim": "#9dcaff", "secondary-fixed-dim": "#abc9f0", "surface-container-high": "#272a30", "outline-variant": "#404752", "tertiary-fixed": "#ffdcc5", "surface-tint": "#9dcaff", "inverse-surface": "#e0e2ea", "surface-container": "#1c2025", "on-primary": "#003257", "on-primary-fixed": "#001d35", tertiary: "#ffb783", "on-error-container": "#ffdad6", "surface-container-low": "#181c21", outline: "#8a919d", "on-tertiary-fixed-variant": "#703700", "on-error": "#690005", "secondary-fixed": "#d1e4ff", "on-secondary-fixed": "#001d36", "tertiary-fixed-dim": "#ffb783", background: "#101419", "on-surface": "#e0e2ea", "on-tertiary": "#4f2500", "primary-container": "#2d95eb", error: "#ffb4ab", "on-surface-variant": "#bfc7d3", "on-background": "#e0e2ea", "on-secondary": "#113251", "on-tertiary-fixed": "#301400", surface: "#101419", "primary-fixed": "#d1e4ff", secondary: "#abc9f0", "inverse-primary": "#0061a2", "secondary-container": "#2d4b6b", "surface-dim": "#101419", "error-container": "#93000a", "on-secondary-container": "#9dbbe1", "on-primary-fixed-variant": "#00497c", "surface-variant": "#32353b", "tertiary-container": "#db7619", "surface-container-highest": "#32353b", "surface-container-lowest": "#0b0e14", "on-secondary-fixed-variant": "#2b4969", primary: "#9dcaff", "surface-bright": "#36393f", "on-primary-container": "#002b4c", "on-tertiary-container": "#452000", "inverse-on-surface": "#2d3137"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"space-xl": "1.75rem", "space-md": "0.75rem", margin: "1.5rem", gutter: "1rem", "space-lg": "1.25rem", "space-sm": "0.5rem", "space-xs": "0.25rem"}, fontFamily: {"headline-md": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "data-dense": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "body-md": ["Inter"], "badge-label": ["Inter"], "code-mono-md": ["JetBrains Mono"], "code-mono-sm": ["JetBrains Mono"], headline: ["Plus Jakarta Sans"], display: ["Plus Jakarta Sans"], body: ["Inter"], label: ["JetBrains Mono"]}, fontSize: {"headline-md": ["20px", {lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600"}], "display-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700"}], "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600"}], "data-dense": ["13px", {lineHeight: "16px", fontWeight: "500"}], "headline-sm": ["16px", {lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600"}], "body-sm": ["12px", {lineHeight: "16px", fontWeight: "400"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], "badge-label": ["11px", {lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "600"}], "code-mono-md": ["13px", {lineHeight: "18px", letterSpacing: "-0.01em", fontWeight: "500"}], "code-mono-sm": ["11px", {lineHeight: "14px", letterSpacing: "0em", fontWeight: "500"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-16 px-margin flex items-center gap-space-sm shrink-0"><img alt="Brand logo. - Primary color: #0f3f2e
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vn5Delybvm3eW3tHMO8JkF2q477p7udnqhK0xOGs0FKTOerKpFiyyuoLZwxLPZlKXH50on2-lxB4x2r5oFdgvii-54o5_3rdk-5VxkGPG1WvbncSGPFpmwMaSHJFIreBCuGOvFqIvHM_Vy8JYhb6Brbu2BcBWNUMlfHA41P4VgSqfV8NL27O1RinOTa_YGrikgprEneYrR7mn5MXSNyI1UQ9zvBBRaW0eOa3D7eOwXybjNZhuMkBHnnw"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">SafraOS</span><span class="font-badge-label text-badge-label text-on-surface-variant uppercase tracking-wider">Fintech &amp; Agro Legal</span></div></div><div class="overflow-y-auto flex-1 px-space-md py-space-xs space-y-space-md"><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-badge-label text-badge-label uppercase text-on-surface-variant tracking-wider font-semibold">Principal</div><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-semibold rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="visao-geral" href="#"><span class="material-symbols-outlined text-secondary shrink-0">dashboard</span><span>Visão Geral</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="custo-talhoes" href="#"><span class="material-symbols-outlined text-secondary shrink-0">pie_chart</span><span>Custo &amp; Talhões</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="compliance-eudr-car" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-secondary shrink-0">verified_user</span><span>Compliance EUDR &amp; CAR</span></div><span class="px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-badge-label text-badge-label uppercase">Audit</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="conferencia-nfe-lcdpr" href="#"><span class="material-symbols-outlined text-secondary shrink-0">receipt_long</span><span>Conferência NF-e &amp; LCDPR</span></a></nav></div><div class="space-y-space-xs pt-space-xs"><div class="px-space-sm py-space-xs font-badge-label text-badge-label uppercase text-on-surface-variant tracking-wider font-semibold">Gestão &amp; Cadastros</div><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-semibold rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="fazendas-matriculas-ativas" href="#"><span class="material-symbols-outlined text-secondary shrink-0">landscape</span><span>Fazendas &amp; Matrículas</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="rebanho-pecuaria" href="#"><span class="material-symbols-outlined text-secondary shrink-0">pets</span><span>Rebanho &amp; Pecuária</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="operacional-de-campo" href="#"><span class="material-symbols-outlined text-secondary shrink-0">agriculture</span><span>Operacional de Campo</span></a></nav></div><div class="space-y-space-xs pt-space-xs"><div class="px-space-sm py-space-xs font-badge-label text-badge-label uppercase text-on-surface-variant tracking-wider font-semibold">Configurações</div><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-semibold rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="livro-caixa-lcdpr" href="#"><span class="material-symbols-outlined text-secondary shrink-0">menu_book</span><span>Livro Caixa LCDPR</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-data-dense text-data-dense" data-path="contador-integracoes" href="#"><span class="material-symbols-outlined text-secondary shrink-0">hub</span><span>Contador &amp; Integrações</span></a></nav></div></div><div class="p-space-md shrink-0"><div class="p-space-md rounded-xl bg-surface-container-low"><div class="flex items-center justify-between mb-space-xs"><span class="font-badge-label text-badge-label font-bold text-on-primary-fixed-variant uppercase tracking-wider">Plano Ativo</span><span class="px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-badge-label text-badge-label font-semibold">PRO</span></div><div class="font-headline-sm text-headline-sm text-primary font-bold">SafraOS Exporta</div><p class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-space-sm">EUDR Conforme, rastreabilidade via satélite e conciliação bancária.</p><div class="flex items-center gap-1.5 text-secondary font-data-dense text-data-dense font-semibold"><span class="material-symbols-outlined text-base">verified</span><span>Certificação Ativa 2026/27</span></div></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 flex items-center justify-between px-margin shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1.5 rounded-lg bg-surface-container-low text-on-surface"><span class="material-symbols-outlined text-secondary text-lg">location_on</span><div class="flex flex-col text-left"><span class="font-badge-label text-badge-label text-on-surface-variant leading-none">Fazenda Selecionada</span><span class="font-data-dense text-data-dense font-semibold leading-tight">Fazenda Santa Helena (MT)</span></div><span class="material-symbols-outlined text-on-surface-variant text-base">expand_more</span></div><div class="flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-primary-container text-on-primary"><span class="material-symbols-outlined text-on-tertiary-container text-base">energy_savings_leaf</span><span class="font-data-dense text-data-dense font-medium">Safra 2026/27 — Soja &amp; Milho</span></div></div><div class="flex-1 max-w-md mx-space-lg"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-outline text-lg">search</span><input class="w-full h-9 pl-9 pr-14 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:bg-surface-container-high transition-colors" placeholder="Buscar talhões, CAR, NF-e, lote ou romaneio..." type="text"/><div class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-mono-sm text-code-mono-sm font-semibold">Ctrl+K</div></div></div><div class="flex items-center gap-space-md"><button class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-xl">help</span></button><div class="flex items-center gap-space-sm pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VcrGcWn-YoVQOUpg0hEpLkXpuZeZCvy83hzb2WMe96q1JCo33-bV8I53fELUZGuT-sgl_doc9iIBCpX2sTLgOC7-Jjyf9thUKW0cHmolfvw4Uqpu86UEQ_2g_EWuTnZ7PVYgqQ13j5aXGFm2TsXLDOVYO_AVFt7no_gTAIxK7FiXGNhQpN8rVA3SC4QC1adFp5d3nDsoF80X4rPRglryMgFsdL13c7WKZe0Ntgc-P2CkndABXRI1jK7w"/><div class="hidden xl:flex flex-col text-left"><span class="font-data-dense text-data-dense font-semibold text-on-surface leading-none">Eduardo S. Albuquerque</span><span class="font-badge-label text-badge-label text-on-surface-variant leading-tight">Produtor &amp; Responsável Técnico</span></div></div></div></header><main class="relative pt-16 w-full px-margin min-h-screen"><div class="flex flex-col w-full space-y-space-md pb-12">
+<!-- Top Action Header -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-badge-label text-badge-label font-bold uppercase tracking-wider">Módulo Fundiário</span>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">PostGIS • SIGEF • SICAR</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight mt-0.5">Gestão de Fazendas &amp; Propriedades Rurais</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Cadastro multitenant, matrículas SIGEF/CAR, limites geoespaciais e sincronização fiscal/regulatória.</p>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs shrink-0">
+<button class="h-9 px-space-sm bg-surface-container-low hover:bg-surface-container text-on-surface rounded-lg font-data-dense text-data-dense flex items-center gap-1.5 transition-colors" onclick="handleExportData()">
+<span class="material-symbols-outlined text-secondary text-lg">download</span>
+<span>Exportar (CSV/KML)</span>
+</button>
+<button class="h-9 px-space-sm bg-surface-container-low hover:bg-surface-container text-on-surface rounded-lg font-data-dense text-data-dense flex items-center gap-1.5 transition-colors" onclick="handleImportSicar()">
+<span class="material-symbols-outlined text-secondary text-lg">cloud_download</span>
+<span>Importar SICAR MT</span>
+</button>
+<button class="h-9 px-space-md bg-primary-container hover:bg-primary text-on-primary rounded-lg font-data-dense text-data-dense font-semibold flex items-center gap-1.5 shadow-sm transition-all hover:scale-[1.01]" onclick="openFarmModal('create')">
+<span class="material-symbols-outlined text-secondary-fixed text-lg">add_location_alt</span>
+<span>+ Nova Fazenda</span>
+</button>
+</div>
+</div>
+<!-- KPI Overview Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-sm">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-badge-label text-badge-label uppercase text-on-surface-variant tracking-wider font-semibold">Total de Propriedades</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">4 Fazendas</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-badge-label text-badge-label font-medium">+1 em Implantação</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed shrink-0">
+<span class="material-symbols-outlined text-xl">landscape</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant pt-space-xs">
+<span class="flex items-center gap-1 text-secondary font-medium">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> 100% Tituladas
+        </span>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">Matrículas OK</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-badge-label text-badge-label uppercase text-on-surface-variant tracking-wider font-semibold">Área Total Cadastrada</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">6.840 ha</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-badge-label text-badge-label font-bold">4.210 ha úteis</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-xl">crop_free</span>
+</div>
+</div>
+<!-- Mini Sparkline for Area Utilization -->
+<div class="mt-space-sm flex items-center justify-between">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden mr-3">
+<div class="bg-secondary h-2 rounded-full" style="width: 61.5%"></div>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-primary shrink-0">61.5% Produtiva</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-badge-label text-badge-label uppercase text-on-surface-variant tracking-wider font-semibold">Conformidade EUDR Média</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-secondary font-bold">98,2%</span>
+<span class="px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-badge-label text-badge-label font-bold">Audit EU-Zero</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-xl">verified_user</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant pt-space-xs">
+<span class="text-secondary font-data-dense text-data-dense font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">satellite_alt</span> 0 alertas desmate pós-2020
+        </span>
+<span class="text-tertiary-fixed-variant font-code-mono-sm text-code-mono-sm">1 Margem APP</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-badge-label text-badge-label uppercase text-on-surface-variant tracking-wider font-semibold">Status SEFAZ distDFe</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">100% Conectado</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0">
+<span class="material-symbols-outlined text-xl">sync_saved_locally</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant pt-space-xs">
+<span class="flex items-center gap-1 text-on-surface font-medium font-data-dense text-data-dense">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> 4 Certificados A1 Ativos
+        </span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary font-semibold">Última sinc. há 4m</span>
+</div>
+</div>
+</div>
+<!-- Filter & View Switcher Bar -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col lg:flex-row items-center justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-xs w-full lg:w-auto">
+<div class="relative w-full sm:w-72">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-lg">search</span>
+<input class="w-full h-9 pl-9 pr-4 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:bg-surface-container-high transition-colors" id="searchInput" oninput="filterFarmsTable()" placeholder="Filtrar por Fazenda, CNPJ ou CAR..." type="text"/>
+</div>
+<select class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none cursor-pointer" id="stateFilter" onchange="filterFarmsTable()">
+<option value="ALL">Todos os Estados (MT, MS, GO)</option>
+<option value="MT">Mato Grosso (MT)</option>
+<option value="GO">Goiás (GO)</option>
+<option value="MS">Mato Grosso do Sul (MS)</option>
+</select>
+<select class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none cursor-pointer" id="eudrFilter" onchange="filterFarmsTable()">
+<option value="ALL">Status EUDR (Todos)</option>
+<option value="APTO">Apto UE / Risco Zero</option>
+<option value="ATENCAO">Atenção / Risco Médio</option>
+</select>
+</div>
+<!-- Segmented Control for Layout Views -->
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg shrink-0">
+<button class="h-7 px-3 rounded text-on-primary bg-primary-container font-data-dense text-data-dense font-medium flex items-center gap-1.5 transition-all" id="viewBtnSplit" onclick="switchView('split')">
+<span class="material-symbols-outlined text-sm">splitscreen</span>
+<span>Grid + Geo</span>
+</button>
+<button class="h-7 px-3 rounded text-on-surface-variant hover:text-on-surface font-data-dense text-data-dense font-medium flex items-center gap-1.5 transition-all" id="viewBtnTable" onclick="switchView('table')">
+<span class="material-symbols-outlined text-sm">table_rows</span>
+<span>Tabela Completa</span>
+</button>
+<button class="h-7 px-3 rounded text-on-surface-variant hover:text-on-surface font-data-dense text-data-dense font-medium flex items-center gap-1.5 transition-all" id="viewBtnMap" onclick="switchView('map')">
+<span class="material-symbols-outlined text-sm">map</span>
+<span>Geo Central</span>
+</button>
+</div>
+</div>
+<!-- Main Management Area: Split between Data Table & Geo Viewer -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md items-start" id="workspaceContainer">
+<!-- LEFT PANEL: Data Table (Grid Gerencial) -->
+<div class="xl:col-span-7 bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col" id="tablePanel">
+<div class="p-space-md flex items-center justify-between bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">grid_view</span>
+<span class="font-headline-sm text-headline-sm text-primary">Propriedades Cadastradas</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-badge-label text-badge-label font-semibold" id="farmCountBadge">4 ativas</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Clique numa linha para focar no mapa geoespacial</span>
+</div>
+<!-- High Density Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-outline font-badge-label text-badge-label uppercase tracking-wider">
+<th class="p-3 w-10 text-center">
+<input class="rounded text-primary focus:ring-secondary" type="checkbox"/>
+</th>
+<th class="p-3">Fazenda &amp; Identificação</th>
+<th class="p-3">CAR / Matrícula</th>
+<th class="p-3">Área &amp; Talhões</th>
+<th class="p-3">Compliance EUDR</th>
+<th class="p-3">SEFAZ distDFe</th>
+<th class="p-3 text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="font-data-dense text-data-dense" id="farmsTableBody">
+<!-- Row 1: Santa Maria (Selected by default) -->
+<tr class="farm-row cursor-pointer transition-colors bg-surface-container-high/40 hover:bg-surface-container-high/70" id="row-farm-1" onclick="selectFarmRow('farm-1')">
+<td class="p-3 text-center" onclick="event.stopPropagation()">
+<input checked="" class="rounded text-primary focus:ring-secondary" type="checkbox"/>
+</td>
+<td class="p-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Fazenda Santa Maria</span>
+<span class="px-1.5 py-0.2 rounded bg-primary-container text-on-primary font-badge-label text-badge-label font-bold">Matriz</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sorriso • MT</span>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">CNPJ 04.918.234/0001-92</span>
+</div>
+</td>
+<td class="p-3">
+<div class="flex flex-col">
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-on-surface">MT-5107909-0024.1</span>
+<div class="flex items-center gap-1 text-secondary font-badge-label text-badge-label font-medium mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Validado SICAR
+                  </div>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">CRI Matr. nº 42.190</span>
+</div>
+</td>
+<td class="p-3">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">1.420 ha</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">12 talhões ativos</span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary">Soja &amp; Milho</span>
+</div>
+</td>
+<td class="p-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">verified</span> 100% Apto UE
+                </span>
+<div class="font-code-mono-sm text-code-mono-sm text-outline mt-1">Risco Zero • Satélite OK</div>
+</td>
+<td class="p-3">
+<div class="flex items-center gap-1.5 text-secondary font-medium font-code-mono-sm text-code-mono-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span> distDFe Ativo
+                </div>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">A1 até Nov/26</span>
+</td>
+<td class="p-3 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-secondary transition-colors" onclick="focusFarmMap('farm-1')" title="Visualizar Geoespacial">
+<span class="material-symbols-outlined text-base">map</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" onclick="openFarmModal('edit', 'Fazenda Santa Maria')" title="Editar Dados">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-error transition-colors" onclick="openDeleteDialog('Fazenda Santa Maria', 12, 186)" title="Excluir Fazenda">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Bela Vista -->
+<tr class="farm-row cursor-pointer transition-colors hover:bg-surface-container-low" id="row-farm-2" onclick="selectFarmRow('farm-2')">
+<td class="p-3 text-center" onclick="event.stopPropagation()">
+<input class="rounded text-primary focus:ring-secondary" type="checkbox"/>
+</td>
+<td class="p-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Fazenda Bela Vista</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface font-badge-label text-badge-label">Filial 01</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sapezal • MT</span>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">CNPJ 18.204.912/0001-44</span>
+</div>
+</td>
+<td class="p-3">
+<div class="flex flex-col">
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-on-surface">MT-5107925-1102.3</span>
+<div class="flex items-center gap-1 text-secondary font-badge-label text-badge-label font-medium mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Validado SICAR
+                  </div>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">CRI Matr. nº 18.402</span>
+</div>
+</td>
+<td class="p-3">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">2.100 ha</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">18 talhões ativos</span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary">Algodão &amp; Soja</span>
+</div>
+</td>
+<td class="p-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">verified</span> 96,4% Apto
+                </span>
+<div class="font-code-mono-sm text-code-mono-sm text-outline mt-1">Auditado SIGEF</div>
+</td>
+<td class="p-3">
+<div class="flex items-center gap-1.5 text-secondary font-medium font-code-mono-sm text-code-mono-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> distDFe Ativo
+                </div>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">A1 até Fev/27</span>
+</td>
+<td class="p-3 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-secondary transition-colors" onclick="focusFarmMap('farm-2')" title="Visualizar Geoespacial">
+<span class="material-symbols-outlined text-base">map</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" onclick="openFarmModal('edit', 'Fazenda Bela Vista')" title="Editar Dados">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-error transition-colors" onclick="openDeleteDialog('Fazenda Bela Vista', 18, 240)" title="Excluir Fazenda">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Rio Bonito -->
+<tr class="farm-row cursor-pointer transition-colors hover:bg-surface-container-low" id="row-farm-3" onclick="selectFarmRow('farm-3')">
+<td class="p-3 text-center" onclick="event.stopPropagation()">
+<input class="rounded text-primary focus:ring-secondary" type="checkbox"/>
+</td>
+<td class="p-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Fazenda Rio Bonito</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface font-badge-label text-badge-label">Filial 02</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Rio Verde • GO</span>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">CNPJ 31.849.102/0001-05</span>
+</div>
+</td>
+<td class="p-3">
+<div class="flex flex-col">
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-on-surface">GO-5218805-4920.8</span>
+<div class="flex items-center gap-1 text-secondary font-badge-label text-badge-label font-medium mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Validado SICAR
+                  </div>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">CRI Matr. nº 8.740</span>
+</div>
+</td>
+<td class="p-3">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">1.850 ha</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">14 talhões ativos</span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary">Milho &amp; Pecuária</span>
+</div>
+</td>
+<td class="p-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">verified</span> 100% Apto UE
+                </span>
+<div class="font-code-mono-sm text-code-mono-sm text-outline mt-1">Risco Zero • Geo OK</div>
+</td>
+<td class="p-3">
+<div class="flex items-center gap-1.5 text-secondary font-medium font-code-mono-sm text-code-mono-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> distDFe Ativo
+                </div>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">A1 até Ago/27</span>
+</td>
+<td class="p-3 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-secondary transition-colors" onclick="focusFarmMap('farm-3')" title="Visualizar Geoespacial">
+<span class="material-symbols-outlined text-base">map</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" onclick="openFarmModal('edit', 'Fazenda Rio Bonito')" title="Editar Dados">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-error transition-colors" onclick="openDeleteDialog('Fazenda Rio Bonito', 14, 115)" title="Excluir Fazenda">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Vale Verde -->
+<tr class="farm-row cursor-pointer transition-colors hover:bg-surface-container-low" id="row-farm-4" onclick="selectFarmRow('farm-4')">
+<td class="p-3 text-center" onclick="event.stopPropagation()">
+<input class="rounded text-primary focus:ring-secondary" type="checkbox"/>
+</td>
+<td class="p-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Estância Vale Verde</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-fixed text-tertiary font-badge-label text-badge-label">Arrendamento</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dourados • MS</span>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">CNPJ 08.112.441/0002-18</span>
+</div>
+</td>
+<td class="p-3">
+<div class="flex flex-col">
+<span class="font-code-mono-sm text-code-mono-sm font-semibold text-on-surface">MS-5003702-8819.0</span>
+<div class="flex items-center gap-1 text-on-tertiary-container font-badge-label text-badge-label font-medium mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span> Em Análise Estadual
+                  </div>
+<span class="font-code-mono-sm text-code-mono-sm text-outline">CRI Matr. nº 31.902</span>
+</div>
+</td>
+<td class="p-3">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">1.470 ha</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">9 talhões mapeados</span>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary">Cana &amp; Grãos</span>
+</div>
+</td>
+<td class="p-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-badge-label text-badge-label font-bold">
+<span class="material-symbols-outlined text-xs">warning</span> Atenção Margem APP
+                </span>
+<div class="font-code-mono-sm text-code-mono-sm text-outline mt-1">Correção KML pendente</div>
+</td>
+<td class="p-3">
+<div class="flex items-center gap-1.5 text-on-tertiary-container font-medium font-code-mono-sm text-code-mono-sm">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span> A1 a Vencer (14d)
+                </div>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Renovação agendada</span>
+</td>
+<td class="p-3 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-secondary transition-colors" onclick="focusFarmMap('farm-4')" title="Visualizar Geoespacial">
+<span class="material-symbols-outlined text-base">map</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" onclick="openFarmModal('edit', 'Estância Vale Verde')" title="Editar Dados">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-error transition-colors" onclick="openDeleteDialog('Estância Vale Verde', 9, 62)" title="Excluir Fazenda">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Status -->
+<div class="p-space-sm bg-surface-container-lowest flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span class="font-code-mono-sm text-code-mono-sm">Exibindo 4 de 4 propriedades sincronizadas</span>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container-low text-on-surface opacity-50 cursor-not-allowed text-xs">Anterior</button>
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary font-bold text-xs">1</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-low text-on-surface opacity-50 cursor-not-allowed text-xs">Próximo</button>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: Geo Viewer (Visualizador Geoespacial PostGIS & CAR) -->
+<div class="xl:col-span-5 flex flex-col space-y-space-sm" id="mapPanel">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Map Header & Layer Toggles -->
+<div class="p-space-sm bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">satellite_alt</span>
+<div>
+<span class="font-headline-sm text-headline-sm text-primary block leading-tight">Auditoria Satélite &amp; CAR</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">PostGIS 3.4 • Sentinel-2 Harmonized</span>
+</div>
+</div>
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-code-mono-sm text-code-mono-sm flex items-center gap-1 transition-colors" onclick="zoomToFit()">
+<span class="material-symbols-outlined text-sm">filter_center_focus</span>
+<span>Ajustar Zoom</span>
+</button>
+</div>
+<!-- Layer Checkboxes -->
+<div class="px-space-sm py-1.5 bg-surface-container-low flex flex-wrap items-center gap-3 font-badge-label text-badge-label text-on-surface">
+<label class="flex items-center gap-1.5 cursor-pointer hover:text-primary">
+<input checked="" class="rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<span>Polígonos CAR</span>
+</label>
+<label class="flex items-center gap-1.5 cursor-pointer hover:text-primary">
+<input checked="" class="rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<span>Talhões Produtivos</span>
+</label>
+<label class="flex items-center gap-1.5 cursor-pointer hover:text-primary">
+<input checked="" class="rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<span>Reserva Legal (RL)</span>
+</label>
+<label class="flex items-center gap-1.5 cursor-pointer text-error hover:text-on-error-container">
+<input class="rounded text-error focus:ring-error" type="checkbox"/>
+<span>Alertas DETER/INPE</span>
+</label>
+</div>
+<!-- Interactive Map Frame with Data Location -->
+<div class="relative w-full h-80 bg-surface-dim overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-location="Sorriso, Mato Grosso, Brazil" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA2kg-TbE3uMLTvKiu_95YXBgrzHTWzJpALqJDbi60rqCQPfnoaZCj-79L4EXEaCNaKuDqO9JId6nWBSFCFd8n4cT10XWZ2zz7n2gMtgXj3L30iUxUwJ-o3AA5PzlQU9HfJYQuiqn3y3DEXs99L93S76edmA8GwOcuP0KgD58-zn-JACU300l2RA0oTroBaT-cJmP7aSx0FzuJlYQ-AyKDUheClTSPZLB1SDWkYzGUcfaw8nDWBJcI')">
+<!-- Simulated Geo Overlays / Vector Layer -->
+<div class="absolute inset-0 bg-primary/20 backdrop-brightness-95 pointer-events-none"></div>
+<!-- SVG Polygons simulation -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" preserveaspectratio="none" viewbox="0 0 400 300">
+<!-- Polygon Santa Maria CAR Perimeter -->
+<polygon fill="rgba(16, 185, 129, 0.25)" points="50,40 180,30 220,120 160,220 70,180" stroke="#10b981" stroke-dasharray="4 2" stroke-width="2.5"></polygon>
+<!-- Talhões Subdivided -->
+<polygon fill="rgba(111, 251, 190, 0.4)" points="60,50 120,45 130,110 75,115" stroke="#006c49" stroke-width="1"></polygon>
+<polygon fill="rgba(111, 251, 190, 0.4)" points="120,45 175,35 185,115 130,110" stroke="#006c49" stroke-width="1"></polygon>
+<polygon fill="rgba(111, 251, 190, 0.4)" points="75,115 130,110 150,200 85,170" stroke="#006c49" stroke-width="1"></polygon>
+<!-- Reserva Legal Buffer -->
+<polygon fill="rgba(15, 63, 46, 0.55)" points="130,110 210,120 155,210 150,200" stroke="#0f3f2e" stroke-width="1.5"></polygon>
+</svg>
+<!-- Floating Selected Farm Pin -->
+<div class="absolute top-16 left-32 bg-primary-container text-on-primary px-2 py-1 rounded shadow-lg font-code-mono-sm text-code-mono-sm flex items-center gap-1 animate-bounce">
+<span class="material-symbols-outlined text-secondary-fixed text-sm">location_on</span>
+<span id="activeMapPinLabel">Fazenda Santa Maria (1.420 ha)</span>
+</div>
+<!-- Map Control Shortcuts -->
+<div class="absolute bottom-3 right-3 flex flex-col gap-1">
+<button class="w-8 h-8 rounded bg-surface-container-lowest/90 backdrop-blur shadow flex items-center justify-center text-primary font-bold hover:bg-surface-container transition-colors">+</button>
+<button class="w-8 h-8 rounded bg-surface-container-lowest/90 backdrop-blur shadow flex items-center justify-center text-primary font-bold hover:bg-surface-container transition-colors">−</button>
+</div>
+</div>
+</div>
+<!-- Floating Data Audit Box for Selected Farm -->
+<div class="p-space-md bg-surface-container-low space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-primary font-bold" id="geoBoxTitle">Fazenda Santa Maria</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-badge-label text-badge-label font-bold">100% EUDR Conforme</span>
+</div>
+<div class="grid grid-cols-2 gap-2 font-code-mono-sm text-code-mono-sm pt-1">
+<div class="bg-surface-container-lowest p-2 rounded">
+<span class="text-outline block text-[10px] uppercase">Centroide Geo</span>
+<span class="font-semibold text-on-surface">Lat -12.5421° S</span>
+<span class="text-on-surface-variant block">Lon -55.7230° W</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded">
+<span class="text-outline block text-[10px] uppercase">Datum &amp; Projeção</span>
+<span class="font-semibold text-on-surface">SIRGAS 2000</span>
+<span class="text-on-surface-variant block">UTM Fuso 21S</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded">
+<span class="text-outline block text-[10px] uppercase">Vértices SIGEF</span>
+<span class="font-semibold text-secondary">38 marcos validados</span>
+<span class="text-on-surface-variant block">Precisão sub-métrica</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded">
+<span class="text-outline block text-[10px] uppercase">Sobreposição APP/RL</span>
+<span class="font-semibold text-secondary">0,00 ha (Livre)</span>
+<span class="text-on-surface-variant block">Sem passivo ambiental</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs pt-space-xs">
+<button class="flex-1 h-8 bg-surface-container-lowest hover:bg-surface-container text-on-surface rounded font-data-dense text-data-dense flex items-center justify-center gap-1.5 transition-colors" onclick="alert('Abrindo camada WMS no GeoServer institucional...')">
+<span class="material-symbols-outlined text-secondary text-base">public</span>
+<span>Abrir no GeoServer</span>
+</button>
+<button class="flex-1 h-8 bg-primary-container hover:bg-primary text-on-primary rounded font-data-dense text-data-dense flex items-center justify-center gap-1.5 transition-colors" onclick="openFarmModal('edit', 'Fazenda Santa Maria')">
+<span class="material-symbols-outlined text-secondary-fixed text-base">polyline</span>
+<span>Reenviar KML/CAR</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Regulatory Note Card -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-2xl shrink-0 mt-0.5">verified</span>
+<div>
+<span class="font-headline-sm text-headline-sm text-primary block leading-tight">Certificação EUDR 2026/27 Aprovada</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Os limites fundiários cruzados com a série histórica DETER/PRODES comprovam ausência de desmatamento desde 31/12/2020.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- MODAL 1: NEW / EDIT FARM DIALOG (Rich CRUD Form)                           -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden flex items-center justify-center p-4" id="farmModal">
+<div class="bg-surface-container-lowest w-full max-w-4xl max-h-[942px] rounded-xl shadow-2xl overflow-hidden flex flex-col">
+<!-- Modal Header -->
+<div class="px-space-lg py-space-md bg-primary-container text-on-primary flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low/10 flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined text-2xl">add_business</span>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg font-bold" id="farmModalTitle">Editar Fazenda: Fazenda Santa Maria</h2>
+<p class="font-body-sm text-body-sm text-on-primary-container">Preencha os dados societários, CAR ambiental e credenciais distDFe da SEFAZ.</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container-low/20 text-on-primary flex items-center justify-center transition-colors" onclick="closeFarmModal()">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Modal Body (Scrollable Multi-Section Form) -->
+<form class="overflow-y-auto p-space-lg space-y-space-md flex-1" id="farmForm" onsubmit="submitFarmForm(event)">
+<!-- Bloco 1: Identificação & Dados Cadastrais -->
+<div class="space-y-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-bold flex items-center justify-center text-xs">1</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Dados Cadastrais &amp; Societários</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm pt-space-xs">
+<div class="space-y-1">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">CNPJ do Estabelecimento *</label>
+<div class="relative">
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-code-mono-md text-code-mono-md focus:bg-surface-container-high focus:outline-none" id="formCnpj" placeholder="00.000.000/0000-00" required="" type="text" value="04.918.234/0001-92"/>
+<button class="absolute right-1 top-1 h-7 px-2 bg-primary-container hover:bg-primary text-on-primary rounded text-xs font-semibold flex items-center gap-1 transition-colors" onclick="queryReceita()" type="button">
+<span class="material-symbols-outlined text-xs">search</span> Receita
+                </button>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">Inscrição Estadual (IE) *</label>
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:bg-surface-container-high focus:outline-none" id="formIe" placeholder="Inscrição Estadual" required="" type="text" value="13.489.201-9"/>
+</div>
+<div class="space-y-1">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">Tipo de Estabelecimento</label>
+<select class="w-full h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none" id="formMatriz">
+<option selected="" value="matriz">Matriz Produtora</option>
+<option value="filial">Filial Operacional</option>
+<option value="arrendamento">Área Arrendada</option>
+</select>
+</div>
+<div class="space-y-1 md:col-span-2">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">Razão Social / Nome da Propriedade *</label>
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:bg-surface-container-high focus:outline-none" id="formName" placeholder="Ex: Fazenda Santa Maria" required="" type="text" value="Fazenda Santa Maria Agropecuária Ltda"/>
+</div>
+<div class="space-y-1">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">Município / UF *</label>
+<div class="grid grid-cols-3 gap-1">
+<input class="col-span-2 h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none" id="formCity" placeholder="Município" required="" type="text" value="Sorriso"/>
+<select class="h-9 px-2 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none" id="formUf">
+<option selected="" value="MT">MT</option>
+<option value="MS">MS</option>
+<option value="GO">GO</option>
+<option value="PR">PR</option>
+<option value="BA">BA</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<div class="h-px bg-surface-container-low"></div>
+<!-- Bloco 2: CAR, SIGEF & Georreferenciamento -->
+<div class="space-y-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-bold flex items-center justify-center text-xs">2</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Dados Fundiários, CAR &amp; Georreferenciamento</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm pt-space-xs">
+<div class="space-y-1 md:col-span-2">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">Código do Imóvel no SICAR / CAR *</label>
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-code-mono-md text-code-mono-md focus:bg-surface-container-high focus:outline-none" id="formCar" placeholder="UF-XXXXXXX-XXXX..." required="" type="text" value="MT-5107909-0024.1829.4410.9902"/>
+</div>
+<div class="space-y-1">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">Área Total Registrada (Hectares) *</label>
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-code-mono-md text-code-mono-md focus:outline-none" id="formArea" placeholder="1420.00" required="" step="0.01" type="number" value="1420.00"/>
+</div>
+<div class="space-y-1">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">Matrícula no Cartório de Imóveis (CRI)</label>
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none" id="formMatricula" type="text" value="Matrícula 42.190 - 1º Ofício de Sorriso/MT"/>
+</div>
+<div class="space-y-1 md:col-span-2">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">Polígono Vetorial (KML, GeoJSON ou Shapefile)</label>
+<div class="flex items-center gap-2">
+<input class="hidden" id="formKmlUpload" onchange="updateFileName(this)" type="file"/>
+<button class="h-9 px-3 bg-surface-container-low hover:bg-surface-container text-on-surface rounded-lg font-data-dense text-data-dense flex items-center gap-1.5 transition-colors shrink-0" onclick="document.getElementById('formKmlUpload').click()" type="button">
+<span class="material-symbols-outlined text-secondary text-base">upload_file</span>
+<span>Carregar Arquivo</span>
+</button>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant truncate" id="uploadedFileName">santa_maria_sirgas2000_v3.geojson (142 KB)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="h-px bg-surface-container-low"></div>
+<!-- Bloco 3: Integração SEFAZ & Certificado A1 -->
+<div class="space-y-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-bold flex items-center justify-center text-xs">3</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Conexão Fiscal SEFAZ (distDFe &amp; NF-e)</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm pt-space-xs">
+<div class="space-y-1">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">Certificado Digital A1 (.PFX/.P12)</label>
+<div class="flex items-center gap-2">
+<input class="hidden" id="formCertUpload" type="file"/>
+<button class="w-full h-9 px-3 bg-surface-container-low hover:bg-surface-container text-on-surface rounded-lg font-data-dense text-data-dense flex items-center justify-center gap-1.5 transition-colors" onclick="document.getElementById('formCertUpload').click()" type="button">
+<span class="material-symbols-outlined text-secondary text-base">vpn_key</span>
+<span>Atualizar Certificado A1</span>
+</button>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary block">Validade: 14/Nov/2026 (Ativo)</span>
+</div>
+<div class="space-y-1">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">Senha do Certificado A1</label>
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none" placeholder="Senha do .PFX" type="password" value="********"/>
+</div>
+<div class="space-y-1">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">Ambiente distDFe</label>
+<select class="w-full h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none">
+<option selected="" value="prod">Produção (Consulta a cada 15 min)</option>
+<option value="homolog">Homologação / Testes</option>
+</select>
+</div>
+</div>
+</div>
+<div class="h-px bg-surface-container-low"></div>
+<!-- Bloco 4: Plano & Acesso Contador -->
+<div class="space-y-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-bold flex items-center justify-center text-xs">4</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Plano SafraOS &amp; Contador Parceiro</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm pt-space-xs">
+<div class="space-y-1">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">Plano Vinculado</label>
+<select class="w-full h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none">
+<option selected="">SafraOS Exporta (EUDR + Fiscal)</option>
+<option>SafraOS Solo (Apenas LCDPR)</option>
+<option>SafraOS Enterprise (Multi-Holdings)</option>
+</select>
+</div>
+<div class="space-y-1 md:col-span-2">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">E-mail do Escritório Contábil Credenciado</label>
+<div class="flex items-center gap-2">
+<input class="flex-1 h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none" placeholder="contador@parceiro.com.br" type="email" value="fiscal@albuquerquecontabilidade.com.br"/>
+<span class="px-2 py-1 rounded bg-secondary-container text-on-secondary-container font-badge-label text-badge-label font-bold whitespace-nowrap">Comissão 20% Ativa</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions in Form -->
+<div class="pt-space-sm flex items-center justify-end gap-space-xs">
+<button class="h-9 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-data-dense text-data-dense transition-colors" onclick="closeFarmModal()" type="button">
+            Cancelar
+          </button>
+<button class="h-9 px-space-md rounded-lg bg-primary-container hover:bg-primary text-on-primary font-data-dense text-data-dense font-bold shadow-sm transition-colors flex items-center gap-1.5" type="submit">
+<span class="material-symbols-outlined text-secondary-fixed text-base">save</span>
+<span id="submitBtnText">Salvar Propriedade</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- MODAL 2: DELETE CONFIRMATION DIALOG (Audit & Safety Lock)                  -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden flex items-center justify-center p-4" id="deleteModal">
+<div class="bg-surface-container-lowest w-full max-w-lg rounded-xl shadow-2xl overflow-hidden flex flex-col p-space-lg space-y-space-md">
+<div class="flex items-center gap-space-sm text-error">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">warning</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Confirmar Exclusão de Propriedade</h3>
+<span class="font-badge-label text-badge-label uppercase text-error font-bold tracking-wider">Ação Irreversível de Risco Fiscal</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg space-y-2">
+<p class="font-body-sm text-body-sm text-on-surface">
+          Tem certeza que deseja remover a <strong class="text-error" id="deleteFarmNameLabel">Fazenda Santa Maria</strong> do SafraOS?
+        </p>
+<ul class="text-xs text-on-surface-variant list-disc pl-4 space-y-1 font-body-sm">
+<li>Revogação imediata da sincronização automática <strong>distDFe / SEFAZ</strong>.</li>
+<li>Cancelamento do monitoramento geoespacial e histórico <strong>EUDR de satélite</strong>.</li>
+<li>Desvinculação de <strong id="deleteTalhoesCount">12</strong> talhões e <strong id="deleteNfeCount">186</strong> notas fiscais registradas no Livro Caixa LCDPR.</li>
+</ul>
+</div>
+<div class="space-y-1">
+<label class="font-badge-label text-badge-label uppercase text-on-surface-variant font-semibold">
+          Para confirmar, digite <span class="text-primary font-bold select-all">EXCLUIR</span> no campo abaixo:
+        </label>
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-code-mono-md text-code-mono-md focus:bg-surface-container-high focus:outline-none uppercase" id="deleteConfirmationInput" oninput="validateDeleteInput()" placeholder="Digite EXCLUIR" type="text"/>
+</div>
+<div class="flex items-center justify-end gap-space-xs pt-space-xs">
+<button class="h-9 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-data-dense text-data-dense transition-colors" onclick="closeDeleteModal()" type="button">
+          Cancelar
+        </button>
+<button class="h-9 px-space-md rounded-lg bg-error hover:bg-on-error-container text-on-error font-data-dense text-data-dense font-bold shadow-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5" disabled="" id="confirmDeleteButton" onclick="executeDeleteFarm()">
+<span class="material-symbols-outlined text-base">delete_forever</span>
+<span>Excluir Definitivamente</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="toastNotification">
+<div class="bg-primary-container text-on-primary px-space-md py-space-sm rounded-xl shadow-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-fixed text-xl" id="toastIcon">check_circle</span>
+<div>
+<span class="font-data-dense text-data-dense font-bold block" id="toastTitle">Sucesso</span>
+<span class="font-body-sm text-body-sm text-on-primary-container" id="toastMsg">Operação realizada com êxito.</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  let currentSelectedFarmId = 'farm-1';
+  let targetFarmToDelete = null;
+
+  // Farm data store
+  const farmData = {
+    'farm-1': {
+      name: 'Fazenda Santa Maria',
+      cnpj: '04.918.234/0001-92',
+      ie: '13.489.201-9',
+      city: 'Sorriso',
+      uf: 'MT',
+      car: 'MT-5107909-0024.1829.4410.9902',
+      area: '1.420,00',
+      talhoes: 12,
+      eudr: '100% Apto UE',
+      centroid: 'Lat -12.5421° S, Lon -55.7230° W',
+      talhoesCount: 12,
+      nfCount: 186
+    },
+    'farm-2': {
+      name: 'Fazenda Bela Vista',
+      cnpj: '18.204.912/0001-44',
+      ie: '13.902.114-2',
+      city: 'Sapezal',
+      uf: 'MT',
+      car: 'MT-5107925-1102.3499.1029.0041',
+      area: '2.100,00',
+      talhoes: 18,
+      eudr: '96,4% Apto',
+      centroid: 'Lat -13.5510° S, Lon -58.8142° W',
+      talhoesCount: 18,
+      nfCount: 240
+    },
+    'farm-3': {
+      name: 'Fazenda Rio Bonito',
+      cnpj: '31.849.102/0001-05',
+      ie: '10.224.891-0',
+      city: 'Rio Verde',
+      uf: 'GO',
+      car: 'GO-5218805-4920.8901.3321.1190',
+      area: '1.850,00',
+      talhoes: 14,
+      eudr: '100% Apto UE',
+      centroid: 'Lat -17.7922° S, Lon -50.9190° W',
+      talhoesCount: 14,
+      nfCount: 115
+    },
+    'farm-4': {
+      name: 'Estância Vale Verde',
+      cnpj: '08.112.441/0002-18',
+      ie: '28.199.301-4',
+      city: 'Dourados',
+      uf: 'MS',
+      car: 'MS-5003702-8819.0912.4412.3391',
+      area: '1.470,00',
+      talhoes: 9,
+      eudr: 'Atenção Margem APP',
+      centroid: 'Lat -22.2231° S, Lon -54.8091° W',
+      talhoesCount: 9,
+      nfCount: 62
+    }
+  };
+
+  function selectFarmRow(farmId) {
+    currentSelectedFarmId = farmId;
+    document.querySelectorAll('.farm-row').forEach(row => {
+      row.classList.remove('bg-surface-container-high/40', 'bg-surface-container-high/70');
+    });
+
+    const activeRow = document.getElementById('row-' + farmId);
+    if (activeRow) {
+      activeRow.classList.add('bg-surface-container-high/40');
+    }
+
+    const data = farmData[farmId];
+    if (data) {
+      document.getElementById('geoBoxTitle').textContent = data.name;
+      document.getElementById('activeMapPinLabel').textContent = data.name + ' (' + data.area + ' ha)';
+    }
+  }
+
+  function focusFarmMap(farmId) {
+    selectFarmRow(farmId);
+    showToast('Foco no Mapa', 'Centrado nas coordenadas geodésicas de ' + farmData[farmId].name);
+  }
+
+  function zoomToFit() {
+    showToast('Visualizador PostGIS', 'Zoom ajustado para a camada de todos os 4 polígonos CAR.');
+  }
+
+  function handleExportData() {
+    showToast('Exportação Iniciada', 'Gerando pacote ZIP contendo GeoJSON, KML do CAR e planilha CSV.');
+  }
+
+  function handleImportSicar() {
+    showToast('Sincronização SICAR MT', 'Conectando ao webservice da SEMA/MT para conferência de recibos.');
+  }
+
+  function switchView(mode) {
+    const tablePanel = document.getElementById('tablePanel');
+    const mapPanel = document.getElementById('mapPanel');
+    const btnSplit = document.getElementById('viewBtnSplit');
+    const btnTable = document.getElementById('viewBtnTable');
+    const btnMap = document.getElementById('viewBtnMap');
+
+    const defaultBtnClass = 'h-7 px-3 rounded text-on-surface-variant hover:text-on-surface font-data-dense text-data-dense font-medium flex items-center gap-1.5 transition-all';
+    const activeBtnClass = 'h-7 px-3 rounded text-on-primary bg-primary-container font-data-dense text-data-dense font-medium flex items-center gap-1.5 transition-all';
+
+    btnSplit.className = defaultBtnClass;
+    btnTable.className = defaultBtnClass;
+    btnMap.className = defaultBtnClass;
+
+    if (mode === 'split') {
+      tablePanel.classList.remove('hidden', 'xl:col-span-12');
+      tablePanel.classList.add('xl:col-span-7');
+      mapPanel.classList.remove('hidden', 'xl:col-span-12');
+      mapPanel.classList.add('xl:col-span-5');
+      btnSplit.className = activeBtnClass;
+    } else if (mode === 'table') {
+      tablePanel.classList.remove('hidden', 'xl:col-span-7');
+      tablePanel.classList.add('xl:col-span-12');
+      mapPanel.classList.add('hidden');
+      btnTable.className = activeBtnClass;
+    } else if (mode === 'map') {
+      tablePanel.classList.add('hidden');
+      mapPanel.classList.remove('hidden', 'xl:col-span-5');
+      mapPanel.classList.add('xl:col-span-12');
+      btnMap.className = activeBtnClass;
+    }
+  }
+
+  function filterFarmsTable() {
+    const term = document.getElementById('searchInput').value.toLowerCase();
+    const uf = document.getElementById('stateFilter').value;
+    const eudr = document.getElementById('eudrFilter').value;
+
+    let visibleCount = 0;
+    Object.keys(farmData).forEach(id => {
+      const data = farmData[id];
+      const matchesSearch = data.name.toLowerCase().includes(term) ||
+                            data.cnpj.includes(term) ||
+                            data.car.toLowerCase().includes(term);
+      const matchesUf = (uf === 'ALL') || (data.uf === uf);
+      const matchesEudr = (eudr === 'ALL') ||
+                          (eudr === 'APTO' && data.eudr.includes('Apto')) ||
+                          (eudr === 'ATENCAO' && data.eudr.includes('Atenção'));
+
+      const row = document.getElementById('row-' + id);
+      if (matchesSearch && matchesUf && matchesEudr) {
+        if (row) row.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        if (row) row.classList.add('hidden');
+      }
+    });
+
+    document.getElementById('farmCountBadge').textContent = visibleCount + ' ativas';
+  }
+
+  // CRUD Modal Handlers
+  function openFarmModal(mode, farmName = '') {
+    const modal = document.getElementById('farmModal');
+    const title = document.getElementById('farmModalTitle');
+    const submitBtnText = document.getElementById('submitBtnText');
+
+    if (mode === 'create') {
+      title.textContent = '+ Nova Fazenda: Cadastro Fundiário & Fiscal';
+      submitBtnText.textContent = 'Cadastrar Fazenda';
+      document.getElementById('formName').value = '';
+      document.getElementById('formCnpj').value = '';
+      document.getElementById('formIe').value = '';
+      document.getElementById('formCar').value = '';
+      document.getElementById('formArea').value = '';
+      document.getElementById('uploadedFileName').textContent = 'Nenhum arquivo vetorial anexado';
+    } else {
+      title.textContent = 'Editar Fazenda: ' + farmName;
+      submitBtnText.textContent = 'Salvar Alterações';
+      // Fill current info
+      const found = Object.values(farmData).find(f => f.name === farmName) || farmData['farm-1'];
+      document.getElementById('formName').value = found.name;
+      document.getElementById('formCnpj').value = found.cnpj;
+      document.getElementById('formIe').value = found.ie;
+      document.getElementById('formCar').value = found.car;
+      document.getElementById('formArea').value = found.area.replace('.', '').replace(',', '.');
+      document.getElementById('formCity').value = found.city;
+      document.getElementById('formUf').value = found.uf;
+      document.getElementById('uploadedFileName').textContent = found.name.toLowerCase().replace(/\s+/g, '_') + '_poligono.geojson';
+    }
+
+    modal.classList.remove('hidden');
+  }
+
+  function closeFarmModal() {
+    document.getElementById('farmModal').classList.add('hidden');
+  }
+
+  function queryReceita() {
+    showToast('Consulta Receita Federal', 'Dados cadastrais e CNAE agropecuário atualizados com a base RFB.');
+  }
+
+  function updateFileName(input) {
+    if (input.files && input.files[0]) {
+      document.getElementById('uploadedFileName').textContent = input.files[0].name;
+      showToast('Polígono Carregado', 'Geometrias validadas no fuso UTM correspondente.');
+    }
+  }
+
+  function submitFarmForm(e) {
+    e.preventDefault();
+    closeFarmModal();
+    showToast('Fazenda Salva', 'Parâmetros fundiários e conexão SEFAZ atualizados com sucesso.');
+  }
+
+  // Delete Confirmation Dialog Handlers
+  function openDeleteDialog(name, talhoes, nfe) {
+    targetFarmToDelete = name;
+    document.getElementById('deleteFarmNameLabel').textContent = name;
+    document.getElementById('deleteTalhoesCount').textContent = talhoes;
+    document.getElementById('deleteNfeCount').textContent = nfe;
+    document.getElementById('deleteConfirmationInput').value = '';
+    document.getElementById('confirmDeleteButton').disabled = true;
+    document.getElementById('deleteModal').classList.remove('hidden');
+  }
+
+  function closeDeleteModal() {
+    document.getElementById('deleteModal').classList.add('hidden');
+    targetFarmToDelete = null;
+  }
+
+  function validateDeleteInput() {
+    const inputVal = document.getElementById('deleteConfirmationInput').value.trim().toUpperCase();
+    const btn = document.getElementById('confirmDeleteButton');
+    btn.disabled = (inputVal !== 'EXCLUIR');
+  }
+
+  function executeDeleteFarm() {
+    if (targetFarmToDelete) {
+      const farmName = targetFarmToDelete;
+      closeDeleteModal();
+      showToast('Propriedade Removida', farmName + ' foi arquivada e desvinculada do monitoramento.', true);
+    }
+  }
+
+  function showToast(title, msg, isDestructive = false) {
+    const toast = document.getElementById('toastNotification');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastMsg = document.getElementById('toastMsg');
+    const toastIcon = document.getElementById('toastIcon');
+
+    toastTitle.textContent = title;
+    toastMsg.textContent = msg;
+
+    if (isDestructive) {
+      toastIcon.textContent = 'delete';
+      toastIcon.className = 'material-symbols-outlined text-error text-xl';
+    } else {
+      toastIcon.textContent = 'check_circle';
+      toastIcon.className = 'material-symbols-outlined text-secondary-fixed text-xl';
+    }
+
+    toast.classList.remove('translate-y-24', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+
+    setTimeout(() => {
+      toast.classList.remove('translate-y-0', 'opacity-100');
+      toast.classList.add('translate-y-24', 'opacity-0');
+    }, 4000);
+  }
+</script></main></div></body></html>

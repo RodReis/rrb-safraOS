@@ -1,5 +1,7 @@
 # CLAUDE.md — rrb-safraOS
 
+#previa: https://safraos.ai.studio
+
 Gestão de safra: planejar, executar e acompanhar as etapas da produção agrícola para reduzir risco e aumentar rentabilidade, com IA e agents autônomos.
 
 Este arquivo é o contrato operacional entre três atores. Regra que não está aqui nem em `docs/` não existe. Ninguém inventa regra: quem sentir falta de uma, pergunta ao PI. A decisão final é sempre do PI.
@@ -144,10 +146,15 @@ Só vale enquanto houver código a indexar; com o repo só em documentação, le
 - `docs/STATUS.md` — Kanban/roadmap deste projeto + **Índice Fatia ↔ SPEC** (fonte única da numeração). Prosa curta, sem detalhe.
 - `docs/STATUS-ARQUIVO.md` — Documento histórico detalhado que complementa o STATUS.md: prosa longa mora aqui, com detalhe.
 - `docs/LANDSCAPE.md` — Documento cenário competitivo datado: o que o mercado já faz, o que morreu por causa disso, e os gatilhos que obrigam a revisar. Evita reconstruir o que já existe de graça.
+- `docs/FORA-DE-ESCOPO.md` — Fonte única dos itens adiados ou excluídos por MVP, com motivo, destino e gatilho de retorno; mantido pelo Cowork e sem substituir backlog ou status remoto.
 - `docs/PRIVACIDADE.md` — Governança autônoma de privacidade e proteção de dados. Não é requisito de produto e não referencia o PRD.
 - `docs/AUTID.md`— Documento de rotina de autoria, revisão, CI e evidência das PRs deste repositório; distingue orientação operacional de evolução da pipeline.
 - `docs/TESTING.md` — Documento de estratégia de teste, classificação, evidência e relatório por SPEC/issue.
 - `docs/REVIEW.md` — instruções exclusivas para revisão, inseridas nos agentes do pipeline de revisão com a mais alta prioridade. Use-as para alterar o que é sinalizado, com qual gravidade e como as descobertas são relatadas.
+- `docs/design/claro` Telas do tema claro do projeto.
+- `docs/design/escuro` Telas do tema escuro do projeto.
+- `docs/design/DESIGN-CLARO.md` Documentos de direção para criar as telas da verdade do projeto.
+- `docs/design/DESIGN-ESCURO.md` Documentos de direção para criar as telas da verdade do projeto.
 - `docs/prd/PRD.md` Documentos de requisito da verdade do projeto.
 - `docs/prd/mvp/` Documentos de MVPs (épicos) com checklist das fatias previstas.
 - `docs/prd/mvp/plans/` — Documentos de planos de implementação por slice. São **material de apoio do Code**, não contrato: onde divergirem do PRD, o PRD vence.

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-error-container":"#ffdad6","primary-container":"#2d95eb","tertiary-fixed":"#ffdcc5","on-secondary-fixed-variant":"#2b4969","primary":"#9dcaff","surface-container-lowest":"#0b0e14","on-surface":"#e0e2ea","secondary-fixed-dim":"#abc9f0","on-primary-fixed-variant":"#00497c","secondary-fixed":"#d1e4ff","surface-container-high":"#272a30","outline-variant":"#404752","tertiary":"#ffb783","secondary-container":"#2d4b6b","surface-container-highest":"#32353b","on-primary-fixed":"#001d35","surface-container-low":"#181c21","on-background":"#e0e2ea","on-tertiary-container":"#452000","on-primary-container":"#002b4c","on-error":"#690005","primary-fixed":"#d1e4ff","surface-bright":"#36393f","on-secondary-container":"#9dbbe1","on-tertiary-fixed":"#301400","secondary":"#abc9f0","inverse-on-surface":"#2d3137","inverse-surface":"#e0e2ea","surface-container":"#1c2025","outline":"#8a919d","tertiary-container":"#db7619","background":"#101419","tertiary-fixed-dim":"#ffb783","surface-dim":"#101419","surface-tint":"#9dcaff","inverse-primary":"#0061a2","surface-variant":"#32353b","surface":"#101419","on-secondary":"#113251","error":"#ffb4ab","on-surface-variant":"#bfc7d3","on-primary":"#003257","on-secondary-fixed":"#001d36","on-tertiary":"#4f2500","on-tertiary-fixed-variant":"#703700","primary-fixed-dim":"#9dcaff","error-container":"#93000a"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-sm":"0.5rem",gutter:"1rem","space-md":"0.75rem","space-xs":"0.25rem","space-lg":"1.25rem","space-xl":"1.75rem",margin:"1.5rem"},fontFamily:{"badge-label":["Inter"],"headline-sm":["Plus Jakarta Sans"],"body-sm":["Inter"],"code-mono-sm":["JetBrains Mono"],"code-mono-md":["JetBrains Mono"],"data-dense":["Inter"],"body-md":["Inter"],"headline-lg":["Plus Jakarta Sans"],"body-lg":["Inter"],"display-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"]},fontSize:{"badge-label":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"600"}],"headline-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"code-mono-sm":["11px",{lineHeight:"14px",letterSpacing:"0em",fontWeight:"500"}],"code-mono-md":["13px",{lineHeight:"18px",letterSpacing:"-0.01em",fontWeight:"500"}],"data-dense":["13px",{lineHeight:"16px",fontWeight:"500"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"display-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-16 w-full px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm" data-path="landing-page" href="#"><img alt="Brand logo. - Primary color: #0285da
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1V2Qr-VccqnTL9s0MKFuL3gzNQlREFNQuVPu8jVEkmAQc9sjCgoO5-gxJ4lAYQXJIlZphZe6F0vtIRKqGOnrmoCecMfIfw9AT8N7MWo4W6fj78mYbVHQihpVuNT5teTaHscVLwYxwkyqbuTQ54aTGdXYHylsR3fWbebb0Kg37xTPBfIB0FcL7bSdgp02RGHxHPWNjYKY6FgGCDbrYUa2kBaavVLv98y94nHt__s9g-BeY8HH5WO1vWFrA"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface font-bold">Safra<span class="text-primary">OS</span></span></a><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded-lg"><span class="material-symbols-outlined text-[15px] text-tertiary">shield_lock</span><span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant uppercase tracking-wider">EUDR &amp; LCDPR AUDIT READY</span></div></div><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="plataforma" href="#">Plataforma</a><div class="relative group"><a class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors flex items-center gap-1" data-path="modulos-visao-geral" href="#">Módulos</a><div class="absolute top-full left-0 hidden group-hover:block pt-2 w-64"><div class="bg-surface-container-high rounded-xl p-space-sm shadow-[0_10px_25px_-5px_rgba(0,0,0,0.5)] flex flex-col gap-1"><a class="px-space-md py-space-sm rounded text-left font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors" data-path="gestao-safra" href="#">Gestão da Safra</a><a class="px-space-md py-space-sm rounded text-left font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors" data-path="lcdpr-fiscal" href="#">LCDPR &amp; Fiscal</a><a class="px-space-md py-space-sm rounded text-left font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors" data-path="compliance-eudr" href="#">Compliance EUDR</a><a class="px-space-md py-space-sm rounded text-left font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors" data-path="app-campo" href="#">App de Campo</a></div></div></div><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="contadores" href="#">Para Contadores</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="precos" href="#">Preços</a></nav><div class="flex items-center gap-space-md"><button aria-label="Alternar Tema" class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button><a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-sm rounded-lg font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="login-portal" href="#">Acessar Plataforma</a><a class="inline-flex items-center justify-center px-space-lg py-space-sm rounded-lg bg-primary-container text-on-primary-container font-body-sm text-body-sm font-semibold hover:bg-primary hover:text-on-primary transition-all shadow-[0_2px_8px_rgba(45,149,235,0.25)]" data-path="teste-gratis" href="#">Falar com Especialista</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- HERO SECTION WITH SATELLITE TELEMETRY OVERLAY -->
+<section class="relative w-full overflow-hidden pb-space-xl pt-space-md">
+<div class="w-full px-margin mx-auto max-w-[1440px]">
+<!-- Eyebrow + Live Signal -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container-high text-secondary font-badge-label text-badge-label shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>SafraOS 2026/27 • Sistema Operacional Agro-Financeiro &amp; Regulatório</span>
+</div>
+<div class="hidden sm:flex items-center gap-space-md font-code-mono-sm text-code-mono-sm text-on-surface-variant">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px] text-primary">satellite_alt</span> Sentinel-2 L2A Orbit 042</span>
+<span class="text-surface-variant">•</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px] text-tertiary">lock</span> ICP-Brasil HSM Ready</span>
+</div>
+</div>
+<!-- Headline Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start mb-space-lg">
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight font-extrabold lg:text-[42px] lg:leading-[48px]">
+            Do Talhão à Due Diligence: <br class="hidden sm:inline"/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-fixed to-secondary">
+              A Gestão Rural Completa em Tempo Real.
+            </span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+            Feche o custo real por talhão com IA no WhatsApp, sincronize notas fiscais via SEFAZ distDFe para LCDPR sem digitação e emita declarações de Due Diligence EUDR (Regulamento UE 2023/1115) com assinatura ICP-Brasil em 1 clique.
+          </p>
+<!-- CTA Action Row -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<a class="h-11 px-space-lg rounded bg-primary-container text-on-primary-container font-headline-sm text-headline-sm flex items-center justify-center gap-2 hover:bg-primary hover:text-on-primary shadow-md transition-all" data-path="teste-gratis" href="#">
+<span class="material-symbols-outlined text-[20px]">agriculture</span>
+<span>Iniciar Teste Grátis de 14 Dias</span>
+</a>
+<a class="h-11 px-space-lg rounded bg-surface-container-high text-on-surface font-headline-sm text-headline-sm flex items-center justify-center gap-2 hover:bg-surface-container-highest transition-all shadow-sm" data-path="agendar-demo" href="#">
+<span class="material-symbols-outlined text-[20px]">play_circle</span>
+<span>Agendar Demonstração Guiada</span>
+</a>
+</div>
+</div>
+<!-- Trust Mini Badges Right Column -->
+<div class="lg:col-span-4 flex flex-col gap-space-sm pt-space-xs">
+<div class="bg-surface-container-low rounded-lg p-space-md flex flex-col gap-space-xs shadow-sm">
+<div class="font-badge-label text-badge-label text-on-surface-variant uppercase tracking-wider">Infraestrutura Integrada &amp; Fiscal</div>
+<div class="grid grid-cols-2 gap-space-sm pt-1">
+<div class="flex items-center gap-1.5 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[16px]">sync</span> SEFAZ MT/MS/GO
+              </div>
+<div class="flex items-center gap-1.5 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[16px]">layers</span> PostGIS 3.4
+              </div>
+<div class="flex items-center gap-1.5 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-tertiary text-[16px]">verified</span> ICP-Brasil A1/A3
+              </div>
+<div class="flex items-center gap-1.5 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-secondary text-[16px]">radar</span> Copernicus NDVI
+              </div>
+</div>
+</div>
+<div class="px-space-md py-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Protocolo UE 2023/1115</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-secondary font-code-mono-sm text-code-mono-sm">SICAR/CAR SYNC</span>
+</div>
+</div>
+</div>
+<!-- Hero Visual Display Container: Image + Spatial Dashboard HUD -->
+<div class="relative w-full rounded-xl overflow-hidden shadow-xl bg-surface-container-lowest">
+<!-- Landscape Telemetry Background (Imagery from dataset) -->
+<div class="relative h-[380px] sm:h-[460px] lg:h-[540px] w-full">
+<img alt="Vista aérea de alta resolução de pivôs centrais e pulverização inteligente no cerrado de Mato Grosso com interface de telemetria SafraOS" class="w-full h-full object-cover brightness-[0.82] contrast-[1.08]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChhZYvLblH3QZs7byl2gxSMZ-gXwMa--fqMp5njC-liryJ68gxeFxefqQ92fgOlky4rWvuKpN2e3CbI8j2Pewk5O4qIkzUOzfv5KtSjwwT_upxriJQ9_zSgNlEaxDbgJvF61Ityz7Ri1LhKnrr7X0GA91YeWebRahjRd5CsD8Er61b5pH-JhHfnNyLr-Yil88ZNsmsDZiphKC7kaLUJ5NvsB_MifF7xtnPQG441OSnJ8gjA73F6tA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest/80 via-transparent to-transparent"></div>
+<!-- HUD Monospace Coordinates overlay -->
+<div class="absolute top-space-md left-space-md flex flex-col gap-1 z-10">
+<div class="inline-flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-lowest/90 backdrop-blur-md text-primary font-code-mono-sm text-code-mono-sm shadow-sm">
+<span class="material-symbols-outlined text-[14px]">my_location</span>
+<span>12°31'44.2"S 55°43'10.8"W • SORRISO - MT</span>
+</div>
+<div class="hidden sm:inline-flex items-center gap-2 px-space-sm py-0.5 rounded bg-surface-container-lowest/70 backdrop-blur-sm text-on-surface-variant font-code-mono-sm text-code-mono-sm">
+<span>TALHÃO T-08 (PIVÔ SUL) • VARIEDADE SYN1561 • NDVI 0.82</span>
+</div>
+</div>
+<!-- Real-Time Floating Micro Telemetry Cards -->
+<div class="absolute bottom-space-lg left-space-md right-space-md z-20 grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Card 1: Custo por ha -->
+<div class="bg-surface-container-low/95 backdrop-blur-md p-space-md rounded-lg shadow-lg flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">payments</span> Custo Fechado / ha
+                </span>
+<span class="font-code-mono-sm text-code-mono-sm text-primary bg-primary/10 px-1.5 py-0.5 rounded">-4.1% vs orçado</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">R$ 3.394,40</span>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">/ ha</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 mt-space-sm overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 78%"></div>
+</div>
+<div class="flex justify-between items-center mt-1.5 text-on-surface-variant font-body-sm text-[11px]">
+<span>Insumos 62%</span>
+<span>Diesel 18%</span>
+<span>Operacional 20%</span>
+</div>
+</div>
+<!-- Card 2: EUDR Status -->
+<div class="bg-surface-container-low/95 backdrop-blur-md p-space-md rounded-lg shadow-lg flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">gavel</span> Semáforo UE 2023/1115
+                </span>
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary font-badge-label text-badge-label flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  100% Conforme
+                </span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">Zero Desmate</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pós-Dez/2020</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+                PRODES, DETER e Embargos IBAMA cruzados com 14 polígonos CAR ativos.
+              </p>
+<div class="flex items-center justify-between pt-1">
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">DDS REF #EUDR-MT-9041</span>
+<span class="material-symbols-outlined text-secondary text-[16px]">qr_code_2</span>
+</div>
+</div>
+<!-- Card 3: Fiscal / LCDPR -->
+<div class="bg-surface-container-low/95 backdrop-blur-md p-space-md rounded-lg shadow-lg flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">receipt_long</span> LCDPR / SEFAZ Auto
+                </span>
+<span class="font-code-mono-sm text-code-mono-sm text-tertiary bg-tertiary/10 px-1.5 py-0.5 rounded">RFB 2026</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">0 Inconsistências</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1.482 NF-e</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+                Classificação contábil por centro de custo e talhão validada sem intervenção manual.
+              </p>
+<div class="flex items-center gap-2 pt-1 font-body-sm text-body-sm text-primary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Pronto para envio ao contador
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- IMPACT SOCIAL PROOF & METRICS STRIP -->
+<section class="w-full bg-surface-container-lowest py-space-lg shadow-inner">
+<div class="w-full px-margin mx-auto max-w-[1440px]">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter text-center">
+<div class="flex flex-col gap-1 p-space-sm">
+<span class="font-display-lg text-display-lg font-bold text-primary">+420.000 ha</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Auditados sob o protocolo EUDR</span>
+</div>
+<div class="flex flex-col gap-1 p-space-sm">
+<span class="font-display-lg text-display-lg font-bold text-on-surface">0 Cargas</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Retidas em portos europeus (Roterdã/Hamburgo)</span>
+</div>
+<div class="flex flex-col gap-1 p-space-sm">
+<span class="font-display-lg text-display-lg font-bold text-tertiary">96,4%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Acurácia de transcrição e parsing no WhatsApp</span>
+</div>
+<div class="flex flex-col gap-1 p-space-sm">
+<span class="font-display-lg text-display-lg font-bold text-secondary">84% Menos</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tempo despendido em digitação de NF-e</span>
+</div>
+</div>
+<!-- Partner / Protocol Chips -->
+<div class="mt-space-lg pt-space-md flex flex-wrap items-center justify-center gap-x-space-xl gap-y-space-sm text-on-surface-variant font-code-mono-sm text-code-mono-sm opacity-85">
+<span class="hover:text-on-surface transition-colors flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">public</span> COPERNICUS SENTINEL-2</span>
+<span class="hover:text-on-surface transition-colors flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">database</span> POSTGIS RURAL ENGINE</span>
+<span class="hover:text-on-surface transition-colors flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">assured_workload</span> SEFAZ INTEGRADA</span>
+<span class="hover:text-on-surface transition-colors flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">map</span> SICAR / INCRA GEO</span>
+<span class="hover:text-on-surface transition-colors flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">hub</span> JOHN DEERE OP CENTER SYNC</span>
+<span class="hover:text-on-surface transition-colors flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">calculate</span> DOMÍNIO SISTEMAS LCDPR</span>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE LOGIN SHOWCASE: DARK VS LIGHT COMPARISON -->
+<section class="w-full py-space-xl bg-surface">
+<div class="w-full px-margin mx-auto max-w-[1440px]">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-md">
+<div>
+<div class="font-badge-label text-badge-label text-primary uppercase tracking-wider mb-1">Acesso à Plataforma SafraOS</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">
+            Portal Unificado: Sala de Controle Noturna ou Operação Diurna
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">
+            Projetado tanto para telas de monitoramento no escritório executivo quanto para notebooks sob a luz intensa do galpão e colheitadeira.
+          </p>
+</div>
+<!-- Interactive Theme Switcher Toggle Controller -->
+<div class="flex items-center gap-space-sm bg-surface-container-high p-1 rounded-xl shadow-sm">
+<button class="px-space-md py-1.5 rounded-lg font-body-sm text-body-sm font-semibold text-on-primary bg-primary-container shadow transition-all flex items-center gap-1.5" id="btnShowDark" onclick="switchLoginTheme('dark')">
+<span class="material-symbols-outlined text-[16px]">dark_mode</span> Modo Escuro Institucional
+          </button>
+<button class="px-space-md py-1.5 rounded-lg font-body-sm text-body-sm font-semibold text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1.5" id="btnShowLight" onclick="switchLoginTheme('light')">
+<span class="material-symbols-outlined text-[16px]">light_mode</span> Modo Claro Agro
+          </button>
+</div>
+</div>
+<!-- DUAL-CARD SHOWCASE CONTAINER -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-stretch">
+<!-- CARD 1: DARK MODE LOGIN (Default highlighted) -->
+<div class="rounded-xl bg-surface-container-low p-space-lg shadow-xl flex flex-col justify-between transition-all duration-300" id="cardDarkMode">
+<div>
+<!-- Header bar -->
+<div class="flex items-center justify-between mb-space-md pb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">terminal</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">SafraOS Acesso Web</h3>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Ambiente Noturno / Sala de Controle (#101419)</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-secondary font-code-mono-sm text-[10px] uppercase">
+                TLS 1.3 • AES-256
+              </span>
+</div>
+<!-- Profile selector pills -->
+<div class="mb-space-md">
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1.5">Selecione seu Perfil de Acesso:</label>
+<div class="grid grid-cols-3 gap-space-xs text-center">
+<button class="py-1.5 px-space-xs rounded bg-secondary-container text-on-secondary-container font-badge-label text-badge-label shadow-sm" type="button">
+                  Produtor / CFO
+                </button>
+<button class="py-1.5 px-space-xs rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface font-badge-label text-badge-label transition-colors" type="button">
+                  Contador CRC
+                </button>
+<button class="py-1.5 px-space-xs rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface font-badge-label text-badge-label transition-colors" type="button">
+                  Trading / Auditor
+                </button>
+</div>
+</div>
+<!-- Form Inputs Mockup -->
+<div class="flex flex-col gap-space-sm">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1">E-mail Corporativo ou CPF</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">badge</span>
+<input class="w-full h-10 pl-10 pr-3 rounded bg-surface-container-high text-on-surface font-code-mono-md text-code-mono-md focus:outline-none" readonly="" type="text" value="marcelo.castro@fazendasaojose.agro.br"/>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<label class="font-body-sm text-body-sm text-on-surface-variant">Senha do Terminal</label>
+<span class="font-code-mono-sm text-code-mono-sm text-primary cursor-pointer hover:underline">Esqueceu?</span>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">lock</span>
+<input class="w-full h-10 pl-10 pr-10 rounded bg-surface-container-high text-on-surface font-code-mono-md text-code-mono-md focus:outline-none" readonly="" type="password" value="••••••••••••••••"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant text-[18px]">visibility</span>
+</div>
+</div>
+<!-- 2FA indicator badge -->
+<div class="flex items-center justify-between p-space-sm rounded bg-surface-container-highest">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">phonelink_lock</span>
+<span class="font-body-sm text-body-sm text-on-surface">MFA / 2FA Obrigatório Ativo</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary">TOTP / App</span>
+</div>
+<!-- Primary Submit Button -->
+<button class="w-full h-10 mt-1 rounded bg-primary-container text-on-primary-container font-headline-sm text-headline-sm font-semibold hover:bg-primary hover:text-on-primary transition-all shadow-md flex items-center justify-center gap-2">
+<span>Autenticar Sessão Segura</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<!-- Digital Certificate (ICP-Brasil) -->
+<button class="w-full h-9 rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm hover:bg-surface-container-highest transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[16px]">verified</span>
+<span>Entrar com Certificado Digital ICP-Brasil (A1 / A3)</span>
+</button>
+</div>
+</div>
+<!-- Card Footer Status -->
+<div class="mt-space-md pt-space-sm flex items-center justify-between text-on-surface-variant font-code-mono-sm text-[11px]">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> Sessão Auditada SIGEF/SICAR</span>
+<span>Cluster SP-01 • Latência 18ms</span>
+</div>
+</div>
+<!-- CARD 2: LIGHT THEME SIMULATION (Clean Agro Day Mode) -->
+<div class="rounded-xl bg-[#F4F6F8] p-space-lg shadow-xl flex flex-col justify-between text-[#1E293B] transition-all duration-300" id="cardLightMode">
+<div>
+<!-- Header bar light -->
+<div class="flex items-center justify-between mb-space-md pb-space-sm border-b border-[#E2E8F0]">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-[#0285da] flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[20px]">wb_sunny</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-[#0F172A] font-bold">SafraOS Acesso Web</h3>
+<span class="font-body-sm text-[11px] text-[#64748B]">Operação Diurna / Luz Solar / Escritório Rural</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-[#DCFCE7] text-[#15803D] font-code-mono-sm text-[10px] font-bold tracking-wider uppercase">
+                ALTO CONTRASTE DIURNO
+              </span>
+</div>
+<!-- Profile selector light -->
+<div class="mb-space-md">
+<label class="block font-body-sm text-body-sm text-[#475569] mb-1.5">Perfil Selecionado:</label>
+<div class="grid grid-cols-3 gap-space-xs text-center">
+<div class="py-1.5 px-space-xs rounded bg-[#0285da] text-white font-badge-label text-badge-label shadow-sm">
+                  Produtor / Fazenda
+                </div>
+<div class="py-1.5 px-space-xs rounded bg-[#E2E8F0] text-[#475569] font-badge-label text-badge-label">
+                  Contador CRC
+                </div>
+<div class="py-1.5 px-space-xs rounded bg-[#E2E8F0] text-[#475569] font-badge-label text-badge-label">
+                  Cooperativa
+                </div>
+</div>
+</div>
+<!-- Light form -->
+<div class="flex flex-col gap-space-sm">
+<div>
+<label class="block font-body-sm text-body-sm text-[#475569] mb-1">Identificação do Produtor (CPF/E-mail)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[#94A3B8] text-[18px]">person</span>
+<input class="w-full h-10 pl-10 pr-3 rounded bg-white text-[#0F172A] font-code-mono-md text-code-mono-md shadow-sm focus:outline-none" readonly="" type="text" value="agro.sul@fazendasantana.com.br"/>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<label class="font-body-sm text-body-sm text-[#475569]">Chave de Acesso Pessoal</label>
+<span class="font-code-mono-sm text-code-mono-sm text-[#0285da] font-semibold cursor-pointer">Recuperar</span>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[#94A3B8] text-[18px]">key</span>
+<input class="w-full h-10 pl-10 pr-10 rounded bg-white text-[#0F172A] font-code-mono-md text-code-mono-md shadow-sm focus:outline-none" readonly="" type="password" value="••••••••••••••••"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-[#94A3B8] text-[18px]">visibility_off</span>
+</div>
+</div>
+<!-- Quick QR Login Prompt -->
+<div class="p-space-sm rounded bg-white shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded bg-[#EFF6FF] flex items-center justify-center text-[#0285da]">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+</div>
+<div>
+<div class="font-body-sm text-body-sm text-[#0F172A] font-semibold">Login sem senha via App de Campo</div>
+<div class="font-body-sm text-[11px] text-[#64748B]">Aproxime a câmera do tablet ou smartphone</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#0285da] text-[20px]">chevron_right</span>
+</div>
+<!-- Light CTA -->
+<button class="w-full h-10 mt-1 rounded bg-[#059669] text-white font-headline-sm text-headline-sm font-semibold hover:bg-[#047857] transition-all shadow-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">login</span>
+<span>Entrar no SafraOS Agro Diurno</span>
+</button>
+<button class="w-full h-9 rounded bg-white text-[#334155] font-body-sm text-body-sm hover:bg-[#F1F5F9] transition-all shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[#D97706] text-[16px]">token</span>
+<span>Certificado e-CNPJ / Conexão Gov.br</span>
+</button>
+</div>
+</div>
+<!-- Light footer note -->
+<div class="mt-space-md pt-space-sm border-t border-[#E2E8F0] flex items-center justify-between text-[#64748B] font-code-mono-sm text-[11px]">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#10B981]"></span> Operação Campo Offline Sync OK</span>
+<span>v4.8.2-AgroDay</span>
+</div>
+</div>
+</div>
+<!-- Help Note Below Switcher -->
+<div class="mt-space-md p-space-sm rounded-lg bg-surface-container-low flex flex-wrap items-center justify-between gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<span>Ambos os ambientes possuem auditoria estrita sob a LGPD rural, com logs imutáveis e redundância geográfica em São Paulo e Frankfurt.</span>
+</div>
+<a class="text-primary hover:underline font-semibold flex items-center gap-1" data-path="login-portal" href="#">
+          Ir diretamente para a tela cheia de Login <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+</div>
+</div>
+</section>
+<!-- STRATEGIC VALUE PILLARS (THE SAFRAOS FLYWHEEL) -->
+<section class="w-full py-space-xl bg-surface-container-low">
+<div class="w-full px-margin mx-auto max-w-[1440px]">
+<!-- Section Header -->
+<div class="max-w-3xl mb-space-xl">
+<div class="font-badge-label text-badge-label text-primary uppercase tracking-wider mb-1">O Flywheel Tecnológico SafraOS</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">
+          Quatro pilares integrados eliminam o retrabalho entre a lavoura, o escritório e a exportadora
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+          Arquitetura orientada a dados contábeis e geoespaciais. Da aplicação de defensivo à declaração de imposto de renda e desembaraço de grãos para a Europa.
+        </p>
+</div>
+<!-- 4 Pillars Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- MÓDULO 1 -->
+<div class="rounded-xl bg-surface-container p-space-lg flex flex-col justify-between shadow-md hover:bg-surface-container-high transition-all">
+<div>
+<div class="w-12 h-12 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">record_voice_over</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-primary uppercase">Módulo 01</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1 mb-space-xs">Campo com IA &amp; WhatsApp</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              O operador manda um áudio: <em>"Apliquei 120 litros de fungicida no Pivô 3 com o trator 04"</em>. A IA interpreta dosagem, vincula ao estoque e gera o apontamento sem digitação.
+            </p>
+<div class="mt-space-md p-space-sm rounded bg-surface-container-lowest font-code-mono-sm text-[11px] text-secondary flex flex-col gap-1">
+<span class="text-on-surface-variant">• App Offline SQLite</span>
+<span class="text-on-surface-variant">• Sincronização Last-Write-Wins (LWW)</span>
+<span class="text-primary font-semibold">✓ Reconhecimento em Dialeto Agro MT/GO</span>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between font-body-sm text-body-sm text-primary">
+<span>Ver App de Campo</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- MÓDULO 2 -->
+<div class="rounded-xl bg-surface-container p-space-lg flex flex-col justify-between shadow-md hover:bg-surface-container-high transition-all">
+<div>
+<div class="w-12 h-12 rounded-lg bg-secondary-container/40 text-secondary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">query_stats</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-secondary uppercase">Módulo 02</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1 mb-space-xs">Custo Real &amp; DRE Multiatividade</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Chega de surpresas no fim da safra. Apuração automática de COE/COT conforme metodologia Conab, separando soja comercial, semente, milho safrinha e confinamento bovino.
+            </p>
+<div class="mt-space-md p-space-sm rounded bg-surface-container-lowest font-code-mono-sm text-[11px] text-secondary flex flex-col gap-1">
+<span class="text-on-surface-variant">• Custo Unitário em R$ e Sc/ha</span>
+<span class="text-on-surface-variant">• DRE Gerencial vs Fiscal em tempo real</span>
+<span class="text-secondary font-semibold">✓ Rateio Automático de Maquinário</span>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between font-body-sm text-body-sm text-secondary">
+<span>Ver Gestão Financeira</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- MÓDULO 3 -->
+<div class="rounded-xl bg-surface-container p-space-lg flex flex-col justify-between shadow-md hover:bg-surface-container-high transition-all">
+<div>
+<div class="w-12 h-12 rounded-lg bg-tertiary-container/30 text-tertiary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">account_balance</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-tertiary uppercase">Módulo 03</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1 mb-space-xs">Fiscal &amp; LCDPR Automatizado</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Varredura contínua no SEFAZ via WebService distDFe. Captura NF-e, NF-e de Produtor e MDF-e. Conciliação bancária OFX/Open Finance e exportação sem atrito para contabilidades.
+            </p>
+<div class="mt-space-md p-space-sm rounded bg-surface-container-lowest font-code-mono-sm text-[11px] text-tertiary flex flex-col gap-1">
+<span class="text-on-surface-variant">• 0 Horas de Digitação Manual</span>
+<span class="text-on-surface-variant">• Exportação Domínio / SCI / Contmatic</span>
+<span class="text-tertiary font-semibold">✓ Regras da Receita Federal 2026</span>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between font-body-sm text-body-sm text-tertiary">
+<span>Ver Módulo LCDPR</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- MÓDULO 4 -->
+<div class="rounded-xl bg-surface-container p-space-lg flex flex-col justify-between shadow-md hover:bg-surface-container-high transition-all">
+<div>
+<div class="w-12 h-12 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">satellite</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-primary uppercase">Módulo 04</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1 mb-space-xs">Compliance EUDR &amp; PostGIS</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Emissão de Dossiê de Due Diligence em PDF e JSON estruturado com polígonos GeoJSON, verificação automática de sobreposição PRODES pós-2020 e validação de CAR.
+            </p>
+<div class="mt-space-md p-space-sm rounded bg-surface-container-lowest font-code-mono-sm text-[11px] text-primary flex flex-col gap-1">
+<span class="text-on-surface-variant">• Cruzamento DETER / IBAMA / FUNAI</span>
+<span class="text-on-surface-variant">• Assinatura Eletrônica ICP-Brasil</span>
+<span class="text-primary font-semibold">✓ QR Code Público de Rastreabilidade</span>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between font-body-sm text-body-sm text-primary">
+<span>Ver Compliance EUDR</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- DEEP DIVE: FIELD-TO-EXPORT VERIFICATION ENGINE -->
+<section class="w-full py-space-xl bg-surface">
+<div class="w-full px-margin mx-auto max-w-[1440px]">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="font-badge-label text-badge-label text-secondary uppercase tracking-wider">Due Diligence sem Fricção</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">
+            Auditoria Geoespacial Sentinel-2 em sincronia com o Livro Caixa
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            O comprador na Europa exige a prova de que a soja foi colhida exatamente no talhão declarado, livre de desflorestação após 31 de dezembro de 2020. O SafraOS unifica o romaneio de balança com a data de plantio e a série temporal de satélite.
+          </p>
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-start gap-3 p-space-sm rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">verified</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Declaração de Due Diligence (DDS) Automatizada</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Gere o arquivo pronto para submissão no portal da Comissão Europeia com 1 clique antes do embarque.</div>
+</div>
+</div>
+<div class="flex items-start gap-3 p-space-sm rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">history_edu</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Livre de Lock-in: Seus Dados São Seus</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Exporte a qualquer instante todo o banco histórico de polígonos em Shapefile, GeoJSON ou KML e o livro razão em XLS.</div>
+</div>
+</div>
+</div>
+<div class="pt-space-xs flex items-center gap-space-md">
+<a class="h-10 px-space-md rounded bg-primary-container text-on-primary-container font-body-sm text-body-sm font-semibold flex items-center gap-2 hover:bg-primary hover:text-on-primary transition-all" data-path="compliance-eudr" href="#">
+<span>Explorar Motor Geoespacial</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+<span class="font-code-mono-sm text-code-mono-sm text-on-surface-variant">Compatível com SIGEF v2.3</span>
+</div>
+</div>
+<!-- Interactive Map Visual Simulation -->
+<div class="lg:col-span-6">
+<div class="rounded-xl overflow-hidden bg-surface-container-low shadow-xl p-space-md">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Monitoramento Ativo: Fazenda Planalto</span>
+</div>
+<span class="font-code-mono-sm text-code-mono-sm text-primary bg-surface-container-high px-2 py-0.5 rounded">
+                CAR: MT-5107909-67D8.3F12
+              </span>
+</div>
+<div class="w-full h-72 rounded-lg bg-cover bg-center relative overflow-hidden" data-alt="Visualização aérea de satélite de agricultura de precisão com polígonos geoespaciais e grade de dados sobreposta em alta resolução mostrando talhões de soja no cerrado brasileiro" data-location="Sorriso, Mato Grosso, Brazil" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDdRj7KSZ0fRKykZH78VkAxFdYqtEDSbbLs-ZXK30LJsX5rLutSclvhvU_gVNiQghE8hmow769eT1tJQ3402FSgrcupTjdKgMiBp_-wDUEqmv4k2PdgY-J-VSFaN6KeCmWE8UNjpxD1YD809H2EmFt2AZLSVI3hCF4ofALLTkATxRPJz3bdZFSOm9ZEYdu0TmP5td27uSfgNgowl1B7hON9iw_kn2qNvHjUz_F7XqjcqRQm-BRDM-o')">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+<!-- Polygon metadata pin -->
+<div class="absolute top-4 left-4 p-space-sm rounded bg-surface-container-lowest/90 backdrop-blur-md shadow font-code-mono-sm text-[11px] flex flex-col gap-0.5">
+<span class="text-primary font-bold">POLÍGONO TALHÃO #14</span>
+<span class="text-on-surface">Área: 412,80 ha</span>
+<span class="text-secondary">PRODES Pós-2020: 0,00 ha (LIVRE)</span>
+</div>
+<!-- EUDR Certificate QR simulation -->
+<div class="absolute bottom-3 right-3 p-space-xs rounded bg-surface-container-lowest/90 backdrop-blur-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[28px] text-on-surface">qr_code_2</span>
+<div class="flex flex-col font-code-mono-sm text-[10px]">
+<span class="text-on-surface font-semibold">AUDIT-CERT-EUDR</span>
+<span class="text-primary">VALIDADO ICP-BRASIL</span>
+</div>
+</div>
+</div>
+<!-- Ledger Quick Rows -->
+<div class="mt-space-sm grid grid-cols-3 gap-space-xs text-center font-code-mono-sm text-code-mono-sm">
+<div class="p-space-xs rounded bg-surface-container-high">
+<span class="text-on-surface-variant block text-[10px]">CAR STATUS</span>
+<span class="text-primary font-semibold">ATIVO / VALIDADO</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-high">
+<span class="text-on-surface-variant block text-[10px]">EMBARGO IBAMA</span>
+<span class="text-primary font-semibold">NENHUM ENCONTRADO</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-high">
+<span class="text-on-surface-variant block text-[10px]">NDVI ATUAL</span>
+<span class="text-secondary font-semibold">0.84 (VIGOR ALTO)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA CONVERSION BANNER -->
+<section class="w-full py-space-xl bg-gradient-to-b from-surface-container-low to-surface-container-lowest">
+<div class="w-full px-margin mx-auto max-w-[1440px]">
+<div class="relative rounded-2xl bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-high p-space-xl overflow-hidden shadow-2xl">
+<div class="relative z-10 max-w-2xl flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-2 px-space-md py-1 rounded-full bg-primary/10 text-primary font-badge-label text-badge-label w-max">
+<span class="material-symbols-outlined text-[16px]">electric_bolt</span>
+<span>Implantação em Menos de 48 Horas na Sua Fazenda</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-extrabold text-2xl lg:text-3xl">
+            Pronto para transformar a gestão financeira e o compliance da sua safra?
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            Conecte sua inscrição estadual e deixe o SafraOS importar automaticamente as últimas 500 notas fiscais, delimitar seus talhões e gerar o primeiro relatório LCDPR demonstrativo.
+          </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<a class="h-11 px-space-xl rounded bg-primary-container text-on-primary-container font-headline-sm text-headline-sm font-semibold hover:bg-primary hover:text-on-primary transition-all shadow-lg flex items-center gap-2" data-path="teste-gratis" href="#">
+<span>Começar Teste Grátis de 14 Dias</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="h-11 px-space-lg rounded bg-surface-container-highest text-on-surface font-body-md text-body-md font-semibold hover:bg-surface-bright transition-all flex items-center gap-2" data-path="contadores" href="#">
+<span class="material-symbols-outlined text-[18px]">group</span>
+<span>Sou Contador / Consultor Rural</span>
+</a>
+</div>
+<div class="pt-space-xs flex flex-wrap items-center gap-x-space-lg gap-y-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-[16px]">check</span> Sem necessidade de cartão de crédito</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-[16px]">check</span> Treinamento remoto incluso</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-[16px]">check</span> Suporte no WhatsApp direto com agrônomos e contadores</span>
+</div>
+</div>
+<!-- Regional Offices Badge -->
+<div class="mt-space-lg pt-space-md border-t border-surface-container-highest flex flex-wrap items-center justify-between gap-space-sm text-on-surface-variant font-code-mono-sm text-code-mono-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">location_on</span>
+<span>Bases Operacionais: Sorriso (MT) • Dourados (MS) • Rio Verde (GO) • Luís Eduardo Magalhães (BA)</span>
+</div>
+<span>Atendimento 24/7 durante o plantio e colheita</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  function switchLoginTheme(mode) {
+    const cardDark = document.getElementById('cardDarkMode');
+    const cardLight = document.getElementById('cardLightMode');
+    const btnDark = document.getElementById('btnShowDark');
+    const btnLight = document.getElementById('btnShowLight');
+
+    if (mode === 'light') {
+      cardDark.classList.add('opacity-40', 'scale-[0.98]');
+      cardDark.classList.remove('ring-2', 'ring-primary');
+      cardLight.classList.remove('opacity-40', 'scale-[0.98]');
+      cardLight.classList.add('ring-2', 'ring-[#059669]');
+      
+      btnLight.classList.add('bg-primary-container', 'text-on-primary');
+      btnLight.classList.remove('text-on-surface-variant');
+      btnDark.classList.remove('bg-primary-container', 'text-on-primary');
+      btnDark.classList.add('text-on-surface-variant');
+    } else {
+      cardLight.classList.add('opacity-40', 'scale-[0.98]');
+      cardLight.classList.remove('ring-2', 'ring-[#059669]');
+      cardDark.classList.remove('opacity-40', 'scale-[0.98]');
+      cardDark.classList.add('ring-2', 'ring-primary');
+      
+      btnDark.classList.add('bg-primary-container', 'text-on-primary');
+      btnDark.classList.remove('text-on-surface-variant');
+      btnLight.classList.remove('bg-primary-container', 'text-on-primary');
+      btnLight.classList.add('text-on-surface-variant');
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-lowest py-space-xl"><div class="w-full px-margin grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl"><div class="lg:col-span-2 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><img alt="SafraOS institutional mark" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1V2Qr-VccqnTL9s0MKFuL3gzNQlREFNQuVPu8jVEkmAQc9sjCgoO5-gxJ4lAYQXJIlZphZe6F0vtIRKqGOnrmoCecMfIfw9AT8N7MWo4W6fj78mYbVHQihpVuNT5teTaHscVLwYxwkyqbuTQ54aTGdXYHylsR3fWbebb0Kg37xTPBfIB0FcL7bSdgp02RGHxHPWNjYKY6FgGCDbrYUa2kBaavVLv98y94nHt__s9g-BeY8HH5WO1vWFrA"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface font-bold">Safra<span class="text-primary">OS</span></span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Sistema operacional e infraestrutura de dados auditáveis para o agronegócio de precisão, contabilidade rural integrada e compliance socioambiental internacional.</p><div class="flex items-center gap-space-sm"><span class="px-space-sm py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-mono-sm text-code-mono-sm">v4.8.2-PROD</span><span class="px-space-sm py-0.5 rounded bg-surface-container-high text-secondary font-code-mono-sm text-code-mono-sm">CAR / SIGEF LINKED</span></div></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">Soluções</h4><ul class="flex flex-col gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-on-surface transition-colors" data-path="gestao-safra" href="#">Gestão de Safra &amp; Estoque</a></li><li><a class="hover:text-on-surface transition-colors" data-path="lcdpr-fiscal" href="#">Livro Caixa Digital (LCDPR)</a></li><li><a class="hover:text-on-surface transition-colors" data-path="compliance-eudr" href="#">Validação EUDR &amp; CAR</a></li><li><a class="hover:text-on-surface transition-colors" data-path="app-campo" href="#">Telemetria &amp; App de Campo</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">Ecossistema</h4><ul class="flex flex-col gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-on-surface transition-colors" data-path="contadores" href="#">Portal de Escritórios Contábeis</a></li><li><a class="hover:text-on-surface transition-colors" data-path="precos" href="#">Planos Corporativos &amp; Tradings</a></li><li><a class="hover:text-on-surface transition-colors" data-path="login-portal" href="#">Terminal do Produtor</a></li><li><a class="hover:text-on-surface transition-colors" data-path="seguranca-auditoria" href="#">Relatórios de Auditoria ESG</a></li></ul></div><div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">Segurança &amp; Compliance</h4><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Em conformidade rigorosa com normas MAPA, Receita Federal e Regulação UE 2023/1115.</p><div class="flex items-center gap-space-xs text-secondary font-badge-label text-badge-label"><span class="material-symbols-outlined text-[16px]">verified</span>Criptografia Bancária Ponta a Ponta</div></div></div><div class="w-full px-margin pt-space-lg mt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><p>© 2026 SafraOS Agro-Fintech Technologies S.A. Todos os direitos reservados.</p><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" data-path="termos" href="#">Termos de Uso</a><a class="hover:text-on-surface transition-colors" data-path="privacidade" href="#">Privacidade &amp; LGPD</a><a class="hover:text-on-surface transition-colors" data-path="status" href="#">Status da Rede</a></div></div></footer></body></html>
