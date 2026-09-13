@@ -166,3 +166,16 @@ Só vale enquanto houver código a indexar; com o repo só em documentação, le
 - `docs/prd/mvp/plans/` — Documentos de planos de implementação por slice. São **material de apoio do Code**, não contrato: onde divergirem do PRD, o PRD vence.
 - `docs/prd/mvp/spec/` — Documentos de especificação por slice. São **material de apoio do Code**, não contrato: onde divergirem do PRD, o PRD vence.
 - `docs/historico/` — Documentos superados (backlog e arquitetura originais, brief de design). Referência histórica; **não é contrato**.
+
+## gstack (recommended)
+
+This project uses [gstack](https://github.com/garrytan/gstack) for AI-assisted workflows.
+Install it for the best experience:
+
+```bash
+git clone --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack
+cd ~/.claude/skills/gstack && ./setup --team
+```
+
+Skills like /qa, /ship, /review, /investigate, and /browse become available after install.
+Use /browse for all web browsing. Use ~/.claude/skills/gstack/... for gstack file paths.

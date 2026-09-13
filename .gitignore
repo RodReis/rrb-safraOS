@@ -1,0 +1,42 @@
+# Dependências
+node_modules/
+.pnpm-store/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Build
+dist/
+build/
+.next/
+.expo/
+*.tsbuildinfo
+
+# Ambiente — nunca commitar segredo
+.env
+.env.*
+!.env.example
+
+# Editor / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Cache local de agentes/skills (reinstalável via lock)
+.claude/skills/
+.claude/agents/
+.claude/settings.local.json
+.agents/skills/
+graphify-out/
+
+# Logs e temporários
+*.log
+npm-debug.log*
+coverage/
