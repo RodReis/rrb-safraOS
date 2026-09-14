@@ -60,10 +60,16 @@ GitHub: `RodReis/rrb-safraOS` (privado, branch padrão `main`). O board de issue
 | `planejado` → `backlog` | Cowork | dúvidas resolvidas; **mesma issue** (troca o label, não cria outra), assignee PI, corpo com link para a Slice do PRD |
 | `backlog` → `todo` | Cowork | os próximos 5 cards da ordem de implementação |
 | `todo` → `doing` | Code | ao iniciar o card — sempre o primeiro `todo` da ordem |
-| `doing` → `done` | Code | após confirmar o merge na origem; link do PR no corpo da issue |
+| `doing` → `done` | Code | após confirmar o merge na origem **e publicar o comentário de encerramento** na issue; link do PR no corpo da issue |
 | `done` → `finalizado` + fechar a issue | **PI** | aceite. Só o PI. Nenhuma automação fecha issue |
 
 Não existe label `proplan:next`/`proplan:proximo`: ao terminar um card, o Code apenas **registra em comentário/PR** qual é o próximo `todo` da ordem antes de seguir para ele — não é uma transição de label.
+
+### Encerramento de card (obrigatório)
+
+Depois do merge confirmado na origem e **antes** de aplicar `proplan:done`, o Code publica na issue do card um comentário de encerramento com três seções: **Resumo da implementação**, **Aprendizado** e **Imprevistos**. Formato, regras de conteúdo e comandos: skill `fechar-card`.
+
+`proplan:done` só pode ser aplicada se esse comentário existir — issue em `proplan:done` sem comentário de encerramento é violação de processo e o PI devolve o card. Seção sem conteúdo real recebe "Nenhum": ninguém inventa aprendizado nem imprevisto para preencher template. Aprendizado só entra com fonte verificável (doc oficial, commit, log, comando). O comentário na issue é a fonte de verdade da entrega; o resumo no chat só aponta para ele.
 
 Não existe gate de aprovação de spec (decisão do PI). O que trava uma entrega é **CI verde** e **aceite do PI** — nada mais.
 
@@ -98,7 +104,7 @@ Tudo o mais — nome de campo, ordem de implementação interna, estrutura de pa
 6. Preencher a PR com problema, comportamento antes/depois, `refs #N`, SPEC quando houver, validação executada e limitações. Usar o template quando existir. A descrição explica o resultado final, não narra as tentativas.
 7. CI: `gh pr checks <n> --watch` (bloqueia até o fim e devolve código de saída). **Nunca afirmar estado de CI, PR ou job sem verificar no momento da fala**; silêncio de watcher, lista vazia, print antigo ou status lembrado não é verde. Novo head ou avanço da base exige reconciliar — PASS antigo não vale para código novo.
 8. Corrigir no mesmo branch/PR. Merge por squash com CI verde. Bloqueio externo ou de permissão: preservar a PR e informar a causa; não contornar nem confundir com defeito de código.
-9. Confirmar `mergedAt`/`mergeSha` na origem antes de declarar "integrado". Só então aplicar `proplan:done`. Documentação da entrega vai no PR — nunca commit na `main` para registrar merge.
+9. Confirmar `mergedAt`/`mergeSha` na origem antes de declarar "integrado". Publicar o comentário de encerramento na issue (skill `fechar-card`) e só então aplicar `proplan:done`. Documentação da entrega vai no PR — nunca commit na `main` para registrar merge.
 10. Indicar o próximo card e seguir.
 
 ## Não é decisão livre do agente
@@ -128,7 +134,7 @@ Tudo o mais — nome de campo, ordem de implementação interna, estrutura de pa
 
 ## Skills do Code — na ordem de um card
 
-`superpowers:using-git-worktrees` → `superpowers:writing-plans` / `executing-plans` (a Slice do PRD **é** o design; `brainstorming` só quando cair num caso de bloqueio ou em `[FIX]` sem causa clara) → `superpowers:test-driven-development` em feature crítica (isolamento de tenant, decisão de acesso, idempotência financeira) → `engineering:code-review` em toda tarefa → `gstack:qa` → `superpowers:finishing-a-development-branch`.
+`superpowers:using-git-worktrees` → `superpowers:writing-plans` / `executing-plans` (a Slice do PRD **é** o design; `brainstorming` só quando cair num caso de bloqueio ou em `[FIX]` sem causa clara) → `superpowers:test-driven-development` em feature crítica (isolamento de tenant, decisão de acesso, idempotência financeira) → `engineering:code-review` em toda tarefa → `gstack:qa` → `superpowers:finishing-a-development-branch` → `fechar-card` (encerramento na issue, antes de `proplan:done`).
 Quando a tarefa tem UI: `document-skills:frontend-design` (não cair no shadcn-default genérico), `gstack:design-review`, `impeccable`. Documentação de biblioteca: `context7`. Mobile: `expo`. Smoke ao vivo: Playwright.
 
 `gstack:*` e `impeccable` estão instalados globalmente na máquina do PI (Windows) — o Code os usa normalmente lá. Em qualquer ambiente onde uma dessas skills não exista, isso não é desculpa para pular a disciplina que ela representa: aplicar o equivalente manual (revisão de design, acabamento visual) e registrar na PR.
