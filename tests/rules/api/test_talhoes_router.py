@@ -18,7 +18,9 @@ pytestmark = pytest.mark.rules
 _SESSION_COOKIE = "session.hash.token"
 _VALID_GEOMETRY: dict[str, object] = {
     "type": "Polygon",
-    "coordinates": [[[-49.0, -16.0], [-49.0, -16.01], [-48.99, -16.01], [-48.99, -16.0], [-49.0, -16.0]]],
+    "coordinates": [
+        [[-49.0, -16.0], [-49.0, -16.01], [-48.99, -16.01], [-48.99, -16.0], [-49.0, -16.0]]
+    ],
 }
 
 
@@ -65,7 +67,9 @@ class FakeTalhoesRepository:
     ) -> TalhaoRow:
         existing = self.talhoes.get(talhao_id)
         if existing is None or existing.organization_id != organization_id:
-            raise ProblemDetailError(status=404, title="Talhao nao encontrado.", code="talhoes.not_found")
+            raise ProblemDetailError(
+                status=404, title="Talhao nao encontrado.", code="talhoes.not_found"
+            )
         archived = TalhaoRow(
             id=talhao_id, farm_id=existing.farm_id, organization_id=organization_id,
             name=existing.name, area_ha=existing.area_ha,
@@ -179,7 +183,12 @@ def test_create_payload_above_5mb_is_rejected() -> None:
     huge_geometry = {"type": "Polygon", "coordinates": [huge_ring]}
 
     response = client.post(
-        "/v1/talhoes", json={"farmId": "farm-1", "name": "Talhao Gigante", "geometry": huge_geometry}
+        "/v1/talhoes",
+        json={
+            "farmId": "farm-1",
+            "name": "Talhao Gigante",
+            "geometry": huge_geometry,
+        },
     )
     assert response.status_code == 413
     assert response.json()["code"] == "talhoes.payload_too_large"
