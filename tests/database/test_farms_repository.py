@@ -48,6 +48,17 @@ async def _seed_user_and_org(owner_engine: AsyncEngine) -> tuple[str, str]:
     return user_id, org_id
 
 
+async def test_list_municipios_returns_seeded_reference_data() -> None:
+    settings = Settings()
+    repo = FarmRepository(create_async_engine(settings.app_database_url, pool_pre_ping=True))
+    try:
+        municipios = await repo.list_municipios()
+        codes = {m.ibge_code for m in municipios}
+        assert "5208707" in codes
+    finally:
+        await repo._engine.dispose()
+
+
 async def test_create_list_update_archive_round_trip() -> None:
     settings = Settings()
     owner_engine = create_async_engine(settings.database_url, pool_pre_ping=True)
