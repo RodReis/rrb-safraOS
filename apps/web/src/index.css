@@ -16,7 +16,7 @@
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
+  letter-spacing: 0;
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
@@ -54,7 +54,7 @@
   width: 1126px;
   max-width: 100%;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
   border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
@@ -74,8 +74,8 @@ h2 {
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
+  font-size: 42px;
+  letter-spacing: 0;
   margin: 32px 0;
   @media (max-width: 1024px) {
     font-size: 36px;
@@ -85,11 +85,83 @@ h1 {
 h2 {
   font-size: 24px;
   line-height: 118%;
-  letter-spacing: -0.24px;
+  letter-spacing: 0;
   margin: 0 0 8px;
   @media (max-width: 1024px) {
     font-size: 20px;
   }
+}
+
+main {
+  display: grid;
+  gap: 24px;
+  padding: 32px;
+}
+
+.auth-shell {
+  display: grid;
+  gap: 18px;
+  max-width: 520px;
+}
+
+.auth-brand p {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.auth-tabs {
+  display: inline-grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+button {
+  min-height: 44px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  cursor: pointer;
+}
+
+button[aria-selected='true'],
+button[type='submit'] {
+  background: var(--text-h);
+  color: var(--bg);
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.auth-form {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+input {
+  min-height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0 12px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.secondary-action {
+  width: fit-content;
+  padding: 0 18px;
 }
 p {
   margin: 0;

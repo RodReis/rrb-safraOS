@@ -43,3 +43,14 @@ Evidência: commit único em `main` (não referenciado por PR — documento é e
 Limitações: nenhuma issue de código foi aberta ainda pelo Code; portas locais permanecem indefinidas até a execução da F1.
 
 Entrada futura: data/evento; evidência (issue/PR/SPEC/SHA); limitações; decisão que alterou a ordem.
+
+## 2026-09-14 — início da SPEC-002/F2 pelo Code
+
+Evidência: issue #2 (`[MVP0][SPEC-002][F2] Identidade, sessão e e-mail assíncrono`).
+
+- Criada branch `feat/f2-identidade-sessao-email`.
+- Implementados domínio de identidade, Argon2id, tokens com hash, migration Alembic, endpoints de cadastro/confirmação/login/logout/reset, outbox e tarefa Celery de e-mail.
+- Implementada tela web de autenticação com cadastro, login, recuperação e logout.
+- Validados `npm test`, `npm run lint`, `npm run typecheck`, `npm run build`, `uv run pytest -m database -q` e `npm run test:e2e`.
+
+Limitações: Docker Desktop precisou ser iniciado durante a execução; sem ele, migration/testes reais não rodam.

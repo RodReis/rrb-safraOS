@@ -18,3 +18,8 @@ ensureEnvFile();
 await runOrExit('docker', ['compose', 'up', '-d', '--wait']);
 
 console.log('[safraos] serviços locais saudáveis');
+
+if (existsSync(join(repoRoot, 'alembic.ini'))) {
+  await runOrExit('uv', ['run', 'alembic', 'upgrade', 'head']);
+  console.log('[safraos] migrations aplicadas');
+}
