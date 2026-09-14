@@ -18,6 +18,7 @@ from safraos_api.modules.health.router import build_ready_route
 from safraos_api.modules.health.router import router as health_router
 from safraos_api.modules.identity.router import router as identity_router
 from safraos_api.modules.organizations.router import router as organizations_router
+from safraos_api.problem_details import install_problem_detail_handler
 from safraos_api.settings import Settings
 
 
@@ -31,6 +32,7 @@ def create_app(*, readiness_checker: ReadinessChecker | None = None) -> FastAPI:
     checker = readiness_checker or _default_readiness_checker(settings)
 
     app = FastAPI(title="SafraOS API")
+    install_problem_detail_handler(app)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=[settings.web_origin],
