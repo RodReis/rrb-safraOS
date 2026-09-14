@@ -43,5 +43,12 @@ export async function extractGeometryFromGeoJsonFile(file: File): Promise<Talhao
     );
   }
 
+  if (!("coordinates" in candidate) || !Array.isArray((candidate as { coordinates: unknown }).coordinates)) {
+    throw new GeoJsonImportError(
+      "talhoes.invalid_geometry_type",
+      "Geometria deve conter um array de coordenadas valido.",
+    );
+  }
+
   return candidate as TalhaoGeometry;
 }

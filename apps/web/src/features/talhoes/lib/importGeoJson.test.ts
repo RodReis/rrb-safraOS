@@ -51,4 +51,20 @@ describe("extractGeometryFromGeoJsonFile", () => {
 
     await expect(extractGeometryFromGeoJsonFile(file)).rejects.toBeInstanceOf(GeoJsonImportError);
   });
+
+  it("rejects a Polygon without coordinates field", async () => {
+    const file = makeFile(JSON.stringify({ type: "Polygon" }));
+
+    await expect(extractGeometryFromGeoJsonFile(file)).rejects.toMatchObject({
+      code: "talhoes.invalid_geometry_type",
+    });
+  });
+
+  it("rejects a Polygon with coordinates as string instead of array", async () => {
+    const file = makeFile(JSON.stringify({ type: "Polygon", coordinates: "nao-e-array" }));
+
+    await expect(extractGeometryFromGeoJsonFile(file)).rejects.toMatchObject({
+      code: "talhoes.invalid_geometry_type",
+    });
+  });
 });
