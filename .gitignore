@@ -43,6 +43,7 @@ coverage/
 test-results/
 playwright-report/
 worker.pid
+/test_output.txt
 
 # Playwright
 /apps/web/blob-report/

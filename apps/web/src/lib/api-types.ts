@@ -244,6 +244,41 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/talhoes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Talhoes Endpoint */
+        get: operations["list_talhoes_endpoint_v1_talhoes_get"];
+        put?: never;
+        /** Create Talhao Endpoint */
+        post: operations["create_talhao_endpoint_v1_talhoes_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/talhoes/{talhao_id}/archive": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Archive Talhao Endpoint */
+        post: operations["archive_talhao_endpoint_v1_talhoes__talhao_id__archive_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -357,6 +392,39 @@ export interface components {
         SelectTenantBody: {
             /** Organizationid */
             organizationId: string;
+        };
+        /** TalhaoCreateRequest */
+        TalhaoCreateRequest: {
+            /** Farmid */
+            farmId: string;
+            /** Name */
+            name: string;
+            /** Geometry */
+            geometry: {
+                [key: string]: unknown;
+            };
+        };
+        /** TalhaoListResponse */
+        TalhaoListResponse: {
+            /** Items */
+            items: components["schemas"]["TalhaoResponse"][];
+        };
+        /** TalhaoResponse */
+        TalhaoResponse: {
+            /** Id */
+            id: string;
+            /** Farmid */
+            farmId: string;
+            /** Name */
+            name: string;
+            /** Areaha */
+            areaHa: string;
+            /** Archivedat */
+            archivedAt: string | null;
+            /** Geometry */
+            geometry: {
+                [key: string]: unknown;
+            };
         };
         /** TenantResponse */
         TenantResponse: {
@@ -861,6 +929,102 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["MunicipioListResponse"];
+                };
+            };
+        };
+    };
+    list_talhoes_endpoint_v1_talhoes_get: {
+        parameters: {
+            query: {
+                farmId: string;
+                include_archived?: boolean;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TalhaoListResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_talhao_endpoint_v1_talhoes_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TalhaoCreateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TalhaoResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    archive_talhao_endpoint_v1_talhoes__talhao_id__archive_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                talhao_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TalhaoResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };

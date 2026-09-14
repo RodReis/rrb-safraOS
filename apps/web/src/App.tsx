@@ -15,6 +15,10 @@ const FarmsPage = lazy(() =>
   import('./features/farms/routes/FarmsPage').then((module) => ({ default: module.FarmsPage })),
 )
 
+const TalhoesPage = lazy(() =>
+  import('./features/talhoes/routes/TalhoesPage').then((module) => ({ default: module.TalhoesPage })),
+)
+
 function HomePage() {
   const [authVersion, setAuthVersion] = useState(0)
 
@@ -38,6 +42,14 @@ function App() {
             element={
               <Suspense fallback={<main><p role="status">Carregando...</p></main>}>
                 <FarmsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/fazendas/:farmId/talhoes"
+            element={
+              <Suspense fallback={<main><p role="status">Carregando...</p></main>}>
+                <TalhoesPage />
               </Suspense>
             }
           />
