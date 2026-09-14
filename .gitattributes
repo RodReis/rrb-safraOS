@@ -1,0 +1,5 @@
+# apps/web/src/lib/api-types.ts é gerado por openapi-typescript (sempre LF).
+# Sem isso, `core.autocrlf=true` no Windows reescreve o arquivo para CRLF no
+# checkout e `npm run generate:openapi -- --check` (anti-drift) acusa
+# divergência mesmo sem mudança real de conteúdo.
+apps/web/src/lib/api-types.ts text eol=lf

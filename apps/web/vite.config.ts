@@ -13,5 +13,11 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
     globals: true,
+    // Inclui os testes de packages/frontend (ex.: DataTable) no glob padrão
+    // rodado por `npm run test`, além dos testes locais de apps/web.
+    include: [
+      '**/*.{test,spec}.?(c|m)[jt]s?(x)',
+      '../../packages/frontend/src/**/*.{test,spec}.?(c|m)[jt]s?(x)',
+    ],
   },
 })

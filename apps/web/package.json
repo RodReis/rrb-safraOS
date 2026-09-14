@@ -12,8 +12,18 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.9.1",
+    "@radix-ui/react-alert-dialog": "^1.1.23",
+    "@safraos/frontend": "*",
+    "@tanstack/react-query": "^5.102.8",
+    "openapi-fetch": "^0.17.0",
+    "openapi-react-query": "^0.5.4",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "react-hook-form": "^7.88.0",
+    "react-router-dom": "^7.18.3",
+    "sonner": "^2.0.8",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^7.0.1",

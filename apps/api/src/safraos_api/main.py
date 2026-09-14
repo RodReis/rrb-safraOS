@@ -12,12 +12,15 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.ext.asyncio import create_async_engine
 
 from safraos_api.correlation import CorrelationIdMiddleware
+from safraos_api.modules.farms.router import municipios_router
+from safraos_api.modules.farms.router import router as farms_router
 from safraos_api.modules.health.checker import SqlAlchemyRedisReadinessChecker
 from safraos_api.modules.health.ports import ReadinessChecker
 from safraos_api.modules.health.router import build_ready_route
 from safraos_api.modules.health.router import router as health_router
 from safraos_api.modules.identity.router import router as identity_router
 from safraos_api.modules.organizations.router import router as organizations_router
+from safraos_api.problem_details import install_problem_detail_handler
 from safraos_api.settings import Settings
 
 
@@ -31,11 +34,12 @@ def create_app(*, readiness_checker: ReadinessChecker | None = None) -> FastAPI:
     checker = readiness_checker or _default_readiness_checker(settings)
 
     app = FastAPI(title="SafraOS API")
+    install_problem_detail_handler(app)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=[settings.web_origin],
         allow_credentials=True,
-        allow_methods=["GET", "POST"],
+        allow_methods=["GET", "POST", "PUT"],
         allow_headers=["*"],
     )
     app.add_middleware(CorrelationIdMiddleware)
@@ -43,6 +47,8 @@ def create_app(*, readiness_checker: ReadinessChecker | None = None) -> FastAPI:
     app.include_router(build_ready_route(checker))
     app.include_router(identity_router)
     app.include_router(organizations_router)
+    app.include_router(farms_router)
+    app.include_router(municipios_router)
 
     return app
 

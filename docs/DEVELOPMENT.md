@@ -35,9 +35,19 @@ Selecionar primeiro `todo` remoto; criar worktree; implementar/testar; revisar; 
 - Validação local executada: `npm test`, `npm run lint`, `npm run typecheck`, `npm run build`, `uv run pytest -m database -q` e `npm run test:e2e`.
 - Validação real de banco, Celery, Redis e Mailpit passou após iniciar Docker Desktop e aplicar `uv run alembic upgrade head`.
 
-## Entrega em andamento — SPEC-003/F3
+## Entrega finalizada — SPEC-003/F3
 
 - Implementados domínio de organização, migration de `organizations`, `organization_memberships` e `audit_events`, role `safraos_app` sem `BYPASSRLS`, policies RLS por membership e auditoria append-only.
 - Implementados endpoints `/v1/organizations` e `/v1/organizations/active` com sessão autenticada, seleção de tenant entre memberships e resposta neutra para tenant alheio.
 - Implementado painel web para criar/listar organizações próprias e selecionar tenant ativo.
-- Validação local executada até agora: `npm test`, `npm run lint`, `npm run typecheck`, `npm run build`, `npm run test:e2e` e `python -m pytest -m database tests/database/test_organizations_migration.py`.
+- Validação local executada: `npm test`, `npm run lint`, `npm run typecheck`, `npm run build`, `npm run test:e2e` e `python -m pytest -m database tests/database/test_organizations_migration.py`.
+
+## Entrega em andamento — SPEC-004/F4
+
+- Implementado domínio puro `Farm` (packages/backend/src/safraos/farms), migration com tabelas `farms` (RLS FORCE) e `municipios` (seed, sem RLS).
+- Implementado handler de erro `application/problem+json` com `type`, `title`, `status`, `code`, `correlationId` (novo, utilizado por farms).
+- Implementado repository e router HTTP com endpoints `/v1/farms` (CRUD com auditoria) e `/v1/municipios` (listagem pública), isolamento de tenant validado.
+- Implementada infra frontend nova: cliente OpenAPI tipado (openapi-typescript, openapi-fetch, openapi-react-query com anti-drift), TanStack Query, TanStack Table (`DataTable` genérico), React Hook Form + Zod, react-router-dom (primeira rota do projeto), Sonner (toasts), Radix UI primitivos (AlertDialog) com CSS sobre tokens existentes.
+- Implementada tela `/fazendas` com criar, listar e arquivar; edição via API existe no backend (sem UI no MVP0).
+- Implementado E2E com dois tenants, CRUD/arquivamento por teclado, isolamento validado.
+- Validação local executada: `npm test`, `npm run lint`, `npm run typecheck`, `npm run build`, `uv run pytest -m database -q`, `npm run test:e2e`.

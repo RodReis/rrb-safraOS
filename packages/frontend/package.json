@@ -1,0 +1,16 @@
+{
+  "name": "@safraos/frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "./components/*": "./src/components/*.tsx"
+  },
+  "dependencies": {
+    "@tanstack/react-table": "^8.21.3"
+  },
+  "peerDependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  }
+}
