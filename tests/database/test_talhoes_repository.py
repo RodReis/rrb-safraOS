@@ -151,6 +151,33 @@ async def test_create_rejects_geometry_out_of_brazil_bbox() -> None:
 
 
 @pytest.mark.asyncio
+async def test_create_rejects_farm_id_from_another_organization() -> None:
+    owner_engine = create_async_engine(Settings().database_url)
+    repo = TalhoesRepository(create_async_engine(Settings().app_database_url))
+    try:
+        await _truncate_all(owner_engine)
+        async with owner_engine.begin() as conn:
+            user_a, org_a, _farm_a = await _seed_farm(conn)
+            _user_b, _org_b, farm_b = await _seed_farm(conn)
+
+        with pytest.raises(ProblemDetailError) as error:
+            await repo.create(
+                user_id=user_a,
+                organization_id=org_a,
+                farm_id=farm_b,
+                name="Talhao Cross Tenant",
+                geometry=_VALID_POLYGON,
+                correlation_id="corr-1",
+            )
+
+        assert error.value.code == "talhoes.farm_not_found"
+        assert error.value.status == 404
+    finally:
+        await owner_engine.dispose()
+        await repo._engine.dispose()  # noqa: SLF001
+
+
+@pytest.mark.asyncio
 async def test_list_returns_only_talhoes_of_given_farm() -> None:
     owner_engine = create_async_engine(Settings().database_url)
     repo = TalhoesRepository(create_async_engine(Settings().app_database_url))

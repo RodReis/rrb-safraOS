@@ -108,6 +108,23 @@ class TalhoesRepository:
             async with self._engine.begin() as conn:
                 await self._set_tenant_context(conn, user_id)
 
+                farm_owned_by_org = await conn.scalar(
+                    text(
+                        """
+                        SELECT 1 FROM farms
+                        WHERE id = :farm_id AND organization_id = :organization_id
+                          AND archived_at IS NULL
+                        """
+                    ),
+                    {"farm_id": farm_id, "organization_id": organization_id},
+                )
+                if farm_owned_by_org is None:
+                    raise ProblemDetailError(
+                        status=404,
+                        title="Fazenda nao encontrada.",
+                        code="talhoes.farm_not_found",
+                    )
+
                 validity = (
                     (
                         await conn.execute(
