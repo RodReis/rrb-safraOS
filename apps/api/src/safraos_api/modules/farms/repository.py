@@ -26,6 +26,25 @@ class FarmRow:
     created_at: datetime
 
 
+@dataclass(frozen=True)
+class MunicipioRow:
+    ibge_code: str
+    name: str
+    uf: str
+
+
+@dataclass(frozen=True)
+class SessionUser:
+    id: str
+    email: str
+
+
+def _parse_session_id(session_cookie: str | None) -> str | None:
+    if not session_cookie or "." not in session_cookie:
+        return None
+    return session_cookie.split(".", maxsplit=1)[0]
+
+
 _SELECT_WITH_MUNICIPIO = """
     SELECT f.id, f.organization_id, f.name, f.uf, f.municipio_ibge_code,
            m.name AS municipio_name, f.archived_at, f.created_at
@@ -50,6 +69,40 @@ def _row_to_farm(row: RowMapping) -> FarmRow:
 class FarmRepository:
     def __init__(self, engine: AsyncEngine) -> None:
         self._engine = engine
+
+    async def session_user(self, session_cookie: str | None) -> SessionUser | None:
+        session_id = _parse_session_id(session_cookie)
+        if session_id is None:
+            return None
+        async with self._engine.begin() as conn:
+            row = (
+                await conn.execute(
+                    text(
+                        """
+                        SELECT u.id, u.email
+                        FROM identity_sessions s
+                        JOIN identity_users u ON u.id = s.user_id
+                        WHERE s.id = :session_id
+                          AND s.status = 'active'
+                          AND s.expires_at > now()
+                          AND u.status = 'active'
+                        """
+                    ),
+                    {"session_id": session_id},
+                )
+            ).mappings().first()
+            if row is None:
+                return None
+            return SessionUser(id=str(row["id"]), email=str(row["email"]))
+
+    async def list_municipios(self) -> list[MunicipioRow]:
+        async with self._engine.begin() as conn:
+            result = await conn.execute(
+                text("SELECT ibge_code, name, uf FROM municipios ORDER BY name")
+            )
+            return [
+                MunicipioRow(ibge_code=r.ibge_code, name=r.name, uf=r.uf) for r in result
+            ]
 
     async def create(
         self,
