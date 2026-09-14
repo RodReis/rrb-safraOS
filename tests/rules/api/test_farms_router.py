@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
-from typing import Awaitable, Callable
+from collections.abc import Awaitable, Callable
+from datetime import UTC, datetime
 
 import pytest
 from fastapi import FastAPI, Request, Response
@@ -51,7 +51,7 @@ class FakeFarmRepository:
             municipio_ibge_code=municipio_ibge_code,
             municipio_name="Goiania",
             archived_at=None,
-            created_at=datetime.now(timezone.utc),
+            created_at=datetime.now(UTC),
         )
         self.farms[farm_id] = row
         return row
@@ -80,7 +80,9 @@ class FakeFarmRepository:
 
         existing = self.farms.get(farm_id)
         if existing is None or existing.organization_id != organization_id:
-            raise ProblemDetailError(status=404, title="Fazenda nao encontrada.", code="farms.not_found")
+            raise ProblemDetailError(
+                status=404, title="Fazenda nao encontrada.", code="farms.not_found"
+            )
         updated = FarmRow(
             id=farm_id,
             organization_id=organization_id,
@@ -101,7 +103,9 @@ class FakeFarmRepository:
 
         existing = self.farms.get(farm_id)
         if existing is None or existing.organization_id != organization_id:
-            raise ProblemDetailError(status=404, title="Fazenda nao encontrada.", code="farms.not_found")
+            raise ProblemDetailError(
+                status=404, title="Fazenda nao encontrada.", code="farms.not_found"
+            )
         archived = FarmRow(
             id=farm_id,
             organization_id=organization_id,
@@ -109,7 +113,7 @@ class FakeFarmRepository:
             uf=existing.uf,
             municipio_ibge_code=existing.municipio_ibge_code,
             municipio_name=existing.municipio_name,
-            archived_at=datetime.now(timezone.utc),
+            archived_at=datetime.now(UTC),
             created_at=existing.created_at,
         )
         self.farms[farm_id] = archived

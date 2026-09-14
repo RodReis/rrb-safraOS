@@ -12,12 +12,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.ext.asyncio import create_async_engine
 
 from safraos_api.correlation import CorrelationIdMiddleware
+from safraos_api.modules.farms.router import municipios_router
+from safraos_api.modules.farms.router import router as farms_router
 from safraos_api.modules.health.checker import SqlAlchemyRedisReadinessChecker
 from safraos_api.modules.health.ports import ReadinessChecker
 from safraos_api.modules.health.router import build_ready_route
 from safraos_api.modules.health.router import router as health_router
-from safraos_api.modules.farms.router import municipios_router
-from safraos_api.modules.farms.router import router as farms_router
 from safraos_api.modules.identity.router import router as identity_router
 from safraos_api.modules.organizations.router import router as organizations_router
 from safraos_api.problem_details import install_problem_detail_handler

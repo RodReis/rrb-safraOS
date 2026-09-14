@@ -1,4 +1,4 @@
-from typing import Awaitable, Callable
+from collections.abc import Awaitable, Callable
 
 import pytest
 from fastapi import FastAPI, Request, Response

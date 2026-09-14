@@ -57,7 +57,7 @@ class FarmResponse(BaseModel):
     model_config = {"populate_by_name": True}
 
     @staticmethod
-    def from_row(row: FarmRow) -> "FarmResponse":
+    def from_row(row: FarmRow) -> FarmResponse:
         return FarmResponse(
             id=row.id,
             name=row.name,
