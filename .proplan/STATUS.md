@@ -9,6 +9,7 @@ updated: 2026-09-14
 
 ### Sem épico
 
+- Imagem 3d (#13, prio: media)
 - [MVP0][FIX] side-tab accent border na lista de tenants (index.css:209) (#12)
 
 ## A Fazer
