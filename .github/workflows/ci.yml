@@ -84,6 +84,7 @@ jobs:
           --health-retries 20
     env:
       DATABASE_URL: postgresql+psycopg://safraos:safraos_local_dev@localhost:5432/safraos
+      APP_DATABASE_URL: postgresql+psycopg://safraos_app:safraos_app_local_dev@localhost:5432/safraos
       REDIS_URL: redis://localhost:6379/0
       CELERY_BROKER_URL: redis://localhost:6379/0
       CELERY_RESULT_BACKEND: redis://localhost:6379/1

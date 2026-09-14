@@ -10,10 +10,6 @@ from safraos_api.settings import Settings
 pytestmark = pytest.mark.database
 
 
-def _app_url() -> str:
-    return "postgresql+psycopg://safraos_app:safraos_app_local_dev@localhost:5473/safraos"
-
-
 @pytest.mark.asyncio
 async def test_membership_is_unique() -> None:
     engine = create_async_engine(Settings().database_url)
@@ -71,7 +67,7 @@ async def test_membership_is_unique() -> None:
 @pytest.mark.asyncio
 async def test_rls_allows_only_member_organizations_through_app_role() -> None:
     owner_engine = create_async_engine(Settings().database_url)
-    app_engine = create_async_engine(_app_url())
+    app_engine = create_async_engine(Settings().app_database_url)
     async with owner_engine.begin() as conn:
         await conn.execute(
             text(
@@ -147,7 +143,7 @@ async def test_rls_allows_only_member_organizations_through_app_role() -> None:
 @pytest.mark.asyncio
 async def test_app_role_has_no_bypassrls_and_audit_is_append_only() -> None:
     owner_engine = create_async_engine(Settings().database_url)
-    app_engine = create_async_engine(_app_url())
+    app_engine = create_async_engine(Settings().app_database_url)
     async with owner_engine.begin() as conn:
         bypass = await conn.scalar(
             text("SELECT rolbypassrls FROM pg_roles WHERE rolname = 'safraos_app'")
