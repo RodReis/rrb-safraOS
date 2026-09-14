@@ -13,8 +13,15 @@ from sqlalchemy.exc import DBAPIError
 from sqlalchemy.ext.asyncio import AsyncConnection, AsyncEngine, create_async_engine
 
 from safraos.talhoes.model import TalhaoError, normalize_talhao_name, validate_geometry_type
+from safraos_api.modules.farms.repository import SessionUser
 from safraos_api.problem_details import ProblemDetailError
 from safraos_api.settings import Settings
+
+
+def _parse_session_id(session_cookie: str | None) -> str | None:
+    if not session_cookie or "." not in session_cookie:
+        return None
+    return session_cookie.split(".", maxsplit=1)[0]
 
 
 @dataclass(frozen=True)
@@ -49,6 +56,31 @@ def _row_to_talhao(row: RowMapping) -> TalhaoRow:
 class TalhoesRepository:
     def __init__(self, engine: AsyncEngine) -> None:
         self._engine = engine
+
+    async def session_user(self, session_cookie: str | None) -> SessionUser | None:
+        session_id = _parse_session_id(session_cookie)
+        if session_id is None:
+            return None
+        async with self._engine.begin() as conn:
+            row = (
+                await conn.execute(
+                    text(
+                        """
+                        SELECT u.id, u.email
+                        FROM identity_sessions s
+                        JOIN identity_users u ON u.id = s.user_id
+                        WHERE s.id = :session_id
+                          AND s.status = 'active'
+                          AND s.expires_at > now()
+                          AND u.status = 'active'
+                        """
+                    ),
+                    {"session_id": session_id},
+                )
+            ).mappings().first()
+            if row is None:
+                return None
+            return SessionUser(id=str(row["id"]), email=str(row["email"]))
 
     async def create(
         self,
