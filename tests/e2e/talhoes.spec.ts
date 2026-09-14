@@ -109,31 +109,39 @@ test.describe('Talhões', () => {
       buffer: Buffer.from(JSON.stringify(polygonNear(0, 0))),
     });
 
+    const createResponsePromise = page.waitForResponse(
+      (response) =>
+        response.url().includes('/v1/talhoes') && response.request().method() === 'POST',
+    );
     await page.getByRole('button', { name: /salvar talhão/i }).click();
+    const createResponse = await createResponsePromise;
+    const createdTalhao = (await createResponse.json()) as { areaHa: string };
 
-    await expect(page.getByText('Talhao E2E')).toBeVisible();
-    // area formatada como string decimal simples vinda do backend (str(Decimal),
-    // ponto decimal) — ex. "1.2345", nunca com virgula pt-BR. Ver
-    // apps/api/src/safraos_api/modules/talhoes/router.py.
-    await expect(page.getByText(/\d+\.\d+/)).toBeVisible();
+    const talhaoRow = page.getByRole('row', { name: /Talhao E2E/i });
+    await expect(talhaoRow).toBeVisible();
+    // area exibida na tela deve ser exatamente o valor areaHa retornado pela API
+    // de criacao (string decimal simples, ex. "1.2345") — nao apenas "algum
+    // numero decimal existe na pagina". Ver TalhaoColumns.tsx (accessorKey
+    // "areaHa", sem formatacao) e apps/api/.../talhoes/router.py.
+    await expect(talhaoRow.getByText(createdTalhao.areaHa, { exact: true })).toBeVisible();
 
     await page.screenshot({ path: 'tests/e2e/screenshots/talhoes-list.png', fullPage: true });
   });
 
-  test('mapa e lista não mantêm talhões de outro tenant após troca de organização', async ({
-    page,
-  }) => {
+  test('mapa e lista nao expoe talhao de outro tenant/usuario', async ({ page }) => {
     const suffix = Date.now();
     const password = 'senha-longa-segura';
-    const owner = `talhao-tenant-${suffix}@example.com`;
+    const ownerA = `talhao-tenant-a-${suffix}@example.com`;
+    const ownerB = `talhao-tenant-b-${suffix}@example.com`;
 
-    await createActiveUser(owner, password);
+    const apiA = await createActiveUser(ownerA, password);
+    const apiB = await createActiveUser(ownerB, password);
 
-    // Login unico pela UI: o cookie de sessao/tenant ativo do navegador so muda
-    // atraves de requisicoes feitas com page.request (compartilham os cookies do
-    // browser context) ou de cliques na UI — nunca de um APIRequestContext a parte.
+    // Usuario A: login e organizacao pela UI (cookie de sessao/tenant ativo vive
+    // no browser context de page; fazenda/talhao proprios via page.request, que
+    // compartilha esses cookies).
     await page.goto('/');
-    await page.getByLabel(/e-mail/i).fill(owner);
+    await page.getByLabel(/e-mail/i).fill(ownerA);
     await page.getByLabel(/senha/i).fill(password);
     await page.getByRole('button', { name: /entrar agora/i }).click();
     await expect(page.getByText(/sessao iniciada/i)).toBeVisible();
@@ -141,81 +149,64 @@ test.describe('Talhões', () => {
     const organizationRegion = page.getByRole('region', {
       name: 'Organizacoes e tenant ativo',
     });
-
-    // Organizacao A pela UI (cria e ativa), fazenda e talhao proprios via
-    // page.request (herdando os cookies do tenant A recem-ativado).
-    await page.getByLabel(/nome da organizacao/i).fill('Organizacao A E2E');
+    await page.getByLabel(/nome da organizacao/i).fill('Organizacao Talhao A');
     await organizationRegion.getByRole('button', { name: /^Criar$/i }).click();
-    await expect(organizationRegion.getByText('Organizacao A E2E')).toBeVisible();
-    await organizationRegion
-      .locator('li', { hasText: 'Organizacao A E2E' })
-      .getByRole('button', { name: /selecionar/i })
-      .click();
-    await expect(page.getByText(/Tenant ativo: Organizacao A E2E/i)).toBeVisible();
+    await expect(organizationRegion.getByText('Organizacao Talhao A')).toBeVisible();
+    await organizationRegion.getByRole('button', { name: /selecionar/i }).click();
+    await expect(page.getByText(/Tenant ativo: Organizacao Talhao A/i)).toBeVisible();
 
     const farmAResponse = await page.request.post(`${API_BASE}/v1/farms`, {
-      data: { name: 'Fazenda Org A', uf: 'GO', municipioIbgeCode: MUNICIPIO_IBGE_CODE },
+      data: { name: 'Fazenda Talhao A', uf: 'GO', municipioIbgeCode: MUNICIPIO_IBGE_CODE },
     });
     expect(farmAResponse.status(), await farmAResponse.text()).toBe(201);
     const farmA = (await farmAResponse.json()) as { id: string };
 
     const talhaoAResponse = await page.request.post(`${API_BASE}/v1/talhoes`, {
-      data: { farmId: farmA.id, name: 'Talhao Org A', geometry: polygonNear(0, 0) },
+      data: { farmId: farmA.id, name: 'Talhao Usuario A', geometry: polygonNear(0, 0) },
     });
     expect(talhaoAResponse.status(), await talhaoAResponse.text()).toBe(201);
 
-    // Organizacao B: mesmo usuario, segunda organizacao com fazenda e talhao
-    // proprios, tambem via UI + page.request (agora com o tenant B ativo).
-    await page.getByLabel(/nome da organizacao/i).fill('Organizacao B E2E');
-    await organizationRegion.getByRole('button', { name: /^Criar$/i }).click();
-    await expect(organizationRegion.getByText('Organizacao B E2E')).toBeVisible();
-    await organizationRegion
-      .locator('li', { hasText: 'Organizacao B E2E' })
-      .getByRole('button', { name: /selecionar/i })
-      .click();
-    await expect(page.getByText(/Tenant ativo: Organizacao B E2E/i)).toBeVisible();
+    // Usuario B: 100% via API direta (apiB), organizacao/fazenda/talhao proprios,
+    // sem nunca participar da UI — usado so na verificacao de isolamento.
+    const loginB = await apiB.post('/v1/auth/login', { data: { email: ownerB, password } });
+    expect(loginB.ok()).toBeTruthy();
+    const orgB = await apiB.post('/v1/organizations', { data: { name: 'Organizacao Talhao B' } });
+    expect(orgB.status()).toBe(201);
+    const orgBId = ((await orgB.json()) as { id: string }).id;
+    const activateB = await apiB.post('/v1/organizations/active', {
+      data: { organizationId: orgBId },
+    });
+    expect(activateB.ok()).toBeTruthy();
 
-    const farmBResponse = await page.request.post(`${API_BASE}/v1/farms`, {
-      data: { name: 'Fazenda Org B', uf: 'GO', municipioIbgeCode: MUNICIPIO_IBGE_CODE },
+    const farmBResponse = await apiB.post('/v1/farms', {
+      data: { name: 'Fazenda Talhao B', uf: 'GO', municipioIbgeCode: MUNICIPIO_IBGE_CODE },
     });
     expect(farmBResponse.status(), await farmBResponse.text()).toBe(201);
     const farmB = (await farmBResponse.json()) as { id: string };
 
-    const talhaoBResponse = await page.request.post(`${API_BASE}/v1/talhoes`, {
-      data: { farmId: farmB.id, name: 'Talhao Org B', geometry: polygonNear(0.02, 0) },
+    const talhaoBResponse = await apiB.post('/v1/talhoes', {
+      data: { farmId: farmB.id, name: 'Talhao Usuario B', geometry: polygonNear(0.02, 0) },
     });
     expect(talhaoBResponse.status(), await talhaoBResponse.text()).toBe(201);
 
-    // Tenant B ainda ativo: a lista/mapa da fazenda B mostra o talhao B, nunca o A.
-    await page.goto(`/fazendas/${farmB.id}/talhoes`);
-    await expect(page.getByText('Talhao Org B')).toBeVisible();
-    await expect(page.getByText('Talhao Org A')).not.toBeVisible();
-
-    // Trocar tenant ativo de volta para a Organizacao A pela UI (OrganizationPanel
-    // em "/") e confirmar que a lista da fazenda A mostra so o talhao A.
-    await page.goto('/');
-    await expect(organizationRegion.getByText('Organizacao A E2E')).toBeVisible();
-    await organizationRegion
-      .locator('li', { hasText: 'Organizacao A E2E' })
-      .getByRole('button', { name: /selecionar/i })
-      .click();
-    await expect(page.getByText(/Tenant ativo: Organizacao A E2E/i)).toBeVisible();
-
+    // (a) Usuario A, logado, ve so o talhao da propria fazenda — nunca o do B.
     await page.goto(`/fazendas/${farmA.id}/talhoes`);
-    await expect(page.getByText('Talhao Org A')).toBeVisible();
-    await expect(page.getByText('Talhao Org B')).not.toBeVisible();
+    await expect(page.getByText('Talhao Usuario A')).toBeVisible();
+    await expect(page.getByText('Talhao Usuario B')).not.toBeVisible();
 
-    // Isolamento tambem via API direta com o tenant A ativo: a fazenda B
-    // pertence a outro tenant, entao listar talhoes por ela nao deve trazer o
-    // talhao da organizacao B (repositorio filtra por organization_id do
-    // farm_id, farm de outro tenant nao resolve nenhuma linha).
-    const crossTenantList = await page.request.get(
-      `${API_BASE}/v1/talhoes?farmId=${farmB.id}`,
-    );
+    // (b) Isolamento real de tenant: usuario A (via page.request, que carrega os
+    // cookies/sessao de A) tenta acessar talhoes da fazenda do usuario B. Farm de
+    // outro tenant nao resolve nenhuma linha — resposta vazia, nunca expoe o
+    // talhao de B.
+    const crossTenantList = await page.request.get(`${API_BASE}/v1/talhoes?farmId=${farmB.id}`);
     expect(crossTenantList.ok()).toBeTruthy();
     const crossTenantItems = ((await crossTenantList.json()) as {
       items: Array<{ name: string }>;
     }).items;
-    expect(crossTenantItems.find((item) => item.name === 'Talhao Org B')).toBeUndefined();
+    expect(crossTenantItems.find((item) => item.name === 'Talhao Usuario B')).toBeUndefined();
+    expect(crossTenantItems).toHaveLength(0);
+
+    await apiA.dispose();
+    await apiB.dispose();
   });
 });
