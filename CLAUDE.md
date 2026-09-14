@@ -69,6 +69,12 @@ Não existe gate de aprovação de spec (decisão do PI). O que trava uma entreg
 
 O Code só para quando `todo` está vazio ou quando cai num dos dois casos abaixo.
 
+## Encerramento de card (obrigatorio)
+
+Depois do merge do PR com CI verde e antes de aplicar proplan:done, o Code publica na issue do card um comentario de encerramento com tres secoes: Resumo da implementacao, Aprendizado e Imprevistos. Formato, regras e comandos: skill fechar-card.
+
+proplan:done so pode ser aplicada se esse comentario existir — issue em proplan:done sem comentario de encerramento e violacao de processo e o PI devolve o card. Secao sem conteudo real recebe "Nenhum": nao se inventa aprendizado nem imprevisto para preencher template.
+
 ## O que bloqueia o Code — dois casos, não há terceiro
 
 1. **Decisão de produto que não existe em nenhum documento** (spec, PRD, ADR) e que escolher seria criar regra → pergunta ao PI.
@@ -131,7 +137,7 @@ Tudo o mais — nome de campo, ordem de implementação interna, estrutura de pa
 `superpowers:using-git-worktrees` → `superpowers:writing-plans` / `executing-plans` (a Slice do PRD **é** o design; `brainstorming` só quando cair num caso de bloqueio ou em `[FIX]` sem causa clara) → `superpowers:test-driven-development` em feature crítica (isolamento de tenant, decisão de acesso, idempotência financeira) → `engineering:code-review` em toda tarefa → `gstack:qa` → `superpowers:finishing-a-development-branch`.
 Quando a tarefa tem UI: `document-skills:frontend-design` (não cair no shadcn-default genérico), `gstack:design-review`, `impeccable`. Documentação de biblioteca: `context7`. Mobile: `expo`. Smoke ao vivo: Playwright.
 
-`gstack:*` e `impeccable` estão instalados globalmente na máquina do PI (Windows) — o Code os usa normalmente lá. Em qualquer ambiente onde uma dessas skills não exista, isso não é desculpa para pular a disciplina que ela representa: aplicar o equivalente manual (revisão de design, acabamento visual) e registrar na PR.
+`fechar-card` e `gstack:*` estão instalados globalmente na máquina do PI (Windows) — o Code os usa normalmente lá. Em qualquer ambiente onde uma dessas skills não exista, isso não é desculpa para pular a disciplina que ela representa: aplicar o equivalente manual (revisão de design, acabamento visual) e registrar na PR.
 
 ## Grafo de conhecimento (graphify) — opcional
 
@@ -154,6 +160,7 @@ Só vale enquanto houver código a indexar; com o repo só em documentação, le
 - `docs/LANDSCAPE.md` — Documento cenário competitivo datado: o que o mercado já faz, o que morreu por causa disso, e os gatilhos que obrigam a revisar. Evita reconstruir o que já existe de graça.
 - `docs/FORA-DE-ESCOPO.md` — Fonte única dos itens adiados ou excluídos por MVP, com motivo, destino e gatilho de retorno; mantido pelo Cowork e sem substituir backlog ou status remoto.
 - `docs/PRIVACIDADE.md` — Documento autônomo de privacidade, **sem efeito sobre produto** (ADR-003). Não é requisito de produto, não referencia o PRD e não é citado por nenhuma SPEC.
+- `docs/APRENDIZADOS.md` — Documento para guardar o aprendido na implementação do coard.
 - `docs/AUTID.md`— Documento de rotina de autoria, revisão, CI e evidência das PRs deste repositório; distingue orientação operacional de evolução da pipeline.
 - `docs/TESTING.md` — Documento de estratégia de teste, classificação, evidência e relatório por SPEC/issue.
 - `docs/REVIEW.md` — instruções exclusivas para revisão, inseridas nos agentes do pipeline de revisão com a mais alta prioridade. Use-as para alterar o que é sinalizado, com qual gravidade e como as descobertas são relatadas.
