@@ -69,7 +69,7 @@ Não existe label `proplan:next`/`proplan:proximo`: ao terminar um card, o Code 
 
 Depois do merge confirmado na origem e **antes** de aplicar `proplan:done`, o Code publica na issue do card um comentário de encerramento com três seções: **Resumo da implementação**, **Aprendizado** e **Imprevistos**. Formato, regras de conteúdo e comandos: skill `fechar-card`.
 
-`proplan:done` só pode ser aplicada se esse comentário existir — issue em `proplan:done` sem comentário de encerramento é violação de processo e o PI devolve o card. Seção sem conteúdo real recebe "Nenhum": ninguém inventa aprendizado nem imprevisto para preencher template. Aprendizado só entra com fonte verificável (doc oficial, commit, log, comando). O comentário na issue é a fonte de verdade da entrega; o resumo no chat só aponta para ele.
+`proplan:done` só pode ser aplicada se esse comentário existir — issue em `proplan:done` sem comentário de encerramento é violação de processo e o PI devolve o card. Seção sem conteúdo real recebe "Nenhum": ninguém inventa aprendizado nem imprevisto para preencher template. Aprendizado só entra com fonte verificável (doc oficial, commit, log, comando). O comentário na issue é a fonte de verdade da entrega; o resumo no chat só aponta para ele. A seção **Aprendizado** é consolidada pelo Cowork em `docs/APRENDIZADOS.md` no fecho de cada MVP — protocolo no cabeçalho daquele arquivo.
 
 Não existe gate de aprovação de spec (decisão do PI). O que trava uma entrega é **CI verde** e **aceite do PI** — nada mais.
 
@@ -90,13 +90,13 @@ Tudo o mais — nome de campo, ordem de implementação interna, estrutura de pa
 
 - O Cowork pusha documento direto na `main`. É o único caminho do processo sem PR, CI ou aceite, e vale **só para os documentos que ele mantém**.
 - **Todo código entra por PR com CI verde, sem exceção.** Nunca commit de código direto na `main`.
-- Divisão **por arquivo**: governança (`CLAUDE.md`, `docs/prd/mvp/spec/`, `docs/prd/`, `docs/adr/`, índice do `STATUS.md`) é do Cowork; código, testes, build, CI e documentação de entrega (`docs/DEVELOPMENT.md`, progresso no `STATUS.md`, `docs/TESTING.md`, `docs/CI-PR.md`) são do Code. Cowork precisando tocar algo fora da sua lista → para e pergunta ao PI.
+- Divisão **por arquivo**: governança (`CLAUDE.md`, `docs/prd/mvp/spec/`, `docs/prd/`, `docs/adr/`, `docs/APRENDIZADOS.md`, índice do `STATUS.md`) é do Cowork; código, testes, build, CI e documentação de entrega (`docs/DEVELOPMENT.md`, progresso no `STATUS.md`, `docs/TESTING.md`, `docs/CI-PR.md`) são do Code. Cowork precisando tocar algo fora da sua lista → para e pergunta ao PI.
 - Como o Cowork não abre PR, ele nunca vê conflito. Quem colide é o Code, com branch aberta enquanto a `main` andou. Regra: o Code **rebase e reaplica** o próprio trabalho por cima. O Code **nunca desfaz** linha escrita pelo Cowork; se o `STATUS.md` divergiu, a versão da `main` vence e o Code reaplica só o próprio progresso.
 - PR referencia a issue com **`refs #N`**. **Nunca `closes #N`** — forjaria o aceite do PI.
 
 ## Rotina do Code por card
 
-1. Confirmar branch, diff local, issue, SPEC aplicável e base remota. Worktree/branch por card. Preservar mudanças de outros trabalhos; não usar `git add -A` em checkout misto.
+1. Confirmar branch, diff local, issue, SPEC aplicável e base remota. Ler `docs/APRENDIZADOS.md` antes de começar — é curto e é onde moram as armadilhas já pagas. Worktree/branch por card. Preservar mudanças de outros trabalhos; não usar `git add -A` em checkout misto.
 2. Uma finalidade por PR. Código, testes e docs necessários à mesma entrega ficam juntos; escopo oportunista fica fora. Mudança independente vai em PR separada; não partir mudança atômica só para reduzir linhas.
 3. Commits coerentes e push frequente para preservar o trabalho. Não acumular grande alteração sem checkpoint remoto.
 4. Rodar lint, typecheck, testes e as provas condicionais de `docs/TESTING.md`. Ausência de credencial, serviço externo ou ambiente real é `not_run`, **nunca** `pass`. Falha de worker ou falta de infra nunca vira PASS.
@@ -157,6 +157,7 @@ Só vale enquanto houver código a indexar; com o repo só em documentação, le
 - `docs/CI-PR.md`— Documento política de PR rápida: jobs paralelos, gate único, medição de duração e limites. Melhores praticas do GitHub
 - `docs/STATUS.md` — Kanban/roadmap deste projeto + **Índice Fatia ↔ SPEC** (fonte única da numeração). Prosa curta, sem detalhe.
 - `docs/STATUS-ARQUIVO.md` — Documento histórico detalhado que complementa o STATUS.md: prosa longa mora aqui, com detalhe.
+- `docs/APRENDIZADOS.md` — Consolidação da seção **Aprendizado** dos comentários de encerramento, mantida pelo Cowork. Curto, com teto e regra de promoção: leitura obrigatória do Code no passo 1 de todo card.
 - `docs/LANDSCAPE.md` — Documento cenário competitivo datado: o que o mercado já faz, o que morreu por causa disso, e os gatilhos que obrigam a revisar. Evita reconstruir o que já existe de graça.
 - `docs/FORA-DE-ESCOPO.md` — Fonte única dos itens adiados ou excluídos por MVP, com motivo, destino e gatilho de retorno; mantido pelo Cowork e sem substituir backlog ou status remoto.
 - `docs/PRIVACIDADE.md` — Documento autônomo de privacidade, **sem efeito sobre produto** (ADR-003). Não é requisito de produto, não referencia o PRD e não é citado por nenhuma SPEC.
