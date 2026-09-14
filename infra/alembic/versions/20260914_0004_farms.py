@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import sqlalchemy as sa
 from alembic import op
 
 revision = "20260914_0004"
@@ -27,16 +28,18 @@ def upgrade() -> None:
         )
         """
     )
-    op.execute(
-        """
-        INSERT INTO municipios (ibge_code, name, uf) VALUES
-            {values}
-        ON CONFLICT (ibge_code) DO NOTHING
-        """.format(
-            values=", ".join(
-                f"('{code}', '{name}', '{uf}')" for code, name, uf in _MUNICIPIOS_SEED
-            )
-        )
+    municipios_table = sa.table(
+        "municipios",
+        sa.column("ibge_code", sa.CHAR(7)),
+        sa.column("name", sa.Text()),
+        sa.column("uf", sa.CHAR(2)),
+    )
+    op.bulk_insert(
+        municipios_table,
+        [
+            {"ibge_code": code, "name": name, "uf": uf}
+            for code, name, uf in _MUNICIPIOS_SEED
+        ],
     )
     op.execute(
         """
