@@ -12,6 +12,8 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "openapi-fetch": "^0.17.0",
+    "openapi-react-query": "^0.5.4",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
