@@ -35,6 +35,10 @@ function DrawControls({ onDraw }: { onDraw?: (geometry: TalhaoGeometry) => void 
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const pmMap = map as unknown as { pm: any };
+    if (!pmMap.pm) {
+      // ponytail: geoman nao inicializa `map.pm` em jsdom (sem canvas real); no-op seguro em teste, sem efeito no browser real.
+      return;
+    }
     pmMap.pm.addControls({
       position: "topleft",
       drawMarker: false,
