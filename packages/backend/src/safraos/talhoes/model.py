@@ -29,4 +29,4 @@ def validate_geometry_type(geometry: object) -> str:
             "talhoes.invalid_geometry_type",
             "Geometria deve ser do tipo Polygon ou MultiPolygon.",
         )
-    return geometry_type
+    return str(geometry_type)
