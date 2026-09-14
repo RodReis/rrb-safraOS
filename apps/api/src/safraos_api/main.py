@@ -8,6 +8,7 @@ puros da rota de health sem dependência real de banco/Redis; produção e
 from __future__ import annotations
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.ext.asyncio import create_async_engine
 
 from safraos_api.correlation import CorrelationIdMiddleware
@@ -28,6 +29,12 @@ def create_app(*, readiness_checker: ReadinessChecker | None = None) -> FastAPI:
     checker = readiness_checker or _default_readiness_checker(settings)
 
     app = FastAPI(title="SafraOS API")
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[settings.web_origin],
+        allow_methods=["GET"],
+        allow_headers=["*"],
+    )
     app.add_middleware(CorrelationIdMiddleware)
     app.include_router(health_router)
     app.include_router(build_ready_route(checker))

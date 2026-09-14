@@ -8,3 +8,4 @@ class Settings(BaseSettings):
 
     database_url: str = "postgresql+psycopg://safraos:safraos_local_dev@localhost:5473/safraos"
     redis_url: str = "redis://localhost:6383/0"
+    web_origin: str = "http://localhost:8183"

@@ -1,0 +1,200 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHON_VERSION: '3.14'
+  NODE_VERSION: '24'
+  UV_VERSION: '0.11.25'
+
+jobs:
+  quality:
+    name: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: ${{ env.UV_VERSION }}
+      - run: npm ci
+      - run: uv sync --locked
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
+
+  test-regras:
+    name: test-regras
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: ${{ env.UV_VERSION }}
+      - run: npm ci
+      - run: uv sync --locked
+      - name: node contracts
+        run: node --test "tests/**/*.test.mjs"
+      - name: pytest (regras, sem infra)
+        run: uv run pytest tests/rules -q --junitxml=test-results/regras-junit.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-regras-results
+          path: test-results/regras-junit.xml
+
+  test-banco:
+    name: test-banco
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_USER: safraos
+          POSTGRES_PASSWORD: safraos_local_dev
+          POSTGRES_DB: safraos
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U safraos -d safraos"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+      redis:
+        image: redis:7-alpine
+        ports: ['6379:6379']
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      DATABASE_URL: postgresql+psycopg://safraos:safraos_local_dev@localhost:5432/safraos
+      REDIS_URL: redis://localhost:6379/0
+      CELERY_BROKER_URL: redis://localhost:6379/0
+      CELERY_RESULT_BACKEND: redis://localhost:6379/1
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: ${{ env.UV_VERSION }}
+      - run: npm ci
+      - run: uv sync --locked
+      - name: worker celery em background
+        run: |
+          PYTHONPATH="apps/worker/src" uv run celery -A safraos_worker.app worker --loglevel=info --pool=solo &
+          echo $! > worker.pid
+      - name: pytest (banco e fila reais)
+        run: uv run pytest tests/database -q -m database --junitxml=test-results/banco-junit.xml
+      - name: encerrar worker
+        if: always()
+        run: kill "$(cat worker.pid)" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-banco-results
+          path: test-results/banco-junit.xml
+
+  test-tela:
+    name: test-tela
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - run: npm ci
+      - name: vitest
+        run: npm run test --workspace apps/web -- --reporter=junit --outputFile=../../test-results/tela-junit.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-tela-results
+          path: test-results/tela-junit.xml
+
+  e2e:
+    name: e2e
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CI: true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: ${{ env.UV_VERSION }}
+      - run: npm ci
+      - run: uv sync --locked
+      - run: npx playwright install --with-deps chromium
+      - run: cp .env.example .env
+      - name: e2e (sobe compose, api, web via webServer)
+        run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: e2e-results
+          path: test-results/e2e.json
+      - name: encerrar compose
+        if: always()
+        run: npm run stop
+
+  aggregate:
+    name: aggregate
+    needs: [test-regras, test-banco, test-tela, e2e]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v5
+        with:
+          path: artifacts
+      - name: consolidar resultados (sem reexecutar suíte)
+        run: node scripts/ci/aggregate-results.mjs artifacts
+
+  gate:
+    name: gate
+    needs: [quality, test-regras, test-banco, test-tela, e2e, aggregate]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: valida que nada obrigatório falhou ou ficou pendente
+        run: |
+          declare -A results=(
+            [quality]="${{ needs.quality.result }}"
+            [test-regras]="${{ needs.test-regras.result }}"
+            [test-banco]="${{ needs.test-banco.result }}"
+            [test-tela]="${{ needs.test-tela.result }}"
+            [e2e]="${{ needs.e2e.result }}"
+            [aggregate]="${{ needs.aggregate.result }}"
+          )
+          failed=0
+          for job in "${!results[@]}"; do
+            echo "$job: ${results[$job]}"
+            if [ "${results[$job]}" != "success" ]; then
+              failed=1
+            fi
+          done
+          exit $failed

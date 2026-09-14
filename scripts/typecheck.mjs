@@ -4,6 +4,12 @@ await delegate({
   step: 'typecheck',
   targets: [
     {
+      name: 'raiz (playwright.config.ts, tests/e2e)',
+      requires: ['tsconfig.json'],
+      command: 'npx',
+      args: ['tsc', '--noEmit'],
+    },
+    {
       name: 'apps/web',
       requires: ['apps/web/tsconfig.json'],
       command: 'npm',

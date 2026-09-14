@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 import asyncio
+import logging
 
 import redis.asyncio as redis_asyncio
 from sqlalchemy.ext.asyncio import AsyncEngine
+
+logger = logging.getLogger(__name__)
 
 # Sem timeout, um host inalcançável (porta filtrada/firewall) prende a conexão
 # TCP por dezenas de segundos — inaceitável numa rota de readiness, que existe
@@ -24,7 +27,10 @@ class SqlAlchemyRedisReadinessChecker:
                 async with self._engine.connect() as connection:
                     await connection.exec_driver_sql("SELECT 1")
             return True
-        except Exception:  # noqa: BLE001 — readiness nunca deve propagar, só reportar
+        except Exception:
+            # Readiness nunca propaga a exceção (só reporta fail), mas
+            # silenciar sem logar escondia a causa real — ver SPEC-001 Task 3.
+            logger.warning("readiness: falha ao checar database", exc_info=True)
             return False
 
     async def check_redis(self) -> bool:
@@ -32,7 +38,8 @@ class SqlAlchemyRedisReadinessChecker:
         try:
             async with asyncio.timeout(_CHECK_TIMEOUT_SECONDS):
                 return bool(await client.ping())
-        except Exception:  # noqa: BLE001
+        except Exception:
+            logger.warning("readiness: falha ao checar redis", exc_info=True)
             return False
         finally:
             await client.aclose()

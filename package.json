@@ -19,6 +19,9 @@
     "test:e2e": "node scripts/test-e2e.mjs"
   },
   "devDependencies": {
-    "shadcn": "^4.21.0"
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.5.1",
+    "shadcn": "^4.21.0",
+    "typescript": "^7.0.2"
   }
 }
