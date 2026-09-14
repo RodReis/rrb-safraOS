@@ -10,7 +10,7 @@ await delegate({
       args: ['tsc', '--noEmit'],
     },
     {
-      name: 'apps/web: openapi anti-drift (exige API rodando em npm run dev)',
+      name: 'apps/web: openapi anti-drift (extração estática, sem servidor)',
       requires: ['scripts/generate-openapi.mjs', 'apps/web/src/lib/api-types.ts'],
       command: 'node',
       args: ['scripts/generate-openapi.mjs', '--check'],

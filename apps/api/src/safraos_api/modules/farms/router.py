@@ -99,7 +99,7 @@ async def create_farm_endpoint(
     request: Request,
     user: CurrentUserDep,
     repo: RepositoryDep,
-):
+) -> FarmResponse:
     if user is None:
         raise ProblemDetailError(status=401, title="Sessao invalida.", code="farms.unauthorized")
     organization_id = _require_active_organization(request)
@@ -120,7 +120,7 @@ async def list_farms_endpoint(
     user: CurrentUserDep,
     repo: RepositoryDep,
     include_archived: bool = False,
-):
+) -> FarmListResponse:
     if user is None:
         raise ProblemDetailError(status=401, title="Sessao invalida.", code="farms.unauthorized")
     organization_id = _require_active_organization(request)
@@ -137,7 +137,7 @@ async def update_farm_endpoint(
     request: Request,
     user: CurrentUserDep,
     repo: RepositoryDep,
-):
+) -> FarmResponse:
     if user is None:
         raise ProblemDetailError(status=401, title="Sessao invalida.", code="farms.unauthorized")
     organization_id = _require_active_organization(request)
@@ -159,7 +159,7 @@ async def archive_farm_endpoint(
     request: Request,
     user: CurrentUserDep,
     repo: RepositoryDep,
-):
+) -> FarmResponse:
     if user is None:
         raise ProblemDetailError(status=401, title="Sessao invalida.", code="farms.unauthorized")
     organization_id = _require_active_organization(request)
@@ -173,7 +173,9 @@ async def archive_farm_endpoint(
 
 
 @municipios_router.get("", response_model=MunicipioListResponse)
-async def list_municipios_endpoint(user: CurrentUserDep, repo: RepositoryDep):
+async def list_municipios_endpoint(
+    user: CurrentUserDep, repo: RepositoryDep
+) -> MunicipioListResponse:
     if user is None:
         raise ProblemDetailError(status=401, title="Sessao invalida.", code="farms.unauthorized")
     rows = await repo.list_municipios()
