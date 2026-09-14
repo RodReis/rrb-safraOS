@@ -13,5 +13,5 @@ celery_app = Celery(
     "safraos",
     broker=broker_url,
     backend=result_backend,
-    include=["safraos_worker.tasks.smoke"],
+    include=["safraos_worker.tasks.smoke", "safraos_worker.tasks.email"],
 )

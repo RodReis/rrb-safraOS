@@ -97,9 +97,11 @@ jobs:
           version: ${{ env.UV_VERSION }}
       - run: npm ci
       - run: uv sync --locked
+      - name: aplicar migrations
+        run: uv run alembic upgrade head
       - name: worker celery em background
         run: |
-          PYTHONPATH="apps/worker/src" uv run celery -A safraos_worker.app worker --loglevel=info --pool=solo &
+          PYTHONPATH="apps/api/src:apps/worker/src:packages/backend/src" uv run celery -A safraos_worker.app.celery_app worker --loglevel=info --pool=solo &
           echo $! > worker.pid
       - name: pytest (banco e fila reais)
         run: uv run pytest tests/database -q -m database --junitxml=test-results/banco-junit.xml

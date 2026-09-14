@@ -27,17 +27,16 @@ export default defineConfig({
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
   webServer: [
     {
-      // `npm run dev` só retorna depois que Postgres/Redis/Mailpit reportam
-      // healthy (--wait do Compose); não expõe HTTP, então não há `url` de
-      // prontidão — o próprio comando bloqueando é a garantia de prontidão.
-      command: 'npm run dev',
-      reuseExistingServer: true,
-      timeout: 180_000,
-    },
-    {
-      command: 'uv run python -m safraos_api',
+      command: 'npm run dev && uv run python -m safraos_api',
       url: `http://localhost:${API_PORT}/health/live`,
       reuseExistingServer: !process.env.CI,
+      timeout: 180_000,
+      env: { PYTHONPATH: PYTHON_PATH },
+    },
+    {
+      command:
+        'uv run celery -A safraos_worker.app.celery_app worker -P solo --loglevel=INFO',
+      reuseExistingServer: true,
       timeout: 60_000,
       env: { PYTHONPATH: PYTHON_PATH },
     },

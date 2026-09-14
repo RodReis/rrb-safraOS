@@ -28,3 +28,9 @@ O PI decide prioridade; mudança deve aparecer no board e no `STATUS.md`.
 ## Rotina e Definition of Done
 
 Selecionar primeiro `todo` remoto; criar worktree; implementar/testar; revisar; abrir PR; validar SHA atual; squash com gate verde; confirmar merge; marcar `done`. DoD: aceite da SPEC provado, categorias aplicáveis concluídas, isolamento de tenant quando houver dados, migração segura, telemetria sem segredo, docs/evidências atualizadas e `refs #N`.
+
+## Entrega em andamento — SPEC-002/F2
+
+- Implementados domínio de identidade, Argon2id, tokens externos com hash, migration de users/sessions/tokens/outbox, API `/v1/auth/*`, tarefa Celery de e-mail e tela web de autenticação.
+- Validação local executada: `npm test`, `npm run lint`, `npm run typecheck`, `npm run build`, `uv run pytest -m database -q` e `npm run test:e2e`.
+- Validação real de banco, Celery, Redis e Mailpit passou após iniciar Docker Desktop e aplicar `uv run alembic upgrade head`.

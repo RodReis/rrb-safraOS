@@ -16,6 +16,7 @@ from safraos_api.modules.health.checker import SqlAlchemyRedisReadinessChecker
 from safraos_api.modules.health.ports import ReadinessChecker
 from safraos_api.modules.health.router import build_ready_route
 from safraos_api.modules.health.router import router as health_router
+from safraos_api.modules.identity.router import router as identity_router
 from safraos_api.settings import Settings
 
 
@@ -32,12 +33,13 @@ def create_app(*, readiness_checker: ReadinessChecker | None = None) -> FastAPI:
     app.add_middleware(
         CORSMiddleware,
         allow_origins=[settings.web_origin],
-        allow_methods=["GET"],
+        allow_methods=["GET", "POST"],
         allow_headers=["*"],
     )
     app.add_middleware(CorrelationIdMiddleware)
     app.include_router(health_router)
     app.include_router(build_ready_route(checker))
+    app.include_router(identity_router)
 
     return app
 
