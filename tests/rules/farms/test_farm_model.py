@@ -1,6 +1,8 @@
 import pytest
+from datetime import datetime
+from dataclasses import FrozenInstanceError
 
-from safraos.farms.model import BRAZILIAN_UF_CODES, FarmError, create_farm
+from safraos.farms.model import BRAZILIAN_UF_CODES, Farm, FarmError, create_farm
 
 pytestmark = pytest.mark.rules
 
@@ -46,3 +48,36 @@ def test_brazilian_uf_codes_has_27_entries():
     assert "GO" in BRAZILIAN_UF_CODES
     assert "MT" in BRAZILIAN_UF_CODES
     assert "MS" in BRAZILIAN_UF_CODES
+
+
+def test_farm_dataclass_is_constructed_with_all_fields():
+    now = datetime.now()
+    farm = Farm(
+        id="farm-001",
+        organization_id="org-001",
+        name="Fazenda Boa Vista",
+        uf="GO",
+        municipio_ibge_code="5208707",
+        archived_at=None,
+    )
+
+    assert farm.id == "farm-001"
+    assert farm.organization_id == "org-001"
+    assert farm.name == "Fazenda Boa Vista"
+    assert farm.uf == "GO"
+    assert farm.municipio_ibge_code == "5208707"
+    assert farm.archived_at is None
+
+
+def test_farm_dataclass_is_frozen():
+    farm = Farm(
+        id="farm-001",
+        organization_id="org-001",
+        name="Fazenda Boa Vista",
+        uf="GO",
+        municipio_ibge_code="5208707",
+        archived_at=None,
+    )
+
+    with pytest.raises(FrozenInstanceError):
+        farm.name = "Fazenda Nova"
