@@ -1,0 +1,56 @@
+# Serviços locais exclusivos do SafraOS.
+# Nomes, rede e volumes levam o prefixo do projeto: `npm run stop` derruba
+# apenas estes recursos e nunca containers de outros projetos da máquina.
+name: safraos
+
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: safraos-postgres
+    environment:
+      POSTGRES_USER: ${SAFRAOS_DB_USER:-safraos}
+      POSTGRES_PASSWORD: ${SAFRAOS_DB_PASSWORD:-safraos_local_dev}
+      POSTGRES_DB: ${SAFRAOS_DB_NAME:-safraos}
+    ports:
+      - '${SAFRAOS_DB_PORT:-5473}:5432'
+    volumes:
+      - safraos-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${SAFRAOS_DB_USER:-safraos} -d ${SAFRAOS_DB_NAME:-safraos}']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  redis:
+    image: redis:7-alpine
+    container_name: safraos-redis
+    ports:
+      - '${SAFRAOS_REDIS_PORT:-6383}:6379'
+    volumes:
+      - safraos-redis-data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 5s
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: safraos-mailpit
+    ports:
+      - '${SAFRAOS_MAILPIT_UI_PORT:-8126}:8025'
+      - '${SAFRAOS_MAILPIT_SMTP_PORT:-1126}:1025'
+    healthcheck:
+      test: ['CMD', '/mailpit', 'readyz']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 5s
+
+volumes:
+  safraos-postgres-data:
+    name: safraos-postgres-data
+  safraos-redis-data:
+    name: safraos-redis-data

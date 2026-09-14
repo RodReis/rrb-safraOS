@@ -1,13 +1,13 @@
 # Status do SafraOS
 
 **Atualizado:** 2026-09-13
-**Estado:** MVP0 especificado, planejado e com issues abertas; implementação não iniciada.
+**Estado:** MVP0 especificado, planejado e com issues abertas; F1 em implementação (PR aberta).
 **Repositório:** `RodReis/rrb-safraOS` (GitHub, privado, branch padrão `main`).
 
 ## Agora
 
-- Cinco issues de MVP0 (F1 a F5) abertas em `proplan:todo`, na ordem de implementação.
-- Code inicia sempre pelo primeiro `todo` da ordem (issue #1, SPEC-001/F1).
+- F1 (SPEC-001) em `doing`: fundação executável, API/worker/web mínimos e CI implementados; PR aberta, aguardando CI verde e aceite do PI.
+- Demais quatro issues de MVP0 (F2 a F5) seguem em `proplan:todo`, na ordem de implementação.
 - Não iniciar mobile: ele está adiado para o final do projeto (`docs/FORA-DE-ESCOPO.md`).
 
 ## Kanban
@@ -16,8 +16,9 @@
 |---|---|
 | Planejado | ADR-004, ADR-006, ADR-007 e ADR-008 (abertas) |
 | Backlog | vazio |
-| Todo | SPEC-001/F1 a SPEC-005/F5 do MVP0 (issues #1–#5) |
-| Doing / Done / Finalizado | vazio |
+| Todo | SPEC-002/F2 a SPEC-005/F5 do MVP0 (issues #2–#5) |
+| Doing | SPEC-001/F1 (issue #1) |
+| Done / Finalizado | vazio |
 
 O GitHub remoto prevalece para execução; esta tabela não substitui consulta ao board.
 
@@ -25,7 +26,7 @@ O GitHub remoto prevalece para execução; esta tabela não substitui consulta a
 
 | Sequência | MVP | Slice | SPEC | Fatia | Issue | Estado |
 |---:|---|---|---|---|---|---|
-| 001 | MVP0 | Fundação executável e CI | SPEC-001 | F1 | [#1](https://github.com/RodReis/rrb-safraOS/issues/1) | todo |
+| 001 | MVP0 | Fundação executável e CI | SPEC-001 | F1 | [#1](https://github.com/RodReis/rrb-safraOS/issues/1) | doing |
 | 002 | MVP0 | Identidade, sessão e e-mail | SPEC-002 | F2 | [#2](https://github.com/RodReis/rrb-safraOS/issues/2) | todo |
 | 003 | MVP0 | Organização, tenancy e auditoria | SPEC-003 | F3 | [#3](https://github.com/RodReis/rrb-safraOS/issues/3) | todo |
 | 004 | MVP0 | Fazendas | SPEC-004 | F4 | [#4](https://github.com/RodReis/rrb-safraOS/issues/4) | todo |
@@ -45,6 +46,6 @@ Próximo número disponível: `006`. Número reservado nunca é reutilizado. Det
 
 ## Riscos imediatos
 
-Portas locais serão definidas uma única vez na execução da F1 conforme `CLAUDE.md`, e registradas em `.env.example`.
+Portas locais definidas na F1 (pergunta única ao PI, conforme `CLAUDE.md`) e registradas em `.env.example`: Postgres 5473, Redis 6383, API 5183, Web 8183, Mailpit UI 8126, SMTP 1126.
 
 Detalhes de itens adiados ou excluídos ficam em `docs/FORA-DE-ESCOPO.md`.
