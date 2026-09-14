@@ -7,6 +7,7 @@ from datetime import datetime
 
 from sqlalchemy import text
 from sqlalchemy.engine import RowMapping
+from sqlalchemy.exc import DBAPIError
 from sqlalchemy.ext.asyncio import AsyncConnection, AsyncEngine, create_async_engine
 
 from safraos.farms.model import FarmError, create_farm
@@ -121,35 +122,57 @@ class FarmRepository:
         except FarmError as error:
             raise ProblemDetailError(status=422, title=str(error), code=error.code) from error
 
-        async with self._engine.begin() as conn:
-            await self._set_tenant_context(conn, user_id)
-            farm_id = await conn.scalar(
-                text(
-                    """
-                    INSERT INTO farms (organization_id, name, uf, municipio_ibge_code)
-                    VALUES (:organization_id, :name, :uf, :ibge)
-                    RETURNING id
-                    """
-                ),
-                {
-                    "organization_id": organization_id,
-                    "name": normalized_name,
-                    "uf": normalized_uf,
-                    "ibge": normalized_ibge,
-                },
-            )
-            await self._audit_in_transaction(
-                conn,
-                actor_user_id=user_id,
-                organization_id=organization_id,
-                action="farms.create",
-                object_type="farm",
-                object_id=str(farm_id),
-                outcome="allowed",
-                correlation_id=correlation_id,
-            )
-            row = await self._fetch_by_id(conn, farm_id)
-            return _row_to_farm(row)
+        try:
+            async with self._engine.begin() as conn:
+                await self._set_tenant_context(conn, user_id)
+                farm_id = await conn.scalar(
+                    text(
+                        """
+                        INSERT INTO farms (organization_id, name, uf, municipio_ibge_code)
+                        VALUES (:organization_id, :name, :uf, :ibge)
+                        RETURNING id
+                        """
+                    ),
+                    {
+                        "organization_id": organization_id,
+                        "name": normalized_name,
+                        "uf": normalized_uf,
+                        "ibge": normalized_ibge,
+                    },
+                )
+                await self._audit_in_transaction(
+                    conn,
+                    actor_user_id=user_id,
+                    organization_id=organization_id,
+                    action="farms.create",
+                    object_type="farm",
+                    object_id=str(farm_id),
+                    outcome="allowed",
+                    correlation_id=correlation_id,
+                )
+                row = await self._fetch_by_id(conn, farm_id)
+                return _row_to_farm(row)
+        except DBAPIError as error:
+            # RLS (WITH CHECK) rejeitou o INSERT: usuario nao e membro da
+            # organizacao alvo. Transacao acima ja foi revertida pelo
+            # `engine.begin()`; audita em transacao nova, limpa.
+            async with self._engine.begin() as audit_conn:
+                await self._set_tenant_context(audit_conn, user_id)
+                await self._audit_in_transaction(
+                    audit_conn,
+                    actor_user_id=user_id,
+                    organization_id=organization_id,
+                    action="farms.create",
+                    object_type="farm",
+                    object_id=None,
+                    outcome="denied",
+                    correlation_id=correlation_id,
+                )
+            raise ProblemDetailError(
+                status=403,
+                title="Organizacao nao autorizada.",
+                code="farms.forbidden_organization",
+            ) from error
 
     async def list(
         self, *, user_id: str, organization_id: str, include_archived: bool

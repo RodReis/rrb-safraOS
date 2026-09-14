@@ -154,6 +154,54 @@ async def test_create_rejects_invalid_uf_before_hitting_database() -> None:
         await repo._engine.dispose()
 
 
+async def test_create_in_foreign_organization_raises_forbidden() -> None:
+    settings = Settings()
+    owner_engine = create_async_engine(settings.database_url, pool_pre_ping=True)
+    repo = FarmRepository(create_async_engine(settings.app_database_url, pool_pre_ping=True))
+    try:
+        _, org_a = await _seed_user_and_org(owner_engine)
+        user_b_id = str(uuid.uuid4())
+        async with owner_engine.begin() as conn:
+            await conn.execute(
+                text(
+                    "INSERT INTO identity_users "
+                    "(id, email, normalized_email, password_hash, password_hash_version, status) "
+                    "VALUES (:id, :email, :email, 'hash', 'argon2id-v1', 'active')"
+                ),
+                {"id": user_b_id, "email": f"{user_b_id}@example.com"},
+            )
+            # user_b nao e membro de org_a.
+
+        with pytest.raises(ProblemDetailError) as error:
+            await repo.create(
+                user_id=user_b_id,
+                organization_id=org_a,
+                name="Fazenda Invasora",
+                uf="GO",
+                municipio_ibge_code="5208707",
+                correlation_id="corr-1",
+            )
+        assert error.value.status == 403
+        assert error.value.code == "farms.forbidden_organization"
+
+        async with owner_engine.begin() as conn:
+            audit_actions = (
+                await conn.execute(
+                    text(
+                        "SELECT action, outcome FROM audit_events "
+                        "WHERE actor_user_id = :uid ORDER BY created_at"
+                    ),
+                    {"uid": user_b_id},
+                )
+            ).all()
+        assert [(row.action, row.outcome) for row in audit_actions] == [
+            ("farms.create", "denied"),
+        ]
+    finally:
+        await owner_engine.dispose()
+        await repo._engine.dispose()
+
+
 async def test_update_of_foreign_organization_farm_raises_not_found() -> None:
     settings = Settings()
     owner_engine = create_async_engine(settings.database_url, pool_pre_ping=True)
