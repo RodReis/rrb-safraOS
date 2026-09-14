@@ -5,7 +5,7 @@ await delegate({
   targets: [
     {
       name: 'apps/web',
-      requires: ['apps/web/package.json', 'apps/web/eslint.config.js'],
+      requires: ['apps/web/package.json', 'apps/web/.oxlintrc.json'],
       command: 'npm',
       args: ['run', 'lint', '--workspace', 'apps/web'],
     },

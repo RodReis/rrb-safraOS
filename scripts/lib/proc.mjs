@@ -5,23 +5,32 @@ import { fileURLToPath } from 'node:url';
 export const repoRoot = fileURLToPath(new URL('../../', import.meta.url));
 
 /**
- * No Windows, os shims do Node são arquivos `.cmd` e o `spawn` sem shell não
- * os resolve sozinho; binários nativos (docker, uv, git) continuam `.exe` e
- * quebrariam com o sufixo. Só os shims conhecidos são reescritos, o que evita
- * depender de shell POSIX sem chutar a extensão de todo comando.
+ * No Windows, os shims do Node (npm, npx, ...) são scripts `.cmd`, e `.cmd`
+ * não é executável sozinho — precisa do `cmd.exe` para interpretar, mesmo
+ * com o sufixo (Node child_process docs, "Spawning .bat and .cmd files on
+ * Windows"). `shell: true` resolveria, mas depreca args em array (DEP0190,
+ * risco de injeção). A forma recomendada é chamar `cmd.exe /c` diretamente,
+ * mantendo os args do comando real em array, sem concatenar string alguma.
+ * Binários nativos (docker, uv, git) continuam indo direto, sem essa camada.
  */
 const WINDOWS_CMD_SHIMS = new Set(['npm', 'npx', 'pnpm', 'yarn']);
 
-export const resolveBin = (command) =>
-  process.platform === 'win32' && WINDOWS_CMD_SHIMS.has(command) ? `${command}.cmd` : command;
+export const toSpawnArgs = (command, args) => {
+  if (process.platform === 'win32' && WINDOWS_CMD_SHIMS.has(command)) {
+    return { file: 'cmd.exe', args: ['/d', '/s', '/c', command, ...args] };
+  }
+  return { file: command, args };
+};
 
 /** Executa um comando herdando stdio e resolve com o código de saída. */
 export const run = (command, args, options = {}) =>
   new Promise((resolve, reject) => {
-    const child = spawn(resolveBin(command), args, {
+    const { file, args: spawnArgs } = toSpawnArgs(command, args);
+    const child = spawn(file, spawnArgs, {
       cwd: options.cwd ?? repoRoot,
       stdio: options.stdio ?? 'inherit',
       env: { ...process.env, ...options.env },
+      windowsVerbatimArguments: process.platform === 'win32' && WINDOWS_CMD_SHIMS.has(command),
     });
 
     child.on('error', reject);
