@@ -46,6 +46,7 @@ class FakeTalhoesRepository:
         row = TalhaoRow(
             id=talhao_id, farm_id=farm_id, organization_id=organization_id, name=name,
             area_ha=Decimal("1.2345"), archived_at=None, created_at=datetime.now(UTC),
+            geometry=geometry,
         )
         self.talhoes[talhao_id] = row
         return row
@@ -69,6 +70,7 @@ class FakeTalhoesRepository:
             id=talhao_id, farm_id=existing.farm_id, organization_id=organization_id,
             name=existing.name, area_ha=existing.area_ha,
             archived_at=datetime.now(UTC), created_at=existing.created_at,
+            geometry=existing.geometry,
         )
         self.talhoes[talhao_id] = archived
         return archived
@@ -122,6 +124,7 @@ def test_create_and_list_talhao() -> None:
     )
     assert create_response.status_code == 201
     assert create_response.json()["areaHa"] == "1.2345"
+    assert create_response.json()["geometry"]["type"] == "Polygon"
 
     list_response = client.get("/v1/talhoes", params={"farmId": "farm-1"})
     assert list_response.status_code == 200

@@ -6,6 +6,7 @@ import json
 from dataclasses import dataclass
 from datetime import datetime
 from decimal import Decimal
+from typing import Any
 
 from sqlalchemy import text
 from sqlalchemy.engine import RowMapping
@@ -33,10 +34,12 @@ class TalhaoRow:
     area_ha: Decimal
     archived_at: datetime | None
     created_at: datetime
+    geometry: dict[str, Any]
 
 
 _SELECT_TALHAO = """
-    SELECT id, farm_id, organization_id, name, area_ha, archived_at, created_at
+    SELECT id, farm_id, organization_id, name, area_ha, archived_at, created_at,
+           ST_AsGeoJSON(geom)::json AS geometry
     FROM talhoes
 """
 
@@ -50,6 +53,7 @@ def _row_to_talhao(row: RowMapping) -> TalhaoRow:
         area_ha=row["area_ha"],
         archived_at=row["archived_at"],
         created_at=row["created_at"],
+        geometry=row["geometry"],
     )
 
 

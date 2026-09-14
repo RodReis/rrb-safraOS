@@ -421,6 +421,10 @@ export interface components {
             areaHa: string;
             /** Archivedat */
             archivedAt: string | null;
+            /** Geometry */
+            geometry: {
+                [key: string]: unknown;
+            };
         };
         /** TenantResponse */
         TenantResponse: {

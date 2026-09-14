@@ -49,6 +49,7 @@ class TalhaoResponse(BaseModel):
     name: str
     area_ha: str = Field(alias="areaHa")
     archived_at: str | None = Field(alias="archivedAt")
+    geometry: dict[str, Any]
 
     model_config = {"populate_by_name": True}
 
@@ -60,6 +61,7 @@ class TalhaoResponse(BaseModel):
             name=row.name,
             areaHa=str(row.area_ha),
             archivedAt=row.archived_at.isoformat() if row.archived_at else None,
+            geometry=row.geometry,
         )
 
 

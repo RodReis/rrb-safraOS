@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { toast } from "sonner";
 
 import { DataTable } from "@safraos/frontend/components/DataTable";
-import { MapAdapter } from "../../../components/map/MapAdapter";
+import { MapAdapter, type TalhaoGeometry } from "../../../components/map/MapAdapter";
 import { ConfirmDialog } from "../../../components/ui/ConfirmDialog";
 import { Skeleton } from "../../../components/ui/Skeleton";
 import { $api } from "../../../lib/apiClient";
@@ -106,12 +106,14 @@ export function TalhoesPage() {
         </div>
 
         <div className="talhoes-map">
-          {/*
-            ponytail: existingGeometries fixo em [] — GET /v1/talhoes ainda não expõe `geometry`
-            (só areaHa). Decisão registrada no brief da Task 9: resolvido na Task 10, que adiciona
-            ST_AsGeoJSON(geom)::json AS geometry no repository e propaga até TalhaoResponse/aqui.
-          */}
-          <MapAdapter existingGeometries={[]} tenantKey={farmId} />
+          <MapAdapter
+            existingGeometries={talhoes.map((t) => ({
+              id: t.id,
+              name: t.name,
+              geometry: t.geometry as unknown as TalhaoGeometry,
+            }))}
+            tenantKey={farmId}
+          />
         </div>
       </div>
 

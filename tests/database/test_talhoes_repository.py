@@ -92,6 +92,7 @@ async def test_create_calculates_area_and_normalizes_polygon_to_multipolygon() -
         assert row.name == "Talhao Norte"
         assert row.area_ha > 0
         assert row.farm_id == farm_id
+        assert row.geometry["type"] == "MultiPolygon"
     finally:
         await owner_engine.dispose()
         await repo._engine.dispose()  # noqa: SLF001
