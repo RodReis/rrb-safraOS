@@ -60,10 +60,16 @@ GitHub: `RodReis/rrb-safraOS` (privado, branch padrão `main`). O board de issue
 | `planejado` → `backlog` | Cowork | dúvidas resolvidas; **mesma issue** (troca o label, não cria outra), assignee PI, corpo com link para a Slice do PRD |
 | `backlog` → `todo` | Cowork | os próximos 5 cards da ordem de implementação |
 | `todo` → `doing` | Code | ao iniciar o card — sempre o primeiro `todo` da ordem |
-| `doing` → `done` | Code | após confirmar o merge na origem; link do PR no corpo da issue |
+| `doing` → `done` | Code | após confirmar o merge na origem **e publicar o comentário de encerramento** na issue; link do PR no corpo da issue |
 | `done` → `finalizado` + fechar a issue | **PI** | aceite. Só o PI. Nenhuma automação fecha issue |
 
 Não existe label `proplan:next`/`proplan:proximo`: ao terminar um card, o Code apenas **registra em comentário/PR** qual é o próximo `todo` da ordem antes de seguir para ele — não é uma transição de label.
+
+### Encerramento de card (obrigatório)
+
+Depois do merge confirmado na origem e **antes** de aplicar `proplan:done`, o Code publica na issue do card um comentário de encerramento com três seções: **Resumo da implementação**, **Aprendizado** e **Imprevistos**. Formato, regras de conteúdo e comandos: skill `fechar-card`.
+
+`proplan:done` só pode ser aplicada se esse comentário existir — issue em `proplan:done` sem comentário de encerramento é violação de processo e o PI devolve o card. Seção sem conteúdo real recebe "Nenhum": ninguém inventa aprendizado nem imprevisto para preencher template. Aprendizado só entra com fonte verificável (doc oficial, commit, log, comando). O comentário na issue é a fonte de verdade da entrega; o resumo no chat só aponta para ele. A seção **Aprendizado** é consolidada pelo Cowork em `docs/APRENDIZADOS.md` no fecho de cada MVP — protocolo no cabeçalho daquele arquivo.
 
 Não existe gate de aprovação de spec (decisão do PI). O que trava uma entrega é **CI verde** e **aceite do PI** — nada mais.
 
@@ -90,13 +96,13 @@ Tudo o mais — nome de campo, ordem de implementação interna, estrutura de pa
 
 - O Cowork pusha documento direto na `main`. É o único caminho do processo sem PR, CI ou aceite, e vale **só para os documentos que ele mantém**.
 - **Todo código entra por PR com CI verde, sem exceção.** Nunca commit de código direto na `main`.
-- Divisão **por arquivo**: governança (`CLAUDE.md`, `docs/prd/mvp/spec/`, `docs/prd/`, `docs/adr/`, índice do `STATUS.md`) é do Cowork; código, testes, build, CI e documentação de entrega (`docs/DEVELOPMENT.md`, progresso no `STATUS.md`, `docs/TESTING.md`, `docs/CI-PR.md`) são do Code. Cowork precisando tocar algo fora da sua lista → para e pergunta ao PI.
+- Divisão **por arquivo**: governança (`CLAUDE.md`, `docs/prd/mvp/spec/`, `docs/prd/`, `docs/adr/`, `docs/APRENDIZADOS.md`, índice do `STATUS.md`) é do Cowork; código, testes, build, CI e documentação de entrega (`docs/DEVELOPMENT.md`, progresso no `STATUS.md`, `docs/TESTING.md`, `docs/CI-PR.md`) são do Code. Cowork precisando tocar algo fora da sua lista → para e pergunta ao PI.
 - Como o Cowork não abre PR, ele nunca vê conflito. Quem colide é o Code, com branch aberta enquanto a `main` andou. Regra: o Code **rebase e reaplica** o próprio trabalho por cima. O Code **nunca desfaz** linha escrita pelo Cowork; se o `STATUS.md` divergiu, a versão da `main` vence e o Code reaplica só o próprio progresso.
 - PR referencia a issue com **`refs #N`**. **Nunca `closes #N`** — forjaria o aceite do PI.
 
 ## Rotina do Code por card
 
-1. Confirmar branch, diff local, issue, SPEC aplicável e base remota. Worktree/branch por card. Preservar mudanças de outros trabalhos; não usar `git add -A` em checkout misto.
+1. Confirmar branch, diff local, issue, SPEC aplicável e base remota. Ler `docs/APRENDIZADOS.md` antes de começar — é curto e é onde moram as armadilhas já pagas. Worktree/branch por card. Preservar mudanças de outros trabalhos; não usar `git add -A` em checkout misto.
 2. Uma finalidade por PR. Código, testes e docs necessários à mesma entrega ficam juntos; escopo oportunista fica fora. Mudança independente vai em PR separada; não partir mudança atômica só para reduzir linhas.
 3. Commits coerentes e push frequente para preservar o trabalho. Não acumular grande alteração sem checkpoint remoto.
 4. Rodar lint, typecheck, testes e as provas condicionais de `docs/TESTING.md`. Ausência de credencial, serviço externo ou ambiente real é `not_run`, **nunca** `pass`. Falha de worker ou falta de infra nunca vira PASS.
@@ -104,7 +110,7 @@ Tudo o mais — nome de campo, ordem de implementação interna, estrutura de pa
 6. Preencher a PR com problema, comportamento antes/depois, `refs #N`, SPEC quando houver, validação executada e limitações. Usar o template quando existir. A descrição explica o resultado final, não narra as tentativas.
 7. CI: `gh pr checks <n> --watch` (bloqueia até o fim e devolve código de saída). **Nunca afirmar estado de CI, PR ou job sem verificar no momento da fala**; silêncio de watcher, lista vazia, print antigo ou status lembrado não é verde. Novo head ou avanço da base exige reconciliar — PASS antigo não vale para código novo.
 8. Corrigir no mesmo branch/PR. Merge por squash com CI verde. Bloqueio externo ou de permissão: preservar a PR e informar a causa; não contornar nem confundir com defeito de código.
-9. Confirmar `mergedAt`/`mergeSha` na origem antes de declarar "integrado". Só então aplicar `proplan:done`. Documentação da entrega vai no PR — nunca commit na `main` para registrar merge.
+9. Confirmar `mergedAt`/`mergeSha` na origem antes de declarar "integrado". Publicar o comentário de encerramento na issue (skill `fechar-card`) e só então aplicar `proplan:done`. Documentação da entrega vai no PR — nunca commit na `main` para registrar merge.
 10. Indicar o próximo card e seguir.
 
 ## Não é decisão livre do agente
@@ -134,10 +140,10 @@ Tudo o mais — nome de campo, ordem de implementação interna, estrutura de pa
 
 ## Skills do Code — na ordem de um card
 
-`superpowers:using-git-worktrees` → `superpowers:writing-plans` / `executing-plans` (a Slice do PRD **é** o design; `brainstorming` só quando cair num caso de bloqueio ou em `[FIX]` sem causa clara) → `superpowers:test-driven-development` em feature crítica (isolamento de tenant, decisão de acesso, idempotência financeira) → `engineering:code-review` em toda tarefa → `gstack:qa` → `superpowers:finishing-a-development-branch`.
+`superpowers:using-git-worktrees` → `superpowers:writing-plans` / `executing-plans` (a Slice do PRD **é** o design; `brainstorming` só quando cair num caso de bloqueio ou em `[FIX]` sem causa clara) → `superpowers:test-driven-development` em feature crítica (isolamento de tenant, decisão de acesso, idempotência financeira) → `engineering:code-review` em toda tarefa → `gstack:qa` → `superpowers:finishing-a-development-branch` → `fechar-card` (encerramento na issue, antes de `proplan:done`).
 Quando a tarefa tem UI: `document-skills:frontend-design` (não cair no shadcn-default genérico), `gstack:design-review`, `impeccable`. Documentação de biblioteca: `context7`. Mobile: `expo`. Smoke ao vivo: Playwright.
 
-`fechar-card` e `gstack:*` estão instalados globalmente na máquina do PI (Windows) — o Code os usa normalmente lá. Em qualquer ambiente onde uma dessas skills não exista, isso não é desculpa para pular a disciplina que ela representa: aplicar o equivalente manual (revisão de design, acabamento visual) e registrar na PR.
+`gstack:*`, `impeccable` e `fechar-card` estão instalados globalmente na máquina do PI (Windows) — o Code os usa normalmente lá. Em qualquer ambiente onde uma dessas skills não exista, isso não é desculpa para pular a disciplina que ela representa: aplicar o equivalente manual (revisão de design, acabamento visual, **comentário de encerramento com as três seções**) e registrar na PR.
 
 ## Grafo de conhecimento (graphify) — opcional
 
@@ -157,6 +163,7 @@ Só vale enquanto houver código a indexar; com o repo só em documentação, le
 - `docs/CI-PR.md`— Documento política de PR rápida: jobs paralelos, gate único, medição de duração e limites. Melhores praticas do GitHub
 - `docs/STATUS.md` — Kanban/roadmap deste projeto + **Índice Fatia ↔ SPEC** (fonte única da numeração). Prosa curta, sem detalhe.
 - `docs/STATUS-ARQUIVO.md` — Documento histórico detalhado que complementa o STATUS.md: prosa longa mora aqui, com detalhe.
+- `docs/APRENDIZADOS.md` — Consolidação da seção **Aprendizado** dos comentários de encerramento, mantida pelo Cowork. Curto, com teto e regra de promoção: leitura obrigatória do Code no passo 1 de todo card.
 - `docs/LANDSCAPE.md` — Documento cenário competitivo datado: o que o mercado já faz, o que morreu por causa disso, e os gatilhos que obrigam a revisar. Evita reconstruir o que já existe de graça.
 - `docs/FORA-DE-ESCOPO.md` — Fonte única dos itens adiados ou excluídos por MVP, com motivo, destino e gatilho de retorno; mantido pelo Cowork e sem substituir backlog ou status remoto.
 - `docs/PRIVACIDADE.md` — Documento autônomo de privacidade, **sem efeito sobre produto** (ADR-003). Não é requisito de produto, não referencia o PRD e não é citado por nenhuma SPEC.
