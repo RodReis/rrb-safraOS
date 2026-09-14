@@ -1,8 +1,6 @@
 """Regras puras da entidade Farm: sem banco, rede ou relogio."""
 
 import re
-from dataclasses import dataclass
-from datetime import datetime
 
 BRAZILIAN_UF_CODES: frozenset[str] = frozenset(
     {
@@ -19,16 +17,6 @@ class FarmError(ValueError):
     def __init__(self, code: str, message: str) -> None:
         super().__init__(message)
         self.code = code
-
-
-@dataclass(frozen=True)
-class Farm:
-    id: str
-    organization_id: str
-    name: str
-    uf: str
-    municipio_ibge_code: str
-    archived_at: datetime | None
 
 
 def create_farm(name: str, uf: str, municipio_ibge_code: str) -> tuple[str, str, str]:
