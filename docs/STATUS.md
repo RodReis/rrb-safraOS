@@ -6,8 +6,8 @@
 
 ## Agora
 
-- F3 (SPEC-003) em `doing`: organização, tenancy e auditoria em implementação.
-- Demais duas issues de MVP0 (F4 e F5) seguem em `proplan:todo`, na ordem de implementação.
+- F4 (SPEC-004) em `doing`: fazendas, API e frontend em implementação.
+- Próxima issue de MVP0 (F5) segue em `proplan:todo`, na ordem de implementação.
 - Não iniciar mobile: ele está adiado para o final do projeto (`docs/FORA-DE-ESCOPO.md`).
 
 ## Kanban
@@ -16,9 +16,9 @@
 |---|---|
 | Planejado | ADR-004, ADR-006, ADR-007 e ADR-008 (abertas) |
 | Backlog | vazio |
-| Todo | SPEC-004/F4 a SPEC-005/F5 do MVP0 (issues #4–#5) |
-| Doing | SPEC-003/F3 (issue #3) |
-| Done / Finalizado | SPEC-001/F1 e SPEC-002/F2 (issues #1–#2) |
+| Todo | SPEC-005/F5 do MVP0 (issue #5) |
+| Doing | SPEC-004/F4 (issue #4) |
+| Done / Finalizado | SPEC-001/F1, SPEC-002/F2 e SPEC-003/F3 (issues #1–#3) |
 
 O GitHub remoto prevalece para execução; esta tabela não substitui consulta ao board.
 
@@ -28,8 +28,8 @@ O GitHub remoto prevalece para execução; esta tabela não substitui consulta a
 |---:|---|---|---|---|---|---|
 | 001 | MVP0 | Fundação executável e CI | SPEC-001 | F1 | [#1](https://github.com/RodReis/rrb-safraOS/issues/1) | finalizado |
 | 002 | MVP0 | Identidade, sessão e e-mail | SPEC-002 | F2 | [#2](https://github.com/RodReis/rrb-safraOS/issues/2) | finalizado |
-| 003 | MVP0 | Organização, tenancy e auditoria | SPEC-003 | F3 | [#3](https://github.com/RodReis/rrb-safraOS/issues/3) | doing |
-| 004 | MVP0 | Fazendas | SPEC-004 | F4 | [#4](https://github.com/RodReis/rrb-safraOS/issues/4) | todo |
+| 003 | MVP0 | Organização, tenancy e auditoria | SPEC-003 | F3 | [#3](https://github.com/RodReis/rrb-safraOS/issues/3) | finalizado |
+| 004 | MVP0 | Fazendas | SPEC-004 | F4 | [#4](https://github.com/RodReis/rrb-safraOS/issues/4) | doing |
 | 005 | MVP0 | Talhões, GeoJSON e mapa | SPEC-005 | F5 | [#5](https://github.com/RodReis/rrb-safraOS/issues/5) | todo |
 
 Próximo número disponível: `006`. Número reservado nunca é reutilizado. Detalhe histórico vai para `STATUS-ARQUIVO.md`.
