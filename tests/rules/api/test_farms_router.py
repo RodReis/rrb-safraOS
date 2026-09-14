@@ -1,9 +1,10 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
+from typing import Awaitable, Callable
 
 import pytest
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, Response
 from fastapi.testclient import TestClient
 
 from safraos_api.modules.farms.repository import FarmRow, MunicipioRow, SessionUser
@@ -31,7 +32,16 @@ class FakeFarmRepository:
     async def list_municipios(self) -> list[MunicipioRow]:
         return self.municipios
 
-    async def create(self, *, user_id, organization_id, name, uf, municipio_ibge_code, correlation_id):
+    async def create(
+        self,
+        *,
+        user_id: str,
+        organization_id: str,
+        name: str,
+        uf: str,
+        municipio_ibge_code: str,
+        correlation_id: str,
+    ) -> FarmRow:
         farm_id = f"farm-{len(self.farms) + 1}"
         row = FarmRow(
             id=farm_id,
@@ -46,14 +56,26 @@ class FakeFarmRepository:
         self.farms[farm_id] = row
         return row
 
-    async def list(self, *, user_id, organization_id, include_archived):
+    async def list(
+        self, *, user_id: str, organization_id: str, include_archived: bool
+    ) -> list[FarmRow]:
         return [
             f
             for f in self.farms.values()
             if f.organization_id == organization_id and (include_archived or f.archived_at is None)
         ]
 
-    async def update(self, *, user_id, organization_id, farm_id, name, uf, municipio_ibge_code, correlation_id):
+    async def update(
+        self,
+        *,
+        user_id: str,
+        organization_id: str,
+        farm_id: str,
+        name: str,
+        uf: str,
+        municipio_ibge_code: str,
+        correlation_id: str,
+    ) -> FarmRow:
         from safraos_api.problem_details import ProblemDetailError
 
         existing = self.farms.get(farm_id)
@@ -72,7 +94,9 @@ class FakeFarmRepository:
         self.farms[farm_id] = updated
         return updated
 
-    async def archive(self, *, user_id, organization_id, farm_id, correlation_id):
+    async def archive(
+        self, *, user_id: str, organization_id: str, farm_id: str, correlation_id: str
+    ) -> FarmRow:
         from safraos_api.problem_details import ProblemDetailError
 
         existing = self.farms.get(farm_id)
@@ -97,7 +121,9 @@ def _build_app(fake_repo: FakeFarmRepository) -> FastAPI:
     install_problem_detail_handler(app)
 
     @app.middleware("http")
-    async def _set_correlation(request, call_next):
+    async def _set_correlation(
+        request: Request, call_next: Callable[[Request], Awaitable[Response]]
+    ) -> Response:
         request.state.correlation_id = "test-correlation-id"
         return await call_next(request)
 
@@ -107,7 +133,7 @@ def _build_app(fake_repo: FakeFarmRepository) -> FastAPI:
     return app
 
 
-def test_create_requires_active_organization_cookie():
+def test_create_requires_active_organization_cookie() -> None:
     app = _build_app(FakeFarmRepository())
     client = TestClient(app)
     client.cookies.set("safraos_session", _SESSION_COOKIE)
@@ -119,7 +145,7 @@ def test_create_requires_active_organization_cookie():
     assert response.status_code == 401
 
 
-def test_create_without_session_is_unauthorized():
+def test_create_without_session_is_unauthorized() -> None:
     app = _build_app(FakeFarmRepository())
     client = TestClient(app)
 
@@ -130,7 +156,7 @@ def test_create_without_session_is_unauthorized():
     assert response.status_code == 401
 
 
-def test_create_and_list_farm():
+def test_create_and_list_farm() -> None:
     app = _build_app(FakeFarmRepository())
     client = TestClient(app)
     client.cookies.set("safraos_session", _SESSION_COOKIE)
@@ -146,7 +172,7 @@ def test_create_and_list_farm():
     assert len(list_response.json()["items"]) == 1
 
 
-def test_update_and_archive_farm():
+def test_update_and_archive_farm() -> None:
     app = _build_app(FakeFarmRepository())
     client = TestClient(app)
     client.cookies.set("safraos_session", _SESSION_COOKIE)
@@ -169,7 +195,7 @@ def test_update_and_archive_farm():
     assert archive_response.json()["archivedAt"] is not None
 
 
-def test_archive_of_unknown_farm_returns_problem_json_404():
+def test_archive_of_unknown_farm_returns_problem_json_404() -> None:
     app = _build_app(FakeFarmRepository())
     client = TestClient(app)
     client.cookies.set("safraos_session", _SESSION_COOKIE)
@@ -182,7 +208,7 @@ def test_archive_of_unknown_farm_returns_problem_json_404():
     assert response.json()["code"] == "farms.not_found"
 
 
-def test_list_municipios_does_not_require_active_organization():
+def test_list_municipios_does_not_require_active_organization() -> None:
     fake_repo = FakeFarmRepository()
     app = _build_app(fake_repo)
     client = TestClient(app)
@@ -194,7 +220,7 @@ def test_list_municipios_does_not_require_active_organization():
     assert response.json()["items"][0]["ibgeCode"] == "5208707"
 
 
-def test_list_municipios_requires_session():
+def test_list_municipios_requires_session() -> None:
     fake_repo = FakeFarmRepository()
     app = _build_app(fake_repo)
     client = TestClient(app)

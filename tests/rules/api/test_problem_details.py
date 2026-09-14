@@ -1,5 +1,7 @@
+from typing import Awaitable, Callable
+
 import pytest
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, Response
 from fastapi.testclient import TestClient
 
 from safraos_api.problem_details import ProblemDetailError, install_problem_detail_handler
@@ -12,18 +14,20 @@ def _build_app() -> FastAPI:
     install_problem_detail_handler(app)
 
     @app.middleware("http")
-    async def _set_correlation(request, call_next):
+    async def _set_correlation(
+        request: Request, call_next: Callable[[Request], Awaitable[Response]]
+    ) -> Response:
         request.state.correlation_id = "test-correlation-id"
         return await call_next(request)
 
     @app.get("/boom")
-    async def boom():
+    async def boom() -> None:
         raise ProblemDetailError(status=422, title="Nome invalido", code="farms.invalid_name")
 
     return app
 
 
-def test_problem_detail_error_is_serialized_as_problem_json():
+def test_problem_detail_error_is_serialized_as_problem_json() -> None:
     client = TestClient(_build_app())
 
     response = client.get("/boom")
