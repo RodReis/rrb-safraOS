@@ -7,9 +7,10 @@ type Mode = 'login' | 'register' | 'reset'
 
 type Props = {
   client: AuthClient
+  onAuthChange?: () => void
 }
 
-export function AuthPanel({ client }: Props) {
+export function AuthPanel({ client, onAuthChange }: Props) {
   const [mode, setMode] = useState<Mode>('login')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -35,6 +36,7 @@ export function AuthPanel({ client }: Props) {
             ? await client.requestReset(email)
             : await client.login(email, password)
       if (response.csrfToken) setCsrfToken(response.csrfToken)
+      if (response.csrfToken) onAuthChange?.()
       setMessage(response.message)
       if (mode !== 'login') setPassword('')
     } catch (error) {
@@ -49,6 +51,7 @@ export function AuthPanel({ client }: Props) {
     const response = await client.logout(csrfToken)
     setMessage(response.message)
     setCsrfToken('')
+    onAuthChange?.()
     setBusy(false)
   }
 

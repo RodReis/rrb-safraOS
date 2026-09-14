@@ -14,7 +14,9 @@ pytestmark = pytest.mark.database
 async def test_identity_tables_have_unique_normalized_email() -> None:
     engine = create_async_engine(Settings().database_url)
     async with engine.begin() as conn:
-        await conn.execute(text("DELETE FROM identity_users"))
+        await conn.execute(
+            text("TRUNCATE audit_events, identity_users RESTART IDENTITY CASCADE")
+        )
         await conn.execute(
             text(
                 """

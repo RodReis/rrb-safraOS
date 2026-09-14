@@ -29,8 +29,15 @@ O PI decide prioridade; mudança deve aparecer no board e no `STATUS.md`.
 
 Selecionar primeiro `todo` remoto; criar worktree; implementar/testar; revisar; abrir PR; validar SHA atual; squash com gate verde; confirmar merge; marcar `done`. DoD: aceite da SPEC provado, categorias aplicáveis concluídas, isolamento de tenant quando houver dados, migração segura, telemetria sem segredo, docs/evidências atualizadas e `refs #N`.
 
-## Entrega em andamento — SPEC-002/F2
+## Entrega finalizada — SPEC-002/F2
 
 - Implementados domínio de identidade, Argon2id, tokens externos com hash, migration de users/sessions/tokens/outbox, API `/v1/auth/*`, tarefa Celery de e-mail e tela web de autenticação.
 - Validação local executada: `npm test`, `npm run lint`, `npm run typecheck`, `npm run build`, `uv run pytest -m database -q` e `npm run test:e2e`.
 - Validação real de banco, Celery, Redis e Mailpit passou após iniciar Docker Desktop e aplicar `uv run alembic upgrade head`.
+
+## Entrega em andamento — SPEC-003/F3
+
+- Implementados domínio de organização, migration de `organizations`, `organization_memberships` e `audit_events`, role `safraos_app` sem `BYPASSRLS`, policies RLS por membership e auditoria append-only.
+- Implementados endpoints `/v1/organizations` e `/v1/organizations/active` com sessão autenticada, seleção de tenant entre memberships e resposta neutra para tenant alheio.
+- Implementado painel web para criar/listar organizações próprias e selecionar tenant ativo.
+- Validação local executada até agora: `npm test`, `npm run lint`, `npm run typecheck`, `npm run build`, `npm run test:e2e` e `python -m pytest -m database tests/database/test_organizations_migration.py`.
