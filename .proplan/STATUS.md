@@ -15,7 +15,6 @@ _(vazio)_
 
 - [MVP0][SPEC-005][F5] Talhões, GeoJSON e mapa web (#5)
 - [MVP0][SPEC-004][F4] Cadastro web de fazendas (#4)
-- [MVP0][SPEC-003][F3] Organização, tenancy e auditoria (#3)
 
 ## Em Andamento
 
@@ -29,6 +28,7 @@ _(vazio)_
 
 ### Sem épico
 
+- [MVP0][SPEC-003][F3] Organização, tenancy e auditoria (#3, finalizado em: 2026-09-14)
 - [MVP0][SPEC-002][F2] Identidade, sessão e e-mail assíncrono (#2, finalizado em: 2026-09-14)
 - [MVP0][SPEC-001][F1] Fundação executável com CI (#1, finalizado em: 2026-09-14)
 
