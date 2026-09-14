@@ -1,13 +1,13 @@
 # Status do SafraOS
 
-**Atualizado:** 2026-09-13
-**Estado:** MVP0 especificado, planejado e com issues abertas; F2 em implementação.
+**Atualizado:** 2026-09-14
+**Estado:** MVP0 especificado, planejado e com issues abertas; F3 em implementação.
 **Repositório:** `RodReis/rrb-safraOS` (GitHub, privado, branch padrão `main`).
 
 ## Agora
 
-- F2 (SPEC-002) em `doing`: identidade, sessão e e-mail assíncrono em implementação.
-- Demais três issues de MVP0 (F3 a F5) seguem em `proplan:todo`, na ordem de implementação.
+- F3 (SPEC-003) em `doing`: organização, tenancy e auditoria em implementação.
+- Demais duas issues de MVP0 (F4 e F5) seguem em `proplan:todo`, na ordem de implementação.
 - Não iniciar mobile: ele está adiado para o final do projeto (`docs/FORA-DE-ESCOPO.md`).
 
 ## Kanban
@@ -16,9 +16,9 @@
 |---|---|
 | Planejado | ADR-004, ADR-006, ADR-007 e ADR-008 (abertas) |
 | Backlog | vazio |
-| Todo | SPEC-003/F3 a SPEC-005/F5 do MVP0 (issues #3–#5) |
-| Doing | SPEC-002/F2 (issue #2) |
-| Done / Finalizado | SPEC-001/F1 (issue #1) |
+| Todo | SPEC-004/F4 a SPEC-005/F5 do MVP0 (issues #4–#5) |
+| Doing | SPEC-003/F3 (issue #3) |
+| Done / Finalizado | SPEC-001/F1 e SPEC-002/F2 (issues #1–#2) |
 
 O GitHub remoto prevalece para execução; esta tabela não substitui consulta ao board.
 
@@ -27,8 +27,8 @@ O GitHub remoto prevalece para execução; esta tabela não substitui consulta a
 | Sequência | MVP | Slice | SPEC | Fatia | Issue | Estado |
 |---:|---|---|---|---|---|---|
 | 001 | MVP0 | Fundação executável e CI | SPEC-001 | F1 | [#1](https://github.com/RodReis/rrb-safraOS/issues/1) | finalizado |
-| 002 | MVP0 | Identidade, sessão e e-mail | SPEC-002 | F2 | [#2](https://github.com/RodReis/rrb-safraOS/issues/2) | doing |
-| 003 | MVP0 | Organização, tenancy e auditoria | SPEC-003 | F3 | [#3](https://github.com/RodReis/rrb-safraOS/issues/3) | todo |
+| 002 | MVP0 | Identidade, sessão e e-mail | SPEC-002 | F2 | [#2](https://github.com/RodReis/rrb-safraOS/issues/2) | finalizado |
+| 003 | MVP0 | Organização, tenancy e auditoria | SPEC-003 | F3 | [#3](https://github.com/RodReis/rrb-safraOS/issues/3) | doing |
 | 004 | MVP0 | Fazendas | SPEC-004 | F4 | [#4](https://github.com/RodReis/rrb-safraOS/issues/4) | todo |
 | 005 | MVP0 | Talhões, GeoJSON e mapa | SPEC-005 | F5 | [#5](https://github.com/RodReis/rrb-safraOS/issues/5) | todo |
 
