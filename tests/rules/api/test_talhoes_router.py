@@ -16,7 +16,7 @@ from safraos_api.problem_details import ProblemDetailError, install_problem_deta
 pytestmark = pytest.mark.rules
 
 _SESSION_COOKIE = "session.hash.token"
-_VALID_GEOMETRY = {
+_VALID_GEOMETRY: dict[str, object] = {
     "type": "Polygon",
     "coordinates": [[[-49.0, -16.0], [-49.0, -16.01], [-48.99, -16.01], [-48.99, -16.0], [-49.0, -16.0]]],
 }
@@ -33,7 +33,14 @@ class FakeTalhoesRepository:
         return None
 
     async def create(
-        self, *, user_id: str, organization_id: str, farm_id: str, name: str, geometry: dict, correlation_id: str
+        self,
+        *,
+        user_id: str,
+        organization_id: str,
+        farm_id: str,
+        name: str,
+        geometry: dict[str, object],
+        correlation_id: str,
     ) -> TalhaoRow:
         talhao_id = f"talhao-{len(self.talhoes) + 1}"
         row = TalhaoRow(

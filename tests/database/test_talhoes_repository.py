@@ -12,19 +12,19 @@ from safraos_api.settings import Settings
 
 pytestmark = pytest.mark.database
 
-_VALID_POLYGON = {
+_VALID_POLYGON: dict[str, object] = {
     "type": "Polygon",
     "coordinates": [
         [[-49.0, -16.0], [-49.0, -16.01], [-48.99, -16.01], [-48.99, -16.0], [-49.0, -16.0]]
     ],
 }
-_SELF_INTERSECTING = {
+_SELF_INTERSECTING: dict[str, object] = {
     "type": "Polygon",
     "coordinates": [
         [[-49.0, -16.0], [-48.99, -16.0], [-49.0, -16.01], [-48.99, -16.01], [-49.0, -16.0]]
     ],
 }
-_OUT_OF_BRAZIL = {
+_OUT_OF_BRAZIL: dict[str, object] = {
     "type": "Polygon",
     "coordinates": [[[10.0, 10.0], [10.0, 10.01], [10.01, 10.01], [10.01, 10.0], [10.0, 10.0]]],
 }

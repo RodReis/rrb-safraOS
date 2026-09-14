@@ -33,6 +33,6 @@ def test_validate_geometry_type_rejects_point() -> None:
 
 def test_validate_geometry_type_rejects_non_dict() -> None:
     with pytest.raises(TalhaoError) as error:
-        validate_geometry_type("not-a-dict")  # type: ignore[arg-type]
+        validate_geometry_type("not-a-dict")
 
     assert error.value.code == "talhoes.invalid_geometry_type"
